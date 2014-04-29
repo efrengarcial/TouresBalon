@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://MM_CustomerService"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:complexType name="Meta" mixed="true">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="code" type="xsd:int"></xsd:element>
+			<xsd:element minOccurs="0" name="responseTime"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="responseTimeL"
+				type="xsd:long">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="timeOfRequest"
+				type="xsd:long">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

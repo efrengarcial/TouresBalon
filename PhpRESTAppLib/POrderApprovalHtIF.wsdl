@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:bons1="http://PhpRESTAppLib" xmlns:tns="http://PhpRESTAppLib/POrderApprovalHtIF" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="POrderApprovalHtIF" targetNamespace="http://PhpRESTAppLib/POrderApprovalHtIF">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://PhpRESTAppLib/POrderApprovalHtIF" xmlns:bons1="http://PhpRESTAppLib" xmlns:tns="http://PhpRESTAppLib/POrderApprovalHtIF" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:import namespace="http://PhpRESTAppLib" schemaLocation="ConfirmationType.xsd"/>
+      <xsd:import namespace="http://PhpRESTAppLib" schemaLocation="POrderType.xsd"/>
+      <xsd:element name="approvePOrder">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="approvalReq" nillable="true" type="bons1:POrderType"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="approvePOrderResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="approvalResp" nillable="true" type="bons1:ConfirmationType"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="approvePOrderRequestMsg">
+    <wsdl:part element="tns:approvePOrder" name="approvePOrderParameters"/>
+  </wsdl:message>
+    <wsdl:message name="approvePOrderResponseMsg">
+    <wsdl:part element="tns:approvePOrderResponse" name="approvePOrderResult"/>
+  </wsdl:message>
+    <wsdl:portType name="POrderApprovalHtIF">
+    <wsdl:operation name="approvePOrder">
+      <wsdl:input message="tns:approvePOrderRequestMsg" name="approvePOrderRequest"/>
+      <wsdl:output message="tns:approvePOrderResponseMsg" name="approvePOrderResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

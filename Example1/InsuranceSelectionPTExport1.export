@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:export xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Binding="http://Example1/InsuranceSelectionPT/Binding" xmlns:jaxws="http://www.ibm.com/xmlns/prod/websphere/scdl/jaxws/6.0.0" xmlns:ns1="http://Example1/InsuranceSelectionPT" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="InsuranceSelectionPTExport1" name="InsuranceSelectionPTExport1" target="InsuranceSelectionProcess">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" preferredInteractionStyle="sync" portType="ns1:InsuranceSelectionPT"/>
+  </interfaces>
+  <esbBinding xsi:type="jaxws:JaxWsExportBinding" port="Binding:InsuranceSelectionPTExport1_InsuranceSelectionPTHttpPort" service="Binding:InsuranceSelectionPTExport1_InsuranceSelectionPTHttpService"/>
+</scdl:export>

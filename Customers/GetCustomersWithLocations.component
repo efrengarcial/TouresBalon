@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns1="http://Customers/GetCustomers" xmlns:ns2="http://Customers/GetCoordinates" xmlns:process="http://www.ibm.com/xmlns/prod/websphere/scdl/business-process/6.0.0" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="GetCustomersWithLocations" name="GetCustomersWithLocations">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" portType="ns1:GetCustomers">
+      <scdl:interfaceQualifier xsi:type="scdl:JoinTransaction" value="true"/>
+    </interface>
+  </interfaces>
+  <references>
+    <reference name="GetCustomersPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns1:GetCustomers"/>
+      <wire target="GetCustomers"/>
+    </reference>
+    <reference name="GetCoordinatesPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns2:GetCoordinates"/>
+      <wire target="GetCoordinates"/>
+    </reference>
+  </references>
+  <implementation xsi:type="process:ProcessImplementation">
+    <scdl:implementationQualifier xsi:type="scdl:Transaction" value="global"/>
+    <process bpel="/GetCustomersWithLocations.bpel"/>
+  </implementation>
+</scdl:component>

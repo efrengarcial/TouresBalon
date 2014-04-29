@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:ns="http://hr.issw.ibm.com" xmlns:plnk="http://schemas.xmlsoap.org/ws/2004/03/partner-link/" xmlns:tns="http://HRProcessModule/HRProcessArtifacts" xmlns:wsdl0="http://HRProcessModule/HRProcessInterface" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="HRProcess" targetNamespace="http://HRProcessModule/HRProcessArtifacts">
+  <plnk:partnerLinkType name="HRProcessInterfacePLT">
+    <plnk:role name="HRProcessInterfaceRole">
+      <plnk:portType name="wsdl0:HRProcessInterface"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="EmployeeServicesLT">
+    <plnk:role name="EmployeeServicesRole">
+      <plnk:portType name="ns:EmployeeServices"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <import location="HRProcessInterface.wsdl" namespace="http://HRProcessModule/HRProcessInterface"/>
+    <import location="EmployeeServices.wsdl" namespace="http://hr.issw.ibm.com"/>
+</definitions>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:import xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:EIS="http://www.ibm.com/xmlns/prod/websphere/scdl/eis/6.0.0" xmlns:ns1="http://EmailOutbound/EmailImport" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="EmailImport" name="EmailImport">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" preferredInteractionStyle="sync" portType="ns1:EmailImport">
+      <scdl:interfaceQualifier xsi:type="scdl:JoinTransaction" value="false"/>
+    </interface>
+  </interfaces>
+  <esbBinding xsi:type="EIS:EISImportBinding" dataBindingType="com.ibm.j2ca.email.emd.runtime.EmailSimpleDataBinding">
+    <resourceAdapter name="EmailOutboundApp.IBM WebSphere Adapter for Email" type="com.ibm.j2ca.email.EmailResourceAdapter" version="7.0.0.0">
+      <properties>
+        <adapterID>001</adapterID>
+      </properties>
+    </resourceAdapter>
+    <connection type="com.ibm.j2ca.email.EmailManagedConnectionFactory" interactionType="com.ibm.j2ca.email.EmailInteractionSpec">
+      <properties>
+        <adapterID>001</adapterID>
+        <host>smtp.gmail.com</host>
+        <password>pscal1t3</password>
+        <userName>efren.gl@gmail.com</userName>
+      </properties>
+    </connection>
+    <methodBinding method="sendSimpleAlertEmail">
+      <interaction>
+        <properties>
+          <functionName>Create</functionName>
+        </properties>
+      </interaction>
+    </methodBinding>
+  </esbBinding>
+</scdl:import>

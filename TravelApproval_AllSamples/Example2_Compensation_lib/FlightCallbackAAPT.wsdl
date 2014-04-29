@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="FlightCallbackAAPT" targetNamespace="http://packtpub.com/service/americanairline/" xmlns:bons1="http://packtpub.com/service/americanairline/" xmlns:bons2="http://packtpub.com/service/airline/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://packtpub.com/service/americanairline/" xmlns:tns="http://packtpub.com/service/americanairline/">
+      <xsd:import namespace="http://packtpub.com/service/airline/" schemaLocation="TravelResponseMessage.xsd"/>
+      <xsd:element name="FlightTicketCallbackAA">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="TravelResponse" nillable="true" type="bons2:TravelResponseMessage"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="FlightTicketCallbackAARequestMsg">
+    <wsdl:part element="bons1:FlightTicketCallbackAA" name="FlightTicketCallbackAAParameters"/>
+  </wsdl:message>
+    <wsdl:portType name="FlightCallbackAAPT">
+    <wsdl:operation name="FlightTicketCallbackAA">
+      <wsdl:input message="bons1:FlightTicketCallbackAARequestMsg" name="FlightTicketCallbackAARequest"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<brgt:BusinessRuleGroupTable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:brgt="http://www.ibm.com/xmlns/prod/websphere/wbi/BusinessRuleGroupTables/6.0.0" xmlns:selt="http://OrderManagement" targetNamespace="http://OrderManagement" name="WarehouseOfficeRG">
+  <OperationSelectionTable name="athorize">
+    <DefaultSelectionData xsi:type="brgt:RuleSetSelectionData" businessRuleName="selt:defaultWarehouseOfficeRS"/>
+    <AvailableTarget xsi:type="brgt:RuleSetSelectionData" businessRuleName="selt:defaultWarehouseOfficeRS"/>
+  </OperationSelectionTable>
+</brgt:BusinessRuleGroupTable>

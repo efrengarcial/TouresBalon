@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified"
+	elementFormDefault="unqualified"
+	targetNamespace="http://service.model.orders.oms.touresbalon.com/"
+	xmlns:ns1="http://service.model.orders.oms.touresbalon.com/"
+	xmlns:tns="http://service.model.orders.oms.touresbalon.com/"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xs:include schemaLocation="item.xsd" />
+	<xs:include schemaLocation="customer.xsd" />
+	<xs:complexType name="order">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="comments" type="xs:string" />
+			<xs:element minOccurs="0" name="customer"
+				type="tns:customer" />
+			<xs:element minOccurs="0" name="endOrderDate"
+				type="xs:dateTime" />
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="items"
+				nillable="true" type="tns:item" />
+			<xs:element minOccurs="0" name="ordId" type="xs:string" />
+			<xs:element minOccurs="0" name="orderDate"
+				type="xs:dateTime" />
+			<xs:element minOccurs="0" name="price" type="xs:decimal" />
+			<xs:element minOccurs="0" name="status" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="order" nillable="true" type="tns:order" />
+</xs:schema>

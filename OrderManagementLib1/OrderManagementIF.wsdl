@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="OrderManagementIF" targetNamespace="http://OrderManagementLib/OrderManagementIF" xmlns:bons1="http://OrderManagementLib" xmlns:tns="http://OrderManagementLib/OrderManagementIF" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://OrderManagementLib/OrderManagementIF">
+      <xsd:import namespace="http://OrderManagementLib" schemaLocation="OrderManagementInput.xsd"/>
+      <xsd:element name="createOrder">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="orderManagementInput" nillable="true" type="bons1:OrderManagementInput"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+        </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="createOrderRequestMsg">
+    <wsdl:part element="tns:createOrder" name="createOrderParameters"/>
+  </wsdl:message>
+    <wsdl:portType name="OrderManagementIF">
+    <wsdl:operation name="createOrder">
+      <wsdl:input message="tns:createOrderRequestMsg" name="createOrderRequest"/>
+    </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

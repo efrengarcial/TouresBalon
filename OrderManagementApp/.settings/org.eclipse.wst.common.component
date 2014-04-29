@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="OrderManagementApp">
+        <wb-resource deploy-path="/" source-path="/EarContent"/>
+        <dependent-module archiveName="OrderManagement.jar" deploy-path="/" handle="module:/resource/OrderManagement/OrderManagement">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module deploy-path="/" handle="module:/resource/OrderManagementWeb/OrderManagementWeb">
+            <dependent-object>WebModule_1169158408425</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="OrderManagementLib.jar" deploy-path="/" handle="module:/resource/OrderManagementLib/OrderManagementLib">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="CommonDomain.jar" deploy-path="/" handle="module:/resource/CommonDomain/CommonDomain">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="PaymentsModuleLib.jar" deploy-path="/" handle="module:/resource/PaymentsModuleLib/PaymentsModuleLib">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="OrderLib.jar" deploy-path="/" handle="module:/resource/OrderLib/OrderLib">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    </wb-module>
+</project-modules>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://packtpub.com/service/airline/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:bons0="http://packtpub.com/service/airline/">
+	<xsd:include schemaLocation="FlightConfirmationType.xsd"></xsd:include>
+	<xsd:complexType name="TravelResponseMessage">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="confirmationData"
+				type="bons0:FlightConfirmationType">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

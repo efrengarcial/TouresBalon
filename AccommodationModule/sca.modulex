@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.ibm.wbit.wiring.ui.ext.model="http:///com/ibm/wbit/wiring/ui/ext/model.ecore" xmlns:extensionmodel="http:///extensionmodel.ecore" xmlns:sb="http://com.ibm.wbit.stickyboard.model/model/StickyBoard.xsd">
+  <extensionmodel:ExtensionMap xmi:id="ExtensionMap_1397189738129" namespace="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0">
+    <extensions xmi:id="Extension_1397348390062">
+      <extendedObject href="DannCarltonAvailabilityAdapter.import#//@import"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" xmi:id="NodeExtension_1397348390062" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/eis/6.0.0}EISImportBinding" unknown="false" visible="true" x="491" y="10"/>
+    </extensions>
+    <extensions xmi:id="Extension_1397497483224">
+      <extendedObject href="sca.module#//@module"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:ModuleExtension" xmi:id="ModuleExtension_1397497483224"/>
+    </extensions>
+    <extensions xmi:id="Extension_1397498195927">
+      <extendedObject href="DannCarltonReservationsAdapter.import#//@import"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" xmi:id="NodeExtension_1397498195928" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/eis/6.0.0}EISImportBinding" unknown="false" visible="true" x="506" y="70"/>
+    </extensions>
+    <extensions xmi:id="Extension_1397517573226">
+      <extendedObject href="Med-DannCarlton.component#//@Component"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" xmi:id="NodeExtension_1397517573226" unknown="false" visible="true" x="274" y="42"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="HiltonWebServiceAdapter.import#//@import"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0}ImportBinding" unknown="false" visible="true" x="480" y="216"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="Med-Hilton.component#//@Component"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/mfc/6.0.0}MediationFlowImplementation" unknown="false" visible="true" x="282" y="204"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="Med-Accommodation.component#//@Component"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/mfc/6.0.0}MediationFlowImplementation" unknown="false" visible="true" x="32" y="117"/>
+    </extensions>
+  </extensionmodel:ExtensionMap>
+  <extensionmodel:ExtensionMap xmi:id="ExtensionMap_1397189738130" namespace="http://com.ibm.wbit.stickyboard.model/model/StickyBoard.xsd">
+    <extensions xmi:id="Extension_1397189738132">
+      <extendedObject href="sca.module#//@module"/>
+      <extensionObject xsi:type="sb:StickyDocument" xmi:id="StickyDocument_1397189738130">
+        <stickyBoard xmi:id="StickyBoard_1397189738130" id="default"/>
+      </extensionObject>
+    </extensions>
+  </extensionmodel:ExtensionMap>
+</xmi:XMI>

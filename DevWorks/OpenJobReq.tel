@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tel:task xmlns:tel="http://www.ibm.com/xmlns/prod/websphere/human-task/6.0.0/" xmlns:wsdl="http://DevWorks/OpenJobReq" businessRelevance="no" calendarName="Simple" defaultLocale="en-US" durationUntilDeleted="DURATION_INFINITE" jndiNameStaffPluginProvider="bpe/staff/samplevmmconfiguration" kind="oTask" name="OpenJobReq" priorityDefinition="5" supportsDelegation="no" supportsFollowOnTask="no" supportsSubTask="no" targetNamespace="http://DevWorks">
+  <tel:import importType="http://schemas.xmlsoap.org/wsdl/" location="OpenJobReq.wsdl" namespace="http://DevWorks/OpenJobReq"/>
+  <tel:interface kind="outbound" operation="openJobReq" portType="wsdl:OpenJobReq"/>
+  <tel:staffSettings>
+    <tel:potentialInstanceCreator>
+      <tel:verb>
+        <tel:name>Everybody</tel:name>
+      </tel:verb>
+    </tel:potentialInstanceCreator>
+    <tel:potentialStarter>
+      <tel:verb>
+        <tel:name>Everybody</tel:name>
+      </tel:verb>
+    </tel:potentialStarter>
+  </tel:staffSettings>
+  <tel:uiSettings>
+    <tel:customClientSettings clientType="Dojo">
+      <tel:customSetting name="contextRoot" value="DevWorksUI"/>
+      <tel:customSetting name="pathAndFilename" value="OpenJobReq.html"/>
+    </tel:customClientSettings>
+  </tel:uiSettings>
+  <tel:escalationSettings/>
+  <tel:displayName locale="en-US">OpenJobReq</tel:displayName>
+</tel:task>

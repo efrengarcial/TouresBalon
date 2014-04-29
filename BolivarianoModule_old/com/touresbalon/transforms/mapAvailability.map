@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map:businessObjectMap xmlns:ServiceMessageObject="smo://smo/name%3Dwsdl-primary/correlationContext%3D%257Bhttp%253A%252F%252FTransportLib%252Fcom%252Ftouresbalon%252Fbo%257DTravelsRequest/message%3D%257Bhttp%253A%252F%252FBolivarianoModule%252FBolivarianoTravelsFile%257DretrieveTravelsRequestMsg/xpath%3D%252F/namespace%3DBOMap/smo.xsd" xmlns:ServiceMessageObject_1="smo://smo/name%3Dwsdl-primary/correlationContext%3D%257Bhttp%253A%252F%252FTransportLib%252Fcom%252Ftouresbalon%252Fbo%257DTravelsRequest/message%3D%257Bhttp%253A%252F%252FTransportLib%257DcheckAvailabilityRequestMsg/xpath%3D%252F/namespace%3DBOMap/smo.xsd" xmlns:map="http://www.ibm.com/xmlns/prod/websphere/wbiserver/map/6.0.0" xmlns:mapAvailability="http://BolivarianoModule/com/touresbalon/transforms" targetNamespace="http://BolivarianoModule/com/touresbalon/transforms">
+  <map:name>mapAvailability</map:name>
+  <map:inputBusinessObjectVariable businessObjectRef="ServiceMessageObject_1:ServiceMessageObject" name="ServiceMessageObject"/>
+  <map:outputBusinessObjectVariable businessObjectRef="ServiceMessageObject:ServiceMessageObject" name="ServiceMessageObject_1"/>
+  <map:propertyMap executionOrder="1">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="body/checkAvailability/request/ciudadOrigen"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="context/correlation/ciudadOrigen"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="2">
+    <map:move>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="body/checkAvailability/request/ciudadDestino"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="context/correlation/ciudadDestino"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="3">
+    <map:custom>
+      <map:input businessObjectVariableRef="ServiceMessageObject" property="body/checkAvailability/request/travelDate"/>
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="body/retrieveTravels/retrieveTravelsInput/fileName"/>
+      <map:javaCode>// The specific type of variable ServiceMessageObject_body_checkAvailability_request_travelDate is java.util.Date&#xD;
+// The specific type of variable ServiceMessageObject_1_body_retrieveTravels_retrieveTravelsInput_fileName is java.lang.String&#xD;
+java.lang.String __ServiceMessageObject_1_body_retrieveTravels_retrieveTravelsInput_fileName = (java.lang.String)ServiceMessageObject_1_body_retrieveTravels_retrieveTravelsInput_fileName;&#xD;
+java.lang.String __result__1 = &quot;viajes&quot;;&#xD;
+java.util.Date __result__2 = ( java.util.Date) ServiceMessageObject_body_checkAvailability_request_travelDate;&#xD;
+java.lang.String __result__3 = &quot;ddMMyyyy&quot;;&#xD;
+java.lang.String __result__4;&#xD;
+{// format date to string using pattern
+	java.text.SimpleDateFormat df2 = new java.text.SimpleDateFormat(__result__3);
+	df2.setTimeZone(java.util.TimeZone.getDefault());   
+	__result__4 = df2.format(__result__2);&#xD;
+}&#xD;
+java.lang.String __result__5;&#xD;
+{// append text
+	__result__5 = __result__1.concat(__result__4);&#xD;
+}&#xD;
+java.lang.String __result__6 = &quot;.csv&quot;;&#xD;
+java.lang.String __result__7;&#xD;
+{// append text
+	__result__7 = __result__5.concat(__result__6);&#xD;
+}&#xD;
+__ServiceMessageObject_1_body_retrieveTravels_retrieveTravelsInput_fileName = __result__7;&#xD;
+ServiceMessageObject_1_body_retrieveTravels_retrieveTravelsInput_fileName = __ServiceMessageObject_1_body_retrieveTravels_retrieveTravelsInput_fileName;&#xD;
+</map:javaCode>
+    </map:custom>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="4">
+    <map:set value="com.ibm.j2ca.utils.filesplit.SplitByDelimiter">
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="body/retrieveTravels/retrieveTravelsInput/splitFunctionClassName"/>
+    </map:set>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="5">
+    <map:set value="\n">
+      <map:output businessObjectVariableRef="ServiceMessageObject_1" property="body/retrieveTravels/retrieveTravelsInput/splitCriteria"/>
+    </map:set>
+  </map:propertyMap>
+</map:businessObjectMap>

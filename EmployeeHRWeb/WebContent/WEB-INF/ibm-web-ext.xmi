@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<webappext:WebAppExtension xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:webappext="webappext.xmi" xmi:id="WebAppExtension_1165895250859" reloadInterval="3" reloadingEnabled="true" additionalClassPath="" fileServingEnabled="true" directoryBrowsingEnabled="false" serveServletsByClassnameEnabled="true">
+  <webApp href="WEB-INF/web.xml#WebApp_ID"/>
+  <extendedServlets xmi:id="ServletExtension_1165985701390">
+    <extendedServlet href="WEB-INF/web.xml#Servlet_1165985701390"/>
+    <webGlobalTransaction xmi:id="WebGlobalTransaction_1165985701390" supportsWSAT="true"/>
+  </extendedServlets>
+</webappext:WebAppExtension>

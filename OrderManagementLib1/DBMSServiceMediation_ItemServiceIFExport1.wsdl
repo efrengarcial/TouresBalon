@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="ItemServiceIFExport1_ItemServiceIFHttp_Service" targetNamespace="http://OrderManagementLib/ItemServiceIF/Binding" xmlns:Port_0="http://OrderManagementLib/ItemServiceIF" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:this="http://OrderManagementLib/ItemServiceIF/Binding" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import location="ItemServiceIF.wsdl" namespace="http://OrderManagementLib/ItemServiceIF"/>
+  <wsdl:binding name="ItemServiceIFExport1_ItemServiceIFHttpBinding" type="Port_0:ItemServiceIF">
+    <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="retrieveItem">
+      <soap12:operation soapAction="http://OrderManagementLib/ItemServiceIF/ItemServiceIF/retrieveItem"/>
+      <wsdl:input name="retrieveItemRequest">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="retrieveItemResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateItem">
+      <soap12:operation soapAction="http://OrderManagementLib/ItemServiceIF/ItemServiceIF/updateItem"/>
+      <wsdl:input name="updateItemRequest">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateItemResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ItemServiceIFExport1_ItemServiceIFHttpService">
+    <wsdl:port binding="this:ItemServiceIFExport1_ItemServiceIFHttpBinding" name="ItemServiceIFExport1_ItemServiceIFHttpPort">
+      <soap12:address location="http://localhost:9080/DBMSServiceMediationWeb/sca/ItemServiceIFExport1"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

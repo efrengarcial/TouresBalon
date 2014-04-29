@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="OrderProcessing" targetNamespace="http://OrderManagement/com/touresbalon/businessprocess/OrderProcessingInterface" xmlns:bons1="http://OrderManagementLib/com/touresbalon/bo" xmlns:bons2="http://CommonDomain/com/touresbalon/bo" xmlns:tns="http://OrderManagement/com/touresbalon/businessprocess/OrderProcessingInterface" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://OrderManagement/com/touresbalon/businessprocess/OrderProcessingInterface">
+            <xsd:import namespace="http://CommonDomain/com/touresbalon/bo" schemaLocation="../bo/ReturnCode.xsd"/>
+            <xsd:import namespace="http://OrderManagementLib/com/touresbalon/bo" schemaLocation="../bo/Order.xsd"/>
+            <xsd:element name="startProcess">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="request" nillable="true" type="bons1:Order"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="startProcessResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+                        <xsd:element name="response" nillable="true" type="bons2:ReturnCode"/>
+                    </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+        </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="startProcessRequest">
+    <wsdl:part element="tns:startProcess" name="startProcessParameters"/>
+  </wsdl:message>
+  <wsdl:message name="startProcessResponse">
+    <wsdl:part element="tns:startProcessResponse" name="startProcessResult"/>
+  </wsdl:message>
+    <wsdl:portType name="OrderProcessingIF">
+    <wsdl:operation name="startProcess">
+      <wsdl:input message="tns:startProcessRequest" name="startProcessRequest"/>
+            <wsdl:output message="tns:startProcessResponse" name="startProcessResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

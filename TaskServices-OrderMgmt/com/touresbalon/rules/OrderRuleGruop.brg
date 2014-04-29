@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<brg:BusinessRuleGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:acd="http://www.ibm.com/xmlns/prod/websphere/wbi/cf/ComponentDef/6.0.0" xmlns:brg="http://www.ibm.com/xmlns/prod/websphere/wbi/BusinessRuleGroup/6.0.0" xmlns:ns1="http://OrderLib/com/touresbalon/interfaces/OrderRulesServiceIF" xmlns:selt="http://TaskServices-OrderMgmt/com/touresbalon/rules" targetNamespace="http://TaskServices-OrderMgmt/com/touresbalon/rules" name="OrderRuleGruop">
+  <PresentationTimezone>local</PresentationTimezone>
+  <OperationDef name="requiresApproval">
+    <Selector>com.ibm.wbiservers.common.selection.GenericSelector</Selector>
+    <ParameterDef xsi:type="acd:CodeParameterDef">
+      <JavaCode>&lt;![CDATA[//@generated:com.ibm.wbit.selector.ui.CurrentDate&#xD;
+return new java.util.Date();]]&gt;</JavaCode>
+    </ParameterDef>
+  </OperationDef>
+  <Interfaces>
+    <Interface xsi:type="acd:WSDLPortType" portType="ns1:OrderRulesServiceIF"/>
+  </Interfaces>
+  <BusinessRuleGroupTable>selt:OrderRuleGruop</BusinessRuleGroupTable>
+  <References/>
+</brg:BusinessRuleGroup>

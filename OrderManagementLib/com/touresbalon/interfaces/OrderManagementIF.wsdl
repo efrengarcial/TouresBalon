@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="OrderManagementIF" targetNamespace="http://OrderManagementLib/com/touresbalon/interfaces/OrderManagementIF" xmlns:bons1="http://OrderManagementLib/com/touresbalon/bo" xmlns:tns="http://OrderManagementLib/com/touresbalon/interfaces/OrderManagementIF" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://OrderManagementLib/com/touresbalon/interfaces/OrderManagementIF">
+      <xsd:import namespace="http://OrderManagementLib/com/touresbalon/bo" schemaLocation="../bo/Order.xsd"/>
+      <xsd:element name="startProcess">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="request" nillable="true" type="bons1:Order"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+        </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="startProcessRequestMsg">
+    <wsdl:part element="tns:startProcess" name="startProcessParameters"/>
+  </wsdl:message>
+    <wsdl:portType name="OrderManagementIF">
+    <wsdl:operation name="startProcess">
+      <wsdl:input message="tns:startProcessRequestMsg" name="startProcessRequest"/>
+    </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

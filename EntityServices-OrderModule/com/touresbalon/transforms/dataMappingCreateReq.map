@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://OMSModule/com/touresbalon/transforms/dataMappingCreateReq" version="7.0.500" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://OMSModule/com/touresbalon/transforms/dataMappingCreateReq">
+    <input path="smo://smo/name%3Dwsdl-primary/message%3D%257Bhttp%253A%252F%252FOrderModule%252Fcom%252Ftouresbalon%252Finterfaces%252FOrderServiceIF%257DcreateOrderRequestMsg/xpath%3D%252Fbody/smo.xsd"/>
+    <output path="smo://smo/name%3Dwsdl-primary/message%3D%257Bhttp%253A%252F%252Fservice.model.orders.oms.touresbalon.com%252F%257DcreateOrder/xpath%3D%252Fbody/smo.xsd"/>
+    <mappingDeclaration name="dataMappingCreateReq">
+        <input path="body"/>
+        <output path="body"/>
+        <move>
+            <input path="createOrder/request/customerId"/>
+            <output path="order/customer/custid"/>
+        </move>
+        <move>
+            <input path="createOrder/request/endOrderDate"/>
+            <output path="order/endOrderDate"/>
+        </move>
+        <move>
+            <input path="createOrder/request/orderDate"/>
+            <output path="order/orderDate"/>
+        </move>
+        <move>
+            <input path="createOrder/request/price"/>
+            <output path="order/price"/>
+        </move>
+        <move>
+            <input path="createOrder/request/comments"/>
+            <output path="order/comments"/>
+        </move>
+        <foreach>
+            <input path="createOrder/request/items"/>
+            <output path="order/items"/>
+            <move>
+                <input path="itemDate"/>
+                <output path="itemDate"/>
+            </move>
+            <move>
+                <input path="partNum"/>
+                <output path="partNum"/>
+            </move>
+            <move>
+                <input path="price"/>
+                <output path="price"/>
+            </move>
+            <move>
+                <input path="prodId"/>
+                <output path="prodId"/>
+            </move>
+            <move>
+                <input path="productName"/>
+                <output path="productName"/>
+            </move>
+            <move>
+                <input path="quantity"/>
+                <output path="quantity"/>
+            </move>
+        </foreach>
+        <assign value="OPEN">
+            <output path="order/status"/>
+        </assign>
+    </mappingDeclaration>
+</mappingRoot>

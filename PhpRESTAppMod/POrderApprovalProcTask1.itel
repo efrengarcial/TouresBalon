@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ ##[lineageStampBegin]##
+ ##[generatedBy:/PhpRESPAppMod/POrderApprovalProc.bpel]##
+ ##[lineageStampEnd]##
+-->
+<tel:task xmlns:tel="http://www.ibm.com/xmlns/prod/websphere/human-task/6.0.0/" xmlns:wsdl="http://PhpRESTAppLib/POrderApprovalHtIF" allowClaimWhenSuspended="no" autoClaim="no" businessRelevance="no" calendarName="Simple" contextAuthorizationForOwner="none" defaultLocale="en-US" jndiNameStaffPluginProvider="bpe/staff/samplevmmconfiguration" kind="pTask" name="POrderApprovalTask" priorityDefinition="5" supportsDelegation="yes" supportsFollowOnTask="yes" supportsSubTask="yes" targetNamespace="http://PhpRESPAppMod/Task1">
+  <tel:import importType="http://schemas.xmlsoap.org/wsdl/" location="POrderApprovalHtIF.wsdl" namespace="http://PhpRESTAppLib/POrderApprovalHtIF"/>
+  <tel:interface kind="inbound" operation="approvePOrder" portType="wsdl:POrderApprovalHtIF"/>
+  <tel:staffSettings>
+    <tel:potentialOwner>
+      <tel:verb>
+        <tel:name>Everybody</tel:name>
+      </tel:verb>
+    </tel:potentialOwner>
+  </tel:staffSettings>
+  <tel:uiSettings/>
+  <tel:escalationSettings/>
+</tel:task>

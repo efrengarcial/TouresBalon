@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="CustomerServiceIF" targetNamespace="http://OrderManagementLib/CustomerServiceIF" xmlns:bons1="http://OrderManagementLib" xmlns:tns="http://OrderManagementLib/CustomerServiceIF" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://OrderManagementLib/CustomerServiceIF">
+      <xsd:import namespace="http://OrderManagementLib" schemaLocation="ReturnCode.xsd"/>
+      <xsd:import namespace="http://OrderManagementLib" schemaLocation="Customer.xsd"/>
+      <xsd:element name="retrieveCustomer">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="customer" nillable="true" type="bons1:Customer"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="retrieveCustomerResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="customer" nillable="true" type="bons1:Customer"/>
+            <xsd:element name="returnCode" nillable="true" type="bons1:ReturnCode"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="updateCustomer">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="customer" nillable="true" type="bons1:Customer"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="updateCustomerResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="returnCode" nillable="true" type="bons1:ReturnCode"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="retrieveCustomerRequestMsg">
+    <wsdl:part element="tns:retrieveCustomer" name="retrieveCustomerParameters"/>
+  </wsdl:message>
+    <wsdl:message name="retrieveCustomerResponseMsg">
+    <wsdl:part element="tns:retrieveCustomerResponse" name="retrieveCustomerResult"/>
+  </wsdl:message>
+    <wsdl:message name="updateCustomerRequestMsg">
+    <wsdl:part element="tns:updateCustomer" name="updateCustomerParameters"/>
+  </wsdl:message>
+    <wsdl:message name="updateCustomerResponseMsg">
+    <wsdl:part element="tns:updateCustomerResponse" name="updateCustomerResult"/>
+  </wsdl:message>
+    <wsdl:portType name="CustomerServiceIF">
+    <wsdl:operation name="retrieveCustomer">
+      <wsdl:input message="tns:retrieveCustomerRequestMsg" name="retrieveCustomerRequest"/>
+      <wsdl:output message="tns:retrieveCustomerResponseMsg" name="retrieveCustomerResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="updateCustomer">
+      <wsdl:input message="tns:updateCustomerRequestMsg" name="updateCustomerRequest"/>
+      <wsdl:output message="tns:updateCustomerResponseMsg" name="updateCustomerResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

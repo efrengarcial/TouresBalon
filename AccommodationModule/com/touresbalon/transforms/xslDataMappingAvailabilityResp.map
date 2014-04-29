@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://AccommodationModule/com/touresbalon/transforms/xslDataMappingAvailabilityResp" version="7.0.500" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://AccommodationModule/com/touresbalon/transforms/xslDataMappingAvailabilityResp">
+    <input path="smo://smo/name%3Dwsdl-primary/message%3D%257Bhttp%253A%252F%252Ftempuri.org%252F%257DvalidateAvailabilitySoapOut/xpath%3D%252Fbody/smo.xsd"/>
+    <output path="smo://smo/name%3Dwsdl-primary/message%3D%257Bhttp%253A%252F%252FAccommodationLib%252Fcom%252Ftouresbalon%252Finterfaces%252FAccommodationServiceIF%257DcheckAvailabilityResponseMsg/xpath%3D%252Fbody/smo.xsd"/>
+    <mappingDeclaration name="xslDataMappingAvailabilityResp">
+        <input path="body"/>
+        <output path="body"/>
+        <foreach>
+            <input path="validateAvailabilityResponse/validateAvailabilityResult/Room"/>
+            <output path="checkAvailabilityResponse/response/content"/>
+            <convert>
+                <input path="checkOutDate"/>
+                <output path="checkOutDate"/>
+            </convert>
+            <move>
+                <input path="HotelID"/>
+                <output path="hotelID"/>
+            </move>
+            <move>
+                <input path="RoomNumber"/>
+                <output path="roomNumber"/>
+            </move>
+            <move>
+                <input path="Name"/>
+                <output path="name"/>
+            </move>
+            <move>
+                <input path="Address"/>
+                <output path="address"/>
+            </move>
+            <move>
+                <input path="City"/>
+                <output path="city"/>
+            </move>
+            <move>
+                <input path="Country"/>
+                <output path="country"/>
+            </move>
+            <move>
+                <input path="Type"/>
+                <output path="type"/>
+            </move>
+            <move>
+                <input path="Price"/>
+                <output path="price"/>
+            </move>
+            <convert>
+                <input path="CheckInDate"/>
+                <output path="checkInDate"/>
+            </convert>
+        </foreach>
+    </mappingDeclaration>
+</mappingRoot>

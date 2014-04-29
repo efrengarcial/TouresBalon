@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:import xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns1="http://hr.issw.ibm.com" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:webservice="http://www.ibm.com/xmlns/prod/websphere/scdl/webservice/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="EmpRegistryImport" name="EmpRegistryImport">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" preferredInteractionStyle="sync" portType="ns1:EmployeeServices">
+      <scdl:interfaceQualifier xsi:type="scdl:JoinTransaction" value="true"/>
+      <method name="addEmployee"/>
+    </interface>
+  </interfaces>
+  <esbBinding xsi:type="webservice:WebServiceImportBinding" contextPropagationEnabled="false" endpoint="http://localhost:9081/EmployeeHRWeb/services/EmployeeServices" port="ns1:EmployeeServices" service="ns1:EmployeeServicesService"/>
+</scdl:import>

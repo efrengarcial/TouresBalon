@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map:businessObjectMap xmlns:checkAvailabilityResponseMsg="smo://smo/name%3Dwsdl-body/message%3D%257Bhttp%253A%252F%252FAccommodationLib%252Fcom%252Ftouresbalon%252Finterfaces%252FAccommodationServiceIF%257DcheckAvailabilityResponseMsg/xpath%3D%252Fbody/namespace%3DBOMap/smo.xsd" xmlns:map="http://www.ibm.com/xmlns/prod/websphere/wbiserver/map/6.0.0" xmlns:mapDataMapAvailabilityResp="http://AccommodationModule/com/touresbalon/transforms" xmlns:retrieveallDannCarltonAvailabilityBGResponseMsg="smo://smo/name%3Dwsdl-body/message%3D%257Bhttp%253A%252F%252FAccommodationModule%252FJDBCImport%257DretrieveallDannCarltonAvailabilityBGResponseMsg/xpath%3D%252Fbody/namespace%3DBOMap/smo.xsd" targetNamespace="http://AccommodationModule/com/touresbalon/transforms">
+  <map:name>mapDataMapAvailabilityResp</map:name>
+  <map:inputBusinessObjectVariable businessObjectRef="retrieveallDannCarltonAvailabilityBGResponseMsg:retrieveallDannCarltonAvailabilityBGResponseMsg" name="retrieveallDannCarltonAvailabilityBGResponseMsg"/>
+  <map:outputBusinessObjectVariable businessObjectRef="checkAvailabilityResponseMsg:checkAvailabilityResponseMsg" name="checkAvailabilityResponseMsg"/>
+  <map:propertyMap executionOrder="1">
+    <map:submap submapName="mapDataMapAvailabilityResp:subMapResponse">
+      <map:input businessObjectVariableRef="retrieveallDannCarltonAvailabilityBGResponseMsg" property="retrieveallDannCarltonAvailabilityBGResponse/retrieveallDannCarltonAvailabilityBGOutput/DannCarltonAvailability" variableName="DannCarltonAvailability"/>
+      <map:output businessObjectVariableRef="checkAvailabilityResponseMsg" property="checkAvailabilityResponse/response/content" variableName="RoomResponse"/>
+    </map:submap>
+  </map:propertyMap>
+</map:businessObjectMap>

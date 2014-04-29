@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns1="http://OrderLib/com/touresbalon/interfaces/OrderMgmtServiceIF" xmlns:ns2="http://OrderModule/com/touresbalon/interfaces/OrderServiceIF" xmlns:ns3="http://OrderLib/com/touresbalon/interfaces/OrderRulesServiceIF" xmlns:process="http://www.ibm.com/xmlns/prod/websphere/scdl/business-process/6.0.0" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="OrderMgmtBP" name="OrderMgmtBP">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" preferredInteractionStyle="sync" portType="ns1:OrderMgmtServiceIF">
+      <scdl:interfaceQualifier xsi:type="scdl:JoinTransaction" value="true"/>
+    </interface>
+  </interfaces>
+  <references>
+    <reference name="OrderServiceIFPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns2:OrderServiceIF"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="OrderServiceImport"/>
+    </reference>
+    <reference name="OrderRulesServiceIFPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns3:OrderRulesServiceIF"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="OrderRuleGruop"/>
+    </reference>
+  </references>
+  <implementation xsi:type="process:ProcessImplementation">
+    <scdl:implementationQualifier xsi:type="scdl:Transaction" value="global"/>
+    <process bpel="/com/touresbaon/taskservices/OrderMgmtBP.bpel"/>
+  </implementation>
+</scdl:component>

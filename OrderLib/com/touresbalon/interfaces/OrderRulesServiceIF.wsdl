@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="OrderRulesServiceIF" targetNamespace="http://OrderLib/com/touresbalon/interfaces/OrderRulesServiceIF" xmlns:bons1="http://OrderLib/com/touresbalon/bo" xmlns:tns="http://OrderLib/com/touresbalon/interfaces/OrderRulesServiceIF" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://OrderLib/com/touresbalon/interfaces/OrderRulesServiceIF">
+            <xsd:import namespace="http://OrderLib/com/touresbalon/bo" schemaLocation="../bo/OrderInfo.xsd"/>
+            <xsd:element name="requiresApproval">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="request" nillable="true" type="bons1:OrderInfo"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="requiresApprovalResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="response" nillable="true" type="xsd:boolean"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="requiresApprovalRequestMsg">
+    <wsdl:part element="tns:requiresApproval" name="requiresApprovalParameters"/>
+  </wsdl:message>
+    <wsdl:message name="requiresApprovalResponseMsg">
+    <wsdl:part element="tns:requiresApprovalResponse" name="requiresApprovalResult"/>
+  </wsdl:message>
+    <wsdl:portType name="OrderRulesServiceIF">
+    <wsdl:operation name="requiresApproval">
+      <wsdl:input message="tns:requiresApprovalRequestMsg" name="requiresApprovalRequest"/>
+      <wsdl:output message="tns:requiresApprovalResponseMsg" name="requiresApprovalResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

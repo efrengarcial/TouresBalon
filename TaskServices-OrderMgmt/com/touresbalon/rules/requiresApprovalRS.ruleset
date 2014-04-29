@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rl:RuleSet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:java="http://com.ibm.wbit.br.cb.core/java/" xmlns:ns1="http://OrderLib/com/touresbalon/interfaces/OrderRulesServiceIF" xmlns:prim="http://com.ibm.wbit.br.cb.core/prim/" xmlns:rl="http://www.ibm.com/xmlns/prod/websphere/wbi/br/6.0.0" xmlns:selt="http://TaskServices-OrderMgmt/com/touresbalon/rules" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsd8="http://OrderLib/com/touresbalon/bo" displayName="requiresApprovalRS" name="requiresApprovalRS" syncDisplayName="true" targetNamespace="http://TaskServices-OrderMgmt/com/touresbalon/rules">
+  <rl:interface operation="requiresApproval">
+    <rl:porttype>ns1:OrderRulesServiceIF</rl:porttype>
+  </rl:interface>
+  <rl:rulegroup>selt:OrderRuleGruop</rl:rulegroup>
+  <rl:property name="IBMSystemVersion" type="SystemDefined" value="6.1.0"/>
+  <rl:RuleBlock>
+    <rl:rule xsi:type="rl:IfThenRule" displayName="Cliente_Platino" label="Cliente_Platino" syncDisplayName="true">
+      <rl:if>
+        <rl:conditionExpression xsi:type="rl:BooleanExpression">
+          <rl:expString>request.customerType == &quot;PLATINO&quot;</rl:expString>
+        </rl:conditionExpression>
+      </rl:if>
+      <rl:then>
+        <rl:Action value="response = false"/>
+      </rl:then>
+    </rl:rule>
+    <rl:rule xsi:type="rl:IfThenRule" displayName="Cliente_Dorado_MontoMenor" label="Cliente_Dorado_MontoMenor" syncDisplayName="true">
+      <rl:if>
+        <rl:conditionExpression xsi:type="rl:LogicalAndExpression">
+          <rl:conditionExpression xsi:type="rl:BooleanExpression">
+            <rl:expString>request.customerType == &quot;DORADO&quot;</rl:expString>
+          </rl:conditionExpression>
+          <rl:conditionExpression xsi:type="rl:BooleanExpression">
+            <rl:expString>request.amount  &lt; 500000</rl:expString>
+          </rl:conditionExpression>
+        </rl:conditionExpression>
+      </rl:if>
+      <rl:then>
+        <rl:Action value="response = false"/>
+      </rl:then>
+    </rl:rule>
+    <rl:rule xsi:type="rl:IfThenRule" displayName="Cliente_Dorado_MontoMayor" label="Cliente_Dorado_MontoMayor" syncDisplayName="true">
+      <rl:if>
+        <rl:conditionExpression xsi:type="rl:LogicalAndExpression">
+          <rl:conditionExpression xsi:type="rl:BooleanExpression">
+            <rl:expString>request.customerType == &quot;DORADO&quot;</rl:expString>
+          </rl:conditionExpression>
+          <rl:conditionExpression xsi:type="rl:BooleanExpression">
+            <rl:expString>request.amount >= 500000</rl:expString>
+          </rl:conditionExpression>
+        </rl:conditionExpression>
+      </rl:if>
+      <rl:then>
+        <rl:Action value="response = true"/>
+      </rl:then>
+    </rl:rule>
+    <rl:rule xsi:type="rl:IfThenRule" displayName="Cliente_Plateado" label="Cliente_Plateado" syncDisplayName="true">
+      <rl:if>
+        <rl:conditionExpression xsi:type="rl:BooleanExpression">
+          <rl:expString>request.customerType == &quot;PLATEADO&quot;</rl:expString>
+        </rl:conditionExpression>
+      </rl:if>
+      <rl:then>
+        <rl:Action value="response = true"/>
+      </rl:then>
+    </rl:rule>
+  </rl:RuleBlock>
+</rl:RuleSet>

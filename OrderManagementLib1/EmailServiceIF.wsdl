@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="EmailServiceIF" targetNamespace="http://OrderManagementLib/EmailServiceIF" xmlns:bons1="http://OrderManagementLib" xmlns:tns="http://OrderManagementLib/EmailServiceIF" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://OrderManagementLib/EmailServiceIF">
+      <xsd:import namespace="http://OrderManagementLib" schemaLocation="EmailOrder.xsd"/>
+      <xsd:element name="sendEmail">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="emailOrderSuspend" nillable="true" type="bons1:EmailOrder"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="sendEmailRequestMsg">
+    <wsdl:part element="tns:sendEmail" name="sendEmailParameters"/>
+  </wsdl:message>
+    <wsdl:portType name="EmailServiceIF">
+    <wsdl:operation name="sendEmail">
+      <wsdl:input message="tns:sendEmailRequestMsg" name="sendEmailRequest"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

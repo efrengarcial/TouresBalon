@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?><bpws:process xmlns:bpws="http://schemas.xmlsoap.org/ws/2004/03/business-process/" xmlns:ns="http://Example2/TravelApproval/TravelApprovalArtifacts" xmlns:ns0="http://packtpub.com/bpel/travel/" xmlns:ns1="http://packtpub.com/service/airline/" xmlns:ns2="http://packtpub.com/service/employee/" xmlns:ns3="http://packtpub.com/service/americanairline/" xmlns:ns4="http://packtpub.com/service/deltaairline/" xmlns:wpc="http://www.ibm.com/xmlns/prod/websphere/business-process/6.0.0/" expressionLanguage="http://www.ibm.com/xmlns/prod/websphere/business-process/expression-lang/java/6.0.0/" name="TravelApproval" suppressJoinFailure="yes" targetNamespace="http://packtpub.com/bpel/travel/" wpc:autoDelete="no" wpc:continueOnError="no" wpc:displayName="TravelApproval" wpc:executionMode="longRunning" wpc:id="6" wpc:validFrom="2009-12-08T17:09:40" wpc:version="IBM_7.0.100">
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="/resource/Example2_lib/TravelApprovalPT.wsdl" namespace="http://packtpub.com/bpel/travel/"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="/resource/Example2_lib/FlightReservationCallbackPT.wsdl" namespace="http://packtpub.com/service/airline/"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="/resource/Example2_lib/FlightCallbackPT.wsdl" namespace="http://packtpub.com/service/airline/"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="/resource/Example2_lib/FlightReservationPT.wsdl" namespace="http://packtpub.com/service/airline/"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="/resource/Example2_lib/FlightAvailabilityPT.wsdl" namespace="http://packtpub.com/service/airline/"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="/resource/Example2_lib/EmployeeTravelStatusPT.wsdl" namespace="http://packtpub.com/service/employee/"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="TravelApprovalArtifacts.wsdl" namespace="http://Example2/TravelApproval/TravelApprovalArtifacts"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../TravelApprovalPT.wsdl" namespace="http://packtpub.com/bpel/travel/"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../FlightReservationMessage.xsd" namespace="http://packtpub.com/service/airline/"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../TravelRequestMessage.xsd" namespace="http://packtpub.com/bpel/travel/"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="/resource/Example2_lib/FlightAvailabilityPT.wsdl" namespace="http://packtpub.com/service/airline/"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="/resource/Example2_lib/FlightReservationPT.wsdl" namespace="http://packtpub.com/service/airline/"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../EmployeeTravelStatusResponseMessage.xsd" namespace="http://packtpub.com/service/employee/"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../EmployeeTravelStatusRequestMessage.xsd" namespace="http://packtpub.com/service/employee/"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../EmployeeTravelStatusPT.wsdl" namespace="http://packtpub.com/service/employee/"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../FlightAvailabilityPT.wsdl" namespace="http://packtpub.com/service/airline/"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../FlightTicketRequestMessage.xsd" namespace="http://packtpub.com/service/airline/"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../TravelResponseMessage.xsd" namespace="http://packtpub.com/service/airline/"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../FlightCallbackPT.wsdl" namespace="http://packtpub.com/service/airline/"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../FlightReservationPT.wsdl" namespace="http://packtpub.com/service/airline/"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../FlightReservationCallbackPT.wsdl" namespace="http://packtpub.com/service/airline/"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="/resource/Example2_lib/FlightCallbackDAPT.wsdl" namespace="http://packtpub.com/service/deltaairline/"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="/resource/Example2_lib/FlightCallbackAAPT.wsdl" namespace="http://packtpub.com/service/americanairline/"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../FlightCallbackDAPT.wsdl" namespace="http://packtpub.com/service/deltaairline/"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../FlightCallbackAAPT.wsdl" namespace="http://packtpub.com/service/americanairline/"/>
+  <bpws:partnerLinks>
+    <bpws:partnerLink myRole="Interface" name="TravelApprovalPT" partnerLinkType="ns:TravelApprovalPTPLT" wpc:id="34"/>
+    <bpws:partnerLink myRole="Interface" name="FlightReservationCallbackPT" partnerLinkType="ns:FlightReservationCallbackPTPLT" wpc:id="35"/>
+    <bpws:partnerLink name="AmericanAirlinesFlightReservationPTPartner" partnerLinkType="ns:FlightReservationPTPLT" partnerRole="Interface" wpc:id="36"/>
+    <bpws:partnerLink name="AmericanAirlinesFlightAvailabilityPTPartner" partnerLinkType="ns:FlightAvailabilityPTPLT" partnerRole="Interface" wpc:id="37"/>
+    <bpws:partnerLink name="EmployeeTravelStatusPTPartner" partnerLinkType="ns:EmployeeTravelStatusPTPLT" partnerRole="Interface" wpc:id="38"/>
+    <bpws:partnerLink name="DeltaAirlinesFlightAvailabilityPTPartner" partnerLinkType="ns:FlightAvailabilityPTPLT1" partnerRole="Interface" wpc:id="39"/>
+    <bpws:partnerLink name="DeltaAirlinesFlightReservationPTPartner" partnerLinkType="ns:FlightReservationPTPLT1" partnerRole="Interface" wpc:id="40"/>
+    <bpws:partnerLink myRole="Interface" name="FlightCallbackDAPT" partnerLinkType="ns:FlightCallbackDAPTPLT" wpc:id="41"/>
+    <bpws:partnerLink myRole="Interface" name="FlightCallbackAAPT" partnerLinkType="ns:FlightCallbackAAPTPLT" wpc:id="42"/>
+  </bpws:partnerLinks>
+  <bpws:variables>
+    <bpws:variable name="TravelRequest" type="ns0:TravelRequestMessage" wpc:id="4"/>
+    <bpws:variable name="FlightReservation" type="ns1:FlightReservationMessage" wpc:id="5"/>
+    <bpws:variable name="EmployeeTravelStatusRequest" type="ns2:EmployeeTravelStatusRequestMessage" wpc:id="9"/>
+    <bpws:variable name="EmployeeTravelStatusResponse" type="ns2:EmployeeTravelStatusResponseMessage" wpc:id="10"/>
+    <bpws:variable name="TravelResponseAA" type="ns1:TravelResponseMessage" wpc:id="20"/>
+    <bpws:variable name="TravelResponseDA" type="ns1:TravelResponseMessage" wpc:id="21"/>
+    <bpws:variable name="FlightTicketRequest" type="ns1:FlightTicketRequestMessage" wpc:id="22"/>
+  </bpws:variables>
+  <bpws:correlationSets>
+    <bpws:correlationSet name="FlightNo_CS" properties="ns:FlightNo_CP" wpc:id="33"/>
+  </bpws:correlationSets>
+  <bpws:faultHandlers>
+    <bpws:catchAll wpc:id="51">
+      <bpws:sequence name="HiddenSequence4" wpc:id="1073741886">
+        <bpws:compensate name="Compensate" scope="TicketReservation" wpc:displayName="Compensate" wpc:id="60"/>
+        <bpws:terminate name="Terminate" wpc:displayName="Terminate" wpc:id="63"/>
+      </bpws:sequence>
+    </bpws:catchAll>
+  </bpws:faultHandlers>
+  <bpws:eventHandlers>
+    <bpws:onEvent operation="CancelTravelApproval" partnerLink="TravelApprovalPT" portType="ns0:TravelApprovalPT" wpc:displayName="OnEvent" wpc:id="64">
+      <wpc:output>
+        <wpc:parameter name="TravelRequest" type="ns0:TravelRequestMessage" variable="TravelRequestCancelation" wpc:variableId="65" wpc:variableIsBusinessRelevant="no"/>
+      </wpc:output>
+      <bpws:correlations>
+        <bpws:correlation initiate="yes" set="FlightNo_CS"/>
+      </bpws:correlations>
+      <bpws:throw faultName="CancellProcess" name="Throw1" wpc:displayName="User Cancelation" wpc:id="66"/>
+    </bpws:onEvent>
+    <bpws:onAlarm wpc:displayName="Timeout" wpc:id="67">
+      <wpc:timeout duration="1hours"/>
+      <bpws:throw faultName="CancellProcess" name="Throw2" wpc:displayName="Timeout Cancelation" wpc:id="68"/>
+    </bpws:onAlarm>
+  </bpws:eventHandlers>
+  <bpws:sequence name="HiddenSequence" wpc:id="1073741825">
+    <bpws:receive createInstance="yes" name="Receive" operation="TravelApproval" partnerLink="TravelApprovalPT" portType="ns0:TravelApprovalPT" wpc:displayName="Receive" wpc:id="2" wpc:transactionalBehavior="commitAfter">
+      <wpc:output>
+        <wpc:parameter name="TravelRequest" variable="TravelRequest"/>
+      </wpc:output>
+      <bpws:correlations>
+        <bpws:correlation initiate="yes" set="FlightNo_CS"/>
+      </bpws:correlations>
+    </bpws:receive>
+    <bpws:scope name="Scope" wpc:displayName="Scope" wpc:id="43">
+      <bpws:sequence name="HiddenSequence1" wpc:id="1073741868">
+        <bpws:assign name="Assignemployee" wpc:displayName="Assign employee" wpc:id="7">
+          <bpws:copy>
+            <bpws:from variable="TravelRequest">
+              <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[employee]]></bpws:query>
+            </bpws:from>
+            <bpws:to variable="EmployeeTravelStatusRequest">
+              <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[employee]]></bpws:query>
+            </bpws:to>
+          </bpws:copy>
+        </bpws:assign>
+        <bpws:invoke name="EmployeeTravelStatus" operation="EmployeeTravelStatus" partnerLink="EmployeeTravelStatusPTPartner" portType="ns2:EmployeeTravelStatusPT" wpc:displayName="Employee Travel Status" wpc:id="8">
+          <wpc:input>
+            <wpc:parameter name="EmployeeTravelStatusRequest" variable="EmployeeTravelStatusRequest"/>
+          </wpc:input>
+          <wpc:output>
+            <wpc:parameter name="EmployeeTravelStatusResponse" variable="EmployeeTravelStatusResponse"/>
+          </wpc:output>
+        </bpws:invoke>
+      </bpws:sequence>
+    </bpws:scope>
+    <bpws:scope name="Scope1" wpc:displayName="Scope1" wpc:id="45">
+      <bpws:sequence name="HiddenSequence2" wpc:id="1073741870">
+        <bpws:assign name="Assignticketrequest" wpc:displayName="Assign ticket request" wpc:id="15">
+          <bpws:copy>
+            <bpws:from variable="TravelRequest">
+              <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[flightData]]></bpws:query>
+            </bpws:from>
+            <bpws:to variable="FlightTicketRequest">
+              <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[flightData]]></bpws:query>
+            </bpws:to>
+          </bpws:copy>
+          <bpws:copy>
+            <bpws:from variable="EmployeeTravelStatusResponse">
+              <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[travelClass]]></bpws:query>
+            </bpws:from>
+            <bpws:to variable="FlightTicketRequest">
+              <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[travelClass]]></bpws:query>
+            </bpws:to>
+          </bpws:copy>
+        </bpws:assign>
+        <bpws:flow name="Getairlineoffers1" wpc:displayName="Get airline offers" wpc:id="30">
+          <bpws:links>
+            <bpws:link name="Link" wpc:displayName="Link" wpc:id="31"/>
+            <bpws:link name="Link2" wpc:displayName="Link2" wpc:id="32"/>
+          </bpws:links>
+          <bpws:invoke name="AmericanAirlines" operation="FlightAvailability" partnerLink="AmericanAirlinesFlightAvailabilityPTPartner" portType="ns1:FlightAvailabilityPT" wpc:displayName="American Airlines" wpc:id="12">
+            <wpc:input>
+              <wpc:parameter name="FlightTicketRequest" variable="FlightTicketRequest"/>
+            </wpc:input>
+            <bpws:sources>
+              <bpws:source linkName="Link"/>
+            </bpws:sources>
+          </bpws:invoke>
+          <bpws:receive name="CallbackAA" operation="FlightTicketCallbackAA" partnerLink="FlightCallbackAAPT" portType="ns3:FlightCallbackAAPT" wpc:displayName="CallbackAA" wpc:id="16">
+            <wpc:output>
+              <wpc:parameter name="TravelResponse" variable="TravelResponseAA"/>
+            </wpc:output>
+            <bpws:targets>
+              <bpws:target linkName="Link"/>
+            </bpws:targets>
+            <bpws:correlations>
+              <bpws:correlation initiate="no" set="FlightNo_CS"/>
+            </bpws:correlations>
+          </bpws:receive>
+          <bpws:invoke name="DeltaAirlines" operation="FlightAvailability" partnerLink="DeltaAirlinesFlightAvailabilityPTPartner" portType="ns1:FlightAvailabilityPT" wpc:displayName="Delta Airlines" wpc:id="13">
+            <wpc:input>
+              <wpc:parameter name="FlightTicketRequest" variable="FlightTicketRequest"/>
+            </wpc:input>
+            <bpws:sources>
+              <bpws:source linkName="Link2"/>
+            </bpws:sources>
+          </bpws:invoke>
+          <bpws:receive name="CallbackDA" operation="FlightTicketCallbackDA" partnerLink="FlightCallbackDAPT" portType="ns4:FlightCallbackDAPT" wpc:displayName="CallbackDA" wpc:id="17">
+            <wpc:output>
+              <wpc:parameter name="TravelResponse" variable="TravelResponseDA"/>
+            </wpc:output>
+            <bpws:targets>
+              <bpws:target linkName="Link2"/>
+            </bpws:targets>
+            <bpws:correlations>
+              <bpws:correlation initiate="no" set="FlightNo_CS"/>
+            </bpws:correlations>
+          </bpws:receive>
+        </bpws:flow>
+      </bpws:sequence>
+    </bpws:scope>
+    <bpws:scope name="TicketReservation" wpc:displayName="TicketReservation" wpc:id="47">
+      <bpws:compensationHandler>
+        <bpws:sequence name="Sequence" wpc:displayName="Sequence" wpc:id="53">
+          <bpws:switch name="Selectairline1" wpc:displayName="Select airline" wpc:id="54">
+            <bpws:case wpc:id="55">
+              <bpws:condition expressionLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[$TravelResponseDA/confirmationData/Price<$TravelResponseAA/confirmationData/Price]]></bpws:condition>
+              <bpws:invoke name="DeltaAirlinesCancelation1" operation="CancelReservation" partnerLink="DeltaAirlinesFlightReservationPTPartner" portType="ns1:FlightReservationPT" wpc:displayName="Delta Airlines Cancelation" wpc:id="56">
+                <wpc:input>
+                  <wpc:parameter name="TravelResponse" variable="TravelResponseDA"/>
+                </wpc:input>
+              </bpws:invoke>
+            </bpws:case>
+            <bpws:case wpc:id="57">
+              <bpws:condition expressionLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[$TravelResponseAA/confirmationData/Price<=$TravelResponseDA/confirmationData/Price]]></bpws:condition>
+              <bpws:invoke name="AmericanAirlinesCancelation1" operation="CancelReservation" partnerLink="AmericanAirlinesFlightReservationPTPartner" portType="ns1:FlightReservationPT" wpc:displayName="American Airlines Cancelation" wpc:id="58">
+                <wpc:input>
+                  <wpc:parameter name="TravelResponse" variable="TravelResponseAA"/>
+                </wpc:input>
+              </bpws:invoke>
+            </bpws:case>
+          </bpws:switch>
+          <bpws:receive name="CancelationCallback1" operation="FlightReservationCallback" partnerLink="FlightReservationCallbackPT" portType="ns1:FlightReservationCallbackPT" wpc:displayName="Cancelation Callback" wpc:id="59">
+            <wpc:output>
+              <wpc:parameter name="FlightReservation" variable="FlightReservation"/>
+            </wpc:output>
+            <bpws:correlations>
+              <bpws:correlation initiate="no" set="FlightNo_CS"/>
+            </bpws:correlations>
+          </bpws:receive>
+        </bpws:sequence>
+      </bpws:compensationHandler>
+      <bpws:sequence name="HiddenSequence3" wpc:id="1073741872">
+        <bpws:switch name="Selectairline" wpc:displayName="Select airline" wpc:id="24">
+          <bpws:case wpc:id="25">
+            <bpws:condition expressionLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[$TravelResponseDA/confirmationData/Price<$TravelResponseAA/confirmationData/Price]]></bpws:condition>
+            <bpws:invoke name="DeltaAirlinesReservation" operation="MakeReservation" partnerLink="DeltaAirlinesFlightReservationPTPartner" portType="ns1:FlightReservationPT" wpc:displayName="Delta Airlines Reservation" wpc:id="27">
+              <wpc:input>
+                <wpc:parameter name="TravelResponse" variable="TravelResponseDA"/>
+              </wpc:input>
+            </bpws:invoke>
+          </bpws:case>
+          <bpws:case wpc:id="26">
+            <bpws:condition expressionLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[$TravelResponseAA/confirmationData/Price<=$TravelResponseDA/confirmationData/Price]]></bpws:condition>
+            <bpws:invoke name="AmericanAirlinesReservation" operation="MakeReservation" partnerLink="AmericanAirlinesFlightReservationPTPartner" portType="ns1:FlightReservationPT" wpc:displayName="American Airlines Reservation" wpc:id="28">
+              <wpc:input>
+                <wpc:parameter name="TravelResponse" variable="TravelResponseAA"/>
+              </wpc:input>
+            </bpws:invoke>
+          </bpws:case>
+        </bpws:switch>
+        <bpws:receive name="ReservationCallback" operation="FlightReservationCallback" partnerLink="FlightReservationCallbackPT" portType="ns1:FlightReservationCallbackPT" wpc:displayName="Reservation Callback" wpc:id="29">
+          <wpc:output>
+            <wpc:parameter name="FlightReservation" variable="FlightReservation"/>
+          </wpc:output>
+          <bpws:correlations>
+            <bpws:correlation initiate="no" set="FlightNo_CS"/>
+          </bpws:correlations>
+        </bpws:receive>
+      </bpws:sequence>
+    </bpws:scope>
+    <bpws:throw faultName="SimulatedFault" name="Throw" wpc:displayName="Throw" wpc:id="61"/>
+    <bpws:reply name="Reply" operation="TravelApproval" partnerLink="TravelApprovalPT" portType="ns0:TravelApprovalPT" wpc:displayName="Reply" wpc:id="3">
+      <wpc:input>
+        <wpc:parameter name="FlightReservation" variable="FlightReservation"/>
+      </wpc:input>
+    </bpws:reply>
+  </bpws:sequence>
+</bpws:process>

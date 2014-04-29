@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.ibm.ccl.soa.test.common.models.value="http:///com/ibm/ccl/soa/test/common/models/value.ecore" xmlns:com.ibm.wbit.comptest.common.tc.models.event="http:///com/ibm/wbit/comptest/common/tc/models/event.ecore" xmlns:com.ibm.wbit.comptest.core.tc.models.client="http:///com/ibm/wbit/comptest/core/tc/models/client.ecore" xmlns:com.ibm.wbit.comptest.fgt.model.config="http:///com/ibm/wbit/fgt/common/model/config/finegraintrace.ecore">
+  <com.ibm.wbit.comptest.core.tc.models.client:EclipseClient name="BolivarianoModule_Test" id="1395610897676_2650" eventTrace="/1" clientID="1395610897676_2650">
+    <scopes name="Default Module Test" id="1395610897676_2652" dirty="true" userId="#?#server$.3login#?#">
+      <testModules name="BolivarianoModule" id="1395610897676_2653">
+        <monitors name="Med-Bolivariano.BolivarianoTravelsIFPartner->BolivarianoTravelsFileAdapter" id="1395610897676_2654" sourceComponent="Med-Bolivariano" sourceReference="BolivarianoTravelsIFPartner" interface="BolivarianoTravelsIF" request="true" response="true" targetComponent="BolivarianoTravelsFileAdapter"/>
+        <configurationAdditions xsi:type="com.ibm.wbit.comptest.fgt.model.config:FineGrainTraceConfiguration" id="1395610897687_2656">
+          <fineGrainTrace xsi:type="com.ibm.wbit.comptest.fgt.model.config:MFCFineGrainTrace" name="Med-Bolivariano (Mediation Flow:Med-Bolivariano)" id="1395610897687_2655" component="Med-Bolivariano"/>
+        </configurationAdditions>
+      </testModules>
+    </scopes>
+  </com.ibm.wbit.comptest.core.tc.models.client:EclipseClient>
+  <com.ibm.wbit.comptest.common.tc.models.event:ExecutionEventTrace id="1395610897676_2651" children="/2"/>
+  <com.ibm.wbit.comptest.common.tc.models.event:InteractiveComponentInvocationEvent id="1395610897687_2657" readOnly="true" clientID="1395610897676_2650" timestamp="1395610897687" children="/3 /6" module="BolivarianoModule" part="BolivarianoTravelsFileAdapter" interface="BolivarianoTravelsIF" operation="retrieveTravels" testScopeID="1395610897676_2652" targetDeploymentLocationID="1395610942462_2798">
+    <request name="retrieveTravels_request" id="1395610897945_2658">
+      <properties name="paramlist_context" value="BolivarianoModule.BolivarianoTravelsFileAdapter.retrieveTravels"/>
+      <parameters xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueStructure" name="retrieveTravelsInput" id="1395610897947_2659" value="" defaultValue="" typeURI="xsd:/http://www.ibm.com/xmlns/prod/websphere/j2ca/flatfile/flatfile#FlatFile" baseTypeURI="xsd:/http://www.ibm.com/xmlns/prod/websphere/j2ca/flatfile/flatfile#FlatFile" hasChildren="true">
+        <context>
+          <properties name="project_context" value="BolivarianoModule"/>
+        </context>
+        <properties name="paramlist_context" value="BolivarianoModule.BolivarianoTravelsFileAdapter.retrieveTravels"/>
+        <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="directoryPath" id="1395610897948_2660" value="" defaultValue="" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#string"/>
+        <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="fileName" id="1395610897948_2664" value="viajes.txt" defaultValue="" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#string"/>
+        <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="chunkFileName" id="1395610897948_2667" value="" defaultValue="" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#string"/>
+        <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="fileContentEncoding" id="1395610897948_2670" value="" defaultValue="" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#string"/>
+        <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="includeEndBODelimiter" id="1395610897948_2673" value="" defaultValue="" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#string"/>
+        <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="stagingDirectory" id="1395610897948_2676" value="" defaultValue="" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#string"/>
+        <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="chunkNumber" id="1395610897949_2679" value="" defaultValue="" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#string"/>
+        <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueEnum" name="generateUniqueFile" id="1395610897949_2682" value="false" defaultValue="false" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#boolean" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#boolean">
+          <enumValues>false</enumValues>
+          <enumValues>true</enumValues>
+        </elements>
+        <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueEnum" name="createFileIfNotExists" id="1395610897949_2686" value="false" defaultValue="false" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#boolean" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#boolean">
+          <enumValues>false</enumValues>
+          <enumValues>true</enumValues>
+        </elements>
+        <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="splitFunctionClassName" id="1395610897949_2689" value="com.ibm.j2ca.utils.filesplit.SplitByDelimiter" defaultValue="" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#string"/>
+        <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="splitCriteria" id="1395610897949_2692" value="\n" defaultValue="" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#string"/>
+        <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueEnum" name="deleteOnRetrieve" id="1395610897949_2695" value="false" defaultValue="false" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#boolean" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#boolean">
+          <enumValues>false</enumValues>
+          <enumValues>true</enumValues>
+        </elements>
+        <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="archiveDirectoryForDeleteOnRetrieve" id="1395610897949_2698" value="" defaultValue="" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#string"/>
+        <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueStructure" name="Content" id="1395610897950_2701" value="" defaultValue="" typeURI="xsd:/http://www.ibm.com/xmlns/prod/websphere/j2ca/base/unstructuredcontent#UnstructuredContent" baseTypeURI="xsd:/http://www.ibm.com/xmlns/prod/websphere/j2ca/base/unstructuredcontent#UnstructuredContent" hasChildren="true">
+          <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="ContentType" id="1395610897950_2702" value="" defaultValue="" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#string"/>
+          <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="ObjectName" id="1395610897950_2705" value="" defaultValue="" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#string"/>
+          <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="AsText" id="1395610897950_2708" value="" defaultValue="" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#string"/>
+          <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="AsBinary" id="1395610897950_2711" value="00" defaultValue="00" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#hexBinary" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#hexBinary"/>
+        </elements>
+      </parameters>
+    </request>
+  </com.ibm.wbit.comptest.common.tc.models.event:InteractiveComponentInvocationEvent>
+  <com.ibm.wbit.comptest.common.tc.models.event:StartEvent id="1395610942767_2220" clientID="1395610897676_2650" parentID="1395610897687_2657" timestamp="1395610942767" children="/4 /5"/>
+  <com.ibm.wbit.comptest.common.tc.models.event:ComponentInvocationEvent id="1395610942785_2240" readOnly="true" clientID="1395610897676_2650" parentID="1395610942767_2220" timestamp="1395610942785" module="BolivarianoModule" part="BolivarianoTravelsFileAdapter" interface="BolivarianoTravelsIF" operation="retrieveTravels" testScopeID="1395610897676_2652">
+    <request id="1395610942785_2241">
+      <parameters xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueStructure" name="result" id="1395610942785_2242" value="" typeURI="sdo:/http://www.ibm.com/xmlns/prod/websphere/j2ca/flatfile/flatfile#FlatFile" baseTypeURI="sdo:/http://www.ibm.com/xmlns/prod/websphere/j2ca/flatfile/flatfile#FlatFile">
+        <properties name="sdoxml" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;result xsi:type=&quot;fl:FlatFile&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:fl=&quot;http://www.ibm.com/xmlns/prod/websphere/j2ca/flatfile/flatfile&quot;>&#xD;&#xA;  &lt;directoryPath>&lt;/directoryPath>&#xD;&#xA;  &lt;fileName>viajes.txt&lt;/fileName>&#xD;&#xA;  &lt;chunkFileName>&lt;/chunkFileName>&#xD;&#xA;  &lt;fileContentEncoding>&lt;/fileContentEncoding>&#xD;&#xA;  &lt;includeEndBODelimiter>&lt;/includeEndBODelimiter>&#xD;&#xA;  &lt;stagingDirectory>&lt;/stagingDirectory>&#xD;&#xA;  &lt;chunkNumber>&lt;/chunkNumber>&#xD;&#xA;  &lt;generateUniqueFile>false&lt;/generateUniqueFile>&#xD;&#xA;  &lt;createFileIfNotExists>false&lt;/createFileIfNotExists>&#xD;&#xA;  &lt;splitFunctionClassName>com.ibm.j2ca.utils.filesplit.SplitByDelimiter&lt;/splitFunctionClassName>&#xD;&#xA;  &lt;splitCriteria>\n&lt;/splitCriteria>&#xD;&#xA;  &lt;deleteOnRetrieve>false&lt;/deleteOnRetrieve>&#xD;&#xA;  &lt;archiveDirectoryForDeleteOnRetrieve>&lt;/archiveDirectoryForDeleteOnRetrieve>&#xD;&#xA;  &lt;Content>&#xD;&#xA;    &lt;ContentType>&lt;/ContentType>&#xD;&#xA;    &lt;ObjectName>&lt;/ObjectName>&#xD;&#xA;    &lt;AsText>&lt;/AsText>&#xD;&#xA;    &lt;AsBinary>00&lt;/AsBinary>&#xD;&#xA;  &lt;/Content>&#xD;&#xA;&lt;/result>&#xD;&#xA;"/>
+        <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="splitFunctionClassName" id="1395610942786_2243" value="com.ibm.j2ca.utils.filesplit.SplitByDelimiter" typeURI="sdo:/java.lang#String" baseTypeURI="sdo:/java.lang#String"/>
+        <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="chunkFileName" id="1395610942787_2244" value="" typeURI="sdo:/java.lang#String" baseTypeURI="sdo:/java.lang#String"/>
+        <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="generateUniqueFile" id="1395610942787_2245" value="false" typeURI="sdo:/java.lang#Boolean" baseTypeURI="sdo:/java.lang#Boolean"/>
+        <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="archiveDirectoryForDeleteOnRetrieve" id="1395610942787_2246" value="" typeURI="sdo:/java.lang#String" baseTypeURI="sdo:/java.lang#String"/>
+        <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="directoryPath" id="1395610942787_2247" value="" typeURI="sdo:/java.lang#String" baseTypeURI="sdo:/java.lang#String"/>
+        <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="stagingDirectory" id="1395610942787_2248" value="" typeURI="sdo:/java.lang#String" baseTypeURI="sdo:/java.lang#String"/>
+        <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="splitCriteria" id="1395610942787_2249" value="\n" typeURI="sdo:/java.lang#String" baseTypeURI="sdo:/java.lang#String"/>
+        <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="fileContentEncoding" id="1395610942787_2250" value="" typeURI="sdo:/java.lang#String" baseTypeURI="sdo:/java.lang#String"/>
+        <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="createFileIfNotExists" id="1395610942788_2251" value="false" typeURI="sdo:/java.lang#Boolean" baseTypeURI="sdo:/java.lang#Boolean"/>
+        <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueStructure" name="Content" id="1395610942788_2252" value="" typeURI="sdo:/http://www.ibm.com/xmlns/prod/websphere/j2ca/base/unstructuredcontent#UnstructuredContent" baseTypeURI="sdo:/http://www.ibm.com/xmlns/prod/websphere/j2ca/base/unstructuredcontent#UnstructuredContent">
+          <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="AsText" id="1395610942788_2253" value="" typeURI="sdo:/java.lang#String" baseTypeURI="sdo:/java.lang#String"/>
+          <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="ObjectName" id="1395610942788_2254" value="" typeURI="sdo:/java.lang#String" baseTypeURI="sdo:/java.lang#String"/>
+          <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueArray" name="AsBinary" id="1395610942788_2255" typeURI="sdo:/#byte[]" baseTypeURI="sdo:/#byte[]" elementTypeURI="sdo:/#byte" elementBaseTypeURI="sdo:/#byte">
+            <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="AsBinary[0]" id="1395610942788_2256" value="0" typeURI="sdo:/#byte" baseTypeURI="sdo:/#byte"/>
+          </elements>
+          <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="ContentType" id="1395610942789_2257" value="" typeURI="sdo:/java.lang#String" baseTypeURI="sdo:/java.lang#String"/>
+        </elements>
+        <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="fileName" id="1395610942789_2258" value="viajes.txt" typeURI="sdo:/java.lang#String" baseTypeURI="sdo:/java.lang#String"/>
+        <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="chunkNumber" id="1395610942789_2259" value="" typeURI="sdo:/java.lang#String" baseTypeURI="sdo:/java.lang#String"/>
+        <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="deleteOnRetrieve" id="1395610942789_2260" value="false" typeURI="sdo:/java.lang#Boolean" baseTypeURI="sdo:/java.lang#Boolean"/>
+        <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="includeEndBODelimiter" id="1395610942789_2261" value="" typeURI="sdo:/java.lang#String" baseTypeURI="sdo:/java.lang#String"/>
+      </parameters>
+    </request>
+  </com.ibm.wbit.comptest.common.tc.models.event:ComponentInvocationEvent>
+  <com.ibm.wbit.comptest.common.tc.models.event:InvocationResponseEvent id="1395610943135_2262" readOnly="true" clientID="1395610897676_2650" parentID="1395610942767_2220" timestamp="1395610943135" testScopeID="1395610897676_2652" module="BolivarianoModule" component="BolivarianoTravelsFileAdapter" interface="BolivarianoTravelsIF" operation="retrieveTravels">
+    <response id="1395610943135_2263">
+      <parameters xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueStructure" name="retrieveTravelsOutput" id="1395610943135_2264" value="" typeURI="sdo:/http://BolivarianoModule/com/touresbalon/bo/transportbolivarianoretrievewrapperbg#TransportBolivarianoRetrieveWrapperBG" baseTypeURI="sdo:/http://BolivarianoModule/com/touresbalon/bo/transportbolivarianoretrievewrapperbg#TransportBolivarianoRetrieveWrapperBG">
+        <context>
+          <properties name="project_context" value="BolivarianoModule"/>
+        </context>
+        <properties name="sdoxml" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;retrieveTravelsOutput xsi:type=&quot;tr:TransportBolivarianoRetrieveWrapperBG&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:ecore=&quot;http://www.eclipse.org/emf/2002/Ecore&quot; xmlns:tr=&quot;http://BolivarianoModule/com/touresbalon/bo/transportbolivarianoretrievewrapperbg&quot;>&#xD;&#xA;  &lt;changeSummary/>&#xD;&#xA;  &lt;properties>&#xD;&#xA;    &lt;ISgenerateUniqueFile xsi:type=&quot;ecore:EBoolean&quot;>false&lt;/ISgenerateUniqueFile>&#xD;&#xA;    &lt;ISfunctionName xsi:type=&quot;ecore:EString&quot;>Retrieve&lt;/ISfunctionName>&#xD;&#xA;    &lt;ISdeleteOnRetrieve xsi:type=&quot;ecore:EBoolean&quot;>false&lt;/ISdeleteOnRetrieve>&#xD;&#xA;    &lt;ISfileContentEncoding xsi:type=&quot;ecore:EString&quot;>UTF-8&lt;/ISfileContentEncoding>&#xD;&#xA;    &lt;IScreateFileIfNotExists xsi:type=&quot;ecore:EBoolean&quot;>false&lt;/IScreateFileIfNotExists>&#xD;&#xA;    &lt;ISmaxRecords xsi:type=&quot;ecore:EInt&quot;>100&lt;/ISmaxRecords>&#xD;&#xA;  &lt;/properties>&#xD;&#xA;  &lt;TransportBolivarianoRetrieveWrapper>&#xD;&#xA;    &lt;Content>&#xD;&#xA;      &lt;numViaje>1&lt;/numViaje>&#xD;&#xA;      &lt;ciudadOrigen>BOGOTA&lt;/ciudadOrigen>&#xD;&#xA;      &lt;ciudadDestino>SANTANDER&lt;/ciudadDestino>&#xD;&#xA;      &lt;numSilla>25&lt;/numSilla>&#xD;&#xA;      &lt;horaSalida>1530&lt;/horaSalida>&#xD;&#xA;    &lt;/Content>&#xD;&#xA;    &lt;Content>&#xD;&#xA;      &lt;numViaje>2&lt;/numViaje>&#xD;&#xA;      &lt;ciudadOrigen>BOGOTA&lt;/ciudadOrigen>&#xD;&#xA;      &lt;ciudadDestino>NEIVA&lt;/ciudadDestino>&#xD;&#xA;      &lt;numSilla>27&lt;/numSilla>&#xD;&#xA;      &lt;horaSalida>1530&lt;/horaSalida>&#xD;&#xA;    &lt;/Content>&#xD;&#xA;  &lt;/TransportBolivarianoRetrieveWrapper>&#xD;&#xA;&lt;/retrieveTravelsOutput>&#xD;&#xA;"/>
+        <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueStructure" name="TransportBolivarianoRetrieveWrapper" id="1395610943136_2265" value="" typeURI="sdo:/http://BolivarianoModule/com/touresbalon/bo/transportbolivarianoretrievewrapper#TransportBolivarianoRetrieveWrapper" baseTypeURI="sdo:/http://BolivarianoModule/com/touresbalon/bo/transportbolivarianoretrievewrapper#TransportBolivarianoRetrieveWrapper">
+          <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueSequence" name="Content" id="1395610943136_2266" value="" typeURI="sdo:/http://BolivarianoModule/com/touresbalon/bo#TransportBolivariano[]" baseTypeURI="sdo:/http://BolivarianoModule/com/touresbalon/bo#TransportBolivariano[]" elementTypeURI="sdo:/http://BolivarianoModule/com/touresbalon/bo#TransportBolivariano" elementBaseTypeURI="sdo:/http://BolivarianoModule/com/touresbalon/bo#TransportBolivariano">
+            <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueStructure" name="Content[0]" id="1395610943136_2267" value="" typeURI="sdo:/http://BolivarianoModule/com/touresbalon/bo#TransportBolivariano" baseTypeURI="sdo:/http://BolivarianoModule/com/touresbalon/bo#TransportBolivariano">
+              <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="numSilla" id="1395610943136_2268" value="25" typeURI="sdo:/#int" baseTypeURI="sdo:/#int"/>
+              <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="numViaje" id="1395610943137_2269" value="1" typeURI="sdo:/#int" baseTypeURI="sdo:/#int"/>
+              <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="ciudadDestino" id="1395610943137_2270" value="SANTANDER" typeURI="sdo:/java.lang#String" baseTypeURI="sdo:/java.lang#String"/>
+              <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="horaSalida" id="1395610943137_2271" value="1530" typeURI="sdo:/java.lang#String" baseTypeURI="sdo:/java.lang#String"/>
+              <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="ciudadOrigen" id="1395610943137_2272" value="BOGOTA" typeURI="sdo:/java.lang#String" baseTypeURI="sdo:/java.lang#String"/>
+            </elements>
+            <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueStructure" name="Content[1]" id="1395610943137_2273" value="" typeURI="sdo:/http://BolivarianoModule/com/touresbalon/bo#TransportBolivariano" baseTypeURI="sdo:/http://BolivarianoModule/com/touresbalon/bo#TransportBolivariano">
+              <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="numSilla" id="1395610943138_2274" value="27" typeURI="sdo:/#int" baseTypeURI="sdo:/#int"/>
+              <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="numViaje" id="1395610943138_2275" value="2" typeURI="sdo:/#int" baseTypeURI="sdo:/#int"/>
+              <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="ciudadDestino" id="1395610943138_2276" value="NEIVA" typeURI="sdo:/java.lang#String" baseTypeURI="sdo:/java.lang#String"/>
+              <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="horaSalida" id="1395610943138_2277" value="1530" typeURI="sdo:/java.lang#String" baseTypeURI="sdo:/java.lang#String"/>
+              <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="ciudadOrigen" id="1395610943138_2278" value="BOGOTA" typeURI="sdo:/java.lang#String" baseTypeURI="sdo:/java.lang#String"/>
+            </elements>
+          </elements>
+        </elements>
+        <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="verb" id="1395610943139_2279" set="false" value="" typeURI="sdo:/java.lang#String" baseTypeURI="sdo:/java.lang#String"/>
+      </parameters>
+    </response>
+  </com.ibm.wbit.comptest.common.tc.models.event:InvocationResponseEvent>
+  <com.ibm.wbit.comptest.common.tc.models.event:EndEvent id="1395610943140_2281" clientID="1395610897676_2650" parentID="1395610897687_2657" timestamp="1395610943140"/>
+</xmi:XMI>

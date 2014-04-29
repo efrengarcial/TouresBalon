@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="InsuranceSelectionBPELProcess" targetNamespace="http://Example1/InsuranceSelectionProcess/InsuranceSelectionBPELProcessArtifacts" xmlns:ns="http://Example1/InsuranceSelectionPT" xmlns:ns0="http://Example1/ComputeInsurancePremiumPT" xmlns:plnk="http://schemas.xmlsoap.org/ws/2004/03/partner-link/" xmlns:tns="http://Example1/InsuranceSelectionProcess/InsuranceSelectionBPELProcessArtifacts" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl0="http://Example1/InsuranceSelectionProcess/InsuranceSelectionBPELProcessInterface" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <plnk:partnerLinkType name="InsuranceSelectionPTPLT">
+    <plnk:role name="Interface">
+      <plnk:portType name="ns:InsuranceSelectionPT"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="ComputeInsurancePremiumPTPLT">
+    <plnk:role name="Reference">
+      <plnk:portType name="ns0:ComputeInsurancePremiumPT"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="ComputeInsurancePremiumPT1PLT">
+    <plnk:role name="Reference">
+      <plnk:portType name="ns0:ComputeInsurancePremiumPT"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <wsdl:import location="../InsuranceSelectionPT.wsdl" namespace="http://Example1/InsuranceSelectionPT"/>
+    <wsdl:import location="../ComputeInsurancePremiumPT.wsdl" namespace="http://Example1/ComputeInsurancePremiumPT"/>
+</wsdl:definitions>

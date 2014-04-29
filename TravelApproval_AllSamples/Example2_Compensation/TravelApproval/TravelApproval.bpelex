@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.ibm.wbit.bpel.ui.uiextensionmodel="http:///com/ibm/wbit/bpel/ui/uiextensionmodel.ecore" xmlns:extensionmodel="http:///extensionmodel.ecore" xmlns:sb="http://com.ibm.wbit.stickyboard.model/model/StickyBoard.xsd">
+  <extensionmodel:ExtensionMap namespace="http://com.ibm.wbit.bpel.ui/">
+    <extensions>
+      <extendedObject href="TravelApproval.bpel#/"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ProcessExtension" modificationStamp="1273089937774" autoLayout="true" maxWpcId="63" minWpcId="0"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="TravelApproval.bpel#//@activity"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648" implicit="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="TravelApproval.bpel#//@variables/@children.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="TravelApproval.bpel#//@variables/@children.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="TravelApproval.bpel#//@activity/@activities.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="TravelApproval.bpel#//@activity/@activities.5"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="TravelApproval.bpel#//@activity/@activities.1/@activity/@activities.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="TravelApproval.bpel#//@activity/@activities.1/@activity/@activities.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="TravelApproval.bpel#//@variables/@children.2"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="TravelApproval.bpel#//@variables/@children.3"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="TravelApproval.bpel#//@activity/@activities.2/@activity/@activities.1/@activities.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="1" width="-1" height="-1"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="TravelApproval.bpel#//@activity/@activities.2/@activity/@activities.1/@activities.2"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="184" width="-1" height="-1"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="TravelApproval.bpel#//@activity/@activities.2/@activity/@activities.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="TravelApproval.bpel#//@activity/@activities.2/@activity/@activities.0/@copy.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="TravelApproval.bpel#//@activity/@activities.2/@activity/@activities.1/@activities.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="14" y="45" width="-1" height="-1"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="TravelApproval.bpel#//@activity/@activities.2/@activity/@activities.1/@activities.3"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="189" y="45" width="-1" height="-1"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="TravelApproval.bpel#//@variables/@children.4"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="TravelApproval.bpel#//@variables/@children.5"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="TravelApproval.bpel#//@activity/@activities.1/@activity/@activities.0/@copy.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="TravelApproval.bpel#//@activity/@activities.2/@activity/@activities.0/@copy.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="TravelApproval.bpel#//@variables/@children.6"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="TravelApproval.bpel#//@activity/@activities.3/@activity/@activities.0/@cases.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CaseExtension" displayName="DeltaAirline"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="TravelApproval.bpel#//@activity/@activities.3/@activity/@activities.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="TravelApproval.bpel#//@activity/@activities.3/@activity/@activities.0/@cases.0/@condition"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ExpressionExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="TravelApproval.bpel#//@activity/@activities.3/@activity/@activities.0/@cases.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CaseExtension" displayName="AmericanAirline"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="TravelApproval.bpel#//@activity/@activities.3/@activity/@activities.0/@cases.1/@condition"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ExpressionExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="TravelApproval.bpel#//@activity/@activities.3/@activity/@activities.0/@cases.1/@activity"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="TravelApproval.bpel#//@activity/@activities.3/@activity/@activities.0/@cases.0/@activity"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="TravelApproval.bpel#//@activity/@activities.3/@activity/@activities.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="TravelApproval.bpel#//@activity/@activities.2/@activity/@activities.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648" width="-1" height="-1"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="TravelApproval.bpel#//@activity/@activities.2/@activity/@activities.1/@links/@children.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:LinkExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="TravelApproval.bpel#//@activity/@activities.2/@activity/@activities.1/@links/@children.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:LinkExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="TravelApproval.bpel#//@activity/@activities.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="TravelApproval.bpel#//@activity/@activities.1/@activity"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648" implicit="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="TravelApproval.bpel#//@activity/@activities.2"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="TravelApproval.bpel#//@activity/@activities.2/@activity"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648" implicit="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="TravelApproval.bpel#//@activity/@activities.3"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="TravelApproval.bpel#//@activity/@activities.3/@activity"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648" implicit="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="TravelApproval.bpel#//@faultHandlers"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:FaultHandlerExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="TravelApproval.bpel#//@activity/@activities.3/@compensationHandler"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CompensationHandlerExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="TravelApproval.bpel#//@activity/@activities.3/@compensationHandler/@activity/@activities.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="TravelApproval.bpel#//@activity/@activities.3/@compensationHandler/@activity/@activities.0/@cases.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CaseExtension" displayName="DeltaAirline"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="TravelApproval.bpel#//@activity/@activities.3/@compensationHandler/@activity/@activities.0/@cases.0/@activity"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="TravelApproval.bpel#//@activity/@activities.3/@compensationHandler/@activity/@activities.0/@cases.0/@condition"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ExpressionExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="TravelApproval.bpel#//@activity/@activities.3/@compensationHandler/@activity/@activities.0/@cases.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CaseExtension" displayName="AmericanAirline"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="TravelApproval.bpel#//@activity/@activities.3/@compensationHandler/@activity/@activities.0/@cases.1/@activity"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="TravelApproval.bpel#//@activity/@activities.3/@compensationHandler/@activity/@activities.0/@cases.1/@condition"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ExpressionExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="TravelApproval.bpel#//@activity/@activities.3/@compensationHandler/@activity"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="TravelApproval.bpel#//@activity/@activities.3/@compensationHandler/@activity/@activities.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="TravelApproval.bpel#//@faultHandlers/@catchAll/@activity/@activities.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="TravelApproval.bpel#//@activity/@activities.4"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="TravelApproval.bpel#//@faultHandlers/@catchAll/@activity"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648" implicit="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="TravelApproval.bpel#//@faultHandlers/@catchAll/@activity/@activities.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+  </extensionmodel:ExtensionMap>
+  <extensionmodel:ExtensionMap namespace="http://com.ibm.wbit.stickyboard.model/model/StickyBoard.xsd">
+    <extensions>
+      <extendedObject href="TravelApproval.bpel#/"/>
+      <extensionObject xsi:type="sb:StickyDocument">
+        <stickyBoard id="default"/>
+      </extensionObject>
+    </extensions>
+  </extensionmodel:ExtensionMap>
+</xmi:XMI>

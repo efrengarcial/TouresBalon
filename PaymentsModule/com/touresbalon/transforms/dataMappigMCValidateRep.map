@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://PaymentsModule/com/touresbalon/transforms/dataMappigMCValidateRep" version="7.0.500" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://PaymentsModule/com/touresbalon/transforms/dataMappigMCValidateRep">
+    <input path="smo://smo/name%3Dwsdl-primary/message%3D%257Bhttp%253A%252F%252FPaymentsModuleLib%252Fcom%252Ftouresbalon%252Finterfaces%252FPaymentServiceIF%257DvalidateCardRequestMsg/xpath%3D%252Fbody/smo.xsd"/>
+    <output path="smo://smo/name%3Dwsdl-primary/message%3D%257Bhttp%253A%252F%252Fcom.mastercard.com%252Fservices%257DValidateSoapIn/xpath%3D%252Fbody/smo.xsd"/>
+    <mappingDeclaration name="dataMappigMCValidateRep">
+        <input path="body"/>
+        <output path="body"/>
+        <move>
+            <input path="validateCard/request/number"/>
+            <output path="Validate/creditCard/Number"/>
+        </move>
+        <convert>
+            <input path="validateCard/request/expiration"/>
+            <output path="Validate/creditCard/Expiration"/>
+        </convert>
+        <move>
+            <input path="validateCard/request/holderFirstName"/>
+            <output path="Validate/creditCard/HolderFirstName"/>
+        </move>
+        <move>
+            <input path="validateCard/request/holderLastName"/>
+            <output path="Validate/creditCard/HolderLastName"/>
+        </move>
+        <move>
+            <input path="validateCard/request/emailAddress"/>
+            <output path="Validate/creditCard/EmailAddress"/>
+        </move>
+        <move>
+            <input path="validateCard/request/cardSecurityCode"/>
+            <output path="Validate/creditCard/CardSecurityCode"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

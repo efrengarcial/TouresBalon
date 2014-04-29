@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:bons0="http://CustomersLib" xmlns:tns="http://Customers/GetCustomers" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="GetCustomers" targetNamespace="http://Customers/GetCustomers">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://Customers/GetCustomers" xmlns:bons0="http://CustomersLib" xmlns:tns="http://Customers/GetCustomers" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://CustomersLib" schemaLocation="CustomerType.xsd"/>
+            <xsd:import namespace="http://CustomersLib" schemaLocation="Customers.xsd"/>
+      <xsd:element name="getCustomers">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="type" nillable="true" type="bons0:CustomerType"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getCustomersResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="customers" nillable="true" type="bons0:Customers"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+        </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="getCustomersRequestMsg">
+    <wsdl:part element="tns:getCustomers" name="getCustomersParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getCustomersResponseMsg">
+    <wsdl:part element="tns:getCustomersResponse" name="getCustomersResult"/>
+  </wsdl:message>
+    <wsdl:portType name="GetCustomers">
+    <wsdl:operation name="getCustomers">
+      <wsdl:input message="tns:getCustomersRequestMsg" name="getCustomersRequest"/>
+      <wsdl:output message="tns:getCustomersResponseMsg" name="getCustomersResponse"/>
+    </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://packtpub.com/service/employee/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:simpleType name="TravelClassType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Economy"></xsd:enumeration>
+			<xsd:enumeration value="Business"></xsd:enumeration>
+			<xsd:enumeration value="First"></xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

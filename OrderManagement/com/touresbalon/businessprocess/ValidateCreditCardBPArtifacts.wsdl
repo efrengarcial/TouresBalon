@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="ValidateCreditCardBP" targetNamespace="http://OrderManagement/com/touresbalon/businessprocess/ValidateCreditCardBPArtifacts" xmlns:plnk="http://schemas.xmlsoap.org/ws/2004/03/partner-link/" xmlns:tns="http://OrderManagement/com/touresbalon/businessprocess/ValidateCreditCardBPArtifacts" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl0="http://OrderManagement/com/touresbalon/businessprocess/OrderProcessingInterface" xmlns:wsdl1="http://OrderManagementLib/com/touresbalon/interfaces/OrderManagementIF" xmlns:wsdl2="http://PaymentsModuleLib/com/touresbalon/interfaces/PaymentServiceIF" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <plnk:partnerLinkType name="OrderProcessingIFPLT">
+    <plnk:role name="Interface">
+      <plnk:portType name="wsdl0:OrderProcessingIF"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="OrderManagementIFPLT">
+    <plnk:role name="Interface">
+      <plnk:portType name="wsdl1:OrderManagementIF"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="PaymentServiceIFPLT">
+    <plnk:role name="Interface">
+      <plnk:portType name="wsdl2:PaymentServiceIF"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <wsdl:import location="../interfaces/CancelOrderProcessingIF.wsdl" namespace="http://OrderManagement/com/touresbalon/businessprocess/OrderProcessingInterface"/>
+    <wsdl:import location="../interfaces/OrderManagementIF.wsdl" namespace="http://OrderManagementLib/com/touresbalon/interfaces/OrderManagementIF"/>
+    <wsdl:import location="../interfaces/PaymentServiceIF.wsdl" namespace="http://PaymentsModuleLib/com/touresbalon/interfaces/PaymentServiceIF"/>
+</wsdl:definitions>

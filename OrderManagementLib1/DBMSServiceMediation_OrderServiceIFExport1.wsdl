@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="OrderServiceIFExport1_OrderServiceIFHttp_Service" targetNamespace="http://OrderManagementLib/OrderServiceIF/Binding" xmlns:Port_0="http://OrderManagementLib/OrderServiceIF" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:this="http://OrderManagementLib/OrderServiceIF/Binding" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import location="OrderServiceIF.wsdl" namespace="http://OrderManagementLib/OrderServiceIF"/>
+  <wsdl:binding name="OrderServiceIFExport1_OrderServiceIFHttpBinding" type="Port_0:OrderServiceIF">
+    <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="createOrder">
+      <soap12:operation soapAction="http://OrderManagementLib/OrderServiceIF/OrderServiceIF/createOrder"/>
+      <wsdl:input name="createOrderRequest">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="createOrderResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateOrder">
+      <soap12:operation soapAction="http://OrderManagementLib/OrderServiceIF/OrderServiceIF/updateOrder"/>
+      <wsdl:input name="updateOrderRequest">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateOrderResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="OrderServiceIFExport1_OrderServiceIFHttpService">
+    <wsdl:port binding="this:OrderServiceIFExport1_OrderServiceIFHttpBinding" name="OrderServiceIFExport1_OrderServiceIFHttpPort">
+      <soap12:address location="http://localhost:9081/DBMSServiceMediationWeb/sca/OrderServiceIFExport1"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

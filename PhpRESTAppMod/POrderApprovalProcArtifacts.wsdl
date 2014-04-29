@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:plnk="http://schemas.xmlsoap.org/ws/2004/03/partner-link/" xmlns:tns="http://PhpRESPAppMod/POrderApprovalProcArtifacts" xmlns:wsdl0="http://PhpRESTAppLib/POrderProcIF" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="POrderApprovalProc" targetNamespace="http://PhpRESPAppMod/POrderApprovalProcArtifacts">
+  <plnk:partnerLinkType name="POrderProcIFPLT">
+    <plnk:role name="Interface">
+      <plnk:portType name="wsdl0:POrderProcIF"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+  <wsdl:import location="POrderProcIF.wsdl" namespace="http://PhpRESTAppLib/POrderProcIF"/>
+</wsdl:definitions>

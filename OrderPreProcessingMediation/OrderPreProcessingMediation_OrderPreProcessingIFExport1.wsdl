@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="OrderPreProcessingIFExport1_OrderPreProcessingIFHttp_Service" targetNamespace="http://OrderPreProcessingMediation/OrderPreProcessingIF/Binding" xmlns:Port_0="http://OrderPreProcessingMediation/OrderPreProcessingIF" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:this="http://OrderPreProcessingMediation/OrderPreProcessingIF/Binding" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import location="OrderPreProcessingIF.wsdl" namespace="http://OrderPreProcessingMediation/OrderPreProcessingIF"/>
+  <wsdl:binding name="OrderPreProcessingIFExport1_OrderPreProcessingIFHttpBinding" type="Port_0:OrderPreProcessingIF">
+    <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="createOrder">
+      <soap12:operation soapAction="http://OrderPreProcessingMediation/OrderPreProcessingIF/OrderPreProcessingIF/createOrder"/>
+      <wsdl:input name="createOrderRequest">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="OrderPreProcessingIFExport1_OrderPreProcessingIFHttpService">
+    <wsdl:port binding="this:OrderPreProcessingIFExport1_OrderPreProcessingIFHttpBinding" name="OrderPreProcessingIFExport1_OrderPreProcessingIFHttpPort">
+      <soap12:address location="http://localhost:9081/OrderPreProcessingMediationWeb/sca/OrderPreProcessingIFExport1"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

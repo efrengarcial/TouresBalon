@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://PhpRESTAppLib">
+	<xsd:complexType name="ConfirmationType">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="success"
+				type="xsd:boolean">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="reason"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="reference"
+				type="xsd:int">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

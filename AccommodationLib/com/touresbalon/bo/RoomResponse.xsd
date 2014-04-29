@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://AccommodationLib/com/touresbalon/bo"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:complexType name="RoomResponse">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" maxOccurs="1" name="hotelID"
+				nillable="true" type="xsd:int"><xsd:annotation></xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" maxOccurs="1" name="roomNumber"
+				nillable="true" type="xsd:int"><xsd:annotation></xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" maxOccurs="1" name="name"
+				nillable="true" type="xsd:string"><xsd:annotation></xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" maxOccurs="1" name="address"
+				nillable="true" type="xsd:string"><xsd:annotation></xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" maxOccurs="1" name="city"
+				nillable="true" type="xsd:string"><xsd:annotation></xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" maxOccurs="1" name="country"
+				nillable="true" type="xsd:string"><xsd:annotation></xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" maxOccurs="1" name="type"
+				nillable="true" type="xsd:string"><xsd:annotation></xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" maxOccurs="1" name="price"
+				nillable="true" type="xsd:double"><xsd:annotation></xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" maxOccurs="1" name="checkInDate"
+				nillable="true" type="xsd:date"><xsd:annotation></xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" maxOccurs="1" name="checkOutDate"
+				nillable="true" type="xsd:date"><xsd:annotation></xsd:annotation>
+			</xsd:element>
+
+
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

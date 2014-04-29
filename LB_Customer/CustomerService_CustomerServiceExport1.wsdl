@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="CustomerServiceExport1_CustomerServiceHttp_Service" targetNamespace="http://LB_Customer/CustomerService/Binding" xmlns:Port_0="http://LB_Customer/CustomerService" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:this="http://LB_Customer/CustomerService/Binding" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import location="CustomerService.wsdl" namespace="http://LB_Customer/CustomerService"/>
+  <wsdl:binding name="CustomerServiceExport1_CustomerServiceHttpBinding" type="Port_0:CustomerService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="addCostumer">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="addCostumerRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CustomerServiceExport1_CustomerServiceHttpService">
+    <wsdl:port binding="this:CustomerServiceExport1_CustomerServiceHttpBinding" name="CustomerServiceExport1_CustomerServiceHttpPort">
+      <soap:address location="http://localhost:9080/CustomerServiceWeb/sca/CustomerServiceExport1"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

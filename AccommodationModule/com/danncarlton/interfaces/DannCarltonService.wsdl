@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="JDBCImport" targetNamespace="http://AccommodationModule/JDBCImport" xmlns:bons1="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/danncarltonavailabilitybg" xmlns:bons2="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/danncarltonavailabilitycontainer" xmlns:bons3="http://com/ibm/j2ca/fault/afcfault" xmlns:tns="http://AccommodationModule/JDBCImport" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://com/ibm/j2ca/fault/afcfault">
+            <xsd:include schemaLocation="../../../MatchesExceededLimitFault.xsd"/>
+            <xsd:include schemaLocation="../../../RecordNotFoundFault.xsd"/>
+        </xsd:schema>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://AccommodationModule/JDBCImport" xmlns:bons4="http://com/ibm/j2ca/fault/afcfault">
+            <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/danncarltonavailabilitycontainer" schemaLocation="../../touresbalon/bo/DannCarltonAvailabilityContainer.xsd"/>
+            <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/danncarltonavailabilitybg" schemaLocation="../../touresbalon/bo/DannCarltonAvailabilityBG.xsd"/>
+            <xsd:import namespace="http://com/ibm/j2ca/fault/afcfault" schemaLocation="../../../RecordNotFoundFault.xsd"/>
+            <xsd:import namespace="http://com/ibm/j2ca/fault/afcfault" schemaLocation="../../../MatchesExceededLimitFault.xsd"/>
+            <xsd:import namespace="http://com/ibm/j2ca/fault/afcfault"/>
+      <xsd:element name="retrieveallDannCarltonAvailabilityBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="retrieveallDannCarltonAvailabilityBGInput" type="bons1:DannCarltonAvailabilityBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="retrieveallDannCarltonAvailabilityBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="retrieveallDannCarltonAvailabilityBGOutput" type="bons2:DannCarltonAvailabilityContainer"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="RecordNotFoundFault_element" nillable="true" type="bons4:RecordNotFoundFault"/>
+      <xsd:element name="MatchesExceededLimitFault_element" nillable="true" type="bons4:MatchesExceededLimitFault"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="retrieveallDannCarltonAvailabilityBGRequestMsg">
+    <wsdl:part element="tns:retrieveallDannCarltonAvailabilityBG" name="retrieveallDannCarltonAvailabilityBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveallDannCarltonAvailabilityBGResponseMsg">
+    <wsdl:part element="tns:retrieveallDannCarltonAvailabilityBGResponse" name="retrieveallDannCarltonAvailabilityBGResult"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveallDannCarltonAvailabilityBGRecordNotFoundFaultMsg">
+    <wsdl:part element="tns:RecordNotFoundFault_element" name="RecordNotFoundFault"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveallDannCarltonAvailabilityBGMatchesExceededLimitFaultMsg">
+    <wsdl:part element="tns:MatchesExceededLimitFault_element" name="MatchesExceededLimitFault"/>
+  </wsdl:message>
+  <wsdl:portType name="DannCarltonService">
+    <wsdl:operation name="retrieveallDannCarltonAvailabilityBG">
+      <wsdl:input message="tns:retrieveallDannCarltonAvailabilityBGRequestMsg" name="retrieveallDannCarltonAvailabilityBGRequest"/>
+      <wsdl:output message="tns:retrieveallDannCarltonAvailabilityBGResponseMsg" name="retrieveallDannCarltonAvailabilityBGResponse"/>
+      <wsdl:fault message="tns:retrieveallDannCarltonAvailabilityBGRecordNotFoundFaultMsg" name="RECORD_NOT_FOUND"/>
+      <wsdl:fault message="tns:retrieveallDannCarltonAvailabilityBGMatchesExceededLimitFaultMsg" name="MATCHES_EXCEEDED_LIMIT"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

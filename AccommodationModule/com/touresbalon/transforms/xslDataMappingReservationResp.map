@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://AccommodationModule/com/touresbalon/transforms/xslDataMappingReservationResp" version="7.0.500" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://AccommodationModule/com/touresbalon/transforms/xslDataMappingReservationResp">
+    <input path="smo://smo/name%3Dwsdl-primary/message%3D%257Bhttp%253A%252F%252FAccommodationModule%252FDannCarltonReservations%257DcreateDboTouresbalon_ReservationsBGResponseMsg/xpath%3D%252Fbody/smo.xsd"/>
+    <output path="smo://smo/name%3Dwsdl-primary/message%3D%257Bhttp%253A%252F%252FAccommodationLib%252Fcom%252Ftouresbalon%252Finterfaces%252FAccommodationServiceIF%257DmakeReservationResponseMsg/xpath%3D%252Fbody/smo.xsd"/>
+    <mappingDeclaration name="xslDataMappingReservationResp">
+        <input path="body"/>
+        <output path="body"/>
+        <assign value="OK">
+            <output path="makeReservationResponse/response/RC"/>
+        </assign>
+    </mappingDeclaration>
+</mappingRoot>

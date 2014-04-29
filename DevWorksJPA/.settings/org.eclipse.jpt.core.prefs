@@ -1,0 +1,4 @@
+#Sat Feb 12 21:53:12 GMT-05:00 2011
+org.eclipse.jpt.core.discoverAnnotatedClasses=false
+eclipse.preferences.version=1
+org.eclipse.jpt.core.platform=generic

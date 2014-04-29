@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="BProcess" targetNamespace="http://OrderManagement/BProcessArtifacts" xmlns:plnk="http://schemas.xmlsoap.org/ws/2004/03/partner-link/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl0="http://OrderManagement/BProcessInterface">
+  <plnk:partnerLinkType name="BProcessPLT">
+    <plnk:role name="Interface">
+      <plnk:portType name="wsdl0:BProcess"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <wsdl:import location="BProcess.wsdl" namespace="http://OrderManagement/BProcessInterface"/>
+</wsdl:definitions>

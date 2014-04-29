@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/flatfile/transporteretrievewrapper" xmlns:transporteretrievewrapper="http://www.ibm.com/xmlns/prod/websphere/j2ca/flatfile/transporteretrievewrapper" xmlns:transporte="http://Bolivariano">
+<xsd:import namespace="http://Bolivariano" schemaLocation="Transporte.xsd"/>
+<xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/datatransformation/databindingmapping" schemaLocation="FlatFileASI.xsd"/>
+
+<xsd:annotation xml:space="preserve">
+<xsd:appinfo source="http://www.ibm.com/xmlns/prod/j2ca/versionCompatability">
+<info:resourceAdapter xmlns:info="http://www.ibm.com/xmlns/prod/j2ca/versionCompatability" version="7.0.0.0"/>
+</xsd:appinfo>
+</xsd:annotation>
+
+<xsd:annotation xml:space="preserve">
+<xsd:appinfo source="commonj.connector.asi">
+<asi:annotationSet xmlns:asi="commonj.connector.asi" asiNSURI=""/>
+</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType name="TransporteRetrieveWrapper">
+<xsd:sequence minOccurs="1" maxOccurs="1">
+<xsd:element name="Content" type="transporte:Transporte" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xsd:sequence>
+</xsd:complexType>
+
+</xsd:schema>

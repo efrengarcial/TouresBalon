@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="DeltaAirlines" targetNamespace="http://Example2/DeltaAirlines/DeltaAirlinesArtifacts" xmlns:ns="http://packtpub.com/service/deltaairline/" xmlns:plnk="http://schemas.xmlsoap.org/ws/2004/03/partner-link/" xmlns:tns="http://Example2/DeltaAirlines/DeltaAirlinesArtifacts" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl0="http://packtpub.com/service/airline/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <plnk:partnerLinkType name="FlightReservationPTPLT">
+    <plnk:role name="Interface">
+      <plnk:portType name="wsdl0:FlightReservationPT"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+  <plnk:partnerLinkType name="FlightAvailabilityPTPLT">
+    <plnk:role name="Interface">
+      <plnk:portType name="wsdl0:FlightAvailabilityPT"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+  <plnk:partnerLinkType name="FlightReservationCallbackPTPLT">
+    <plnk:role name="Interface">
+      <plnk:portType name="wsdl0:FlightReservationCallbackPT"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+  <plnk:partnerLinkType name="FlightCallbackPTPLT">
+    <plnk:role name="Interface">
+      <plnk:portType name="ns:FlightCallbackDAPT"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <wsdl:import location="../FlightReservationPT.wsdl" namespace="http://packtpub.com/service/airline/"/>
+    <wsdl:import location="../FlightAvailabilityPT.wsdl" namespace="http://packtpub.com/service/airline/"/>
+    <wsdl:import location="../FlightReservationCallbackPT.wsdl" namespace="http://packtpub.com/service/airline/"/>
+    <wsdl:import location="../FlightCallbackDAPT.wsdl" namespace="http://packtpub.com/service/deltaairline/"/>
+</wsdl:definitions>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.ibm.wbit.bpel.ui.uiextensionmodel="http:///com/ibm/wbit/bpel/ui/uiextensionmodel.ecore" xmlns:extensionmodel="http:///extensionmodel.ecore" xmlns:sb="http://com.ibm.wbit.stickyboard.model/model/StickyBoard.xsd">
+  <extensionmodel:ExtensionMap namespace="http://com.ibm.wbit.bpel.ui/">
+    <extensions>
+      <extendedObject href="POrderApprovalProc.bpel#/"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ProcessExtension" modificationStamp="1223939650140"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="POrderApprovalProc.bpel#//@activity"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" implicit="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="POrderApprovalProc.bpel#//@variables/@children.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="POrderApprovalProc.bpel#//@activity/@activities.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="POrderApprovalProc.bpel#//@activity/@activities.1/@eExtensibilityElements.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="POrderApprovalProc.bpel#//@activity/@activities.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="POrderApprovalProc.bpel#//@activity/@activities.2"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="POrderApprovalProc.bpel#//@activity/@activities.4/@cases.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CaseExtension" displayName="Yes"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="POrderApprovalProc.bpel#//@activity/@activities.4"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="POrderApprovalProc.bpel#//@activity/@activities.4/@cases.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CaseExtension" displayName="No"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="POrderApprovalProc.bpel#//@activity/@activities.4/@cases.0/@activity/@eExtensibilityElements.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="POrderApprovalProc.bpel#//@activity/@activities.4/@cases.0/@activity"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="POrderApprovalProc.bpel#//@activity/@activities.4/@cases.1/@activity/@eExtensibilityElements.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="POrderApprovalProc.bpel#//@activity/@activities.4/@cases.1/@activity"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="POrderApprovalProc.bpel#//@variables/@children.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="POrderApprovalProc.bpel#//@activity/@activities.5/@eExtensibilityElements.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="POrderApprovalProc.bpel#//@activity/@activities.5"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="POrderApprovalProc.bpel#//@activity/@activities.4/@cases.0/@condition"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ExpressionExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="POrderApprovalProc.bpel#//@activity/@activities.4/@cases.1/@condition"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ExpressionExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="POrderApprovalProc.bpel#//@activity/@activities.3/@eExtensibilityElements.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="POrderApprovalProc.bpel#//@activity/@activities.3"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension"/>
+    </extensions>
+  </extensionmodel:ExtensionMap>
+  <extensionmodel:ExtensionMap namespace="http://com.ibm.wbit.stickyboard.model/model/StickyBoard.xsd">
+    <extensions>
+      <extendedObject href="POrderApprovalProc.bpel#/"/>
+      <extensionObject xsi:type="sb:StickyDocument">
+        <stickyBoard id="default">
+          <stickyNote body="The human task that will be&#xA;interacted with via the REST&#xA;api.&#xA;&#xA;We will retrieve all the outstanding&#xA;tasks, and then claim and complete&#xA;them using PHP and the REST api.">
+            <bounds x="265" y="101"/>
+            <association>
+              <target href="POrderApprovalProc.bpel#//@activity/@activities.2"/>
+            </association>
+          </stickyNote>
+          <stickyNote body="You can look at the console output to determine if the&#xA;application is functioning as it should.&#xA;&#xA;You will see the following output in the console;&#xA;&#xA;Received a Purchase Order Approval request...&#xA;At the top of the WHILE loop...&#xA;Purchase Order Approval request was approved...&#xA;Purchase Order Approval Process ended...">
+            <bounds x="865" y="104"/>
+            <association>
+              <target href="POrderApprovalProc.bpel#//@activity/@activities.1"/>
+            </association>
+          </stickyNote>
+        </stickyBoard>
+      </extensionObject>
+    </extensions>
+  </extensionmodel:ExtensionMap>
+</xmi:XMI>

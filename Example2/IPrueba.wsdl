@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="IPrueba" targetNamespace="http://Example2/IPrueba" xmlns:tns="http://Example2/IPrueba" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:portType name="IPrueba"/>
+</wsdl:definitions>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:export xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Binding3="http://GreetingLibrary/com/junglesea/solution/greeting/interfaces/HandleGreetingMessage/Binding3" xmlns:jaxws="http://www.ibm.com/xmlns/prod/websphere/scdl/jaxws/6.0.0" xmlns:ns1="http://GreetingLibrary/com/junglesea/solution/greeting/interfaces/HandleGreetingMessage" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="HandleGreetingMessageExport1" name="HandleGreetingMessageExport1" target="GreetingsFlow">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" preferredInteractionStyle="sync" portType="ns1:HandleGreetingMessage"/>
+  </interfaces>
+  <esbBinding xsi:type="jaxws:JaxWsExportBinding" port="Binding3:HandleGreetingMessageExport1_HandleGreetingMessageHttpPort" service="Binding3:HandleGreetingMessageExport1_HandleGreetingMessageHttpService"/>
+</scdl:export>

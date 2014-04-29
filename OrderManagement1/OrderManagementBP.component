@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns1="http://OrderManagementLib/OrderManagementIF" xmlns:ns2="http://OrderManagementLib/CustomerServiceIF" xmlns:ns3="http://OrderManagementLib/ItemServiceIF" xmlns:ns4="http://OrderManagementLib/OrderServiceIF" xmlns:ns5="http://OrderManagement/FinancialOfficeBRIF" xmlns:ns6="http://OrderManagement/WarehouseOfficeBRIF" xmlns:ns7="http://OrderManagementLib/WarehouseItemSplitIF" xmlns:ns8="http://OrderManagementLib/EmailServiceIF" xmlns:process="http://www.ibm.com/xmlns/prod/websphere/scdl/business-process/6.0.0" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="OrderManagementBP" name="OrderManagementBP">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" preferredInteractionStyle="async" portType="ns1:OrderManagementIF">
+      <scdl:interfaceQualifier xsi:type="scdl:JoinTransaction" value="false"/>
+    </interface>
+  </interfaces>
+  <references>
+    <reference name="CustomerServiceIF">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns2:CustomerServiceIF"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+    </reference>
+    <reference name="ItemServiceIF">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns3:ItemServiceIF"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+    </reference>
+    <reference name="OrderServiceIF">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns4:OrderServiceIF"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+    </reference>
+    <reference name="FinancialOfficeBRIF">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns5:FinancialOfficeBRIF"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <wire target="FinancialOfficeRG"/>
+    </reference>
+    <reference name="WarehouseOfficeBRIF">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns6:WarehouseOfficeBRIF"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <wire target="WarehouseOfficeRG"/>
+    </reference>
+    <reference name="WarehouseItemSplitIF">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns7:WarehouseItemSplitIF"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+    </reference>
+    <reference name="EmailServiceIF">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns8:EmailServiceIF"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <wire target="ImportEmail"/>
+    </reference>
+  </references>
+  <implementation xsi:type="process:ProcessImplementation">
+    <scdl:implementationQualifier xsi:type="scdl:Transaction" value="global"/>
+    <process bpel="/OrderManagementBP.bpel"/>
+  </implementation>
+</scdl:component>

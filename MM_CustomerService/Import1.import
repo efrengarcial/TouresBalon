@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:import xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:MM_CustomerService="http://MM_CustomerService" xmlns:configuration_6.1.0="http://www.ibm.com/xmlns/prod/websphere/j2ca/configuration/6.1.0" xmlns:http="http://www.ibm.com/xmlns/prod/websphere/scdl/http/6.1.0" xmlns:ns1="http://MM_CustomerService/UserService" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="Import1" name="Import1">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" preferredInteractionStyle="sync" portType="ns1:UserService">
+      <scdl:interfaceQualifier xsi:type="scdl:JoinTransaction" value="false"/>
+    </interface>
+  </interfaces>
+  <esbBinding xsi:type="http:HTTPImportBinding" defaultDataBindingReferenceName="configuration_6.1.0:UTF8JsonDataHandler">
+    <importInteraction endpointURL="http://localhost:8080/yourwebproject/api/user/register.json" httpMethod="POST"/>
+    <methodBinding method="register" outDataBinding="rest.RESTImportBinding">
+      <importInteraction endpointURL="http://localhost:8080/yourwebproject/api/user/register.json" httpMethod="POST">
+        <requestHeaders>
+          <header>
+            <name>pass</name>
+            <value>pegasso</value>
+          </header>
+        </requestHeaders>
+        <requestAuthentication>
+          <credentials>
+            <credentialAlias>qnode/test</credentialAlias>
+          </credentials>
+          <authenticationType>Basic</authenticationType>
+        </requestAuthentication>
+        <requestMediaType>application/json</requestMediaType>
+      </importInteraction>
+      <inputDataBinding>configuration_6.1.0:UTF8JsonDataHandler</inputDataBinding>
+    </methodBinding>
+  </esbBinding>
+</scdl:import>

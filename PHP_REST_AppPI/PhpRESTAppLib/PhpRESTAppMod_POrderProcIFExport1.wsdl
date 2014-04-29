@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="POrderProcIFExport1_POrderProcIFHttp_Service" targetNamespace="http://PhpRESTAppLib/POrderProcIF" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:this="http://PhpRESTAppLib/POrderProcIF" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import location="POrderProcIF.wsdl" namespace="http://PhpRESTAppLib/POrderProcIF"/>
+  <wsdl:binding name="POrderProcIFExport1_POrderProcIFHttpBinding" type="this:POrderProcIF">
+    <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="submitPOrder">
+      <soap12:operation soapAction="http://PhpRESTAppLib/POrderProcIF/POrderProcIF/submitPOrder"/>
+      <wsdl:input name="submitPOrderRequest">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="POrderProcIFExport1_POrderProcIFHttpService">
+    <wsdl:port binding="this:POrderProcIFExport1_POrderProcIFHttpBinding" name="POrderProcIFExport1_POrderProcIFHttpPort">
+      <soap12:address location="http://localhost:9080/PhpRESTAppModWeb/sca/POrderProcIFExport1"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

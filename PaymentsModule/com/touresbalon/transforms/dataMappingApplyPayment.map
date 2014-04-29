@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://PaymentsModule/com/touresbalon/transforms/dataMappingApplyPayment" version="7.0.500" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://PaymentsModule/com/touresbalon/transforms/dataMappingApplyPayment">
+    <input path="smo://smo/name%3Dwsdl-primary/message%3D%257Bhttp%253A%252F%252FPaymentsModuleLib%252Fcom%252Ftouresbalon%252Finterfaces%252FPaymentServiceIF%257DapplyPaymentRequestMsg/xpath%3D%252Fbody/smo.xsd"/>
+    <output path="smo://smo/name%3Dwsdl-primary/message%3D%257Bhttp%253A%252F%252Ftempuri.org%252F%257DApplyPaymentSoapIn/xpath%3D%252Fbody/smo.xsd"/>
+    <namespaces>
+        <namespace kind="extension" prefix="exsl" uri="http://exslt.org/common"/>
+    </namespaces>
+    <mappingDeclaration name="dataMappingApplyPayment">
+        <input path="body"/>
+        <output path="body"/>
+        <move>
+            <input path="applyPayment/request/number"/>
+            <output path="ApplyPayment/payment/Number"/>
+        </move>
+        <convert>
+            <input path="applyPayment/request/expiration"/>
+            <output path="ApplyPayment/payment/Expiration"/>
+        </convert>
+        <move>
+            <input path="applyPayment/request/amount" var="amount"/>
+            <output path="ApplyPayment/payment/Amount"/>
+        </move>
+        <move>
+            <input path="applyPayment/request/holderFirstName"/>
+            <output path="ApplyPayment/payment/HolderFirstName"/>
+        </move>
+        <move>
+            <input path="applyPayment/request/holderLastName"/>
+            <output path="ApplyPayment/payment/HolderLastName"/>
+        </move>
+        <move>
+            <input path="applyPayment/request/emailAddress"/>
+            <output path="ApplyPayment/payment/EmailAddress"/>
+        </move>
+        <move>
+            <input path="applyPayment/request/cardSecurityCode"/>
+            <output path="ApplyPayment/payment/CardSecurityCode"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

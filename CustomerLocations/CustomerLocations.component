@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mfc="http://www.ibm.com/xmlns/prod/websphere/scdl/mfc/6.0.0" xmlns:ns1="http://Customers/GetCustomers" xmlns:ns2="http://CustomerLocationsFeed/GetCustomerLocationsFeed" xmlns:ns3="http://CustomersLib/AddCustomer" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="CustomerLocations" name="CustomerLocations">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" portType="ns1:GetCustomers"/>
+    <interface xsi:type="wsdl:WSDLPortType" portType="ns2:GetCustomerLocationsFeed"/>
+  </interfaces>
+  <references>
+    <reference name="GetCustomersPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns1:GetCustomers"/>
+      <wire target="GetCustomersWithLocationsHTTPImport"/>
+    </reference>
+  </references>
+  <implementation xsi:type="mfc:MediationFlowImplementation" mfcFile="CustomerLocations.mfc"/>
+</scdl:component>

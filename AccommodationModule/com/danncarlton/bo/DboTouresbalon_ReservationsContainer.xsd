@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbotouresbalon_reservationscontainer" xmlns:dbotouresbalon_reservationsbg="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbotouresbalon_reservationsbg">
+<xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbotouresbalon_reservationsbg" schemaLocation="DboTouresbalon_ReservationsBG.xsd"/>
+<xsd:annotation xml:space="preserve">
+<xsd:appinfo source="http://www.ibm.com/xmlns/prod/j2ca/versionCompatability">
+<info:resourceAdapter xmlns:info="http://www.ibm.com/xmlns/prod/j2ca/versionCompatability" version="7.0.0.0"/>
+</xsd:appinfo>
+</xsd:annotation>
+
+<xsd:complexType name="DboTouresbalon_ReservationsContainer">
+<xsd:sequence>
+<xsd:element name="DboTouresbalon_ReservationsBG" type="dbotouresbalon_reservationsbg:DboTouresbalon_ReservationsBG" minOccurs="1" maxOccurs="unbounded"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:schema>

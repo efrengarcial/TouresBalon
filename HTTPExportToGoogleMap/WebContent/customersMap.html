@@ -1,0 +1,53 @@
+<html >
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>HTTPExport to Google Map Sample</title>
+    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAMnAk4qsv9x1Kk4_s3diQDBQgeBanYevgnkCJyVa9JMWUAE1VNxQEdk9DwaayCIEXZHWXKtcEFNSJ0A"
+            type="text/javascript"></script>
+    <script type="text/javascript">
+	var map;
+    function initialize() {
+      if (GBrowserIsCompatible()) {
+        map = new GMap2(document.getElementById("map_canvas"));
+        map.setCenter(new GLatLng(50, -98), 3);
+        map.addControl(new GSmallMapControl());
+        map.addControl(new GMapTypeControl());        
+      }
+    }
+    
+    function createMarker(point, customerName) {
+    	var marker = new GMarker(point);
+
+        GEvent.addListener(marker, "click", function() {
+           marker.openInfoWindowHtml("Customer <b>" + customerName + "</b>");
+        });
+        return marker;
+    }
+    
+    function showCustomersForType(type) {
+	   map.clearOverlays();
+       GDownloadUrl("/CustomerLocationsWeb/CustomerLocationsExportAsXML/getCustomers?type="+type, function(data) {
+          var xml = GXml.parse(data);
+          var customers = xml.documentElement.getElementsByTagName("customers");
+          for (var i = 0; i < customers.length; i++) {  
+            var latlng = new GLatLng(parseFloat(customers[i].getElementsByTagName("coordinates")[0].getElementsByTagName("latitude")[0].firstChild.data),
+                                    parseFloat(customers[i].getElementsByTagName("coordinates")[0].getElementsByTagName("longitude")[0].firstChild.data));
+            map.addOverlay(createMarker(latlng,customers[i].getElementsByTagName("name")[0].firstChild.data));
+          }
+        });
+    	
+    }
+    
+    </script>
+  </head>
+
+  <body onload="initialize();showCustomersForType('*');" onunload="GUnload()">
+	Show customers of type: <select name="customerType" onchange="showCustomersForType(this.value);">
+		<option value="*">All</option>
+		<option value="Software">Software</option>
+		<option value="Research">Research</option>
+		<option value="Hardware">Hardware</option>
+    </select>
+    <div id="map_canvas" style="width: 500px; height: 300px"></div>
+  </body>
+</html>

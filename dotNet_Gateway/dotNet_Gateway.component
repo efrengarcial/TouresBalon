@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mfc="http://www.ibm.com/xmlns/prod/websphere/scdl/mfc/6.0.0" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:src="http://www.ibm.com/websphere/sibx/ServiceGateway" xmlns:trg="http://www.ibm.com/websphere/sibx/ServiceGateway" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="dotNet_Gateway" name="dotNet_Gateway">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" portType="src:ServiceGateway"/>
+  </interfaces>
+  <references>
+    <reference name="ServiceGatewayPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="src:ServiceGateway"/>
+      <wire target="ServiceGatewayPartnerImport_WS_SOAP11"/>
+    </reference>
+  </references>
+  <implementation xsi:type="mfc:MediationFlowImplementation" mfcFile="dotNet_Gateway.mfc">
+    <description>Contains the mediation flow logic and implementation</description>
+  </implementation>
+</scdl:component>

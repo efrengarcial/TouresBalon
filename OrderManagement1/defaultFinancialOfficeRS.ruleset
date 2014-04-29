@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rl:RuleSet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:FinancialOfficeBRIF="http://OrderManagement/FinancialOfficeBRIF" xmlns:java="http://com.ibm.wbit.br.cb.core/java/" xmlns:prim="http://com.ibm.wbit.br.cb.core/prim/" xmlns:rl="http://www.ibm.com/xmlns/prod/websphere/wbi/br/6.0.0" xmlns:selt="http://OrderManagement" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsd8="http://OrderManagementLib" displayName="defaultFinancialOfficeRS" name="defaultFinancialOfficeRS" syncDisplayName="true" targetNamespace="http://OrderManagement">
+  <rl:interface operation="athorize">
+    <rl:porttype>FinancialOfficeBRIF:FinancialOfficeBRIF</rl:porttype>
+  </rl:interface>
+  <rl:rulegroup>selt:FinancialOfficeRG</rl:rulegroup>
+  <rl:property name="IBMSystemVersion" type="SystemDefined" value="6.1.0"/>
+  <rl:template displayName="Template_AutomaticApproval_Rule" name="Template_AutomaticApproval_Rule" syncDisplayName="true">
+    <rl:id>uid-13029986915460</rl:id>
+    <rl:webPresentation>If exposure is less than or equal to {0},  then {1}</rl:webPresentation>
+    <rl:parameter dataType="xsd:int" varName="approvalTreshold"/>
+    <rl:parameter dataType="xsd:string" varName="approve"/>
+    <rl:rule xsi:type="rl:IfThenRule" displayName="AutomaticApproval_Rule" label="AutomaticApproval_Rule">
+      <rl:if>
+        <rl:conditionExpression xsi:type="rl:BooleanExpression">
+          <rl:expString>order.amount -  ( customer.budget - customer.soldToDate )   &lt;= approvalTreshold</rl:expString>
+        </rl:conditionExpression>
+      </rl:if>
+      <rl:then>
+        <rl:Action value="fincancialRuleRC.RC = approve"/>
+      </rl:then>
+    </rl:rule>
+  </rl:template>
+  <rl:template displayName="Template_AutomaticReject_Rule" name="Template_AutomaticReject_Rule" syncDisplayName="true">
+    <rl:id>uid-13030555413431</rl:id>
+    <rl:webPresentation>If exposure is  greather than  {0} , then  {1}</rl:webPresentation>
+    <rl:parameter dataType="xsd:int" varName="approvalTreshold"/>
+    <rl:parameter dataType="xsd:string" varName="reject"/>
+    <rl:rule xsi:type="rl:IfThenRule" displayName="AutomaticReject_Rule" label="AutomaticReject_Rule">
+      <rl:if>
+        <rl:conditionExpression xsi:type="rl:BooleanExpression">
+          <rl:expString>order.amount -  ( customer.budget - customer.soldToDate )   > approvalTreshold</rl:expString>
+        </rl:conditionExpression>
+      </rl:if>
+      <rl:then>
+        <rl:Action value="fincancialRuleRC.RC =  reject"/>
+      </rl:then>
+    </rl:rule>
+  </rl:template>
+  <rl:RuleBlock>
+    <rl:rule xsi:type="rl:AssertionRule" displayName="HumanAuthorization_OtherwiseRule" label="HumanAuthorization_OtherwiseRule" syncDisplayName="true">
+      <rl:assert>
+        <rl:Action value="fincancialRuleRC.RC =&quot;HUMAN&quot;"/>
+      </rl:assert>
+    </rl:rule>
+    <rl:rule xsi:type="rl:TemplateInstanceRule" displayName="AutomaticApproval_Rule" label="AutomaticApproval_Rule" syncDisplayName="true">
+      <rl:templateRef>uid-13029986915460</rl:templateRef>
+      <rl:parameterValue>
+        <rl:name>approvalTreshold</rl:name>
+        <rl:value value="1000"/>
+      </rl:parameterValue>
+      <rl:parameterValue>
+        <rl:name>approve</rl:name>
+        <rl:value value="APPROVE"/>
+      </rl:parameterValue>
+    </rl:rule>
+    <rl:rule xsi:type="rl:TemplateInstanceRule" displayName="AutomaticReject_Rule" label="AutomaticReject_Rule" syncDisplayName="true">
+      <rl:templateRef>uid-13030555413431</rl:templateRef>
+      <rl:parameterValue>
+        <rl:name>approvalTreshold</rl:name>
+        <rl:value value="10000"/>
+      </rl:parameterValue>
+      <rl:parameterValue>
+        <rl:name>reject</rl:name>
+        <rl:value value="REJECT"/>
+      </rl:parameterValue>
+    </rl:rule>
+  </rl:RuleBlock>
+</rl:RuleSet>

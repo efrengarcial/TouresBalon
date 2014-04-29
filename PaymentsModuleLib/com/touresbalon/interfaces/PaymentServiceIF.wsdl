@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="PaymentServiceIF" targetNamespace="http://PaymentsModuleLib/com/touresbalon/interfaces/PaymentServiceIF" xmlns:bons1="http://CommonDomain/com/touresbalon/bo" xmlns:bons2="http://PaymentsModuleLib/com/touresbalon/bo" xmlns:tns="http://PaymentsModuleLib/com/touresbalon/interfaces/PaymentServiceIF" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://PaymentsModuleLib/com/touresbalon/interfaces/PaymentServiceIF">
+      <xsd:import namespace="http://PaymentsModuleLib/com/touresbalon/bo" schemaLocation="../bo/Payment.xsd"/>
+      <xsd:import namespace="http://PaymentsModuleLib/com/touresbalon/bo" schemaLocation="../bo/CreditCardDetails.xsd"/>
+      <xsd:import namespace="http://CommonDomain/com/touresbalon/bo" schemaLocation="../bo/ReturnCode.xsd"/>
+      <xsd:element name="validateCard">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="request" nillable="true" type="bons2:CreditCardDetails"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="validateCardResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="response" nillable="true" type="bons1:ReturnCode"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="applyPayment">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="request" nillable="true" type="bons2:Payment"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="applyPaymentResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="response" nillable="true" type="bons1:ReturnCode"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="validateCardRequestMsg">
+    <wsdl:part element="tns:validateCard" name="validateCardParameters"/>
+  </wsdl:message>
+    <wsdl:message name="validateCardResponseMsg">
+    <wsdl:part element="tns:validateCardResponse" name="validateCardResult"/>
+  </wsdl:message>
+    <wsdl:message name="applyPaymentRequestMsg">
+    <wsdl:part element="tns:applyPayment" name="applyPaymentParameters"/>
+  </wsdl:message>
+    <wsdl:message name="applyPaymentResponseMsg">
+    <wsdl:part element="tns:applyPaymentResponse" name="applyPaymentResult"/>
+  </wsdl:message>
+    <wsdl:portType name="PaymentServiceIF">
+    <wsdl:operation name="validateCard">
+      <wsdl:input message="tns:validateCardRequestMsg" name="validateCardRequest"/>
+      <wsdl:output message="tns:validateCardResponseMsg" name="validateCardResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="applyPayment">
+      <wsdl:input message="tns:applyPaymentRequestMsg" name="applyPaymentRequest"/>
+      <wsdl:output message="tns:applyPaymentResponseMsg" name="applyPaymentResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

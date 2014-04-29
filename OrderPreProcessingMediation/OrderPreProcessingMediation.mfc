@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mfc:interfaceMediationFlow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mfc="http://www.ibm.com/xmlns/prod/websphere/wbiserver/mfc/6.0.0" xmlns:ns1="http://OrderPreProcessingMediation/OrderPreProcessingIF" xmlns:ns1_1="http://OrderManagementLib/OrderManagementIF" xmlns:ns2="http://OrderPreProcessingMediation/SpecialOrderFileImport" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" name="OrderPreProcessingMediation" targetNamespace="http://OrderPreProcessingMediation/OrderPreProcessingMediation">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" portType="ns1:OrderPreProcessingIF"/>
+  </interfaces>
+  <references>
+    <reference name="SpecialOrderFileImportPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns2:SpecialOrderFileImport"/>
+    </reference>
+    <reference name="OrderManagementIFPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns1_1:OrderManagementIF"/>
+    </reference>
+  </references>
+  <extendedOperationBinding source="createOrder" target="createOrder" sourcePortType="ns1:OrderPreProcessingIF" targetReference="OrderManagementIFPartner"/>
+  <extendedOperationBinding source="createOrder" target="create" sourcePortType="ns1:OrderPreProcessingIF" targetReference="SpecialOrderFileImportPartner"/>
+  <operationFlow medflow="OrderPreProcessingMediation.medflow"/>
+</mfc:interfaceMediationFlow>

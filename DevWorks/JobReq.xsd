@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://com.ibm.dwexample.bo"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:complexType name="JobReq">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="id" type="xsd:string" />
+			<xsd:element minOccurs="0" name="datePosted"
+				type="xsd:dateTime">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="jobTitle"
+				type="xsd:string">
+			</xsd:element>
+
+
+
+
+
+
+			<xsd:element minOccurs="0" name="jobType"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="jobLevel"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="country"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="city" type="xsd:string" />
+			<xsd:element minOccurs="0" name="state" type="xsd:string" />
+			<xsd:element minOccurs="0" name="zipCode"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="hiringMgr"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="hiringEmail"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="division"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="applyByDate"
+				type="xsd:date">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="jobDesc"
+				type="xsd:string">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

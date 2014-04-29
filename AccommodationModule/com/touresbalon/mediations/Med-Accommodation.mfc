@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mfc:interfaceMediationFlow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mfc="http://www.ibm.com/xmlns/prod/websphere/wbiserver/mfc/6.0.0" xmlns:ns1="http://AccommodationLib/com/touresbalon/interfaces/AccommodationServiceIF" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" name="Med-Accommodation" targetNamespace="http://AccommodationModule/com/touresbalon/mediations/Med-Accommodation">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" portType="ns1:AccommodationServiceIF"/>
+  </interfaces>
+  <references>
+    <reference name="DannCarltonPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns1:AccommodationServiceIF"/>
+    </reference>
+    <reference name="HiltonPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns1:AccommodationServiceIF"/>
+    </reference>
+  </references>
+  <extendedOperationBinding source="checkAvailability" target="checkAvailability" sourcePortType="ns1:AccommodationServiceIF" targetReference="DannCarltonPartner"/>
+  <extendedOperationBinding source="checkAvailability" target="checkAvailability" sourcePortType="ns1:AccommodationServiceIF" targetReference="HiltonPartner"/>
+  <extendedOperationBinding source="makeReservation" target="makeReservation" sourcePortType="ns1:AccommodationServiceIF" targetReference="DannCarltonPartner"/>
+  <extendedOperationBinding source="makeReservation" target="makeReservation" sourcePortType="ns1:AccommodationServiceIF" targetReference="HiltonPartner"/>
+  <extendedOperationBinding source="cancelReservation" target="cancelReservation" sourcePortType="ns1:AccommodationServiceIF" targetReference="DannCarltonPartner"/>
+  <extendedOperationBinding source="cancelReservation" target="cancelReservation" sourcePortType="ns1:AccommodationServiceIF" targetReference="HiltonPartner"/>
+  <operationFlow medflow="Med-Accommodation.medflow"/>
+</mfc:interfaceMediationFlow>

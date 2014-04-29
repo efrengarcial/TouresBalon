@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:extensionmodel="http:///extensionmodel.ecore" xmlns:model="http:///com/ibm/wbit/sib/mediation/ui/ext/model" xmlns:sb="http://com.ibm.wbit.stickyboard.model/model/StickyBoard.xsd">
+  <extensionmodel:ExtensionMap namespace="http:///com/ibm/wbit/sib/mediation/ui/ext/model">
+    <extensions>
+      <extendedObject href="Component1.mfc#//@interfaceMediationFlow"/>
+      <extensionObject xsi:type="model:MediationFlowUIExtension" saveAsMultipleFiles="false">
+        <messageFlowUI autoLayout="false" id="{http://Bolivariano/TransporteService}TransporteService:operation1::request" showInputFault="false" showInputResponse="false"/>
+        <messageFlowUI autoLayout="true" id="{http://Bolivariano/TransporteService}TransporteService:operation1::response"/>
+      </extensionObject>
+    </extensions>
+  </extensionmodel:ExtensionMap>
+  <extensionmodel:ExtensionMap namespace="http://com.ibm.wbit.stickyboard.model/model/StickyBoard.xsd">
+    <extensions>
+      <extendedObject href="Component1.mfc#//@interfaceMediationFlow"/>
+      <extensionObject xsi:type="sb:StickyDocument">
+        <stickyBoard id="{http://Bolivariano/TransporteService}TransporteService:operation1::request">
+          <stickyNote body="TODO:&#xA;1. Double-click input_map to implement the input map.&#xA;2. Complete the remaining task in the response flow.  " id="473108c9-9c58-418d-a21e-82df45a21932">
+            <bounds x="20" y="250"/>
+          </stickyNote>
+        </stickyBoard>
+        <stickyBoard id="{http://Bolivariano/TransporteService}TransporteService:operation1::response">
+          <stickyNote body="TODO:&#xA;1. Double-click output_map to implement the output map.&#xA;2. If necessary, create a map to handle the callout fault." id="15f177e4-5163-40fb-8eea-e08690d72282">
+            <bounds x="20" y="250"/>
+          </stickyNote>
+        </stickyBoard>
+      </extensionObject>
+    </extensions>
+  </extensionmodel:ExtensionMap>
+</xmi:XMI>

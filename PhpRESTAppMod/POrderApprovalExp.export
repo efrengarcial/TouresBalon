@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:export xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bindingconfigs="http://PhpRESPAppMod/bindingconfigs" xmlns:http="http://www.ibm.com/xmlns/prod/websphere/scdl/http/6.1.0" xmlns:ns1="http://PhpRESTAppLib/POrderProcIF" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="POrderApprovalExp" name="POrderApprovalExp" target="POrderApprovalProc">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" preferredInteractionStyle="sync" portType="ns1:POrderProcIF"/>
+  </interfaces>
+  <esbBinding xsi:type="http:HTTPExportBinding" contextPropagationEnabled="false" defaultDataBinding="com.ibm.websphere.http.data.bindings.HTTPStreamDataBindingBytes">
+    <exportInteraction contextPath="/POrderApprovalExp">
+      <httpMethod>
+        <httpMethod>POST</httpMethod>
+      </httpMethod>
+    </exportInteraction>
+    <functionSelector>com.ibm.websphere.http.selectors.UrlMethodFunctionSelector</functionSelector>
+    <methodBinding method="submitPOrder">
+      <exportInteraction contextPath="/submitPOrder">
+        <httpMethod>
+          <httpMethod>POST</httpMethod>
+        </httpMethod>
+      </exportInteraction>
+      <nativeMethod>/POrderApprovalExp/submitPOrder@POST</nativeMethod>
+      <inputDataBinding>bindingconfigs:JsonBindingConfiguration</inputDataBinding>
+    </methodBinding>
+  </esbBinding>
+</scdl:export>

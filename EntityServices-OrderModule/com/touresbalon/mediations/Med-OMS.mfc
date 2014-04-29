@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mfc:interfaceMediationFlow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:OrderServiceIF="http://OrderModule/com/touresbalon/interfaces/OrderServiceIF" xmlns:mfc="http://www.ibm.com/xmlns/prod/websphere/wbiserver/mfc/6.0.0" xmlns:ns1="http://OMSLib/com/touresbalon/interfaces/OrderServiceIF" xmlns:ns2="http://service.model.orders.oms.touresbalon.com/" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" name="Med-OMS" targetNamespace="http://OMSModule/com/touresbalon/mediations/Med-OMS">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" portType="OrderServiceIF:OrderServiceIF"/>
+  </interfaces>
+  <references>
+    <reference name="OrderServicePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns2:OrderService"/>
+    </reference>
+  </references>
+  <extendedOperationBinding source="createOrder" target="createOrder" sourcePortType="OrderServiceIF:OrderServiceIF" targetReference="OrderServicePartner"/>
+  <extendedOperationBinding source="updateOrder" target="updateStateOrder" sourcePortType="OrderServiceIF:OrderServiceIF" targetReference="OrderServicePartner"/>
+  <operationFlow medflow="Med-OMS.medflow"/>
+</mfc:interfaceMediationFlow>

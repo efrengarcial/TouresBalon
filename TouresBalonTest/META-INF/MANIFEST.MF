@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Class-Path: OrderManagementLib.jar 
+ OrderLib.jar 
+ PaymentsModuleLib.jar 
+ CommonDomain.jar 
+ websphere_default_messaging_provider.rar
+Created-By: 1.5.0 (IBM Corporation)
+

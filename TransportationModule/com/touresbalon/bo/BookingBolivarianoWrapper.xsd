@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+	targetNamespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/flatfile/bookingbolivarianowrapper"
+	xmlns:bookingbolivariano="http://BolivarianoModule/com/touresbalon/bo"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:import schemaLocation="BookingBolivariano.xsd"
+		namespace="http://BolivarianoModule/com/touresbalon/bo">
+	</xsd:import>
+
+	<xsd:annotation xml:space="preserve">
+<xsd:appinfo source="http://www.ibm.com/xmlns/prod/j2ca/versionCompatability">
+<info:resourceAdapter version="7.0.0.0" xmlns:info="http://www.ibm.com/xmlns/prod/j2ca/versionCompatability"/>
+</xsd:appinfo>
+</xsd:annotation>
+
+	<xsd:annotation xml:space="preserve">
+<xsd:appinfo source="commonj.connector.asi">
+<asi:annotationSet asiNSURI="" xmlns:asi="commonj.connector.asi"/>
+</xsd:appinfo>
+</xsd:annotation>
+	<xsd:complexType name="BookingBolivarianoWrapper">
+		<xsd:sequence maxOccurs="1" minOccurs="1">
+			<xsd:element maxOccurs="1" minOccurs="0"
+				name="directoryPath" nillable="true" type="xsd:string" />
+			<xsd:element maxOccurs="1" minOccurs="0" name="fileName"
+				nillable="true" type="xsd:string" />
+			<xsd:element maxOccurs="1" minOccurs="0"
+				name="chunkFileName" nillable="true" type="xsd:string" />
+			<xsd:element maxOccurs="1" minOccurs="0"
+				name="fileContentEncoding" nillable="true" type="xsd:string" />
+			<xsd:element maxOccurs="1" minOccurs="0"
+				name="includeEndBODelimiter" nillable="true" type="xsd:string" />
+			<xsd:element maxOccurs="1" minOccurs="0"
+				name="stagingDirectory" nillable="true" type="xsd:string" />
+			<xsd:element maxOccurs="1" minOccurs="0" name="chunkNumber"
+				nillable="true" type="xsd:string" />
+			<xsd:element maxOccurs="1" minOccurs="0"
+				name="generateUniqueFile" nillable="true" type="xsd:boolean" />
+			<xsd:element maxOccurs="1" minOccurs="0"
+				name="createFileIfNotExists" nillable="true" type="xsd:boolean" />
+			<xsd:element maxOccurs="1" minOccurs="0"
+				name="splitFunctionClassName" nillable="true" type="xsd:string" />
+			<xsd:element maxOccurs="1" minOccurs="0"
+				name="splitCriteria" nillable="true" type="xsd:string" />
+			<xsd:element maxOccurs="1" minOccurs="0"
+				name="deleteOnRetrieve" nillable="true" type="xsd:boolean" />
+			<xsd:element maxOccurs="1" minOccurs="0"
+				name="archiveDirectoryForDeleteOnRetrieve" nillable="true"
+				type="xsd:string" />
+			<xsd:element maxOccurs="1" minOccurs="0" name="Content"
+				nillable="true" type="bookingbolivariano:BookingBolivariano" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+</xsd:schema>

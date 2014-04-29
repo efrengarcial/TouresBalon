@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://CustomersLib/AddCustomer" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="AddCustomer" targetNamespace="http://CustomersLib/AddCustomer">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://CustomersLib/AddCustomer" xmlns:tns="http://CustomersLib/AddCustomer" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:element name="addCustomer">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="name" nillable="true" type="xsd:string"/>
+            <xsd:element name="type" nillable="true" type="xsd:string"/>
+            <xsd:element name="address" nillable="true" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+        </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="addCustomerRequestMsg">
+    <wsdl:part element="tns:addCustomer" name="addCustomerParameters"/>
+  </wsdl:message>
+    <wsdl:portType name="AddCustomer">
+        <wsdl:operation name="addCustomer">
+      <wsdl:input message="tns:addCustomerRequestMsg" name="addCustomerRequest"/>
+    </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

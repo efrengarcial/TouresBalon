@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:import xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:http="http://www.ibm.com/xmlns/prod/websphere/scdl/http/6.1.0" xmlns:ns1="http://Customers/GetCoordinates" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="GetCoordinates" name="GetCoordinates">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" portType="ns1:GetCoordinates"/>
+  </interfaces>
+  <esbBinding xsi:type="http:HTTPImportBinding" contextPropagationEnabled="false" defaultDataBinding="rest.RESTImportBinding">
+    <importInteraction endpointURL="http://maps.google.com/maps/geo?output=xml&amp;key=ABQIAAAAvaqBGZY228rVSD0WG2F3HBRhS0xiN_HvhNs9qSFWkSPGJx0eDRQ_sSnGabwGKigqGUQBc3IRocNKIQ&amp;q=" httpMethod="GET">
+      <readTimeOut>5000</readTimeOut>
+      <numberOfRetries>3</numberOfRetries>
+    </importInteraction>
+    <methodBinding method="getCoordinates">
+      <importInteraction endpointURL="http://maps.google.com/maps/geo?output=xml&amp;key=ABQIAAAAvaqBGZY228rVSD0WG2F3HBRhS0xiN_HvhNs9qSFWkSPGJx0eDRQ_sSnGabwGKigqGUQBc3IRocNKIQ&amp;q=" httpMethod="GET">
+        <readTimeOut>5000</readTimeOut>
+        <numberOfRetries>3</numberOfRetries>
+      </importInteraction>
+    </methodBinding>
+  </esbBinding>
+</scdl:import>

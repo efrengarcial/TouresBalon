@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map:businessObjectMap xmlns:DannCarltonAvailability="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/danncarltonavailability" xmlns:RoomResponse="http://AccommodationLib/com/touresbalon/bo" xmlns:map="http://www.ibm.com/xmlns/prod/websphere/wbiserver/map/6.0.0" xmlns:subMapResponse="http://AccommodationModule/com/touresbalon/transforms" targetNamespace="http://AccommodationModule/com/touresbalon/transforms">
+  <map:name>subMapResponse</map:name>
+  <map:inputBusinessObjectVariable businessObjectRef="DannCarltonAvailability:DannCarltonAvailability" name="DannCarltonAvailability"/>
+  <map:outputBusinessObjectVariable businessObjectRef="RoomResponse:RoomResponse" name="RoomResponse"/>
+  <map:propertyMap executionOrder="1">
+    <map:move>
+      <map:input businessObjectVariableRef="DannCarltonAvailability" property="hotel_id"/>
+      <map:output businessObjectVariableRef="RoomResponse" property="hotelID"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="2">
+    <map:move>
+      <map:input businessObjectVariableRef="DannCarltonAvailability" property="room_number"/>
+      <map:output businessObjectVariableRef="RoomResponse" property="roomNumber"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="3">
+    <map:move>
+      <map:input businessObjectVariableRef="DannCarltonAvailability" property="name"/>
+      <map:output businessObjectVariableRef="RoomResponse" property="name"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="4">
+    <map:move>
+      <map:input businessObjectVariableRef="DannCarltonAvailability" property="address"/>
+      <map:output businessObjectVariableRef="RoomResponse" property="address"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="5">
+    <map:move>
+      <map:input businessObjectVariableRef="DannCarltonAvailability" property="city"/>
+      <map:output businessObjectVariableRef="RoomResponse" property="city"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="6">
+    <map:move>
+      <map:input businessObjectVariableRef="DannCarltonAvailability" property="country"/>
+      <map:output businessObjectVariableRef="RoomResponse" property="country"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="7">
+    <map:move>
+      <map:input businessObjectVariableRef="DannCarltonAvailability" property="type"/>
+      <map:output businessObjectVariableRef="RoomResponse" property="type"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="8">
+    <map:move>
+      <map:input businessObjectVariableRef="DannCarltonAvailability" property="check_in_date"/>
+      <map:output businessObjectVariableRef="RoomResponse" property="checkInDate"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="9">
+    <map:custom>
+      <map:input businessObjectVariableRef="DannCarltonAvailability" property="check_out_date"/>
+      <map:output businessObjectVariableRef="RoomResponse" property="checkOutDate"/>
+      <map:javaCode>java.lang.String __DannCarltonAvailability_check_out_date = (java.lang.String)DannCarltonAvailability_check_out_date;&#xD;
+java.util.Date __RoomResponse_checkOutDate = (java.util.Date)RoomResponse_checkOutDate;&#xD;
+java.lang.String __result__1 = &quot;yyyy-MM-dd&quot;;&#xD;
+java.util.Date __result__3 = null;&#xD;
+try {&#xD;
+	{// create date from pattern&#xD;
+		final java.lang.String timestampFormat = &quot;(\\d{4})-(\\d{2})-(\\d{2})\\s(\\d{2}):(\\d{2}):(\\d{2}).(\\d{1,9})&quot;;
+		java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat(__result__1);
+		if(__DannCarltonAvailability_check_out_date  != null &amp;&amp; 
+							__DannCarltonAvailability_check_out_date.matches(timestampFormat))
+			__result__3 = formatter.parse(formatter.format(java.sql.Timestamp.valueOf(__DannCarltonAvailability_check_out_date)));
+		else
+			__result__3 = formatter.parse(__DannCarltonAvailability_check_out_date);&#xD;
+	}&#xD;
+}&#xD;
+catch(java.text.ParseException ex){&#xD;
+	{// Log Level: SEVERE&#xD;
+		final String FQCN = getClass().getName();
+		java.util.logging.Logger l = java.util.logging.Logger.getLogger(FQCN);
+		if(l.isLoggable(java.util.logging.Level.SEVERE)) 
+		{
+		l.logp(java.util.logging.Level.SEVERE, FQCN.substring(FQCN.lastIndexOf('.') + 1), &quot;snippet&quot;, String.format(&quot;%s: %s&quot;,__DannCarltonAvailability_check_out_date ,java.lang.String.valueOf(ex)));
+		}&#xD;
+	}&#xD;
+}&#xD;
+__RoomResponse_checkOutDate = __result__3;&#xD;
+RoomResponse_checkOutDate = __RoomResponse_checkOutDate;&#xD;
+
+//@generated:com.ibm.wbit.activity.ui
+//&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>
+//&lt;com.ibm.wbit.activity:CompositeActivity xmi:version=&quot;2.0&quot; xmlns:xmi=&quot;http://www.omg.org/XMI&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:com.ibm.wbit.activity=&quot;http:///com/ibm/wbit/activity.ecore&quot; name=&quot;ActivityMethod&quot;>
+//  &lt;parameters name=&quot;DannCarltonAvailability_check_out_date&quot; objectType=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/parameters>
+//  &lt;exceptions>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.Exception&quot;/>
+//  &lt;/exceptions>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;&amp;quot;yyyy-MM-dd&amp;quot;&quot; assignable=&quot;false&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.2/@parameters.0&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;DannCarltonAvailability_check_out_date&quot; variable=&quot;true&quot; assignable=&quot;false&quot; input=&quot;true&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.2/@parameters.1&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:LibraryActivity&quot; name=&quot;create date from pattern&quot; description=&quot;Create a Date object from a given pattern and date string&quot; category=&quot;date&quot; template=&quot;final java.lang.String timestampFormat = &amp;quot;(\\d{4})-(\\d{2})-(\\d{2})\\s(\\d{2}):(\\d{2}):(\\d{2}).(\\d{1,9})&amp;quot;;&amp;#xA;java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat(&amp;lt;%pattern%>);&amp;#xA;if(&amp;lt;%dateString%>  != null &amp;amp;&amp;amp; &amp;#xA;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;lt;%dateString%>.matches(timestampFormat))&amp;#xA;&amp;#x9;&amp;lt;%return%> formatter.parse(formatter.format(java.sql.Timestamp.valueOf(&amp;lt;%dateString%>)));&amp;#xA;else&amp;#xA;&amp;#x9;&amp;lt;%return%> formatter.parse(&amp;lt;%dateString%>);&quot;>
+//    &lt;parameters name=&quot;pattern&quot; dataInputs=&quot;//@executableElements.0/@dataOutputs.0&quot; displayName=&quot;pattern&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//    &lt;/parameters>
+//    &lt;parameters name=&quot;dateString&quot; dataInputs=&quot;//@executableElements.1/@dataOutputs.0&quot; displayName=&quot;date string&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//    &lt;/parameters>
+//    &lt;result name=&quot;date&quot; displayName=&quot;date&quot;>
+//      &lt;dataOutputs target=&quot;//@executableElements.4&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.util.Date&quot;/>
+//    &lt;/result>
+//    &lt;exceptions>
+//      &lt;dataOutputs target=&quot;//@executableElements.3/@parameters.0&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.text.ParseException&quot;/>
+//    &lt;/exceptions>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:ExceptionHandler&quot; name=&quot;Exception Handler&quot;>
+//    &lt;parameters name=&quot;ex&quot; dataInputs=&quot;//@executableElements.2/@exceptions.0/@dataOutputs.0&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.text.ParseException&quot;/>
+//    &lt;/parameters>
+//    &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;DannCarltonAvailability_check_out_date&quot; variable=&quot;true&quot; assignable=&quot;false&quot; input=&quot;true&quot;>
+//      &lt;dataOutputs target=&quot;//@executableElements.3/@executableElements.2/@parameters.0&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//    &lt;/executableElements>
+//    &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;ex&quot; variable=&quot;true&quot;>
+//      &lt;dataOutputs target=&quot;//@executableElements.3/@executableElements.2/@parameters.1&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.text.ParseException&quot;/>
+//    &lt;/executableElements>
+//    &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:LibraryActivity&quot; name=&quot;Log Level: SEVERE&quot; description=&quot;print to logger&quot; category=&quot;utility&quot; template=&quot;final String FQCN = getClass().getName();&amp;#xA;java.util.logging.Logger l = java.util.logging.Logger.getLogger(FQCN);&amp;#xA;if(l.isLoggable(java.util.logging.Level.SEVERE)) &amp;#xA;{&amp;#xA;l.logp(java.util.logging.Level.SEVERE, FQCN.substring(FQCN.lastIndexOf('.') + 1), &amp;quot;snippet&amp;quot;, String.format(&amp;quot;%s: %s&amp;quot;,&amp;lt;%logMessage%> ,java.lang.String.valueOf(&amp;lt;%object%>)));&amp;#xA;}&quot;>
+//      &lt;parameters name=&quot;logMessage&quot; dataInputs=&quot;//@executableElements.3/@executableElements.0/@dataOutputs.0&quot; displayName=&quot;Log Message&quot;>
+//        &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//      &lt;/parameters>
+//      &lt;parameters name=&quot;object&quot; dataInputs=&quot;//@executableElements.3/@executableElements.1/@dataOutputs.0&quot; displayName=&quot;object&quot;>
+//        &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.Object&quot;/>
+//      &lt;/parameters>
+//    &lt;/executableElements>
+//    &lt;executableGroups executableElements=&quot;//@executableElements.3/@executableElements.0 //@executableElements.3/@executableElements.1 //@executableElements.3/@executableElements.2&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; dataInputs=&quot;//@executableElements.2/@result/@dataOutputs.0&quot; value=&quot;RoomResponse_checkOutDate&quot; variable=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;date&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.0 //@executableElements.1 //@executableElements.2 //@executableElements.3 //@executableElements.4&quot;/>
+//&lt;/com.ibm.wbit.activity:CompositeActivity>
+//@generated:end
+//!SMAP!*S WBIACTDBG&#xD;
+//!SMAP!*L&#xD;
+//!SMAP!1:3,1&#xD;
+//!SMAP!3:6,10&#xD;
+//!SMAP!7:17,8&#xD;
+//!SMAP!8:26,2&#xD;
+//!SMAP!1000000:97,1</map:javaCode>
+    </map:custom>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="10">
+    <map:custom>
+      <map:input businessObjectVariableRef="DannCarltonAvailability" property="price"/>
+      <map:output businessObjectVariableRef="RoomResponse" property="price"/>
+      <map:javaCode>java.lang.String __DannCarltonAvailability_price = (java.lang.String)DannCarltonAvailability_price;&#xD;
+java.lang.Double __RoomResponse_price = (java.lang.Double)RoomResponse_price;&#xD;
+double __result__2;&#xD;
+{// convert string to double &#xD;
+	__result__2 = Double.valueOf(__DannCarltonAvailability_price).doubleValue();&#xD;
+}&#xD;
+__RoomResponse_price = new java.lang.Double(__result__2);&#xD;
+RoomResponse_price = __RoomResponse_price;&#xD;
+
+//@generated:com.ibm.wbit.activity.ui
+//&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>
+//&lt;com.ibm.wbit.activity:CompositeActivity xmi:version=&quot;2.0&quot; xmlns:xmi=&quot;http://www.omg.org/XMI&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:com.ibm.wbit.activity=&quot;http:///com/ibm/wbit/activity.ecore&quot; name=&quot;ActivityMethod&quot;>
+//  &lt;parameters name=&quot;DannCarltonAvailability_price&quot; objectType=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/parameters>
+//  &lt;exceptions>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.Exception&quot;/>
+//  &lt;/exceptions>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;DannCarltonAvailability_price&quot; variable=&quot;true&quot; assignable=&quot;false&quot; input=&quot;true&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.1/@parameters.0&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:LibraryActivity&quot; name=&quot;convert string to double &quot; description=&quot;Convert string to double&quot; category=&quot;converter&quot; template=&quot;&amp;lt;%return%> Double.valueOf(&amp;lt;%inputString%>).doubleValue();&quot;>
+//    &lt;parameters name=&quot;inputString&quot; dataInputs=&quot;//@executableElements.0/@dataOutputs.0&quot; displayName=&quot;input&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//    &lt;/parameters>
+//    &lt;result name=&quot;result&quot; displayName=&quot;string converted to double&quot;>
+//      &lt;dataOutputs target=&quot;//@executableElements.2&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;double&quot;/>
+//    &lt;/result>
+//    &lt;exceptions>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.NumberFormatException&quot;/>
+//    &lt;/exceptions>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; dataInputs=&quot;//@executableElements.1/@result/@dataOutputs.0&quot; value=&quot;RoomResponse_price&quot; variable=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;double&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.0 //@executableElements.1 //@executableElements.2&quot;/>
+//&lt;/com.ibm.wbit.activity:CompositeActivity>
+//@generated:end
+//!SMAP!*S WBIACTDBG&#xD;
+//!SMAP!*L&#xD;
+//!SMAP!2:3,4&#xD;
+//!SMAP!3:7,2&#xD;
+//!SMAP!1000000:46,1</map:javaCode>
+    </map:custom>
+  </map:propertyMap>
+</map:businessObjectMap>

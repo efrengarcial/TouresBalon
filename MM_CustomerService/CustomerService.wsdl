@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="CustomerService" targetNamespace="http://LB_Customer/CustomerService" xmlns:bons2="http://MM_CustomerService" xmlns:tns="http://LB_Customer/CustomerService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://LB_Customer/CustomerService">
+            <xsd:import namespace="http://MM_CustomerService" schemaLocation="Response.xsd"/>
+            <xsd:import namespace="http://MM_CustomerService" schemaLocation="Costumer.xsd"/>
+            <xsd:element name="addCostumer">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="costumer" nillable="true" type="bons2:Costumer"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="addCostumerResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="response" nillable="true" type="bons2:Response1"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+        </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="addCostumerRequestMsg">
+    <wsdl:part element="tns:addCostumer" name="addCostumerParameters"/>
+  </wsdl:message>
+    <wsdl:message name="addCostumerResponseMsg">
+    <wsdl:part element="tns:addCostumerResponse" name="addCostumerResult"/>
+  </wsdl:message>
+    <wsdl:portType name="CustomerService">
+        <wsdl:operation name="addCostumer">
+      <wsdl:input message="tns:addCostumerRequestMsg" name="addCostumerRequest"/>
+      <wsdl:output message="tns:addCostumerResponseMsg" name="addCostumerResponse"/>
+    </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

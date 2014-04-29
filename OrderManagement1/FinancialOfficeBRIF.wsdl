@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="FinancialOfficeBRIF" targetNamespace="http://OrderManagement/FinancialOfficeBRIF" xmlns:bons1="http://OrderManagementLib" xmlns:tns="http://OrderManagement/FinancialOfficeBRIF" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://OrderManagement/FinancialOfficeBRIF">
+      <xsd:import namespace="http://OrderManagementLib" schemaLocation="ReturnCode.xsd"/>
+      <xsd:import namespace="http://OrderManagementLib" schemaLocation="Item.xsd"/>
+      <xsd:import namespace="http://OrderManagementLib" schemaLocation="Order.xsd"/>
+      <xsd:import namespace="http://OrderManagementLib" schemaLocation="Customer.xsd"/>
+      <xsd:element name="athorize">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="customer" nillable="true" type="bons1:Customer"/>
+            <xsd:element name="order" nillable="true" type="bons1:Order"/>
+            <xsd:element name="item" nillable="true" type="bons1:Item"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="athorizeResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="fincancialRuleRC" nillable="true" type="bons1:ReturnCode"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="athorizeRequestMsg">
+    <wsdl:part element="tns:athorize" name="athorizeParameters"/>
+  </wsdl:message>
+    <wsdl:message name="athorizeResponseMsg">
+    <wsdl:part element="tns:athorizeResponse" name="athorizeResult"/>
+  </wsdl:message>
+    <wsdl:portType name="FinancialOfficeBRIF">
+    <wsdl:operation name="athorize">
+      <wsdl:input message="tns:athorizeRequestMsg" name="athorizeRequest"/>
+      <wsdl:output message="tns:athorizeResponseMsg" name="athorizeResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

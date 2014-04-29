@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://packtpub.com/service/airline/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:bons0="http://packtpub.com/service/employee/">
+	<xsd:import schemaLocation="TravelClassType.xsd"
+		namespace="http://packtpub.com/service/employee/">
+	</xsd:import>
+	<xsd:complexType name="FlightConfirmationType">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="FlightNo"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="TravelClass"
+				type="bons0:TravelClassType">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="Price" type="xsd:float"></xsd:element>
+			<xsd:element minOccurs="0" name="DepartureDateTime"
+				type="xsd:dateTime">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="ReturnDateTime"
+				type="xsd:dateTime">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="Approved"
+				type="xsd:boolean">
+			</xsd:element>
+
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

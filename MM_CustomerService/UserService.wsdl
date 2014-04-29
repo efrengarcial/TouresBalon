@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="UserService" targetNamespace="http://MM_CustomerService/UserService" xmlns:bons1="http://MM_CustomerService" xmlns:tns="http://MM_CustomerService/UserService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://MM_CustomerService/UserService">
+            <xsd:import namespace="http://MM_CustomerService" schemaLocation="ValidationResponse.xsd"/>
+            <xsd:import namespace="http://MM_CustomerService" schemaLocation="Response.xsd"/>
+            <xsd:import namespace="http://MM_CustomerService" schemaLocation="UserRO.xsd"/>
+            <xsd:element name="register">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="user" nillable="true" type="bons1:User"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="registerResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="response" nillable="true" type="bons1:Response"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="registerRequestMsg">
+    <wsdl:part element="tns:register" name="registerParameters"/>
+  </wsdl:message>
+    <wsdl:message name="registerResponseMsg">
+    <wsdl:part element="tns:registerResponse" name="registerResult"/>
+  </wsdl:message>
+    <wsdl:portType name="UserService">
+    <wsdl:operation name="register">
+      <wsdl:input message="tns:registerRequestMsg" name="registerRequest"/>
+      <wsdl:output message="tns:registerResponseMsg" name="registerResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

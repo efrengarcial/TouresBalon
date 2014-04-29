@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mfc:interfaceMediationFlow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:DannCarltonReservations="http://AccommodationModule/DannCarltonReservations" xmlns:mfc="http://www.ibm.com/xmlns/prod/websphere/wbiserver/mfc/6.0.0" xmlns:ns1="http://AccommodationLib/com/touresbalon/interfaces/AccommodationServiceIF" xmlns:ns2="http://AccommodationModule/JDBCImport" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" name="Med-DannCarlton" targetNamespace="http://AccommodationModule/com/danncarlton/mediations/Med-DannCarlton">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" portType="ns1:AccommodationServiceIF"/>
+  </interfaces>
+  <references>
+    <reference name="DannCarltonServicePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns2:DannCarltonService"/>
+    </reference>
+    <reference name="DannCarltonReservationsPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="DannCarltonReservations:DannCarltonReservations"/>
+    </reference>
+  </references>
+  <extendedOperationBinding source="checkAvailability" target="retrieveallDannCarltonAvailabilityBG" sourcePortType="ns1:AccommodationServiceIF" targetReference="DannCarltonServicePartner"/>
+  <extendedOperationBinding source="makeReservation" target="createDboTouresbalon_ReservationsBG" sourcePortType="ns1:AccommodationServiceIF" targetReference="DannCarltonReservationsPartner"/>
+  <extendedOperationBinding source="cancelReservation" target="updateDboTouresbalon_ReservationsBG" sourcePortType="ns1:AccommodationServiceIF" targetReference="DannCarltonReservationsPartner"/>
+  <operationFlow medflow="Med-DannCarlton.medflow"/>
+</mfc:interfaceMediationFlow>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://AmericanAirlinesModule/com/touresbalon/transforms/xslTransforms" version="7.0.500" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://AmericanAirlinesModule/com/touresbalon/transforms/xslTransforms">
+    <input path="smo://smo/name%3Dwsdl-primary/message%3D%257Bhttp%253A%252F%252FTransportationLib%257DcheckAvailabilityRequestMsg/xpath%3D%252Fbody/smo.xsd"/>
+    <output path="smo://smo/name%3Dwsdl-primary/message%3D%257Bhttp%253A%252F%252Ftempuri.org%252F%257DcheckAvailabilitySoapIn/xpath%3D%252Fbody/smo.xsd"/>
+    <mappingDeclaration name="input_map">
+        <input path="body"/>
+        <output path="body"/>
+        <move>
+            <input path="checkAvailability/request/ciudadOrigen"/>
+            <output path="checkAvailability/consultarVuelo/CodigoCiudadOrigen"/>
+        </move>
+        <move>
+            <input path="checkAvailability/request/ciudadDestino"/>
+            <output path="checkAvailability/consultarVuelo/CodigoCiudadDestino"/>
+        </move>
+        <convert>
+            <input path="checkAvailability/request/travelDate"/>
+            <output path="checkAvailability/consultarVuelo/FechaVuelo"/>
+        </convert>
+    </mappingDeclaration>
+</mappingRoot>

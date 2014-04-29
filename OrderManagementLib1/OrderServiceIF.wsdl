@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="OrderServiceIF" targetNamespace="http://OrderManagementLib/OrderServiceIF" xmlns:bons1="http://OrderManagementLib" xmlns:tns="http://OrderManagementLib/OrderServiceIF" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://OrderManagementLib/OrderServiceIF">
+      <xsd:import namespace="http://OrderManagementLib" schemaLocation="ReturnCode.xsd"/>
+      <xsd:import namespace="http://OrderManagementLib" schemaLocation="Customer.xsd"/>
+      <xsd:import namespace="http://OrderManagementLib" schemaLocation="Item.xsd"/>
+      <xsd:import namespace="http://OrderManagementLib" schemaLocation="Order.xsd"/>
+      <xsd:element name="createOrder">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="order" nillable="true" type="bons1:Order"/>
+            <xsd:element name="item" nillable="true" type="bons1:Item"/>
+            <xsd:element name="customer" nillable="true" type="bons1:Customer"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="createOrderResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="order" nillable="true" type="bons1:Order"/>
+            <xsd:element name="returnCode" nillable="true" type="bons1:ReturnCode"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="updateOrder">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="order" nillable="true" type="bons1:Order"/>
+            <xsd:element name="item" nillable="true" type="bons1:Item"/>
+            <xsd:element name="customer" nillable="true" type="bons1:Customer"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="updateOrderResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="returnCode" nillable="true" type="bons1:ReturnCode"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="createOrderRequestMsg">
+    <wsdl:part element="tns:createOrder" name="createOrderParameters"/>
+  </wsdl:message>
+    <wsdl:message name="createOrderResponseMsg">
+    <wsdl:part element="tns:createOrderResponse" name="createOrderResult"/>
+  </wsdl:message>
+    <wsdl:message name="updateOrderRequestMsg">
+    <wsdl:part element="tns:updateOrder" name="updateOrderParameters"/>
+  </wsdl:message>
+    <wsdl:message name="updateOrderResponseMsg">
+    <wsdl:part element="tns:updateOrderResponse" name="updateOrderResult"/>
+  </wsdl:message>
+    <wsdl:portType name="OrderServiceIF">
+    <wsdl:operation name="createOrder">
+      <wsdl:input message="tns:createOrderRequestMsg" name="createOrderRequest"/>
+      <wsdl:output message="tns:createOrderResponseMsg" name="createOrderResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="updateOrder">
+      <wsdl:input message="tns:updateOrderRequestMsg" name="updateOrderRequest"/>
+      <wsdl:output message="tns:updateOrderResponseMsg" name="updateOrderResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

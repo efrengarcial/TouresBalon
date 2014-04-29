@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions targetNamespace="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:tns="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="bookingFlight">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="0" name="informacionReserva" type="tns:ArrayOfInformacionReserva"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInformacionReserva">
+        <s:sequence>
+          <s:element maxOccurs="unbounded" minOccurs="0" name="InformacionReserva" nillable="true" type="tns:InformacionReserva"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="InformacionReserva">
+        <s:sequence>
+          <s:element maxOccurs="1" minOccurs="0" name="Identificacion" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="Nombre" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="Apellido" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="NumeroVuelo" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="CodigoCiudadOrigen" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="CodigoCiudadDestino" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="NumeroSilla" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="1" name="FechaSalida" type="s:dateTime"/>
+          <s:element maxOccurs="1" minOccurs="0" name="OrderID" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="cancelFlight">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="0" name="orderID" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="cancelFlightResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="1" name="cancelFlightResult" type="s:boolean"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="checkAvailability">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="0" name="consultarVuelo" type="tns:ConsultaVuelo"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ConsultaVuelo">
+        <s:sequence>
+          <s:element maxOccurs="1" minOccurs="0" name="CodigoCiudadOrigen" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="CodigoCiudadDestino" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="1" name="FechaVuelo" type="s:dateTime"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="checkAvailabilityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="0" name="checkAvailabilityResult" type="tns:ArrayOfInformacionVuelo"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInformacionVuelo">
+        <s:sequence>
+          <s:element maxOccurs="unbounded" minOccurs="0" name="InformacionVuelo" nillable="true" type="tns:InformacionVuelo"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="InformacionVuelo">
+        <s:sequence>
+          <s:element maxOccurs="1" minOccurs="0" name="NumeroVuelo" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="CodigoCiudadOrigen" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="CodigoCiudadDestino" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="NumeroSilla" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="1" name="FechaSalida" type="s:dateTime"/>
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="bookingFlightSoapIn">
+    <wsdl:part element="tns:bookingFlight" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="cancelFlightSoapIn">
+    <wsdl:part element="tns:cancelFlight" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="cancelFlightSoapOut">
+    <wsdl:part element="tns:cancelFlightResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="checkAvailabilitySoapIn">
+    <wsdl:part element="tns:checkAvailability" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="checkAvailabilitySoapOut">
+    <wsdl:part element="tns:checkAvailabilityResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="AAFlightsServiceSoap">
+    <wsdl:operation name="bookingFlight">
+      <wsdl:input message="tns:bookingFlightSoapIn"/>
+    </wsdl:operation>
+    <wsdl:operation name="cancelFlight">
+      <wsdl:input message="tns:cancelFlightSoapIn"/>
+      <wsdl:output message="tns:cancelFlightSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="checkAvailability">
+      <wsdl:input message="tns:checkAvailabilitySoapIn"/>
+      <wsdl:output message="tns:checkAvailabilitySoapOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AAFlightsServiceSoap" type="tns:AAFlightsServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="bookingFlight">
+      <soap:operation soapAction="http://tempuri.org/bookingFlight" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="cancelFlight">
+      <soap:operation soapAction="http://tempuri.org/cancelFlight" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkAvailability">
+      <soap:operation soapAction="http://tempuri.org/checkAvailability" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AAFlightsServiceSoap12" type="tns:AAFlightsServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="bookingFlight">
+      <soap12:operation soapAction="http://tempuri.org/bookingFlight" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="cancelFlight">
+      <soap12:operation soapAction="http://tempuri.org/cancelFlight" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkAvailability">
+      <soap12:operation soapAction="http://tempuri.org/checkAvailability" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AAFlightsService">
+    <wsdl:port binding="tns:AAFlightsServiceSoap" name="AAFlightsServiceSoap">
+      <soap:address location="http://localhost/TouresBalon.OMS.MockServices/Services/AAFlightsService.asmx"/>
+    </wsdl:port>
+    <wsdl:port binding="tns:AAFlightsServiceSoap12" name="AAFlightsServiceSoap12">
+      <soap12:address location="http://localhost/TouresBalon.OMS.MockServices/Services/AAFlightsService.asmx"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

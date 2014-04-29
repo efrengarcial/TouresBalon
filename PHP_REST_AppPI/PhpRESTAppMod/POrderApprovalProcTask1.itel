@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ ##[lineageStampBegin]##
+ ##[generatedBy:/PhpRESPAppMod/POrderApprovalProc.bpel]##
+ ##[lineageStampEnd]##
+-->
+<tel:task xmlns:tel="http://www.ibm.com/xmlns/prod/websphere/human-task/6.0.0/" xmlns:wsdl="http://PhpRESTAppLib/POrderApprovalHtIF" allowClaimWhenSuspended="no" autoClaim="no" businessRelevance="no" calendarName="Simple" contextAuthorizationForOwner="none" defaultLocale="en-US" jndiNameStaffPluginProvider="bpe/staff/samplevmmconfiguration" kind="pTask" name="POrderApprovalTask" priorityDefinition="5" supportsDelegation="yes" supportsFollowOnTask="yes" supportsSubTask="yes" targetNamespace="http://PhpRESPAppMod/Task1">
+  <tel:import importType="http://schemas.xmlsoap.org/wsdl/" location="POrderApprovalHtIF.wsdl" namespace="http://PhpRESTAppLib/POrderApprovalHtIF"/>
+  <tel:interface kind="inbound" operation="approvePOrder" portType="wsdl:POrderApprovalHtIF"/>
+  <tel:staffSettings>
+    <tel:potentialOwner>
+      <tel:verb>
+        <tel:name>Everybody</tel:name>
+      </tel:verb>
+    </tel:potentialOwner>
+  </tel:staffSettings>
+  <tel:uiSettings/>
+  <tel:escalationSettings/>
+  <tel:email name="DefaultMessage">
+    <tel:localizedEmail locale="en-US">
+      <tel:subject>The task '%htm:task.description%' has been escalated</tel:subject>
+      <tel:body>&lt;html>
+&lt;head>
+&lt;/head>
+&lt;body lang=EN-US>
+&lt;div>
+&lt;p>The task '&lt;b>&lt;span style='font-size:14.0pt'>%htm:task.displayName%&lt;/span>&lt;/b>' with id '&lt;b>
+&lt;span style='font-size:14.0pt'>%htm:task.instanceID%&lt;/span>&lt;/b>'&amp;nbsp;has been escalated because the &lt;/p>
+&lt;p>expected state '&lt;b>&lt;span style='font-size:14.0pt'>%htm:escalation.expectedTaskState%&lt;/span>&lt;/b>'
+&amp;nbsp;has not been reached in time. &lt;/p>
+&lt;p>&amp;nbsp;&lt;/p>
+
+&lt;p>The task has the following description: &lt;/p>
+&lt;p>&lt;span style='font-size:14.0pt;color:red'>%htm:task.description%&lt;/span>&lt;/p>
+&lt;p>&amp;nbsp;&lt;/p>
+
+&lt;p>&lt;span style='font-size:14.0pt;color:green'>The name of the Escalation is: %htm:escalation.displayName% 
+ and the escalation description reads: %htm:escalation.description%&lt;/span>&lt;/p>
+&lt;p>&amp;nbsp;&lt;/p>
+&lt;p>&lt;a href=&quot;%htm:escalation.URLPrefix%?esiid=%htm:escalation.instanceID%&quot;>Escalation details&lt;/a>&lt;/p>
+
+&lt;/div>
+&lt;/body>
+&lt;/html></tel:body>
+    </tel:localizedEmail>
+  </tel:email>
+</tel:task>

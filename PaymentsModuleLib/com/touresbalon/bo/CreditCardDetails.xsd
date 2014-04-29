@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+	targetNamespace="http://PaymentsModuleLib/com/touresbalon/bo"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:complexType name="CreditCardDetails">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="number"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="expiration"
+				type="xsd:date">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="holderFirstName"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="holderLastName"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="emailAddress"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="cardSecurityCode"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="cardType"
+				type="xsd:string">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

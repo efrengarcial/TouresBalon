@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://MM_CustomerService"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:complexType name="User">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="username"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="password"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="confirm"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="email" type="xsd:string"></xsd:element>
+			<xsd:element minOccurs="0" name="mobile"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="companyName"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="streetAddress"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="city" type="xsd:string"></xsd:element>
+			<xsd:element minOccurs="0" name="state" type="xsd:string"></xsd:element>
+			<xsd:element minOccurs="0" name="country"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="postalCode"
+				type="xsd:string">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

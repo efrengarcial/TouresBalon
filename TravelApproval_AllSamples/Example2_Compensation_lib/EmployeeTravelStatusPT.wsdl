@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="EmployeeTravelStatusPT" targetNamespace="http://packtpub.com/service/employee/" xmlns:tns="http://packtpub.com/service/employee/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://packtpub.com/service/employee/">
+      <xsd:include schemaLocation="EmployeeTravelStatusResponseMessage.xsd"/>
+      <xsd:include schemaLocation="EmployeeTravelStatusRequestMessage.xsd"/>
+      <xsd:element name="EmployeeTravelStatus">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="EmployeeTravelStatusRequest" nillable="true" type="tns:EmployeeTravelStatusRequestMessage"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="EmployeeTravelStatusResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="EmployeeTravelStatusResponse" nillable="true" type="tns:EmployeeTravelStatusResponseMessage"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="EmployeeTravelStatusRequestMsg">
+    <wsdl:part element="tns:EmployeeTravelStatus" name="EmployeeTravelStatusParameters"/>
+  </wsdl:message>
+    <wsdl:message name="EmployeeTravelStatusResponseMsg">
+    <wsdl:part element="tns:EmployeeTravelStatusResponse" name="EmployeeTravelStatusResult"/>
+  </wsdl:message>
+    <wsdl:portType name="EmployeeTravelStatusPT">
+    <wsdl:operation name="EmployeeTravelStatus">
+      <wsdl:input message="tns:EmployeeTravelStatusRequestMsg" name="EmployeeTravelStatusRequest"/>
+      <wsdl:output message="tns:EmployeeTravelStatusResponseMsg" name="EmployeeTravelStatusResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

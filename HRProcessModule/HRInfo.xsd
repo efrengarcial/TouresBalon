@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://HRProcessModule">
+  <xsd:complexType name="HRInfo">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="employeeID" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="fName" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="MI" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="lName" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="education" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="salary" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="managerID" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="married" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

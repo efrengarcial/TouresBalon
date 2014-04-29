@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema targetNamespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/danncarltonavailabilitybg" xmlns:bo="http://www.ibm.com/xmlns/prod/websphere/bo/6.0.0" xmlns:danncarltonavailability="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/danncarltonavailability" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/danncarltonavailability" schemaLocation="DannCarltonAvailability.xsd"/>
+<xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/bo/6.0.0" schemaLocation="../../../BusinessGraph.xsd"/>
+
+<xsd:annotation xml:space="preserve">
+<xsd:appinfo source="http://www.ibm.com/xmlns/prod/j2ca/versionCompatability">
+<info:resourceAdapter version="7.0.0.0" xmlns:info="http://www.ibm.com/xmlns/prod/j2ca/versionCompatability"/>
+</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType name="DannCarltonAvailabilityBG">
+<xsd:complexContent>
+<xsd:extension base="bo:BusinessGraph">
+<xsd:sequence>
+<xsd:element maxOccurs="1" minOccurs="0" name="verb">
+<xsd:simpleType>
+<xsd:restriction base="xsd:string">
+<xsd:enumeration value="Create"/>
+<xsd:enumeration value="Update"/>
+<xsd:enumeration value="Delete"/>
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="DannCarltonAvailability" type="danncarltonavailability:DannCarltonAvailability"/>
+</xsd:sequence>
+</xsd:extension>
+</xsd:complexContent>
+</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mfc="http://www.ibm.com/xmlns/prod/websphere/scdl/mfc/6.0.0" xmlns:ns1="http://PaymentsModuleLib/com/touresbalon/interfaces/PaymentServiceIF" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="Med-Payments" name="Med-Payments">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" portType="ns1:PaymentServiceIF"/>
+  </interfaces>
+  <references>
+    <reference name="VisaServicePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns1:PaymentServiceIF"/>
+      <wire target="Med-Visa"/>
+    </reference>
+    <reference name="MasterCardServicePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns1:PaymentServiceIF"/>
+      <wire target="Med-MasterCard"/>
+    </reference>
+  </references>
+  <implementation xsi:type="mfc:MediationFlowImplementation" mfcFile="com/touresbalon/mediations/Med-Payments.mfc"/>
+</scdl:component>

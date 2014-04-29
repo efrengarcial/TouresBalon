@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://PhpRESTAppLib"
+	xmlns:bons0="http://PhpRESTAppLib">
+	<xsd:include schemaLocation="ApprovalsType.xsd"></xsd:include>
+	<xsd:complexType name="POrderType">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="id" type="xsd:int"></xsd:element>
+			<xsd:element minOccurs="0" name="description"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="amount"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="approvals"
+				type="bons0:ApprovalsType" maxOccurs="unbounded">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

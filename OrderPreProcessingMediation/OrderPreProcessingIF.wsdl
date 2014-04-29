@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="OrderPreProcessingIF" targetNamespace="http://OrderPreProcessingMediation/OrderPreProcessingIF" xmlns:bons1="http://OrderPreProcessingMediation" xmlns:tns="http://OrderPreProcessingMediation/OrderPreProcessingIF" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://OrderPreProcessingMediation/OrderPreProcessingIF">
+      <xsd:import namespace="http://OrderPreProcessingMediation" schemaLocation="OrderManagementInputSb.xsd"/>
+      <xsd:element name="createOrder">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="orderManagementInputSb" nillable="true" type="bons1:OrderManagementInputSb"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="createOrderRequestMsg">
+    <wsdl:part element="tns:createOrder" name="createOrderParameters"/>
+  </wsdl:message>
+    <wsdl:portType name="OrderPreProcessingIF">
+    <wsdl:operation name="createOrder">
+      <wsdl:input message="tns:createOrderRequestMsg" name="createOrderRequest"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

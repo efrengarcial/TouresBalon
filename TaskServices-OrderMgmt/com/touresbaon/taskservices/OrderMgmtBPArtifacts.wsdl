@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="OrderMgmtBP" targetNamespace="http://TaskServices-OrderMgmt/com/touresbaon/taskservices/OrderMgmtBPArtifacts" xmlns:plnk="http://schemas.xmlsoap.org/ws/2004/03/partner-link/" xmlns:tns="http://TaskServices-OrderMgmt/com/touresbaon/taskservices/OrderMgmtBPArtifacts" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl0="http://OrderLib/com/touresbalon/interfaces/OrderMgmtServiceIF" xmlns:wsdl1="http://OrderModule/com/touresbalon/interfaces/OrderServiceIF" xmlns:wsdl2="http://OrderLib/com/touresbalon/interfaces/OrderRulesServiceIF" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <plnk:partnerLinkType name="OrderMgmtServiceIFPLT">
+    <plnk:role name="Interface">
+      <plnk:portType name="wsdl0:OrderMgmtServiceIF"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="OrderServiceIFPLT">
+    <plnk:role name="Interface">
+      <plnk:portType name="wsdl1:OrderServiceIF"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="OrderRulesServiceIFPLT">
+    <plnk:role name="Interface">
+      <plnk:portType name="wsdl2:OrderRulesServiceIF"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <wsdl:import location="../../touresbalon/interfaces/OrderMgmtServiceIF.wsdl" namespace="http://OrderLib/com/touresbalon/interfaces/OrderMgmtServiceIF"/>
+    <wsdl:import location="../../touresbalon/interfaces/OrderServiceIF.wsdl" namespace="http://OrderModule/com/touresbalon/interfaces/OrderServiceIF"/>
+    <wsdl:import location="../../touresbalon/interfaces/OrderRulesServiceIF.wsdl" namespace="http://OrderLib/com/touresbalon/interfaces/OrderRulesServiceIF"/>
+</wsdl:definitions>

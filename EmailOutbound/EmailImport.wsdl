@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="EmailImport.wsdl" targetNamespace="http://EmailOutbound/EmailImport" xmlns:bons1="http://www.ibm.com/xmlns/prod/websphere/j2ca/email/simplealertemail" xmlns:tns="http://EmailOutbound/EmailImport" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://EmailOutbound/EmailImport">
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/email/simplealertemail" schemaLocation="CommonSchemas/SimpleAlertEmail.xsd"/>
+      <xsd:element name="sendSimpleAlertEmail">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="sendSimpleAlertEmailInput" type="bons1:SimpleAlertEmail"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="sendSimpleAlertEmailRequestMsg">
+    <wsdl:part element="tns:sendSimpleAlertEmail" name="sendSimpleAlertEmailParameters"/>
+  </wsdl:message>
+  <wsdl:portType name="EmailImport">
+    <wsdl:operation name="sendSimpleAlertEmail">
+      <wsdl:input message="tns:sendSimpleAlertEmailRequestMsg" name="sendSimpleAlertEmailRequest"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

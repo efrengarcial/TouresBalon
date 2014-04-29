@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="InsuranceA" targetNamespace="http://Example1/InsuranceAArtifacts" xmlns:plnk="http://schemas.xmlsoap.org/ws/2004/03/partner-link/" xmlns:tns="http://Example1/InsuranceAArtifacts" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl0="http://Example1/ComputeInsurancePremiumPT" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <plnk:partnerLinkType name="ComputeInsurancePremiumPTPLT">
+    <plnk:role name="Interface">
+      <plnk:portType name="wsdl0:ComputeInsurancePremiumPT"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+  <wsdl:import location="ComputeInsurancePremiumPT.wsdl" namespace="http://Example1/ComputeInsurancePremiumPT"/>
+</wsdl:definitions>

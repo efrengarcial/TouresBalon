@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions targetNamespace="http://hr.issw.ibm.com" xmlns:impl="http://hr.issw.ibm.com" xmlns:intf="http://hr.issw.ibm.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsi="http://ws-i.org/profiles/basic/1.1/xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+ <wsdl:types>
+  <schema targetNamespace="http://hr.issw.ibm.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <complexType name="Employee">
+    <sequence>
+     <element name="edLevel" type="xsd:int"/>
+     <element name="empNO" nillable="true" type="xsd:string"/>
+     <element name="firstName" nillable="true" type="xsd:string"/>
+     <element name="lastName" nillable="true" type="xsd:string"/>
+     <element name="midInit" nillable="true" type="xsd:string"/>
+     <element name="phoneNO" nillable="true" type="xsd:string"/>
+     <element name="workDept" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <element name="addEmployeeResponse">
+    <complexType>
+     <sequence/>
+    </complexType>
+   </element>
+   <element name="addEmployee">
+    <complexType>
+     <sequence>
+      <element name="e" nillable="true" type="impl:Employee"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="addEmployeeRequest">
+
+      <wsdl:part element="impl:addEmployee" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="addEmployeeResponse">
+
+      <wsdl:part element="impl:addEmployeeResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:portType name="EmployeeServices">
+
+      <wsdl:operation name="addEmployee">
+
+         <wsdl:input message="impl:addEmployeeRequest" name="addEmployeeRequest"/>
+
+         <wsdl:output message="impl:addEmployeeResponse" name="addEmployeeResponse"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="EmployeeServicesSoapBinding" type="impl:EmployeeServices">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="addEmployee">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addEmployeeRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addEmployeeResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="EmployeeServicesService">
+
+      <wsdl:port binding="impl:EmployeeServicesSoapBinding" name="EmployeeServices">
+
+         <wsdlsoap:address location="http://localhost:9081/DevWorksUI/services/EmployeeServices"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

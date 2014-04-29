@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="ComputeInsurancePremiumPT" targetNamespace="http://Example1/ComputeInsurancePremiumPT" xmlns:bons1="http://Example1" xmlns:tns="http://Example1/ComputeInsurancePremiumPT" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://Example1/ComputeInsurancePremiumPT">
+      <xsd:import namespace="http://Example1" schemaLocation="InsuranceResponseMessage.xsd"/>
+      <xsd:import namespace="http://Example1" schemaLocation="InsuranceRequestMessage.xsd"/>
+      <xsd:element name="ComputeInsurancePremium">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="InsuranceRequest" nillable="true" type="bons1:InsuranceRequestMessage"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ComputeInsurancePremiumResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="InsuranceResponse" nillable="true" type="bons1:InsuranceResponseMessage"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="ComputeInsurancePremiumRequestMsg">
+    <wsdl:part element="tns:ComputeInsurancePremium" name="ComputeInsurancePremiumParameters"/>
+  </wsdl:message>
+    <wsdl:message name="ComputeInsurancePremiumResponseMsg">
+    <wsdl:part element="tns:ComputeInsurancePremiumResponse" name="ComputeInsurancePremiumResult"/>
+  </wsdl:message>
+    <wsdl:portType name="ComputeInsurancePremiumPT">
+    <wsdl:operation name="ComputeInsurancePremium">
+      <wsdl:input message="tns:ComputeInsurancePremiumRequestMsg" name="ComputeInsurancePremiumRequest"/>
+      <wsdl:output message="tns:ComputeInsurancePremiumResponseMsg" name="ComputeInsurancePremiumResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:bons1="http://PhpRESTAppLib" xmlns:tns="http://PhpRESTAppLib/POrderProcIF" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="POrderProcIF" targetNamespace="http://PhpRESTAppLib/POrderProcIF">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://PhpRESTAppLib/POrderProcIF" xmlns:bons1="http://PhpRESTAppLib" xmlns:tns="http://PhpRESTAppLib/POrderProcIF" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:import namespace="http://PhpRESTAppLib" schemaLocation="POrderType.xsd"/>
+      <xsd:element name="submitPOrder">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="submitReq" nillable="true" type="bons1:POrderType"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="submitPOrderRequestMsg">
+    <wsdl:part element="tns:submitPOrder" name="submitPOrderParameters"/>
+  </wsdl:message>
+    <wsdl:portType name="POrderProcIF">
+    <wsdl:operation name="submitPOrder">
+      <wsdl:input message="tns:submitPOrderRequestMsg" name="submitPOrderRequest"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

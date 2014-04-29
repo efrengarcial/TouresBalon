@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Add Customer</title>
+<script>
+  function callServer() {
+  /* Create a new XMLHttpRequest object to talk to the Web server */
+	var xmlHttp = false;
+
+	try {
+	  xmlHttp = new ActiveXObject("Msxml2.XMLHTTP");
+	} catch (e) {
+	  try {
+	    xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+	  } catch (e2) {
+	    xmlHttp = false;
+	  }
+	}
+	
+	
+	if (!xmlHttp && typeof XMLHttpRequest != 'undefined') {
+	  xmlHttp = new XMLHttpRequest();
+	}
+  
+  var name = document.getElementById("name").value;
+  var type = document.getElementById("type").value;
+  var address = document.getElementById("address").value;
+
+  var xmlString = "<?xml version='1.0' encoding='UTF-8'?><addCustomer xmlns='http://CustomersLib/AddCustomer'>" +
+    "<name>" + name + "</name>" +
+    "<type>" + type + "</type>" +
+    "<address>" + address + "</address>" +
+    "</addCustomer>";
+
+  // Build the URL to connect to
+  var url = "/CustomersWeb/AddCustomerExport/addCustomer";
+
+  // Open a connection to the server
+  xmlHttp.open("POST", url, true);
+
+  // Tell the server you're sending it XML
+  xmlHttp.setRequestHeader("Content-Type", "text/xml");
+	xmlHttp.onreadystatechange=function()
+	{
+	if(xmlHttp.readyState==4)
+	  {
+	  	alert("Customer '"+name+"' created successfully!");
+  		document.forms[0].reset();
+	  }
+	}
+  // Send the request
+  xmlHttp.send(xmlString);
+  
+  
+}
+
+</script>
+
+</head>
+<body>
+
+<form id="addCustomerForm" ><table border="1">
+	<tbody>
+		<tr>
+			<td>Name</td>
+			<td><input type="text" id="name" size="100"></td>
+		</tr>
+		<tr>
+			<td>Type</td>
+			<td><select id="type">
+				<option value="Software" selected>Software</option>
+				<option value="Research">Research</option>
+				<option value="Hardware">Hardware</option>
+			</select></td>
+		</tr>
+		<tr>
+			<td>Address</td>
+			<td><input type="text" id="address" size="100"></td>
+		</tr>
+	</tbody>
+</table><input type="button" onclick="callServer()" value="Add Customer">
+</form>
+</body>
+</html>

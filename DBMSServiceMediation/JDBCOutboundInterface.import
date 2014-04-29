@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:import xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:EIS="http://www.ibm.com/xmlns/prod/websphere/scdl/eis/6.0.0" xmlns:ns1="http://DBMSServiceMediation/JDBCOutboundInterface" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="JDBCOutboundInterface" name="JDBCOutboundInterface">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" preferredInteractionStyle="sync" portType="ns1:JDBCOutboundInterface">
+      <scdl:interfaceQualifier xsi:type="scdl:JoinTransaction" value="true"/>
+    </interface>
+  </interfaces>
+  <esbBinding xsi:type="EIS:EISImportBinding" faultSelector="com.ibm.j2ca.extension.emd.runtime.WBIFaultSelectorImpl" dataBindingType="com.ibm.j2ca.jdbc.emd.databinding.JDBCDataBindingGenerator">
+    <resourceAdapter name="DBMSServiceMediationApp.IBM WebSphere Adapter for JDBC" type="com.ibm.j2ca.jdbc.JDBCResourceAdapter" version="7.0.0.0">
+      <properties>
+        <adapterID>001</adapterID>
+      </properties>
+    </resourceAdapter>
+    <connection type="com.ibm.j2ca.jdbc.JDBCManagedConnectionFactory" interactionType="com.ibm.j2ca.jdbc.JDBCInteractionSpec">
+      <properties>
+        <XADataSourceJNDIName>jdbc/DerbyORDERDB</XADataSourceJNDIName>
+        <adapterID>001</adapterID>
+        <connectionType>XADataSourceJNDI</connectionType>
+        <databaseURL>jdbc:derby:D:\jee\books\IBM\SG247642\Derby sample files\ORDERDB</databaseURL>
+        <databaseVendor>OTHER</databaseVendor>
+        <jdbcDriverClass>org.apache.derby.jdbc.EmbeddedDriver</jdbcDriverClass>
+        <returnDummyBOForSP>false</returnDummyBOForSP>
+      </properties>
+      <authentication/>
+    </connection>
+    <methodBinding inDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbadmincustomerbg.DbadminCustomerBGDataBinding" method="createDbadminCustomerBG" outDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbadmincustomerbg.DbadminCustomerBGDataBinding">
+      <faultBinding fault="INTEGRITY_CONSTRAINT_VIOLATION" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="MISSING_DATA" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="OBJECT_NOTFOUND_EXCEPTION" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="UNIQUECONSTRAINT_VIOLATION" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <interaction>
+        <properties>
+          <functionName>Create</functionName>
+        </properties>
+      </interaction>
+    </methodBinding>
+    <methodBinding inDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbadmincustomerbg.DbadminCustomerBGDataBinding" method="updateDbadminCustomerBG" outDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbadmincustomerbg.DbadminCustomerBGDataBinding">
+      <faultBinding fault="MISSING_DATA" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="OBJECT_NOTFOUND_EXCEPTION" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="RECORD_NOT_FOUND" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="MULTIPLE_MATCHING_RECORDS" faultBindingType="com.ibm.j2ca.extension.emd.runtime.MatchingFaultDataBinding"/>
+      <faultBinding fault="UNIQUECONSTRAINT_VIOLATION" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="INTEGRITY_CONSTRAINT_VIOLATION" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <interaction>
+        <properties>
+          <functionName>Update</functionName>
+        </properties>
+      </interaction>
+    </methodBinding>
+    <methodBinding inDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbadmincustomerbg.DbadminCustomerBGDataBinding" method="deleteDbadminCustomerBG" outDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbadmincustomerbg.DbadminCustomerBGDataBinding">
+      <faultBinding fault="MISSING_DATA" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="RECORD_NOT_FOUND" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <interaction>
+        <properties>
+          <functionName>Delete</functionName>
+        </properties>
+      </interaction>
+    </methodBinding>
+    <methodBinding inDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbadmincustomerbg.DbadminCustomerBGDataBinding" method="retrieveDbadminCustomerBG" outDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbadmincustomerbg.DbadminCustomerBGDataBinding">
+      <faultBinding fault="MISSING_DATA" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="MULTIPLE_MATCHING_RECORDS" faultBindingType="com.ibm.j2ca.extension.emd.runtime.MatchingFaultDataBinding"/>
+      <faultBinding fault="RECORD_NOT_FOUND" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <interaction>
+        <properties>
+          <functionName>Retrieve</functionName>
+        </properties>
+      </interaction>
+    </methodBinding>
+    <methodBinding inDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbadmincustomerbg.DbadminCustomerBGDataBinding" method="retrieveallDbadminCustomerBG" outDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbadmincustomercontainer.DbadminCustomerContainerDataBinding">
+      <faultBinding fault="MATCHES_EXCEEDED_LIMIT" faultBindingType="com.ibm.j2ca.extension.emd.runtime.MatchingFaultDataBinding"/>
+      <faultBinding fault="RECORD_NOT_FOUND" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <interaction>
+        <properties>
+          <functionName>RetrieveAll</functionName>
+          <maxRecords>-1</maxRecords>
+        </properties>
+      </interaction>
+    </methodBinding>
+    <methodBinding inDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbadmincustomerbg.DbadminCustomerBGDataBinding" method="applychangesDbadminCustomerBG" outDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbadmincustomerbg.DbadminCustomerBGDataBinding">
+      <faultBinding fault="MISSING_DATA" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="INTEGRITY_CONSTRAINT_VIOLATION" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="OBJECT_NOTFOUND_EXCEPTION" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="UNIQUECONSTRAINT_VIOLATION" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="RECORD_NOT_FOUND" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="MULTIPLE_MATCHING_RECORDS" faultBindingType="com.ibm.j2ca.extension.emd.runtime.MatchingFaultDataBinding"/>
+      <interaction>
+        <properties>
+          <functionName>ApplyChanges</functionName>
+        </properties>
+      </interaction>
+    </methodBinding>
+    <methodBinding inDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbadmincustomerbg.DbadminCustomerBGDataBinding" method="existsDbadminCustomerBG" outDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.existsresult.ExistsResultDataBinding">
+      <interaction>
+        <properties>
+          <functionName>Exists</functionName>
+        </properties>
+      </interaction>
+    </methodBinding>
+    <methodBinding inDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbadminitembg.DbadminItemBGDataBinding" method="createDbadminItemBG" outDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbadminitembg.DbadminItemBGDataBinding">
+      <faultBinding fault="INTEGRITY_CONSTRAINT_VIOLATION" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="MISSING_DATA" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="OBJECT_NOTFOUND_EXCEPTION" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="UNIQUECONSTRAINT_VIOLATION" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <interaction>
+        <properties>
+          <functionName>Create</functionName>
+        </properties>
+      </interaction>
+    </methodBinding>
+    <methodBinding inDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbadminitembg.DbadminItemBGDataBinding" method="updateDbadminItemBG" outDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbadminitembg.DbadminItemBGDataBinding">
+      <faultBinding fault="MISSING_DATA" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="OBJECT_NOTFOUND_EXCEPTION" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="RECORD_NOT_FOUND" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="MULTIPLE_MATCHING_RECORDS" faultBindingType="com.ibm.j2ca.extension.emd.runtime.MatchingFaultDataBinding"/>
+      <faultBinding fault="UNIQUECONSTRAINT_VIOLATION" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="INTEGRITY_CONSTRAINT_VIOLATION" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <interaction>
+        <properties>
+          <functionName>Update</functionName>
+        </properties>
+      </interaction>
+    </methodBinding>
+    <methodBinding inDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbadminitembg.DbadminItemBGDataBinding" method="deleteDbadminItemBG" outDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbadminitembg.DbadminItemBGDataBinding">
+      <faultBinding fault="MISSING_DATA" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="RECORD_NOT_FOUND" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <interaction>
+        <properties>
+          <functionName>Delete</functionName>
+        </properties>
+      </interaction>
+    </methodBinding>
+    <methodBinding inDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbadminitembg.DbadminItemBGDataBinding" method="retrieveDbadminItemBG" outDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbadminitembg.DbadminItemBGDataBinding">
+      <faultBinding fault="MISSING_DATA" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="MULTIPLE_MATCHING_RECORDS" faultBindingType="com.ibm.j2ca.extension.emd.runtime.MatchingFaultDataBinding"/>
+      <faultBinding fault="RECORD_NOT_FOUND" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <interaction>
+        <properties>
+          <functionName>Retrieve</functionName>
+        </properties>
+      </interaction>
+    </methodBinding>
+    <methodBinding inDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbadminitembg.DbadminItemBGDataBinding" method="retrieveallDbadminItemBG" outDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbadminitemcontainer.DbadminItemContainerDataBinding">
+      <faultBinding fault="MATCHES_EXCEEDED_LIMIT" faultBindingType="com.ibm.j2ca.extension.emd.runtime.MatchingFaultDataBinding"/>
+      <faultBinding fault="RECORD_NOT_FOUND" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <interaction>
+        <properties>
+          <functionName>RetrieveAll</functionName>
+          <maxRecords>-1</maxRecords>
+        </properties>
+      </interaction>
+    </methodBinding>
+    <methodBinding inDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbadminitembg.DbadminItemBGDataBinding" method="applychangesDbadminItemBG" outDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbadminitembg.DbadminItemBGDataBinding">
+      <faultBinding fault="MISSING_DATA" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="INTEGRITY_CONSTRAINT_VIOLATION" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="OBJECT_NOTFOUND_EXCEPTION" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="UNIQUECONSTRAINT_VIOLATION" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="RECORD_NOT_FOUND" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="MULTIPLE_MATCHING_RECORDS" faultBindingType="com.ibm.j2ca.extension.emd.runtime.MatchingFaultDataBinding"/>
+      <interaction>
+        <properties>
+          <functionName>ApplyChanges</functionName>
+        </properties>
+      </interaction>
+    </methodBinding>
+    <methodBinding inDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbadminitembg.DbadminItemBGDataBinding" method="existsDbadminItemBG" outDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.existsresult.ExistsResultDataBinding">
+      <interaction>
+        <properties>
+          <functionName>Exists</functionName>
+        </properties>
+      </interaction>
+    </methodBinding>
+    <methodBinding inDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbadminorderheaderbg.DbadminOrderheaderBGDataBinding" method="createDbadminOrderheaderBG" outDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbadminorderheaderbg.DbadminOrderheaderBGDataBinding">
+      <faultBinding fault="INTEGRITY_CONSTRAINT_VIOLATION" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="MISSING_DATA" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="OBJECT_NOTFOUND_EXCEPTION" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="UNIQUECONSTRAINT_VIOLATION" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <interaction>
+        <properties>
+          <functionName>Create</functionName>
+        </properties>
+      </interaction>
+    </methodBinding>
+    <methodBinding inDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbadminorderheaderbg.DbadminOrderheaderBGDataBinding" method="updateDbadminOrderheaderBG" outDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbadminorderheaderbg.DbadminOrderheaderBGDataBinding">
+      <faultBinding fault="MISSING_DATA" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="OBJECT_NOTFOUND_EXCEPTION" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="RECORD_NOT_FOUND" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="MULTIPLE_MATCHING_RECORDS" faultBindingType="com.ibm.j2ca.extension.emd.runtime.MatchingFaultDataBinding"/>
+      <faultBinding fault="UNIQUECONSTRAINT_VIOLATION" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="INTEGRITY_CONSTRAINT_VIOLATION" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <interaction>
+        <properties>
+          <functionName>Update</functionName>
+        </properties>
+      </interaction>
+    </methodBinding>
+    <methodBinding inDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbadminorderheaderbg.DbadminOrderheaderBGDataBinding" method="deleteDbadminOrderheaderBG" outDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbadminorderheaderbg.DbadminOrderheaderBGDataBinding">
+      <faultBinding fault="MISSING_DATA" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="RECORD_NOT_FOUND" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <interaction>
+        <properties>
+          <functionName>Delete</functionName>
+        </properties>
+      </interaction>
+    </methodBinding>
+    <methodBinding inDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbadminorderheaderbg.DbadminOrderheaderBGDataBinding" method="retrieveDbadminOrderheaderBG" outDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbadminorderheaderbg.DbadminOrderheaderBGDataBinding">
+      <faultBinding fault="MISSING_DATA" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="MULTIPLE_MATCHING_RECORDS" faultBindingType="com.ibm.j2ca.extension.emd.runtime.MatchingFaultDataBinding"/>
+      <faultBinding fault="RECORD_NOT_FOUND" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <interaction>
+        <properties>
+          <functionName>Retrieve</functionName>
+        </properties>
+      </interaction>
+    </methodBinding>
+    <methodBinding inDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbadminorderheaderbg.DbadminOrderheaderBGDataBinding" method="retrieveallDbadminOrderheaderBG" outDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbadminorderheadercontainer.DbadminOrderheaderContainerDataBinding">
+      <faultBinding fault="MATCHES_EXCEEDED_LIMIT" faultBindingType="com.ibm.j2ca.extension.emd.runtime.MatchingFaultDataBinding"/>
+      <faultBinding fault="RECORD_NOT_FOUND" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <interaction>
+        <properties>
+          <functionName>RetrieveAll</functionName>
+          <maxRecords>-1</maxRecords>
+        </properties>
+      </interaction>
+    </methodBinding>
+    <methodBinding inDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbadminorderheaderbg.DbadminOrderheaderBGDataBinding" method="applychangesDbadminOrderheaderBG" outDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbadminorderheaderbg.DbadminOrderheaderBGDataBinding">
+      <faultBinding fault="MISSING_DATA" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="INTEGRITY_CONSTRAINT_VIOLATION" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="OBJECT_NOTFOUND_EXCEPTION" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="UNIQUECONSTRAINT_VIOLATION" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="RECORD_NOT_FOUND" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="MULTIPLE_MATCHING_RECORDS" faultBindingType="com.ibm.j2ca.extension.emd.runtime.MatchingFaultDataBinding"/>
+      <interaction>
+        <properties>
+          <functionName>ApplyChanges</functionName>
+        </properties>
+      </interaction>
+    </methodBinding>
+    <methodBinding inDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbadminorderheaderbg.DbadminOrderheaderBGDataBinding" method="existsDbadminOrderheaderBG" outDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.existsresult.ExistsResultDataBinding">
+      <interaction>
+        <properties>
+          <functionName>Exists</functionName>
+        </properties>
+      </interaction>
+    </methodBinding>
+    <methodBinding inDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbadminitemwhsbg.DbadminItemwhsBGDataBinding" method="createDbadminItemwhsBG" outDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbadminitemwhsbg.DbadminItemwhsBGDataBinding">
+      <faultBinding fault="INTEGRITY_CONSTRAINT_VIOLATION" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="MISSING_DATA" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="OBJECT_NOTFOUND_EXCEPTION" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="UNIQUECONSTRAINT_VIOLATION" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <interaction>
+        <properties>
+          <functionName>Create</functionName>
+        </properties>
+      </interaction>
+    </methodBinding>
+    <methodBinding inDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbadminitemwhsbg.DbadminItemwhsBGDataBinding" method="updateDbadminItemwhsBG" outDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbadminitemwhsbg.DbadminItemwhsBGDataBinding">
+      <faultBinding fault="MISSING_DATA" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="OBJECT_NOTFOUND_EXCEPTION" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="RECORD_NOT_FOUND" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="MULTIPLE_MATCHING_RECORDS" faultBindingType="com.ibm.j2ca.extension.emd.runtime.MatchingFaultDataBinding"/>
+      <faultBinding fault="UNIQUECONSTRAINT_VIOLATION" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="INTEGRITY_CONSTRAINT_VIOLATION" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <interaction>
+        <properties>
+          <functionName>Update</functionName>
+        </properties>
+      </interaction>
+    </methodBinding>
+    <methodBinding inDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbadminitemwhsbg.DbadminItemwhsBGDataBinding" method="deleteDbadminItemwhsBG" outDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbadminitemwhsbg.DbadminItemwhsBGDataBinding">
+      <faultBinding fault="MISSING_DATA" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="RECORD_NOT_FOUND" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <interaction>
+        <properties>
+          <functionName>Delete</functionName>
+        </properties>
+      </interaction>
+    </methodBinding>
+    <methodBinding inDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbadminitemwhsbg.DbadminItemwhsBGDataBinding" method="retrieveDbadminItemwhsBG" outDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbadminitemwhsbg.DbadminItemwhsBGDataBinding">
+      <faultBinding fault="MISSING_DATA" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="MULTIPLE_MATCHING_RECORDS" faultBindingType="com.ibm.j2ca.extension.emd.runtime.MatchingFaultDataBinding"/>
+      <faultBinding fault="RECORD_NOT_FOUND" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <interaction>
+        <properties>
+          <functionName>Retrieve</functionName>
+        </properties>
+      </interaction>
+    </methodBinding>
+    <methodBinding inDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbadminitemwhsbg.DbadminItemwhsBGDataBinding" method="retrieveallDbadminItemwhsBG" outDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbadminitemwhscontainer.DbadminItemwhsContainerDataBinding">
+      <faultBinding fault="MATCHES_EXCEEDED_LIMIT" faultBindingType="com.ibm.j2ca.extension.emd.runtime.MatchingFaultDataBinding"/>
+      <faultBinding fault="RECORD_NOT_FOUND" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <interaction>
+        <properties>
+          <functionName>RetrieveAll</functionName>
+          <maxRecords>-1</maxRecords>
+        </properties>
+      </interaction>
+    </methodBinding>
+    <methodBinding inDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbadminitemwhsbg.DbadminItemwhsBGDataBinding" method="applychangesDbadminItemwhsBG" outDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbadminitemwhsbg.DbadminItemwhsBGDataBinding">
+      <faultBinding fault="MISSING_DATA" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="INTEGRITY_CONSTRAINT_VIOLATION" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="OBJECT_NOTFOUND_EXCEPTION" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="UNIQUECONSTRAINT_VIOLATION" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="RECORD_NOT_FOUND" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="MULTIPLE_MATCHING_RECORDS" faultBindingType="com.ibm.j2ca.extension.emd.runtime.MatchingFaultDataBinding"/>
+      <interaction>
+        <properties>
+          <functionName>ApplyChanges</functionName>
+        </properties>
+      </interaction>
+    </methodBinding>
+    <methodBinding inDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbadminitemwhsbg.DbadminItemwhsBGDataBinding" method="existsDbadminItemwhsBG" outDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.existsresult.ExistsResultDataBinding">
+      <interaction>
+        <properties>
+          <functionName>Exists</functionName>
+        </properties>
+      </interaction>
+    </methodBinding>
+  </esbBinding>
+</scdl:import>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="ItemServiceIF" targetNamespace="http://OrderManagementLib/ItemServiceIF" xmlns:bons1="http://OrderManagementLib" xmlns:tns="http://OrderManagementLib/ItemServiceIF" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://OrderManagementLib/ItemServiceIF">
+            <xsd:import namespace="http://OrderManagementLib" schemaLocation="BusinessErrorFault.xsd"/>
+            <xsd:import namespace="http://OrderManagementLib" schemaLocation="ReturnCode.xsd"/>
+      <xsd:import namespace="http://OrderManagementLib" schemaLocation="Item.xsd"/>
+      <xsd:element name="retrieveItem">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="item" nillable="true" type="bons1:Item"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="retrieveItemResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="item" nillable="true" type="bons1:Item"/>
+            <xsd:element name="returnCode" nillable="true" type="bons1:ReturnCode"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="updateItem">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="item" nillable="true" type="bons1:Item"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="updateItemResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="returnCode" nillable="true" type="bons1:ReturnCode"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="retrieveItemFault1_businessError" nillable="true" type="bons1:BusinessErrorFault"/>
+        </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="retrieveItemRequestMsg">
+    <wsdl:part element="tns:retrieveItem" name="retrieveItemParameters"/>
+  </wsdl:message>
+    <wsdl:message name="retrieveItemResponseMsg">
+    <wsdl:part element="tns:retrieveItemResponse" name="retrieveItemResult"/>
+  </wsdl:message>
+    <wsdl:message name="updateItemRequestMsg">
+    <wsdl:part element="tns:updateItem" name="updateItemParameters"/>
+  </wsdl:message>
+    <wsdl:message name="updateItemResponseMsg">
+    <wsdl:part element="tns:updateItemResponse" name="updateItemResult"/>
+  </wsdl:message>
+    <wsdl:message name="retrieveItem_businessErrorMsg">
+    <wsdl:part element="tns:retrieveItemFault1_businessError" name="businessError"/>
+  </wsdl:message>
+    <wsdl:portType name="ItemServiceIF">
+    <wsdl:operation name="retrieveItem">
+      <wsdl:input message="tns:retrieveItemRequestMsg" name="retrieveItemRequest"/>
+      <wsdl:output message="tns:retrieveItemResponseMsg" name="retrieveItemResponse"/>
+            <wsdl:fault message="tns:retrieveItem_businessErrorMsg" name="businessError"/>
+        </wsdl:operation>
+    <wsdl:operation name="updateItem">
+      <wsdl:input message="tns:updateItemRequestMsg" name="updateItemRequest"/>
+      <wsdl:output message="tns:updateItemResponseMsg" name="updateItemResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

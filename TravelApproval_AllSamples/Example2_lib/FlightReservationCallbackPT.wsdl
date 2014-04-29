@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="FlightReservationCallbackPT" targetNamespace="http://packtpub.com/service/airline/" xmlns:tns="http://packtpub.com/service/airline/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://packtpub.com/service/airline/">
+      <xsd:include schemaLocation="FlightReservationMessage.xsd"/>
+      <xsd:element name="FlightReservationCallback">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="FlightReservation" nillable="true" type="tns:FlightReservationMessage"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="FlightReservationCallbackRequestMsg">
+    <wsdl:part element="tns:FlightReservationCallback" name="FlightReservationCallbackParameters"/>
+  </wsdl:message>
+    <wsdl:portType name="FlightReservationCallbackPT">
+    <wsdl:operation name="FlightReservationCallback">
+      <wsdl:input message="tns:FlightReservationCallbackRequestMsg" name="FlightReservationCallbackRequest"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

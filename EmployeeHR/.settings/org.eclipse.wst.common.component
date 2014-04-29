@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="EmployeeHR">
+        <module-type module-type-id="jst.ear">
+            <version>1.4</version>
+        </module-type>
+        <wb-resource deploy-path="/" source-path="/"/>
+        <dependent-module deploy-path="/" handle="module:/resource/EmployeeHRWeb/EmployeeHRWeb">
+            <dependent-object>WebModule_1165895262968</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    </wb-module>
+</project-modules>

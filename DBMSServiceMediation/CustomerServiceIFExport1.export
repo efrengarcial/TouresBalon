@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:export xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Binding="http://OrderManagementLib/CustomerServiceIF/Binding" xmlns:jaxws="http://www.ibm.com/xmlns/prod/websphere/scdl/jaxws/6.0.0" xmlns:ns1="http://OrderManagementLib/CustomerServiceIF" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="CustomerServiceIFExport1" name="CustomerServiceIFExport1" target="DBMSServiceMediation">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" preferredInteractionStyle="sync" portType="ns1:CustomerServiceIF"/>
+  </interfaces>
+  <esbBinding xsi:type="jaxws:JaxWsExportBinding" port="Binding:CustomerServiceIFExport1_CustomerServiceIFHttpPort" service="Binding:CustomerServiceIFExport1_CustomerServiceIFHttpService"/>
+</scdl:export>

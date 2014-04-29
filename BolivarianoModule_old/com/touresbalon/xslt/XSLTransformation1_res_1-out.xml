@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><body xmlns:out3="http://TransportLib" xmlns:io6="http://www.w3.org/2005/08/addressing" xmlns:xsd4xsd="http://www.w3.org/2001/XMLSchema" xmlns:io5="http://www.ibm.com/xmlns/prod/websphere/http/sca/6.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:io4="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:out2="http://TransportLib/com/touresbalon/bo" xmlns:out="wsdl.http://TransportLib" xmlns:io2="http://www.ibm.com/websphere/sibx/smo/v6.0.1" xmlns:io3="http://www.ibm.com/xmlns/prod/websphere/mq/sca/6.0.0" xmlns:io="http://www.w3.org/2003/05/soap-envelope" xsi:type="out:retrieveTravelsResponseMsg">
+  <out3:retrieveTravelsResponse>
+    <out3:output>
+      <Content>
+        <numViaje>0</numViaje>
+        <ciudadOrigen>ciudadOrigen</ciudadOrigen>
+        <ciudadDestino>ciudadDestino</ciudadDestino>
+        <numSilla>0</numSilla>
+        <horaSalida>horaSalida</horaSalida>
+      </Content>
+    </out3:output>
+  </out3:retrieveTravelsResponse>
+</body>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema targetNamespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/danncarltonavailabilitycontainer" xmlns:danncarltonavailability="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/danncarltonavailability" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/danncarltonavailability" schemaLocation="DannCarltonAvailability.xsd"/>
+<xsd:annotation xml:space="preserve">
+<xsd:appinfo source="http://www.ibm.com/xmlns/prod/j2ca/versionCompatability">
+<info:resourceAdapter version="7.0.0.0" xmlns:info="http://www.ibm.com/xmlns/prod/j2ca/versionCompatability"/>
+</xsd:appinfo>
+</xsd:annotation>
+
+<xsd:complexType name="DannCarltonAvailabilityContainer">
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="1" name="DannCarltonAvailability" type="danncarltonavailability:DannCarltonAvailability"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:schema>

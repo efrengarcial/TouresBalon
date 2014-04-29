@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mfc:interfaceMediationFlow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mfc="http://www.ibm.com/xmlns/prod/websphere/wbiserver/mfc/6.0.0" xmlns:ns1="http://AccommodationLib/com/touresbalon/interfaces/AccommodationServiceIF" xmlns:ns2="http://tempuri.org/" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" name="Med-Hilton" targetNamespace="http://AccommodationModule/com/touresbalon/mediations/Med-Hilton">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" portType="ns1:AccommodationServiceIF"/>
+  </interfaces>
+  <references>
+    <reference name="HiltonBookingServiceSoapPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns2:HiltonBookingServiceSoap"/>
+    </reference>
+  </references>
+  <extendedOperationBinding source="checkAvailability" target="validateAvailability" sourcePortType="ns1:AccommodationServiceIF" targetReference="HiltonBookingServiceSoapPartner"/>
+  <extendedOperationBinding source="makeReservation" target="bookingRoom" sourcePortType="ns1:AccommodationServiceIF" targetReference="HiltonBookingServiceSoapPartner"/>
+  <extendedOperationBinding source="cancelReservation" target="cancelRoom" sourcePortType="ns1:AccommodationServiceIF" targetReference="HiltonBookingServiceSoapPartner"/>
+  <operationFlow medflow="Med-Hilton.medflow"/>
+</mfc:interfaceMediationFlow>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://BolivarianoModule/com/touresbalon/transforms/xslAvailibilityResp" version="7.0.500" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://BolivarianoModule/com/touresbalon/transforms/xslAvailibilityResp">
+    <input path="smo://smo/name%3Dwsdl-primary/correlationContext%3D%257Bhttp%253A%252F%252FTransportLib%252Fcom%252Ftouresbalon%252Fbo%257DTravelsRequest/message%3D%257Bhttp%253A%252F%252FBolivarianoModule%252FBolivarianoTravelsFile%257DretrieveTravelsResponseMsg/xpath%3D%252F/smo.xsd"/>
+    <output path="smo://smo/name%3Dwsdl-primary/correlationContext%3D%257Bhttp%253A%252F%252FTransportLib%252Fcom%252Ftouresbalon%252Fbo%257DTravelsRequest/message%3D%257Bhttp%253A%252F%252FTransportLib%257DcheckAvailabilityResponseMsg/xpath%3D%252F/smo.xsd"/>
+    <mappingDeclaration name="xslAvailibilityResp">
+        <input path="smo"/>
+        <output path="smo"/>
+        <foreach>
+            <input path="body/retrieveTravelsResponse/retrieveTravelsOutput/TransportBolivarianoRetrieveWrapper/Content" var="Content"/>
+            <output path="body/checkAvailabilityResponse/response/Content"/>
+            <move>
+                <input path="$Content/numViaje"/>
+                <output path="numViaje"/>
+            </move>
+            <move>
+                <input path="$Content/ciudadOrigen"/>
+                <output path="ciudadOrigen"/>
+            </move>
+            <move>
+                <input path="$Content/ciudadDestino"/>
+                <output path="ciudadDestino"/>
+            </move>
+            <move>
+                <input path="$Content/numSilla"/>
+                <output path="numSilla"/>
+            </move>
+        </foreach>
+    </mappingDeclaration>
+</mappingRoot>

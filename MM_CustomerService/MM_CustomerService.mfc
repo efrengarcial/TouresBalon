@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mfc:interfaceMediationFlow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mfc="http://www.ibm.com/xmlns/prod/websphere/wbiserver/mfc/6.0.0" xmlns:ns1="http://LB_Customer/CustomerService" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" name="MM_CustomerService" targetNamespace="http://MM_CustomerService/MM_CustomerService">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" portType="ns1:CustomerService"/>
+  </interfaces>
+  <references>
+    <reference name="CustomerServicePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns1:CustomerService"/>
+    </reference>
+  </references>
+  <extendedOperationBinding source="addCostumer" target="addCostumer" sourcePortType="ns1:CustomerService" targetReference="CustomerServicePartner"/>
+  <operationFlow medflow="MM_CustomerService.medflow"/>
+</mfc:interfaceMediationFlow>

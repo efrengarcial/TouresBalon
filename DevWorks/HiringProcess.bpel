@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><bpws:process xmlns:bpws="http://schemas.xmlsoap.org/ws/2004/03/business-process/" xmlns:ns="http://DevWorks/HiringProcessArtifacts" xmlns:ns0="http://com.ibm.dwexample.bo" xmlns:ns1="http://DevWorks/OpenJobReq" xmlns:wpc="http://www.ibm.com/xmlns/prod/websphere/business-process/6.0.0/" expressionLanguage="http://www.ibm.com/xmlns/prod/websphere/business-process/expression-lang/java/6.0.0/" name="HiringProcess" suppressJoinFailure="yes" targetNamespace="http://DevWorks" wpc:continueOnError="no" wpc:displayName="HiringProcess" wpc:executionMode="longRunning" wpc:id="1" wpc:validFrom="2011-02-16T02:45:09" wpc:version="IBM_7.0.100">
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="OpenJobReq.wsdl" namespace="http://DevWorks/OpenJobReq"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="OpenJobReq.wsdl" namespace="http://DevWorks/OpenJobReq"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="HiringProcessArtifacts.wsdl" namespace="http://DevWorks/HiringProcessArtifacts"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="JobReq.xsd" namespace="http://com.ibm.dwexample.bo"/>
+  <bpws:partnerLinks>
+    <bpws:partnerLink myRole="Interface" name="OpenJobReq" partnerLinkType="ns:OpenJobReqPLT" wpc:id="2"/>
+    <bpws:partnerLink name="OpenJobReqPartner" partnerLinkType="ns:OpenJobReqPLT1" partnerRole="Interface" wpc:id="3"/>
+  </bpws:partnerLinks>
+  <bpws:variables>
+    <bpws:variable name="jobReq" type="ns0:JobReq" wpc:id="7"/>
+    <bpws:variable name="jobReq1" type="ns0:JobReq" wpc:id="8"/>
+  </bpws:variables>
+  <bpws:sequence name="HiddenSequence" wpc:id="1073741828">
+    <bpws:receive createInstance="yes" name="Receive" operation="openJobReq" partnerLink="OpenJobReq" portType="ns1:OpenJobReq" wpc:displayName="Receive" wpc:id="5" wpc:transactionalBehavior="commitAfter">
+      <wpc:output>
+        <wpc:parameter name="jobReq" variable="jobReq"/>
+      </wpc:output>
+    </bpws:receive>
+    <bpws:invoke name="Invoke" operation="openJobReq" partnerLink="OpenJobReqPartner" portType="ns1:OpenJobReq" wpc:displayName="Invoke" wpc:id="10">
+      <wpc:input>
+        <wpc:parameter name="jobReq" variable="jobReq"/>
+      </wpc:input>
+      <wpc:output>
+        <wpc:parameter name="jobReq" variable="jobReq"/>
+      </wpc:output>
+    </bpws:invoke>
+    <bpws:reply name="Reply" operation="openJobReq" partnerLink="OpenJobReq" portType="ns1:OpenJobReq" wpc:displayName="Reply" wpc:id="6">
+      <wpc:input>
+        <wpc:parameter name="jobReq" variable="jobReq1"/>
+      </wpc:input>
+    </bpws:reply>
+  </bpws:sequence>
+</bpws:process>

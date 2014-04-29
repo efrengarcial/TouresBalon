@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="FlightAvailabilityPT" targetNamespace="http://packtpub.com/service/airline/" xmlns:tns="http://packtpub.com/service/airline/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://packtpub.com/service/airline/">
+      <xsd:include schemaLocation="FlightTicketRequestMessage.xsd"/>
+      <xsd:element name="FlightAvailability">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="FlightTicketRequest" nillable="true" type="tns:FlightTicketRequestMessage"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="FlightAvailabilityRequestMsg">
+    <wsdl:part element="tns:FlightAvailability" name="FlightAvailabilityParameters"/>
+  </wsdl:message>
+    <wsdl:portType name="FlightAvailabilityPT">
+    <wsdl:operation name="FlightAvailability">
+      <wsdl:input message="tns:FlightAvailabilityRequestMsg" name="FlightAvailabilityRequest"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadminitemwhscontainer" xmlns:dbadminitemwhsbg="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadminitemwhsbg">
+<xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadminitemwhsbg" schemaLocation="DbadminItemwhsBG.xsd"/>
+<xsd:annotation xml:space="preserve">
+<xsd:appinfo source="http://www.ibm.com/xmlns/prod/j2ca/versionCompatability">
+<info:resourceAdapter xmlns:info="http://www.ibm.com/xmlns/prod/j2ca/versionCompatability" version="6.2.0.0"/>
+</xsd:appinfo>
+</xsd:annotation>
+
+<xsd:complexType name="DbadminItemwhsContainer">
+<xsd:sequence>
+<xsd:element name="DbadminItemwhsBG" type="dbadminitemwhsbg:DbadminItemwhsBG" minOccurs="1" maxOccurs="unbounded"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:schema>

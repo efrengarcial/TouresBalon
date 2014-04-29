@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:bons1="http://CustomersLib" targetNamespace="http://CustomersLib">
+    <xsd:include schemaLocation="Customer.xsd"/>
+    <xsd:complexType name="Customers">
+		<xsd:sequence>
+			<xsd:element maxOccurs="unbounded" minOccurs="0" name="customers" type="bons1:Customer">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="OrderServiceIF" targetNamespace="http://OrderModule/com/touresbalon/interfaces/OrderServiceIF" xmlns:bons0="http://OMSLib/com/touresbalon/interfaces/OrderServiceIF" xmlns:bons1="http://orders.oms.touresbalon.com/" xmlns:bons2="http://CommonDomain/com/touresbalon/bo" xmlns:tns="http://OrderModule/com/touresbalon/interfaces/OrderServiceIF" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://OrderModule/com/touresbalon/interfaces/OrderServiceIF" xmlns:bons0="http://OrderModule/com/touresbalon/interfaces/OrderServiceIF">
+      <xsd:import namespace="http://CommonDomain/com/touresbalon/bo" schemaLocation="../bo/BusinessErrorFault.xsd"/>
+      <xsd:import namespace="http://CommonDomain/com/touresbalon/bo" schemaLocation="../bo/ReturnCode.xsd"/>
+      <xsd:import namespace="http://orders.oms.touresbalon.com/" schemaLocation="../bo/Order.xsd"/>
+      <xsd:element name="createOrder">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="request" nillable="true" type="bons1:Order"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="createOrderResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="response" nillable="true" type="bons2:ReturnCode"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="updateOrder">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="request" nillable="true" type="bons1:Order"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="updateOrderResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="response" nillable="true" type="bons2:ReturnCode"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="updateOrderFault1_businessFault" nillable="true" type="bons2:BusinessErrorFault"/>
+            <xsd:element name="createOrderFault1_businessFault" nillable="true" type="bons2:BusinessErrorFault"/>
+        </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="createOrderRequestMsg">
+    <wsdl:part element="tns:createOrder" name="createOrderParameters"/>
+  </wsdl:message>
+    <wsdl:message name="createOrderResponseMsg">
+    <wsdl:part element="tns:createOrderResponse" name="createOrderResult"/>
+  </wsdl:message>
+    <wsdl:message name="updateOrderRequestMsg">
+    <wsdl:part element="tns:updateOrder" name="updateOrderParameters"/>
+  </wsdl:message>
+    <wsdl:message name="updateOrderResponseMsg">
+    <wsdl:part element="tns:updateOrderResponse" name="updateOrderResult"/>
+  </wsdl:message>
+    <wsdl:message name="updateOrder_businessFaultMsg">
+    <wsdl:part element="tns:updateOrderFault1_businessFault" name="businessFault"/>
+  </wsdl:message>
+    <wsdl:message name="createOrder_businessFaultMsg">
+    <wsdl:part element="tns:createOrderFault1_businessFault" name="businessFault"/>
+  </wsdl:message>
+    <wsdl:portType name="OrderServiceIF">
+    <wsdl:operation name="createOrder">
+      <wsdl:input message="tns:createOrderRequestMsg" name="createOrderRequest"/>
+      <wsdl:output message="tns:createOrderResponseMsg" name="createOrderResponse"/>
+            <wsdl:fault message="tns:createOrder_businessFaultMsg" name="businessFault"/>
+        </wsdl:operation>
+    <wsdl:operation name="updateOrder">
+      <wsdl:input message="tns:updateOrderRequestMsg" name="updateOrderRequest"/>
+      <wsdl:output message="tns:updateOrderResponseMsg" name="updateOrderResponse"/>
+            <wsdl:fault message="tns:updateOrder_businessFaultMsg" name="businessFault"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

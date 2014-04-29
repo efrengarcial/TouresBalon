@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpws:process xmlns:bpws="http://schemas.xmlsoap.org/ws/2004/03/business-process/" xmlns:ns="http://PhpRESPAppMod/POrderApprovalProcArtifacts" xmlns:ns0="http://PhpRESTAppLib" xmlns:ns1="http://PhpRESTAppLib/POrderProcIF" xmlns:ns2="http://PhpRESTAppLib/POrderApprovalHtIF" xmlns:tel="http://PhpRESPAppMod/Task1" xmlns:wpc="http://www.ibm.com/xmlns/prod/websphere/business-process/6.0.0/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.ibm.com/xmlns/prod/websphere/business-process/expression-lang/java/6.0.0/" name="POrderApprovalProc" suppressJoinFailure="yes" targetNamespace="http://PhpRESPAppMod" wpc:autonomy="peer" wpc:continueOnError="no" wpc:displayName="POrderApprovalProc" wpc:id="4" wpc:validFrom="2008-09-03T01:56:53">
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="/resource/PhpRESTAppLib/POrderProcIF.wsdl" namespace="http://PhpRESTAppLib/POrderProcIF"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="POrderType.xsd" namespace="http://PhpRESTAppLib"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="POrderProcIF.wsdl" namespace="http://PhpRESTAppLib/POrderProcIF"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="POrderApprovalProcArtifacts.wsdl" namespace="http://PhpRESPAppMod/POrderApprovalProcArtifacts"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="POrderApprovalHtIF.wsdl" namespace="http://PhpRESTAppLib/POrderApprovalHtIF"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="ConfirmationType.xsd" namespace="http://PhpRESTAppLib"/>
+  <bpws:partnerLinks>
+    <bpws:partnerLink myRole="Interface" name="POrderProcIF" partnerLinkType="ns:POrderProcIFPLT"/>
+  </bpws:partnerLinks>
+  <bpws:variables>
+    <bpws:variable name="submitReq" type="ns0:POrderType" wpc:id="3"/>
+    <bpws:variable name="confirmationResp" type="ns0:ConfirmationType" wpc:id="12"/>
+  </bpws:variables>
+  <bpws:sequence name="HiddenSequence" wpc:id="1073741825">
+    <bpws:receive createInstance="yes" name="Receive" operation="submitPOrder" partnerLink="POrderProcIF" portType="ns1:POrderProcIF" wpc:displayName="Receive" wpc:id="2">
+      <wpc:output>
+        <wpc:parameter name="submitReq" variable="submitReq"/>
+      </wpc:output>
+    </bpws:receive>
+    <bpws:invoke name="ReceiveDebug" operation="null" partnerLink="null" portType="wpc:null" wpc:continueOnError="inherit" wpc:displayName="Receive Debug" wpc:id="5">
+      <wpc:script>
+        <wpc:javaCode><![CDATA[System.out.println("Received a Purchase Order Approval request...");
+]]></wpc:javaCode>
+      </wpc:script>
+    </bpws:invoke>
+    <bpws:invoke name="POrderApprovalTask" operation="approvePOrder" partnerLink="null" portType="ns2:POrderApprovalHtIF" wpc:continueOnError="inherit" wpc:displayName="POrderApprovalTask" wpc:id="6" wpc:transactionalBehavior="participates">
+      <wpc:task name="tel:POrderApprovalTask"/>
+      <wpc:input>
+        <wpc:parameter name="approvalReq" variable="submitReq"/>
+      </wpc:input>
+      <wpc:output>
+        <wpc:parameter name="approvalResp" variable="confirmationResp"/>
+      </wpc:output>
+    </bpws:invoke>
+    <bpws:invoke name="TaskDebug" operation="null" partnerLink="null" portType="wpc:null" wpc:continueOnError="inherit" wpc:displayName="Task Debug" wpc:id="17">
+      <wpc:script>
+        <wpc:javaCode><![CDATA[System.out.println("Retruned from task suspention...");
+]]></wpc:javaCode>
+      </wpc:script>
+    </bpws:invoke>
+    <bpws:switch name="Approved" wpc:displayName="Approved?" wpc:id="7">
+      <bpws:case wpc:id="8">
+        <bpws:condition expressionLanguage="http://www.ibm.com/xmlns/prod/websphere/business-process/expression-lang/java/6.0.0/"><![CDATA[boolean __result__1 = confirmationResp.getBoolean("success") == true;
+return __result__1;
+
+//@generated:com.ibm.wbit.activity.ui
+//<?xml version="1.0" encoding="UTF-8"?>
+//<com.ibm.wbit.activity:CompositeActivity xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.ibm.wbit.activity="http:///com/ibm/wbit/activity.ecore" name="ActivityMethod">
+//  <result name="Result">
+//    <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="boolean"/>
+//  </result>
+//  <exceptions>
+//    <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.bpe.api.ProcessException"/>
+//  </exceptions>
+//  <executableElements xsi:type="com.ibm.wbit.activity:Expression" value="confirmationResp.success ==true" assignable="false">
+//    <dataOutputs target="//@executableElements.1"/>
+//    <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="boolean"/>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:ReturnElement" dataInputs="//@executableElements.0/@dataOutputs.0"/>
+//  <executableGroups executableElements="//@executableElements.0 //@executableElements.1"/>
+//</com.ibm.wbit.activity:CompositeActivity>
+//@generated:end
+//!SMAP!*S WBIACTDBG
+//!SMAP!*L
+//!SMAP!1:1,1
+//!SMAP!2:2,1
+//!SMAP!1000000:26,1]]></bpws:condition>
+        <bpws:invoke name="DebugYes" operation="null" partnerLink="null" portType="wpc:null" wpc:continueOnError="inherit" wpc:displayName="DebugYes" wpc:id="9">
+          <wpc:script>
+            <wpc:javaCode><![CDATA[System.out.println("Purchase Order Approval request was approved...");
+]]></wpc:javaCode>
+          </wpc:script>
+        </bpws:invoke>
+      </bpws:case>
+      <bpws:case wpc:id="10">
+        <bpws:condition expressionLanguage="http://www.ibm.com/xmlns/prod/websphere/business-process/expression-lang/java/6.0.0/"><![CDATA[boolean __result__1 = confirmationResp.getBoolean("success") == false;
+return __result__1;
+
+//@generated:com.ibm.wbit.activity.ui
+//<?xml version="1.0" encoding="UTF-8"?>
+//<com.ibm.wbit.activity:CompositeActivity xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.ibm.wbit.activity="http:///com/ibm/wbit/activity.ecore" name="ActivityMethod">
+//  <result name="Result">
+//    <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="boolean"/>
+//  </result>
+//  <exceptions>
+//    <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.bpe.api.ProcessException"/>
+//  </exceptions>
+//  <executableElements xsi:type="com.ibm.wbit.activity:Expression" value="confirmationResp.success ==false" assignable="false">
+//    <dataOutputs target="//@executableElements.1"/>
+//    <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="boolean"/>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:ReturnElement" dataInputs="//@executableElements.0/@dataOutputs.0"/>
+//  <executableGroups executableElements="//@executableElements.0 //@executableElements.1"/>
+//</com.ibm.wbit.activity:CompositeActivity>
+//@generated:end
+//!SMAP!*S WBIACTDBG
+//!SMAP!*L
+//!SMAP!1:1,1
+//!SMAP!2:2,1
+//!SMAP!1000000:26,1]]></bpws:condition>
+        <bpws:invoke name="DebugNo" operation="null" partnerLink="null" portType="wpc:null" wpc:continueOnError="inherit" wpc:displayName="DebugNo" wpc:id="11">
+          <wpc:script>
+            <wpc:javaCode><![CDATA[System.out.println("Purchase Order Approval request was denied...");
+]]></wpc:javaCode>
+          </wpc:script>
+        </bpws:invoke>
+      </bpws:case>
+    </bpws:switch>
+    <bpws:invoke name="EndDebug" operation="null" partnerLink="null" portType="wpc:null" wpc:continueOnError="inherit" wpc:displayName="EndDebug" wpc:id="13">
+      <wpc:script>
+        <wpc:javaCode><![CDATA[System.out.println("Purchase Order Approval Process ended...");]]></wpc:javaCode>
+      </wpc:script>
+    </bpws:invoke>
+  </bpws:sequence>
+</bpws:process>

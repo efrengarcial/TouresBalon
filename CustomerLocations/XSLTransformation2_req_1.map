@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappingRoot xmlns="http://www.ibm.com/2006/ccl/Mapping" xmlns:map="http://CustomerLocationsFeed/xslt/XSLTransformation2_req_1" domainID="com.ibm.ccl.mapping.codegen.xslt.domain" targetNamespace="http://CustomerLocationsFeed/xslt/XSLTransformation2_req_1">
+    <input path="smo://smo/name%3Dwsdl-primary/transientContext%3D/correlationContext%3D/sharedContext%3D/message%3D%257Bhttp%253A%252F%252FCustomerLocationsFeed%252FGetCustomerLocationsFeed%257DgetCustomersAsFeedRequestMsg/xpath%3D%252F/smo.xsd"/>
+    <output path="smo://smo/name%3Dwsdl-primary/transientContext%3D%257B%257D/correlationContext%3D%257B%257D/sharedContext%3D%257B%257D/message%3D%257Bhttp%253A%252F%252FCustomers%252FGetCustomers%257DgetCustomersRequestMsg/xpath%3D%252F/smo.xsd"/>
+    <mappingDeclaration name="QueryStringToBusinessObject">
+        <input path="smo"/>
+        <output path="smo"/>
+        <mapping>
+            <input path="headers/HTTPHeader/control/URL" var="URL"/>
+            <output path="body/getCustomers/type/type"/>
+            <custom>
+                <code language="XPath">substring-after($URL,'type=')</code>
+            </custom>
+        </mapping>
+        <mapping>
+            <input path="headers/HTTPHeader/control/URL"/>
+            <output path="context"/>
+            <mapping>
+                <input path="."/>
+                <output path="transient"/>
+            </mapping>
+        </mapping>
+    </mappingDeclaration>
+</mappingRoot>

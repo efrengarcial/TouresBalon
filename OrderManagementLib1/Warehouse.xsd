@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://OrderManagementLib"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:complexType name="Warehouse">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="whsID" type="xsd:string"></xsd:element>
+			<xsd:element minOccurs="0" name="stock" type="xsd:int"></xsd:element>
+			<xsd:element minOccurs="0" name="indelivery"
+				type="xsd:int">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="itemQtyPartial"
+				type="xsd:int">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

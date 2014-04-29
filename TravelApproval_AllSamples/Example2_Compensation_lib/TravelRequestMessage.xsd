@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://packtpub.com/bpel/travel/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:bons0="http://packtpub.com/service/employee/"
+	xmlns:bons1="http://packtpub.com/service/airline/">
+	<xsd:import schemaLocation="FlightRequestType.xsd"
+		namespace="http://packtpub.com/service/airline/">
+	</xsd:import>
+	<xsd:import schemaLocation="EmployeeType.xsd"
+		namespace="http://packtpub.com/service/employee/">
+	</xsd:import>
+	<xsd:complexType name="TravelRequestMessage">
+		<xsd:sequence>
+
+			<xsd:element minOccurs="0" name="employee"
+				type="bons0:EmployeeType">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="flightData"
+				type="bons1:FlightRequestType">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

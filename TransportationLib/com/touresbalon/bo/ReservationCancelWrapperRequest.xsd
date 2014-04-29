@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema targetNamespace="http://TransportLib/com/touresbalon/bo" xmlns:bons0="http://TransportLib/com/touresbalon/bo" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:include schemaLocation="ReservationCancelRequest.xsd"/>
+	<xsd:complexType name="ReservationCancelWrapperRequest">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="content" type="bons0:ReservationCancelRequest">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

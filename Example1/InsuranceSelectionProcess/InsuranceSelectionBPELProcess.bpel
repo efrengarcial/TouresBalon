@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><bpws:process xmlns:bpws="http://schemas.xmlsoap.org/ws/2004/03/business-process/" xmlns:ns="http://Example1/InsuranceSelectionProcess/InsuranceSelectionBPELProcessArtifacts" xmlns:ns0="http://Example1/InsuranceSelectionProcess/InsuranceSelectionBPELProcessInterface" xmlns:ns1="http://Example1/InsuranceSelectionPT" xmlns:ns2="http://Example1/ComputeInsurancePremiumPT" xmlns:ns3="http://Example1" xmlns:wpc="http://www.ibm.com/xmlns/prod/websphere/business-process/6.0.0/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.ibm.com/xmlns/prod/websphere/business-process/expression-lang/java/6.0.0/" name="InsuranceSelectionBPELProcess" suppressJoinFailure="yes" targetNamespace="http://Example1/InsuranceSelectionProcess" wpc:continueOnError="no" wpc:displayName="InsuranceSelectionBPELProcess" wpc:executionMode="longRunning" wpc:id="1" wpc:validFrom="2012-07-04T04:23:40" wpc:version="IBM_7.0.100">
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="InsuranceSelectionBPELProcess.wsdl" namespace="http://Example1/InsuranceSelectionProcess/InsuranceSelectionBPELProcessInterface"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="InsuranceSelectionBPELProcessArtifacts.wsdl" namespace="http://Example1/InsuranceSelectionProcess/InsuranceSelectionBPELProcessArtifacts"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../InsuranceSelectionPT.wsdl" namespace="http://Example1/InsuranceSelectionPT"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../ComputeInsurancePremiumPT.wsdl" namespace="http://Example1/ComputeInsurancePremiumPT"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../InsuranceResponseMessage.xsd" namespace="http://Example1"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../InsuranceRequestMessage.xsd" namespace="http://Example1"/>
+  <bpws:partnerLinks>
+    <bpws:partnerLink myRole="Interface" name="InsuranceSelectionPT" partnerLinkType="ns:InsuranceSelectionPTPLT" wpc:id="8"/>
+    <bpws:partnerLink name="ComputeInsurancePremiumA" partnerLinkType="ns:ComputeInsurancePremiumPTPLT" partnerRole="Reference" wpc:id="9"/>
+    <bpws:partnerLink name="ComputeInsurancePremiumB" partnerLinkType="ns:ComputeInsurancePremiumPT1PLT" partnerRole="Reference" wpc:id="13"/>
+  </bpws:partnerLinks>
+  <bpws:variables>
+    <bpws:variable name="InsuranceRequest" type="ns3:InsuranceRequestMessage" wpc:id="17"/>
+    <bpws:variable name="InsuranceBResponse" type="ns3:InsuranceResponseMessage" wpc:id="18"/>
+    <bpws:variable name="InsuranceAResponse" type="ns3:InsuranceResponseMessage" wpc:id="19"/>
+  </bpws:variables>
+  <bpws:sequence name="HiddenSequence" wpc:id="1073741827">
+    <bpws:receive createInstance="yes" name="Receive" operation="SelectInsurance" partnerLink="InsuranceSelectionPT" portType="ns1:InsuranceSelectionPT" wpc:displayName="Receive" wpc:id="4" wpc:transactionalBehavior="commitAfter">
+      <wpc:output>
+        <wpc:parameter name="InsuranceRequest" variable="InsuranceRequest"/>
+      </wpc:output>
+    </bpws:receive>
+    <bpws:flow name="ParallelActivities" wpc:displayName="Get Insurance Offers" wpc:id="10">
+      <bpws:invoke name="Invoke" operation="ComputeInsurancePremium" partnerLink="ComputeInsurancePremiumA" portType="ns2:ComputeInsurancePremiumPT" wpc:continueOnError="inherit" wpc:displayName="Invoke Insurance A" wpc:id="11">
+        <wpc:input>
+          <wpc:parameter name="InsuranceRequest" variable="InsuranceRequest"/>
+        </wpc:input>
+        <wpc:output>
+          <wpc:parameter name="InsuranceResponse" variable="InsuranceAResponse"/>
+        </wpc:output>
+        <bpws:catch wpc:displayName="Catch" wpc:id="20"/>
+      </bpws:invoke>
+      <bpws:invoke name="Invoke1" operation="ComputeInsurancePremium" partnerLink="ComputeInsurancePremiumB" portType="ns2:ComputeInsurancePremiumPT" wpc:continueOnError="inherit" wpc:displayName="Invoke Insurance B" wpc:id="12">
+        <wpc:input>
+          <wpc:parameter name="InsuranceRequest" variable="InsuranceRequest"/>
+        </wpc:input>
+        <wpc:output>
+          <wpc:parameter name="InsuranceResponse" variable="InsuranceBResponse"/>
+        </wpc:output>
+      </bpws:invoke>
+    </bpws:flow>
+    <bpws:reply name="Reply" operation="operation1" portType="ns0:InsuranceSelectionBPELProcess" wpc:displayName="Reply" wpc:id="5">
+      <wpc:input/>
+    </bpws:reply>
+  </bpws:sequence>
+</bpws:process>

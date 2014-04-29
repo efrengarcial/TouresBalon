@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mfc="http://www.ibm.com/xmlns/prod/websphere/scdl/mfc/6.0.0" xmlns:ns1="http://AccommodationLib/com/touresbalon/interfaces/AccommodationServiceIF" xmlns:ns2="http://AccommodationModule/JDBCImport" xmlns:ns3="http://AccommodationModule/DannCarltonReservations" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="Med-DannCarlton" name="Med-DannCarlton">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" portType="ns1:AccommodationServiceIF">
+      <scdl:interfaceQualifier xsi:type="scdl:JoinTransaction" value="true"/>
+    </interface>
+  </interfaces>
+  <references>
+    <reference name="DannCarltonServicePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns2:DannCarltonService"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="DannCarltonAvailabilityAdapter"/>
+    </reference>
+    <reference name="DannCarltonReservationsPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns3:DannCarltonReservations"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="DannCarltonReservationsAdapter"/>
+    </reference>
+  </references>
+  <implementation xsi:type="mfc:MediationFlowImplementation" mfcFile="com/touresbalon/mediations/Med-DannCarlton.mfc">
+    <scdl:implementationQualifier xsi:type="scdl:Transaction" value="global"/>
+  </implementation>
+</scdl:component>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns="http://Customers/GetCoordinates" xmlns:plnk="http://schemas.xmlsoap.org/ws/2004/03/partner-link/" xmlns:tns="http://Customers/GetCustomersWithLocationsArtifacts" xmlns:wsdl0="http://Customers/GetCustomers" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="GetCustomersWithLocations" targetNamespace="http://Customers/GetCustomersWithLocationsArtifacts">
+  <plnk:partnerLinkType name="GetCustomersPLT">
+    <plnk:role name="GetCustomersRole">
+      <plnk:portType name="wsdl0:GetCustomers"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+  <plnk:partnerLinkType name="GetCustomersPLT1">
+    <plnk:role name="GetCustomersRole">
+      <plnk:portType name="wsdl0:GetCustomers"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="PartnerPLT">
+    <plnk:role name="partnerRole">
+      <plnk:portType name="ns:GetCoordinates"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <wsdl:import location="GetCustomers.wsdl" namespace="http://Customers/GetCustomers"/>
+    <wsdl:import location="GetCoordinates.wsdl" namespace="http://Customers/GetCoordinates"/>
+</wsdl:definitions>

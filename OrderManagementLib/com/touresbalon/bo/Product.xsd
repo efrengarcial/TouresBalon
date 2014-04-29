@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+	targetNamespace="http://OrderManagementLib/com/touresbalon/bo"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:complexType name="Product">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="prodId" type="xsd:int">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="partNum" type="xsd:int"></xsd:element>
+			<xsd:element minOccurs="0" name="price" type="xsd:double"></xsd:element>
+			<xsd:element minOccurs="0" name="productName"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="quantity" type="xsd:int">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

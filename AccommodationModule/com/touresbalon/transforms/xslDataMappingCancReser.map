@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://AccommodationModule/com/touresbalon/transforms/xslDataMappingCancReser" version="7.0.500" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://AccommodationModule/com/touresbalon/transforms/xslDataMappingCancReser">
+    <input path="smo://smo/name%3Dwsdl-primary/message%3D%257Bhttp%253A%252F%252FAccommodationLib%252Fcom%252Ftouresbalon%252Finterfaces%252FAccommodationServiceIF%257DcancelReservationRequestMsg/xpath%3D%252Fbody/smo.xsd"/>
+    <output path="smo://smo/name%3Dwsdl-primary/message%3D%257Bhttp%253A%252F%252Ftempuri.org%252F%257DcancelRoomSoapIn/xpath%3D%252Fbody/smo.xsd"/>
+    <mappingDeclaration name="xslDataMappingCancReser">
+        <input path="body"/>
+        <output path="body"/>
+        <move>
+            <input path="cancelReservation/request/hotelID"/>
+            <output path="cancelRoom/reservation/HotelID"/>
+        </move>
+        <move>
+            <input path="cancelReservation/request/roomNumber"/>
+            <output path="cancelRoom/reservation/RoomNumber"/>
+        </move>
+        <convert>
+            <input path="cancelReservation/request/checkInDate"/>
+            <output path="cancelRoom/reservation/CheckInDate"/>
+        </convert>
+        <convert>
+            <input path="cancelReservation/request/checkOutDate"/>
+            <output path="cancelRoom/reservation/checkOutDate"/>
+        </convert>
+        <move>
+            <input path="cancelReservation/request/orderID"/>
+            <output path="cancelRoom/reservation/OrderID"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

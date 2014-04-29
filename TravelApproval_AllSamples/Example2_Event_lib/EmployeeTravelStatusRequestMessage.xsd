@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://packtpub.com/service/employee/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:bons0="http://packtpub.com/service/employee/">
+	<xsd:include schemaLocation="EmployeeType.xsd"></xsd:include>
+	<xsd:complexType name="EmployeeTravelStatusRequestMessage">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="employee"
+				type="bons0:EmployeeType">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><bpws:process xmlns:bpws="http://schemas.xmlsoap.org/ws/2004/03/business-process/" xmlns:ns="http://Example2/EmployeeTravelStatus/EmployeeTravelStatusArtifacts" xmlns:ns0="http://packtpub.com/service/employee/" xmlns:wpc="http://www.ibm.com/xmlns/prod/websphere/business-process/6.0.0/" expressionLanguage="http://www.ibm.com/xmlns/prod/websphere/business-process/expression-lang/java/6.0.0/" name="EmployeeTravelStatus" suppressJoinFailure="yes" targetNamespace="http://packtpub.com/service/employee/" wpc:continueOnError="no" wpc:displayName="EmployeeTravelStatus" wpc:executionMode="longRunning" wpc:id="6" wpc:validFrom="2009-12-08T07:20:59">
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="/resource/Example2_lib/EmployeeTravelStatusPT.wsdl" namespace="http://packtpub.com/service/employee/"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../EmployeeTravelStatusResponseMessage.xsd" namespace="http://packtpub.com/service/employee/"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../EmployeeTravelStatusRequestMessage.xsd" namespace="http://packtpub.com/service/employee/"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="EmployeeTravelStatusArtifacts.wsdl" namespace="http://Example2/EmployeeTravelStatus/EmployeeTravelStatusArtifacts"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../EmployeeTravelStatusPT.wsdl" namespace="http://packtpub.com/service/employee/"/>
+  <bpws:partnerLinks>
+    <bpws:partnerLink myRole="Interface" name="EmployeeTravelStatusPT" partnerLinkType="ns:EmployeeTravelStatusPTPLT"/>
+  </bpws:partnerLinks>
+  <bpws:variables>
+    <bpws:variable name="EmployeeTravelStatusRequest" type="ns0:EmployeeTravelStatusRequestMessage" wpc:id="4"/>
+    <bpws:variable name="EmployeeTravelStatusResponse" type="ns0:EmployeeTravelStatusResponseMessage" wpc:id="5"/>
+  </bpws:variables>
+  <bpws:sequence name="HiddenSequence" wpc:id="1073741825">
+    <bpws:receive createInstance="yes" name="Receive" operation="EmployeeTravelStatus" partnerLink="EmployeeTravelStatusPT" portType="ns0:EmployeeTravelStatusPT" wpc:displayName="Receive" wpc:id="2" wpc:transactionalBehavior="commitAfter">
+      <wpc:output>
+        <wpc:parameter name="EmployeeTravelStatusRequest" variable="EmployeeTravelStatusRequest"/>
+      </wpc:output>
+    </bpws:receive>
+    <bpws:switch name="Chooseemployeetravelstatus" wpc:displayName="Choose employee travel status" wpc:id="7">
+      <bpws:case wpc:id="8">
+        <bpws:condition expressionLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[$EmployeeTravelStatusRequest/employee/Department = 'management']]></bpws:condition>
+        <bpws:assign name="AssignFirstClass" wpc:displayName="Assign First Class" wpc:id="10">
+          <bpws:copy>
+            <bpws:from><![CDATA[First]]></bpws:from>
+            <bpws:to variable="EmployeeTravelStatusResponse">
+              <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[travelClass]]></bpws:query>
+            </bpws:to>
+          </bpws:copy>
+        </bpws:assign>
+      </bpws:case>
+      <bpws:case wpc:id="9">
+        <bpws:condition expressionLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[$EmployeeTravelStatusRequest/employee/Department = 'marketing']]></bpws:condition>
+        <bpws:assign name="AssignBusinessClass" wpc:displayName="Assign Business Class" wpc:id="11">
+          <bpws:copy>
+            <bpws:from><![CDATA[Business]]></bpws:from>
+            <bpws:to variable="EmployeeTravelStatusResponse">
+              <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[travelClass]]></bpws:query>
+            </bpws:to>
+          </bpws:copy>
+        </bpws:assign>
+      </bpws:case>
+      <bpws:otherwise>
+        <bpws:assign name="AssignEconomyClass" wpc:displayName="Assign Economy Class" wpc:id="12">
+          <bpws:copy>
+            <bpws:from><![CDATA[Economy]]></bpws:from>
+            <bpws:to variable="EmployeeTravelStatusResponse">
+              <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[travelClass]]></bpws:query>
+            </bpws:to>
+          </bpws:copy>
+        </bpws:assign>
+      </bpws:otherwise>
+    </bpws:switch>
+    <bpws:reply name="Reply" operation="EmployeeTravelStatus" partnerLink="EmployeeTravelStatusPT" portType="ns0:EmployeeTravelStatusPT" wpc:displayName="Reply" wpc:id="3">
+      <wpc:input>
+        <wpc:parameter name="EmployeeTravelStatusResponse" variable="EmployeeTravelStatusResponse"/>
+      </wpc:input>
+    </bpws:reply>
+  </bpws:sequence>
+</bpws:process>

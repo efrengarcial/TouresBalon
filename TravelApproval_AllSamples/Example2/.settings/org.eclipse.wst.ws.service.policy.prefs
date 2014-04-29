@@ -1,0 +1,6 @@
+#Thu May 06 15:06:34 CEST 2010
+org.eclipse.wst.ws.service.policy.ui.servicepols.wsiprofilecomp.wsissbp.default.value.key=org.eclipse.wst.sug.ignore
+org.eclipse.wst.ws.service.policy.projectEnabled=true
+com.ibm.ast.ws.jaxws.annotations.v7.jaxws.default.value.key=com.ibm.ast.ws.jaxws.annotations.v7.default
+eclipse.preferences.version=1
+org.eclipse.wst.ws.service.policy.ui.servicepols.wsiprofilecomp.wsiap.default.value.key=org.eclipse.wst.sug.ignore

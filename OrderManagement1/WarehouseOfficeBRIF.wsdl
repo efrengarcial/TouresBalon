@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="WarehouseOfficeBRIF" targetNamespace="http://OrderManagement/WarehouseOfficeBRIF" xmlns:bons1="http://OrderManagementLib" xmlns:tns="http://OrderManagement/WarehouseOfficeBRIF" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://OrderManagement/WarehouseOfficeBRIF">
+      <xsd:import namespace="http://OrderManagementLib" schemaLocation="ReturnCode.xsd"/>
+      <xsd:import namespace="http://OrderManagementLib" schemaLocation="Order.xsd"/>
+      <xsd:element name="athorize">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="order" nillable="true" type="bons1:Order"/>
+            <xsd:element name="totalStock" nillable="true" type="xsd:int"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="athorizeResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="warehouseRuleRC" nillable="true" type="bons1:ReturnCode"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="athorizeRequestMsg">
+    <wsdl:part element="tns:athorize" name="athorizeParameters"/>
+  </wsdl:message>
+    <wsdl:message name="athorizeResponseMsg">
+    <wsdl:part element="tns:athorizeResponse" name="athorizeResult"/>
+  </wsdl:message>
+    <wsdl:portType name="WarehouseOfficeBRIF">
+    <wsdl:operation name="athorize">
+      <wsdl:input message="tns:athorizeRequestMsg" name="athorizeRequest"/>
+      <wsdl:output message="tns:athorizeResponseMsg" name="athorizeResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

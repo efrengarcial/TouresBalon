@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mfc:interfaceMediationFlow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mfc="http://www.ibm.com/xmlns/prod/websphere/wbiserver/mfc/6.0.0" xmlns:ns1="http://OrderManagementLib/CustomerServiceIF" xmlns:ns2="http://OrderManagementLib/ItemServiceIF" xmlns:ns3="http://OrderManagementLib/OrderServiceIF" xmlns:ns4="http://DBMSServiceMediation/JDBCOutboundInterface" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" name="DBMSServiceMediation" targetNamespace="http://DBMSServiceMediation/DBMSServiceMediation">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" portType="ns1:CustomerServiceIF"/>
+    <interface xsi:type="wsdl:WSDLPortType" portType="ns2:ItemServiceIF"/>
+    <interface xsi:type="wsdl:WSDLPortType" portType="ns3:OrderServiceIF"/>
+  </interfaces>
+  <references>
+    <reference name="JDBCOutboundInterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns4:JDBCOutboundInterface"/>
+    </reference>
+  </references>
+  <extendedOperationBinding source="retrieveItem" target="retrieveDbadminItemBG" sourcePortType="ns2:ItemServiceIF" targetReference="JDBCOutboundInterfacePartner"/>
+  <operationFlow medflow="DBMSServiceMediation.medflow"/>
+</mfc:interfaceMediationFlow>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<webappbnd:WebAppBinding xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:webappbnd="webappbnd.xmi" xmi:id="WebAppBinding_1169158416159" virtualHostName="default_host">
+  <webapp href="WEB-INF/web.xml#WebApp_ID"/>
+  <resRefBindings xmi:id="ResourceRefBinding_1398105289975" jndiName="OrderManagement/OrderProcessingBPExport_CF" loginConfigurationName="DefaultPrincipalMapping">
+    <bindingResourceRef href="WEB-INF/web.xml#ResourceRef_1398105289975"/>
+    <properties xmi:id="Property_1398105289996" name="com.ibm.mapping.authDataAlias" value="SCA_Auth_Alias"/>
+  </resRefBindings>
+  <resRefBindings xmi:id="ResourceRefBinding_1398105289996" jndiName="OrderManagement/OrderProcessingBPExport_FAILEDEVENT_REPLAY_CF" loginConfigurationName="DefaultPrincipalMapping">
+    <bindingResourceRef href="WEB-INF/web.xml#ResourceRef_1398105289996"/>
+    <properties xmi:id="Property_1398105289998" name="com.ibm.mapping.authDataAlias" value="SCA_Auth_Alias"/>
+  </resRefBindings>
+  <resRefBindings xmi:id="ResourceRefBinding_1398105289998" jndiName="OrderManagement/OrderProcessingBPExport_SEND_D">
+    <bindingResourceRef href="WEB-INF/web.xml#ResourceRef_1398105289998"/>
+  </resRefBindings>
+  <resRefBindings xmi:id="ResourceRefBinding_1398105290000" jndiName="OrderManagement/OrderProcessingBPExport_RECEIVE_D">
+    <bindingResourceRef href="WEB-INF/web.xml#ResourceRef_1398105290000"/>
+  </resRefBindings>
+  <resRefBindings xmi:id="ResourceRefBinding_1398105290002" jndiName="OrderManagement/OrderProcessingBPExport_CALLBACK_D">
+    <bindingResourceRef href="WEB-INF/web.xml#ResourceRef_1398105290002"/>
+  </resRefBindings>
+</webappbnd:WebAppBinding>

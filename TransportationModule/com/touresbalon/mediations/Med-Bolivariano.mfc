@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mfc:interfaceMediationFlow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BolivarianoTravelsFile="http://BolivarianoModule/BolivarianoTravelsFile" xmlns:TransportLib="http://TransportLib" xmlns:TransportationLib="http://TransportationLib" xmlns:mfc="http://www.ibm.com/xmlns/prod/websphere/wbiserver/mfc/6.0.0" xmlns:ns1="http://BolivarianoModule/BolivarianoFile" xmlns:ns3="http://BolivarianoModule/BolivarianoBookingIF" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" name="Med-Bolivariano" targetNamespace="http://BolivarianoModule/com/touresbalon/mediations/Med-Bolivariano">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" portType="TransportationLib:TransportationServiceIF"/>
+  </interfaces>
+  <references>
+    <reference name="BolivarianoTravelsIFPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="BolivarianoTravelsFile:BolivarianoTravelsIF"/>
+    </reference>
+    <reference name="BolivarianoBookingIFPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns3:BolivarianoBookingIF"/>
+    </reference>
+  </references>
+  <extendedOperationBinding source="checkAvailability" target="retrieveTravels" sourcePortType="TransportationLib:TransportationServiceIF" targetReference="BolivarianoTravelsIFPartner"/>
+  <operationFlow medflow="Med-Bolivariano.medflow"/>
+</mfc:interfaceMediationFlow>

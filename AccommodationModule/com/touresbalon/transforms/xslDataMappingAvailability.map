@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://AccommodationModule/com/touresbalon/transforms/xslDataMappingAvailability" version="7.0.500" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://AccommodationModule/com/touresbalon/transforms/xslDataMappingAvailability">
+    <input path="smo://smo/name%3Dwsdl-primary/message%3D%257Bhttp%253A%252F%252FAccommodationLib%252Fcom%252Ftouresbalon%252Finterfaces%252FAccommodationServiceIF%257DcheckAvailabilityRequestMsg/xpath%3D%252Fbody/smo.xsd"/>
+    <output path="smo://smo/name%3Dwsdl-primary/message%3D%257Bhttp%253A%252F%252Ftempuri.org%252F%257DvalidateAvailabilitySoapIn/xpath%3D%252Fbody/smo.xsd"/>
+    <mappingDeclaration name="xslDataMappingAvailability">
+        <input path="body"/>
+        <output path="body"/>
+        <move>
+            <input path="checkAvailability/request/city"/>
+            <output path="validateAvailability/query/City"/>
+        </move>
+        <move>
+            <input path="checkAvailability/request/country"/>
+            <output path="validateAvailability/query/Country"/>
+        </move>
+        <convert>
+            <input path="checkAvailability/request/checkInDate"/>
+            <output path="validateAvailability/query/CheckInDate"/>
+        </convert>
+        <convert>
+            <input path="checkAvailability/request/checkOutDate"/>
+            <output path="validateAvailability/query/checkOutDate"/>
+        </convert>
+    </mappingDeclaration>
+</mappingRoot>

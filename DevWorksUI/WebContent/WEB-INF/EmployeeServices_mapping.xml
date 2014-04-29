@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?><java-wsdl-mapping version="1.1" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://www.ibm.com/webservices/xsd/j2ee_jaxrpc_mapping_1_1.xsd">
+    <package-mapping>
+        <package-type>com.ibm.issw.hr</package-type>
+        <namespaceURI>http://hr.issw.ibm.com</namespaceURI>
+    </package-mapping>
+    <java-xml-type-mapping>
+        <java-type>java.lang.String</java-type>
+        <root-type-qname xmlns:rtq="http://www.w3.org/2001/XMLSchema">rtq:string</root-type-qname>
+        <qname-scope>simpleType</qname-scope>
+    </java-xml-type-mapping>
+    <java-xml-type-mapping>
+        <java-type>int</java-type>
+        <root-type-qname xmlns:rtq="http://www.w3.org/2001/XMLSchema">rtq:int</root-type-qname>
+        <qname-scope>simpleType</qname-scope>
+    </java-xml-type-mapping>
+    <java-xml-type-mapping>
+        <java-type>com.ibm.issw.hr.Employee</java-type>
+        <root-type-qname xmlns:rtq="http://hr.issw.ibm.com">rtq:Employee</root-type-qname>
+        <qname-scope>complexType</qname-scope>
+        <variable-mapping>
+            <java-variable-name>edLevel</java-variable-name>
+            <xml-element-name>edLevel</xml-element-name>
+        </variable-mapping>
+        <variable-mapping>
+            <java-variable-name>empNO</java-variable-name>
+            <xml-element-name>empNO</xml-element-name>
+        </variable-mapping>
+        <variable-mapping>
+            <java-variable-name>firstName</java-variable-name>
+            <xml-element-name>firstName</xml-element-name>
+        </variable-mapping>
+        <variable-mapping>
+            <java-variable-name>lastName</java-variable-name>
+            <xml-element-name>lastName</xml-element-name>
+        </variable-mapping>
+        <variable-mapping>
+            <java-variable-name>midInit</java-variable-name>
+            <xml-element-name>midInit</xml-element-name>
+        </variable-mapping>
+        <variable-mapping>
+            <java-variable-name>phoneNO</java-variable-name>
+            <xml-element-name>phoneNO</xml-element-name>
+        </variable-mapping>
+        <variable-mapping>
+            <java-variable-name>workDept</java-variable-name>
+            <xml-element-name>workDept</xml-element-name>
+        </variable-mapping>
+    </java-xml-type-mapping>
+    <service-interface-mapping>
+        <service-interface>com.ibm.issw.hr.EmployeeServicesService</service-interface>
+        <wsdl-service-name xmlns:sim="http://hr.issw.ibm.com">sim:EmployeeServicesService</wsdl-service-name>
+        <port-mapping>
+            <port-name>EmployeeServices</port-name>
+            <java-port-name>EmployeeServices</java-port-name>
+        </port-mapping>
+    </service-interface-mapping>
+    <service-endpoint-interface-mapping>
+        <service-endpoint-interface>com.ibm.issw.hr.EmployeeServices</service-endpoint-interface>
+        <wsdl-port-type xmlns:seimwpt="http://hr.issw.ibm.com">seimwpt:EmployeeServices</wsdl-port-type>
+        <wsdl-binding xmlns:seimwb="http://hr.issw.ibm.com">seimwb:EmployeeServicesSoapBinding</wsdl-binding>
+        <service-endpoint-method-mapping>
+            <java-method-name>addEmployee</java-method-name>
+            <wsdl-operation>addEmployee</wsdl-operation>
+            <wrapped-element/>
+            <method-param-parts-mapping>
+                <param-position>0</param-position>
+                <param-type>com.ibm.issw.hr.Employee</param-type>
+                <wsdl-message-mapping>
+                    <wsdl-message xmlns:mppm="http://hr.issw.ibm.com">mppm:addEmployeeRequest</wsdl-message>
+                    <wsdl-message-part-name>e</wsdl-message-part-name>
+                    <parameter-mode>IN</parameter-mode>
+                </wsdl-message-mapping>
+            </method-param-parts-mapping>
+            <wsdl-return-value-mapping>
+                <method-return-value>void</method-return-value>
+                <wsdl-message xmlns:wrvm="http://hr.issw.ibm.com">wrvm:addEmployeeResponse</wsdl-message>
+            </wsdl-return-value-mapping>
+        </service-endpoint-method-mapping>
+    </service-endpoint-interface-mapping>
+</java-wsdl-mapping>

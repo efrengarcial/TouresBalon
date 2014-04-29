@@ -1,0 +1,517 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>OpenJobReq</title>	
+		
+	<style type="text/css">
+				/**
+		 * General
+		 */
+	    .HTM_OpenJobReq_923399030_7_0_200_v20100422_1028 .fieldInput {
+	        width: 100%;
+	        text-align: left;
+	        display: inline;
+	    }
+	    
+	    .HTM_OpenJobReq_923399030_7_0_200_v20100422_1028 .fieldLabel {
+	        width: 150px;
+	        text-align: left;
+			float:left;
+	    }
+	    	    
+	    .HTM_OpenJobReq_923399030_7_0_200_v20100422_1028 .arrayTemplate{
+	        padding-left: 10px;
+	        padding-bottom: 5px;
+	        clear: both;
+	    }
+	    
+	    .HTM_OpenJobReq_923399030_7_0_200_v20100422_1028 .arrayTemplate{
+	        padding-left: 10px;
+	        padding-bottom: 5px;
+	        clear: both;
+	    }
+	    
+	    .HTM_OpenJobReq_923399030_7_0_200_v20100422_1028 .arrayLabelFont {
+	    	font-size: 12px;
+	    	font-weight: bold;
+	    }
+	    
+	    .HTM_OpenJobReq_923399030_7_0_200_v20100422_1028 span.addButton{
+            padding-right: 6px;
+        }
+        
+        .HTM_OpenJobReq_923399030_7_0_200_v20100422_1028 span.removeButton{
+            padding-right: 6px;
+        }
+        
+        .HTM_OpenJobReq_923399030_7_0_200_v20100422_1028 div.array_header_left {
+	    	display: block;
+	    	width: auto;
+	    	padding: 3px;
+	    	padding-left: 0px;
+	    	padding-bottom: 5px;
+	    }
+	    
+	    .HTM_OpenJobReq_923399030_7_0_200_v20100422_1028 div.array_header_right {
+	    	position: absolute;
+	    	right: 4px;
+	    	top: 3px;
+	    }
+        
+		.HTM_OpenJobReq_923399030_7_0_200_v20100422_1028 div.array_content_container {
+		    float: left;
+		}
+		
+		.HTM_OpenJobReq_923399030_7_0_200_v20100422_1028 div.array_outer_container {
+		    width: 100%;
+		    display: block;
+		}
+	    
+		
+		.HTM_OpenJobReq_923399030_7_0_200_v20100422_1028 div.fieldContainer {
+			padding-left: 18px;
+			padding-bottom: 10px;
+			padding-top: 5px;
+			clear: both;
+		}
+		
+		.HTM_OpenJobReq_923399030_7_0_200_v20100422_1028 div.businessObject {
+		    padding-left: 15px;
+	       	padding-bottom: 25px;
+	       	clear: both;
+		}
+		
+		
+		.HTM_OpenJobReq_923399030_7_0_200_v20100422_1028 div.arrayBO {
+	       	padding-bottom: 5px;
+	       	clear: both;
+		}
+		
+		.HTM_OpenJobReq_923399030_7_0_200_v20100422_1028 div.arrayHeader {
+			background-color: #eff7ff;
+			border-top: thin solid #aeddef;
+			padding: 3px;
+			padding-bottom: 5px;
+		}
+		
+		.HTM_OpenJobReq_923399030_7_0_200_v20100422_1028 .arrayHeaderContainer {
+			padding-left: 15px;
+			position: relative;
+		}
+		
+		.HTM_OpenJobReq_923399030_7_0_200_v20100422_1028 img.collapseStyle {
+			float: left;
+			padding-top: 4px;
+			padding-right: 2px;
+			padding-bottom: 10px;
+			background-color: white;
+		}
+		
+		.HTM_OpenJobReq_923399030_7_0_200_v20100422_1028 div.caseFolder {
+			padding-left: 15px;
+			padding-top: 1px;
+		}
+		
+		/**
+		 * CSS Styles for initiating a task. Show the input message.
+		 */
+		.HTM_OpenJobReq_923399030_7_0_200_v20100422_1028 .init div.inputMessage {
+
+		}
+		
+		.HTM_OpenJobReq_923399030_7_0_200_v20100422_1028 .init div.outputMessage {
+      		visibility :collapse;
+			display:none;
+		}
+				
+				
+		/**
+		 * CSS Styles for editing a task. Since the input message equals the 
+		 * output message, we will only the output message is shown.
+		 */
+		.HTM_OpenJobReq_923399030_7_0_200_v20100422_1028 .edit div.inputMessage {
+      		visibility :collapse;
+			display:none;
+		}
+		
+		.HTM_OpenJobReq_923399030_7_0_200_v20100422_1028 .edit div.outputMessage {
+
+		}
+		
+		
+		/**
+		 * CSS Styles for viewing a task. Show both messages.
+		 */
+		.HTM_OpenJobReq_923399030_7_0_200_v20100422_1028 .view div.inputMessage {
+
+		}
+		
+		.HTM_OpenJobReq_923399030_7_0_200_v20100422_1028 .view div.outputMessage {
+
+		}
+		
+		/** 
+		 * CSS Style for required field marker
+		 */
+		.HTM_OpenJobReq_923399030_7_0_200_v20100422_1028 span.requiredMarker {
+			color: #ff8000;
+		}
+		
+		/**
+		 * CSS Style for background color of required fields
+		 */
+		.HTM_OpenJobReq_923399030_7_0_200_v20100422_1028 .fieldInput .requiredBackgroundColor {
+		/*
+            background: none;
+			background-color: #ffffd0;
+		*/
+		}
+				
+	</style>
+	
+	</head>
+	<body class="tundra">	
+		<div class="HTM_OpenJobReq_923399030_7_0_200_v20100422_1028">
+			<form dojoType="dijit.form.Form" class="view" action="">
+				<!-- Input message -->
+				<div class="inputMessage">
+	<div class="businessObject" sdoMinOccurence="1" name="/jobReq" sdoMaxOccurence="1" sdoPosition="0">
+	<h3 class="input" style="border-bottom-width: thin; border-bottom-style: solid; border-bottom-color: black">Job Requisition Form</h3>
+
+<div dojoType="dojo.data.ItemFileReadStore" jsId="divisions" url="/DevWorksWeb/UIInitializeService/getDivisions"></div>
+<div dojoType="dojo.data.ItemFileReadStore" jsId="jobtypes" url="/DevWorksWeb/UIInitializeService/getJobTypes"></div>
+<div dojoType="dojo.data.ItemFileReadStore" jsId="joblevels" url="/DevWorksWeb/UIInitializeService/getJobLevels"></div>
+<div dojoType="dojox.data.CsvStore" jsId="states" identifier="State" url="/DevWorksUI/usstates.txt"></div>
+<div dojoType="dojox.data.CsvStore" jsId="countries" identifier="Name" url="/DevWorksUI/worldcountries.txt"></div>
+<script type="text/javascript">
+	dojo.require("dojo.parser");
+	dojo.registerModulePath("com.ibm.dwexample","com/ibm/dwexample");
+	dojo.require("com.ibm.dwexample.MyPageInit");
+</script>
+<div dojoType="com.ibm.dwexample.MyPageInit"></div>
+
+<table border="0">
+	<tbody>
+		<tr>
+			<td><div class="fieldContainer"><label class="fieldLabel"
+				for="http___com.ibm.dwexample.interfaceopenJobReqRequestMsg_input0_HTMUniqueWidgetID">
+			ReqID </label>
+			<div class="fieldInput"><input type="text" name="/jobReq/id"
+				value="" sdoposition="0" dojotype="dijit.form.ValidationTextBox"
+				regexp=".*"
+				id="http___com.ibm.dwexample.interfaceopenJobReqRequestMsg_input0_HTMUniqueWidgetID"
+				sdomessagetype="input" sdoprepopulation="" required="false"
+				class="fieldInput" readonly="readonly"/></div>
+			</div>
+			</td>
+			<td>
+			<div class="fieldContainer"><label class="fieldLabel"
+				for="http___com.ibm.dwexample.interfaceopenJobReqRequestMsg_input1_HTMUniqueWidgetID">
+			Date Posted </label>
+			<div class="fieldInput"><input type="text"
+				name="/jobReq/datePosted" value="" dojotype="bpc.forms.DateTimeBox"
+				id="http___com.ibm.dwexample.interfaceopenJobReqRequestMsg_input1_HTMUniqueWidgetID"
+				sdoposition="1" sdomessagetype="input" sdoprepopulation=""
+				required="false" class="fieldInput" readonly="readonly"/></div>
+			</div>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+			<div class="fieldContainer"><label class="fieldLabel"
+				for="http___com.ibm.dwexample.interfaceopenJobReqRequestMsg_input2_HTMUniqueWidgetID">
+			Job Title </label>
+			<div class="fieldInput"><input type="text"
+				name="/jobReq/jobTitle" value="" sdoposition="2"
+				dojotype="dijit.form.ValidationTextBox" regexp=".*"
+				id="http___com.ibm.dwexample.interfaceopenJobReqRequestMsg_input2_HTMUniqueWidgetID"
+				sdomessagetype="input" sdoprepopulation="" required="false"
+				class="fieldInput" /></div>
+			</div>
+			</td></tr>
+		<tr>
+			<td>
+			<div class="fieldContainer"><label class="fieldLabel"
+				for="http___com.ibm.dwexample.interfaceopenJobReqRequestMsg_input3_HTMUniqueWidgetID">
+			Job Type </label>
+			<div class="fieldInput"><input type="text"
+				name="/jobReq/jobType" value="" sdoposition="3"
+				dojotype="dijit.form.FilteringSelect" regexp=".*" store="jobtypes"
+				id="http___com.ibm.dwexample.interfaceopenJobReqRequestMsg_input3_HTMUniqueWidgetID"
+				sdomessagetype="input" sdoprepopulation="" required="false"
+				class="fieldInput" /></div>
+			</div>
+			</td>
+			<td><div class="fieldContainer">
+	<label class="fieldLabel" for="http___com.ibm.dwexample.interfaceopenJobReqRequestMsg_input4_HTMUniqueWidgetID">
+		Job Level
+	</label>
+	<div class="fieldInput">
+		<input type="text" name="/jobReq/jobLevel" value="" store="joblevels" sdoposition="4" dojotype="dijit.form.FilteringSelect" 
+		regexp=".*" id="http___com.ibm.dwexample.interfaceopenJobReqRequestMsg_input4_HTMUniqueWidgetID" 
+		sdomessagetype="input" sdoprepopulation="" required="false" class="fieldInput" />
+	</div>
+</div></td>
+		</tr>
+		<tr>
+			<td>
+			<div class="fieldContainer"><label class="fieldLabel"
+				for="http___com.ibm.dwexample.interfaceopenJobReqRequestMsg_input5_HTMUniqueWidgetID">
+			Country </label>
+			<div class="fieldInput"><input type="text"
+				name="/jobReq/country" value="" sdoposition="5" store="countries" searchAttr="Name"
+				dojotype="dijit.form.FilteringSelect" regexp=".*"
+				id="http___com.ibm.dwexample.interfaceopenJobReqRequestMsg_input5_HTMUniqueWidgetID"
+				sdomessagetype="input" sdoprepopulation="" required="false" labelAttr="Name"
+				class="fieldInput" /></div>
+			</div>
+			</td>
+			<td>
+			<div class="fieldContainer"><label class="fieldLabel"
+				for="http___com.ibm.dwexample.interfaceopenJobReqRequestMsg_input8_HTMUniqueWidgetID">
+			Zip Code </label>
+			<div class="fieldInput"><input type="text"
+				name="/jobReq/zipCode" value="" sdoposition="8"
+				dojotype="dijit.form.ValidationTextBox" regexp=".*"
+				id="http___com.ibm.dwexample.interfaceopenJobReqRequestMsg_input8_HTMUniqueWidgetID"
+				sdomessagetype="input" sdoprepopulation="" required="false"
+				class="fieldInput" /></div>
+			</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<div class="fieldContainer"><label class="fieldLabel"
+				for="http___com.ibm.dwexample.interfaceopenJobReqRequestMsg_input6_HTMUniqueWidgetID">
+			City </label>
+			<div class="fieldInput"><input type="text" name="/jobReq/city"
+				value="" sdoposition="6" dojotype="dijit.form.ValidationTextBox"
+				regexp=".*"
+				id="http___com.ibm.dwexample.interfaceopenJobReqRequestMsg_input6_HTMUniqueWidgetID"
+				sdomessagetype="input" sdoprepopulation="" required="false"
+				class="fieldInput" /></div>
+			</div>
+			</td>
+			<td>
+			<div class="fieldContainer"><label class="fieldLabel"
+				for="http___com.ibm.dwexample.interfaceopenJobReqRequestMsg_input7_HTMUniqueWidgetID">
+			State </label>
+			<div class="fieldInput"><input type="text" name="/jobReq/state"
+				value="" sdoposition="7" dojotype="dijit.form.FilteringSelect" store="states" searchAttr="State"
+				regexp=".*"
+				id="http___com.ibm.dwexample.interfaceopenJobReqRequestMsg_input7_HTMUniqueWidgetID"
+				sdomessagetype="input" sdoprepopulation="" required="false"
+				class="fieldInput" /></div>
+			</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<div class="fieldContainer"><label class="fieldLabel"
+				for="http___com.ibm.dwexample.interfaceopenJobReqRequestMsg_input9_HTMUniqueWidgetID">Hiring Manager
+			 </label>
+			<div class="fieldInput"><input type="text"
+				name="/jobReq/hiringMgr" value="" sdoposition="9"
+				dojotype="dijit.form.ValidationTextBox" regexp=".*"
+				id="http___com.ibm.dwexample.interfaceopenJobReqRequestMsg_input9_HTMUniqueWidgetID"
+				sdomessagetype="input" sdoprepopulation="" required="false"
+				class="fieldInput" /></div>
+			</div>
+			</td>
+			<td>
+			<div class="fieldContainer"><label class="fieldLabel"
+				for="http___com.ibm.dwexample.interfaceopenJobReqRequestMsg_input10_HTMUniqueWidgetID">
+			Hiring Manager Email </label>
+			<div class="fieldInput"><input type="text"
+				name="/jobReq/hiringEmail" value="" sdoposition="10"
+				dojotype="dijit.form.ValidationTextBox" regexp=".*"
+				id="http___com.ibm.dwexample.interfaceopenJobReqRequestMsg_input10_HTMUniqueWidgetID"
+				sdomessagetype="input" sdoprepopulation="" required="false"
+				class="fieldInput" /></div>
+			</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<div class="fieldContainer"><label class="fieldLabel"
+				for="http___com.ibm.dwexample.interfaceopenJobReqRequestMsg_input11_HTMUniqueWidgetID">
+			Division </label>
+			<div class="fieldInput"><input type="text"
+				name="/jobReq/division" value="" sdoposition="11"
+				dojotype="dijit.form.FilteringSelect" regexp=".*" store="divisions"
+				id="http___com.ibm.dwexample.interfaceopenJobReqRequestMsg_input11_HTMUniqueWidgetID"
+				sdomessagetype="input" sdoprepopulation="" required="false"
+				class="fieldInput" /></div>
+			</div>
+			</td>
+			<td>
+			<div class="fieldContainer"><label class="fieldLabel"
+				for="http___com.ibm.dwexample.interfaceopenJobReqRequestMsg_input12_HTMUniqueWidgetID">Apply By Date </label>
+			<div class="fieldInput"><input type="text"
+				name="/jobReq/applyByDate" value=""
+				dojotype="dijit.form.DateTextBox"
+				id="http___com.ibm.dwexample.interfaceopenJobReqRequestMsg_input12_HTMUniqueWidgetID"
+				required="false" sdomessagetype="input" sdoprepopulation=""
+				class="fieldInput" sdoposition="12" /></div>
+			</div>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+			<div class="fieldContainer"><label class="fieldLabel"
+				for="http___com.ibm.dwexample.interfaceopenJobReqRequestMsg_input13_HTMUniqueWidgetID">Job Description
+			 </label>
+			<div class="fieldInput"><input type="text"
+				name="/jobReq/jobDesc" value="" sdoposition="13"
+				dojotype="dijit.form.Textarea" regexp=".*"
+				id="http___com.ibm.dwexample.interfaceopenJobReqRequestMsg_input13_HTMUniqueWidgetID"
+				sdomessagetype="input" sdoprepopulation="" required="false"
+				class="fieldInput" style="min-height: 200px"/></div>
+			</div>
+			</td></tr>
+	</tbody>
+</table>
+
+</div>
+
+</div>
+	
+				<!-- Output Message -->
+				<div class="outputMessage">
+	<div class="businessObject" sdoMinOccurence="1" name="/jobReq" sdoMaxOccurence="1" sdoPosition="0">
+	<h3 class="output">jobReq</h3>
+	<div class="fieldContainer">
+	<label class="fieldLabel" for="http___com.ibm.dwexample.interfaceopenJobReqResponseMsg_output0_HTMUniqueWidgetID">
+		id
+	</label>
+	<div class="fieldInput">
+		<input type="text" name="/jobReq/id" value="" sdoPosition="0" dojoType="dijit.form.ValidationTextBox" regExp=".*" id="http___com.ibm.dwexample.interfaceopenJobReqResponseMsg_output0_HTMUniqueWidgetID"
+		 sdoMessageType="output"  sdoPrepopulation="/jobReq/id" required="false" class="fieldInput"/>
+	</div>
+</div>
+<div class="fieldContainer">
+	<label class="fieldLabel" for="http___com.ibm.dwexample.interfaceopenJobReqResponseMsg_output1_HTMUniqueWidgetID">
+		datePosted
+	</label>
+	<div class="fieldInput">
+		<input type="text" name="/jobReq/datePosted" value="" dojoType="bpc.forms.DateTimeBox" id="http___com.ibm.dwexample.interfaceopenJobReqResponseMsg_output1_HTMUniqueWidgetID" sdoPosition="1"
+		 sdoMessageType="output"  sdoPrepopulation="/jobReq/datePosted" required="false" class="fieldInput"/>
+	</div>
+</div><div class="fieldContainer">
+	<label class="fieldLabel" for="http___com.ibm.dwexample.interfaceopenJobReqResponseMsg_output2_HTMUniqueWidgetID">
+		jobTitle
+	</label>
+	<div class="fieldInput">
+		<input type="text" name="/jobReq/jobTitle" value="" sdoPosition="2" dojoType="dijit.form.ValidationTextBox" regExp=".*" id="http___com.ibm.dwexample.interfaceopenJobReqResponseMsg_output2_HTMUniqueWidgetID"
+		 sdoMessageType="output"  sdoPrepopulation="/jobReq/jobTitle" required="false" class="fieldInput"/>
+	</div>
+</div>
+<div class="fieldContainer">
+	<label class="fieldLabel" for="http___com.ibm.dwexample.interfaceopenJobReqResponseMsg_output3_HTMUniqueWidgetID">
+		jobType
+	</label>
+	<div class="fieldInput">
+		<input type="text" name="/jobReq/jobType" value="" sdoPosition="3" dojoType="dijit.form.ValidationTextBox" regExp=".*" id="http___com.ibm.dwexample.interfaceopenJobReqResponseMsg_output3_HTMUniqueWidgetID"
+		 sdoMessageType="output"  sdoPrepopulation="/jobReq/jobType" required="false" class="fieldInput"/>
+	</div>
+</div>
+<div class="fieldContainer">
+	<label class="fieldLabel" for="http___com.ibm.dwexample.interfaceopenJobReqResponseMsg_output4_HTMUniqueWidgetID">
+		jobLevel
+	</label>
+	<div class="fieldInput">
+		<input type="text" name="/jobReq/jobLevel" value="" sdoPosition="4" dojoType="dijit.form.ValidationTextBox" regExp=".*" id="http___com.ibm.dwexample.interfaceopenJobReqResponseMsg_output4_HTMUniqueWidgetID"
+		 sdoMessageType="output"  sdoPrepopulation="/jobReq/jobLevel" required="false" class="fieldInput"/>
+	</div>
+</div>
+<div class="fieldContainer">
+	<label class="fieldLabel" for="http___com.ibm.dwexample.interfaceopenJobReqResponseMsg_output5_HTMUniqueWidgetID">
+		country
+	</label>
+	<div class="fieldInput">
+		<input type="text" name="/jobReq/country" value="" sdoPosition="5" dojoType="dijit.form.ValidationTextBox" regExp=".*" id="http___com.ibm.dwexample.interfaceopenJobReqResponseMsg_output5_HTMUniqueWidgetID"
+		 sdoMessageType="output"  sdoPrepopulation="/jobReq/country" required="false" class="fieldInput"/>
+	</div>
+</div>
+<div class="fieldContainer">
+	<label class="fieldLabel" for="http___com.ibm.dwexample.interfaceopenJobReqResponseMsg_output6_HTMUniqueWidgetID">
+		city
+	</label>
+	<div class="fieldInput">
+		<input type="text" name="/jobReq/city" value="" sdoPosition="6" dojoType="dijit.form.ValidationTextBox" regExp=".*" id="http___com.ibm.dwexample.interfaceopenJobReqResponseMsg_output6_HTMUniqueWidgetID"
+		 sdoMessageType="output"  sdoPrepopulation="/jobReq/city" required="false" class="fieldInput"/>
+	</div>
+</div>
+<div class="fieldContainer">
+	<label class="fieldLabel" for="http___com.ibm.dwexample.interfaceopenJobReqResponseMsg_output7_HTMUniqueWidgetID">
+		state
+	</label>
+	<div class="fieldInput">
+		<input type="text" name="/jobReq/state" value="" sdoPosition="7" dojoType="dijit.form.ValidationTextBox" regExp=".*" id="http___com.ibm.dwexample.interfaceopenJobReqResponseMsg_output7_HTMUniqueWidgetID"
+		 sdoMessageType="output"  sdoPrepopulation="/jobReq/state" required="false" class="fieldInput"/>
+	</div>
+</div>
+<div class="fieldContainer">
+	<label class="fieldLabel" for="http___com.ibm.dwexample.interfaceopenJobReqResponseMsg_output8_HTMUniqueWidgetID">
+		zipCode
+	</label>
+	<div class="fieldInput">
+		<input type="text" name="/jobReq/zipCode" value="" sdoPosition="8" dojoType="dijit.form.ValidationTextBox" regExp=".*" id="http___com.ibm.dwexample.interfaceopenJobReqResponseMsg_output8_HTMUniqueWidgetID"
+		 sdoMessageType="output"  sdoPrepopulation="/jobReq/zipCode" required="false" class="fieldInput"/>
+	</div>
+</div>
+<div class="fieldContainer">
+	<label class="fieldLabel" for="http___com.ibm.dwexample.interfaceopenJobReqResponseMsg_output9_HTMUniqueWidgetID">
+		hiringMgr
+	</label>
+	<div class="fieldInput">
+		<input type="text" name="/jobReq/hiringMgr" value="" sdoPosition="9" dojoType="dijit.form.ValidationTextBox" regExp=".*" id="http___com.ibm.dwexample.interfaceopenJobReqResponseMsg_output9_HTMUniqueWidgetID"
+		 sdoMessageType="output"  sdoPrepopulation="/jobReq/hiringMgr" required="false" class="fieldInput"/>
+	</div>
+</div>
+<div class="fieldContainer">
+	<label class="fieldLabel" for="http___com.ibm.dwexample.interfaceopenJobReqResponseMsg_output10_HTMUniqueWidgetID">
+		hiringEmail
+	</label>
+	<div class="fieldInput">
+		<input type="text" name="/jobReq/hiringEmail" value="" sdoPosition="10" dojoType="dijit.form.ValidationTextBox" regExp=".*" id="http___com.ibm.dwexample.interfaceopenJobReqResponseMsg_output10_HTMUniqueWidgetID"
+		 sdoMessageType="output"  sdoPrepopulation="/jobReq/hiringEmail" required="false" class="fieldInput"/>
+	</div>
+</div>
+<div class="fieldContainer">
+	<label class="fieldLabel" for="http___com.ibm.dwexample.interfaceopenJobReqResponseMsg_output11_HTMUniqueWidgetID">
+		division
+	</label>
+	<div class="fieldInput">
+		<input type="text" name="/jobReq/division" value="" sdoPosition="11" dojoType="dijit.form.ValidationTextBox" regExp=".*" id="http___com.ibm.dwexample.interfaceopenJobReqResponseMsg_output11_HTMUniqueWidgetID"
+		 sdoMessageType="output"  sdoPrepopulation="/jobReq/division" required="false" class="fieldInput"/>
+	</div>
+</div>
+<div class="fieldContainer">
+	<label class="fieldLabel" for="http___com.ibm.dwexample.interfaceopenJobReqResponseMsg_output12_HTMUniqueWidgetID">
+		applyByDate
+	</label>
+	<div class="fieldInput">
+		<input type="text" name="/jobReq/applyByDate" value="" dojoType="dijit.form.DateTextBox" id="http___com.ibm.dwexample.interfaceopenJobReqResponseMsg_output12_HTMUniqueWidgetID" required="false"
+		 sdoMessageType="output"  sdoPrepopulation="/jobReq/applyByDate" class="fieldInput" sdoPosition="12"/>
+	</div>
+</div>
+<div class="fieldContainer">
+	<label class="fieldLabel" for="http___com.ibm.dwexample.interfaceopenJobReqResponseMsg_output13_HTMUniqueWidgetID">
+		jobDesc
+	</label>
+	<div class="fieldInput">
+		<input type="text" name="/jobReq/jobDesc" value="" sdoPosition="13" dojoType="dijit.form.ValidationTextBox" regExp=".*" id="http___com.ibm.dwexample.interfaceopenJobReqResponseMsg_output13_HTMUniqueWidgetID"
+		 sdoMessageType="output"  sdoPrepopulation="/jobReq/jobDesc" required="false" class="fieldInput"/>
+	</div>
+</div>
+
+</div>
+
+</div>
+
+			</form>
+		</div>
+	</body>
+</html>

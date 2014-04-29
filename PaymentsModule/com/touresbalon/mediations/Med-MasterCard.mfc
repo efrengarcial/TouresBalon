@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mfc:interfaceMediationFlow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PaymentServiceIF="http://PaymentsModuleLib/com/touresbalon/interfaces/PaymentServiceIF" xmlns:mfc="http://www.ibm.com/xmlns/prod/websphere/wbiserver/mfc/6.0.0" xmlns:ns1="http://com.mastercard.com/services" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" name="Med-MasterCard" targetNamespace="http://PaymentsModule/com/touresbalon/mediations/Med-MasterCard">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" portType="PaymentServiceIF:PaymentServiceIF"/>
+  </interfaces>
+  <references>
+    <reference name="MasterCardSoapPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns1:MasterCardSoap"/>
+    </reference>
+  </references>
+  <extendedOperationBinding source="validateCard" target="Validate" sourcePortType="PaymentServiceIF:PaymentServiceIF" targetReference="MasterCardSoapPartner"/>
+  <extendedOperationBinding source="applyPayment" target="ApplyPayment" sourcePortType="PaymentServiceIF:PaymentServiceIF" targetReference="MasterCardSoapPartner"/>
+  <operationFlow medflow="Med-MasterCard.medflow"/>
+</mfc:interfaceMediationFlow>

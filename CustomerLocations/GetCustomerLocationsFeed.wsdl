@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:bons2="http://purl.org/atom/ns#" xmlns:tns="http://CustomerLocationsFeed/GetCustomerLocationsFeed" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="GetCustomerLocationsFeed" targetNamespace="http://CustomerLocationsFeed/GetCustomerLocationsFeed">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://CustomerLocationsFeed/GetCustomerLocationsFeed" xmlns:bons2="http://purl.org/atom/ns#" xmlns:tns="http://CustomerLocationsFeed/GetCustomerLocationsFeed" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://purl.org/atom/ns#" schemaLocation="atom3-do.xsd"/>
+      <xsd:element name="getCustomersAsFeed">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="type" nillable="true" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getCustomersAsFeedResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="feed" type="bons2:feed"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="getCustomersAsFeedRequestMsg">
+    <wsdl:part element="tns:getCustomersAsFeed" name="getCustomersAsFeedParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getCustomersAsFeedResponseMsg">
+    <wsdl:part element="tns:getCustomersAsFeedResponse" name="getCustomersAsFeedResult"/>
+  </wsdl:message>
+    <wsdl:portType name="GetCustomerLocationsFeed">
+    <wsdl:operation name="getCustomersAsFeed">
+      <wsdl:input message="tns:getCustomersAsFeedRequestMsg" name="getCustomersAsFeedRequest"/>
+      <wsdl:output message="tns:getCustomersAsFeedResponseMsg" name="getCustomersAsFeedResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

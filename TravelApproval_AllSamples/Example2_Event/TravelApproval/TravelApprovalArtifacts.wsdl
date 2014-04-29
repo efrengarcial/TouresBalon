@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="TravelApproval" targetNamespace="http://Example2/TravelApproval/TravelApprovalArtifacts" xmlns:bpws="http://schemas.xmlsoap.org/ws/2004/03/business-process/" xmlns:plnk="http://schemas.xmlsoap.org/ws/2004/03/partner-link/" xmlns:tns="http://Example2/TravelApproval/TravelApprovalArtifacts" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl0="http://packtpub.com/bpel/travel/" xmlns:wsdl1="http://packtpub.com/service/airline/" xmlns:wsdl2="http://packtpub.com/service/employee/" xmlns:wsdl3="http://packtpub.com/service/deltaairline/" xmlns:wsdl4="http://packtpub.com/service/americanairline/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <plnk:partnerLinkType name="TravelApprovalPTPLT">
+    <plnk:role name="Interface">
+      <plnk:portType name="wsdl0:TravelApprovalPT"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+  <plnk:partnerLinkType name="FlightReservationCallbackPTPLT">
+    <plnk:role name="Interface">
+      <plnk:portType name="wsdl1:FlightReservationCallbackPT"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+  <plnk:partnerLinkType name="FlightReservationPTPLT">
+    <plnk:role name="Interface">
+      <plnk:portType name="wsdl1:FlightReservationPT"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+  <plnk:partnerLinkType name="FlightAvailabilityPTPLT">
+    <plnk:role name="Interface">
+      <plnk:portType name="wsdl1:FlightAvailabilityPT"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+  <plnk:partnerLinkType name="EmployeeTravelStatusPTPLT">
+    <plnk:role name="Interface">
+      <plnk:portType name="wsdl2:EmployeeTravelStatusPT"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="FlightAvailabilityPTPLT1">
+    <plnk:role name="Interface">
+      <plnk:portType name="wsdl1:FlightAvailabilityPT"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="FlightReservationPTPLT1">
+    <plnk:role name="Interface">
+      <plnk:portType name="wsdl1:FlightReservationPT"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="FlightCallbackDAPTPLT">
+    <plnk:role name="Interface">
+      <plnk:portType name="wsdl3:FlightCallbackDAPT"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="FlightCallbackAAPTPLT">
+    <plnk:role name="Interface">
+      <plnk:portType name="wsdl4:FlightCallbackAAPT"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <bpws:property name="FlightNo_CP" type="xsd:string"/>
+    <bpws:propertyAlias messageType="wsdl3:FlightTicketCallbackDARequestMsg" part="FlightTicketCallbackDAParameters" propertyName="tns:FlightNo_CP">
+    <bpws:query><![CDATA[/TravelResponse/confirmationData/FlightNo]]></bpws:query>
+  </bpws:propertyAlias>
+    <bpws:propertyAlias messageType="wsdl0:TravelApprovalRequestMsg" part="TravelApprovalParameters" propertyName="tns:FlightNo_CP">
+    <bpws:query><![CDATA[/TravelRequest/flightData/RequestNo]]></bpws:query>
+  </bpws:propertyAlias>
+    <bpws:propertyAlias messageType="wsdl4:FlightTicketCallbackAARequestMsg" part="FlightTicketCallbackAAParameters" propertyName="tns:FlightNo_CP">
+    <bpws:query><![CDATA[/TravelResponse/confirmationData/FlightNo]]></bpws:query>
+  </bpws:propertyAlias>
+    <bpws:propertyAlias messageType="wsdl1:FlightReservationCallbackRequestMsg" part="FlightReservationCallbackParameters" propertyName="tns:FlightNo_CP">
+    <bpws:query><![CDATA[/FlightReservation/FlightReservation/FlightNo]]></bpws:query>
+  </bpws:propertyAlias>
+    <bpws:propertyAlias messageType="wsdl0:CancelTravelApprovalRequestMsg" part="CancelTravelApprovalParameters" propertyName="tns:FlightNo_CP">
+    <bpws:query><![CDATA[/TravelRequest/flightData/RequestNo]]></bpws:query>
+  </bpws:propertyAlias>
+    <wsdl:import location="../TravelApprovalPT.wsdl" namespace="http://packtpub.com/bpel/travel/"/>
+    <wsdl:import location="../FlightReservationCallbackPT.wsdl" namespace="http://packtpub.com/service/airline/"/>
+    <wsdl:import location="../FlightReservationPT.wsdl" namespace="http://packtpub.com/service/airline/"/>
+    <wsdl:import location="../FlightAvailabilityPT.wsdl" namespace="http://packtpub.com/service/airline/"/>
+    <wsdl:import location="../EmployeeTravelStatusPT.wsdl" namespace="http://packtpub.com/service/employee/"/>
+    <wsdl:import location="../FlightCallbackDAPT.wsdl" namespace="http://packtpub.com/service/deltaairline/"/>
+    <wsdl:import location="../FlightCallbackAAPT.wsdl" namespace="http://packtpub.com/service/americanairline/"/>
+</wsdl:definitions>

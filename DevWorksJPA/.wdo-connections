@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<connections:connections xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:connections="http://www.ibm.com/websphere/wdo/connections">
+  <connection id="devworks">
+    <development xsi:type="connections:rsc-live-connection" id="devworks_dev" name="devworks"/>
+    <runtime xsi:type="connections:datasource-connection" auto-deploy="true" class-location="D:\jee\software\jars\sqljdbc4.jar" id="devworks_runtime" classname="com.microsoft.sqlserver.jdbc.SQLServerConnectionPoolDataSource" database-name="devworks" jndi-name="jdbc/devworks" port-number="1433" resource-reference-name="devworks" server-name="SERVER\SQLEXPRESS" sql-vendor-type="47" userid="sa"/>
+  </connection>
+  <connection id="DevWorks">
+    <development xsi:type="connections:rsc-live-connection" id="DevWorks_dev" name="DevWorks"/>
+    <runtime xsi:type="connections:datasource-connection" auto-deploy="true" class-location="D:\jee\software\jars\derbyclient.jar" id="DevWorks_runtime" classname="org.apache.derby.jdbc.ClientConnectionPoolDataSource" database-name="DEVWORKS" jndi-name="jdbc/DevWorks" port-number="1527" resource-reference-name="DevWorks" server-name="localhost" sql-vendor-type="50" userid="user"/>
+  </connection>
+</connections:connections>

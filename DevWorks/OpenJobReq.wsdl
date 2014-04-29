@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="OpenJobReq" targetNamespace="http://DevWorks/OpenJobReq" xmlns:bons1="http://com.ibm.dwexample.bo" xmlns:tns="http://DevWorks/OpenJobReq" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://DevWorks/OpenJobReq">
+      <xsd:import namespace="http://com.ibm.dwexample.bo" schemaLocation="JobReq.xsd"/>
+      <xsd:element name="openJobReq">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="jobReq" nillable="true" type="bons1:JobReq"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="openJobReqResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="jobReq" nillable="true" type="bons1:JobReq"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="openJobReqRequestMsg">
+    <wsdl:part element="tns:openJobReq" name="openJobReqParameters"/>
+  </wsdl:message>
+    <wsdl:message name="openJobReqResponseMsg">
+    <wsdl:part element="tns:openJobReqResponse" name="openJobReqResult"/>
+  </wsdl:message>
+    <wsdl:portType name="OpenJobReq">
+    <wsdl:operation name="openJobReq">
+      <wsdl:input message="tns:openJobReqRequestMsg" name="openJobReqRequest"/>
+      <wsdl:output message="tns:openJobReqResponseMsg" name="openJobReqResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

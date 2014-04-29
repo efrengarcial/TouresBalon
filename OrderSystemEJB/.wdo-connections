@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<connections:connections xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:connections="http://www.ibm.com/websphere/wdo/connections">
+  <connection id="OrderDB">
+    <development xsi:type="connections:rsc-live-connection" id="OrderDB_dev" name="OrderDB"/>
+    <runtime xsi:type="connections:datasource-connection" auto-deploy="true" class-location="C:\IBM\WID7_WTE\runtimes\bi_v7\derby\lib\derbyclient.jar" id="OrderDB_runtime" classname="org.apache.derby.jdbc.ClientConnectionPoolDataSource" database-name="JPATEST" jndi-name="jdbc/OrderDB" port-number="1527" resource-reference-name="OrderDB" server-name="localhost" sql-vendor-type="50" userid="user"/>
+  </connection>
+</connections:connections>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:import xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:EIS="http://www.ibm.com/xmlns/prod/websphere/scdl/eis/6.0.0" xmlns:ns1="http://AccommodationModule/DannCarltonReservations" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="DannCarltonReservationsAdapter" name="DannCarltonReservationsAdapter">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" preferredInteractionStyle="sync" portType="ns1:DannCarltonReservations">
+      <scdl:interfaceQualifier xsi:type="scdl:JoinTransaction" value="false"/>
+    </interface>
+  </interfaces>
+  <esbBinding xsi:type="EIS:EISImportBinding" faultSelector="com.ibm.j2ca.extension.emd.runtime.WBIFaultSelectorImpl" dataBindingType="com.ibm.j2ca.jdbc.emd.databinding.JDBCDataBindingGenerator">
+    <resourceAdapter name="AccommodationModuleApp.IBM WebSphere Adapter for JDBC" type="com.ibm.j2ca.jdbc.JDBCResourceAdapter" version="7.0.1.1">
+      <properties>
+        <adapterID>001</adapterID>
+      </properties>
+    </resourceAdapter>
+    <connection type="com.ibm.j2ca.jdbc.JDBCManagedConnectionFactory" interactionType="com.ibm.j2ca.jdbc.JDBCInteractionSpec">
+      <properties>
+        <adapterID>001</adapterID>
+        <connectionType>PoolDataSourceJNDI</connectionType>
+        <databaseURL>jdbc:sqlserver://localhost:1433;databaseName=DannCarlton</databaseURL>
+        <databaseVendor>MSSQLSERVER</databaseVendor>
+        <jdbcDriverClass>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbcDriverClass>
+        <poolDataSourceJNDIName>SQLServerDS</poolDataSourceJNDIName>
+        <returnDummyBOForSP>false</returnDummyBOForSP>
+      </properties>
+    </connection>
+    <methodBinding inDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbotouresbalon_reservationsbg.DboTouresbalon_ReservationsBGDataBinding" method="createDboTouresbalon_ReservationsBG" outDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbotouresbalon_reservationsbg.DboTouresbalon_ReservationsBGDataBinding">
+      <faultBinding fault="INTEGRITY_CONSTRAINT_VIOLATION" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="MISSING_DATA" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="OBJECT_NOTFOUND_EXCEPTION" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="UNIQUECONSTRAINT_VIOLATION" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <interaction>
+        <properties>
+          <functionName>Create</functionName>
+        </properties>
+      </interaction>
+    </methodBinding>
+    <methodBinding inDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbotouresbalon_reservationsbg.DboTouresbalon_ReservationsBGDataBinding" method="updateDboTouresbalon_ReservationsBG" outDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbotouresbalon_reservationsbg.DboTouresbalon_ReservationsBGDataBinding">
+      <faultBinding fault="MISSING_DATA" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="OBJECT_NOTFOUND_EXCEPTION" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="RECORD_NOT_FOUND" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="MULTIPLE_MATCHING_RECORDS" faultBindingType="com.ibm.j2ca.extension.emd.runtime.MatchingFaultDataBinding"/>
+      <faultBinding fault="UNIQUECONSTRAINT_VIOLATION" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="INTEGRITY_CONSTRAINT_VIOLATION" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <interaction>
+        <properties>
+          <functionName>Update</functionName>
+        </properties>
+      </interaction>
+    </methodBinding>
+    <methodBinding inDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbotouresbalon_reservationsbg.DboTouresbalon_ReservationsBGDataBinding" method="deleteDboTouresbalon_ReservationsBG" outDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbotouresbalon_reservationsbg.DboTouresbalon_ReservationsBGDataBinding">
+      <faultBinding fault="MISSING_DATA" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="RECORD_NOT_FOUND" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <interaction>
+        <properties>
+          <functionName>Delete</functionName>
+        </properties>
+      </interaction>
+    </methodBinding>
+    <methodBinding inDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbotouresbalon_reservationsbg.DboTouresbalon_ReservationsBGDataBinding" method="retrieveDboTouresbalon_ReservationsBG" outDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbotouresbalon_reservationsbg.DboTouresbalon_ReservationsBGDataBinding">
+      <faultBinding fault="MISSING_DATA" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="MULTIPLE_MATCHING_RECORDS" faultBindingType="com.ibm.j2ca.extension.emd.runtime.MatchingFaultDataBinding"/>
+      <faultBinding fault="RECORD_NOT_FOUND" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <interaction>
+        <properties>
+          <functionName>Retrieve</functionName>
+        </properties>
+      </interaction>
+    </methodBinding>
+    <methodBinding inDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbotouresbalon_reservationsbg.DboTouresbalon_ReservationsBGDataBinding" method="retrieveallDboTouresbalon_ReservationsBG" outDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbotouresbalon_reservationscontainer.DboTouresbalon_ReservationsContainerDataBinding">
+      <faultBinding fault="MATCHES_EXCEEDED_LIMIT" faultBindingType="com.ibm.j2ca.extension.emd.runtime.MatchingFaultDataBinding"/>
+      <faultBinding fault="RECORD_NOT_FOUND" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <interaction>
+        <properties>
+          <functionName>RetrieveAll</functionName>
+          <maxRecords>-1</maxRecords>
+        </properties>
+      </interaction>
+    </methodBinding>
+    <methodBinding inDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbotouresbalon_reservationsbg.DboTouresbalon_ReservationsBGDataBinding" method="applychangesDboTouresbalon_ReservationsBG" outDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbotouresbalon_reservationsbg.DboTouresbalon_ReservationsBGDataBinding">
+      <faultBinding fault="MISSING_DATA" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="INTEGRITY_CONSTRAINT_VIOLATION" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="OBJECT_NOTFOUND_EXCEPTION" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="UNIQUECONSTRAINT_VIOLATION" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="RECORD_NOT_FOUND" faultBindingType="com.ibm.j2ca.extension.emd.runtime.WBIFaultDataBindingImpl"/>
+      <faultBinding fault="MULTIPLE_MATCHING_RECORDS" faultBindingType="com.ibm.j2ca.extension.emd.runtime.MatchingFaultDataBinding"/>
+      <interaction>
+        <properties>
+          <functionName>ApplyChanges</functionName>
+        </properties>
+      </interaction>
+    </methodBinding>
+    <methodBinding inDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbotouresbalon_reservationsbg.DboTouresbalon_ReservationsBGDataBinding" method="existsDboTouresbalon_ReservationsBG" outDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.existsresult.ExistsResultDataBinding">
+      <interaction>
+        <properties>
+          <functionName>Exists</functionName>
+        </properties>
+      </interaction>
+    </methodBinding>
+  </esbBinding>
+</scdl:import>

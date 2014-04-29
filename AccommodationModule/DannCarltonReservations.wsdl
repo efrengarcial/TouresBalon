@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="DannCarltonReservations" targetNamespace="http://AccommodationModule/DannCarltonReservations" xmlns:bons1="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbotouresbalon_reservationsbg" xmlns:bons10="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/existsresult" xmlns:bons2="http://com/ibm/j2ca/fault/afcfault" xmlns:bons8="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbotouresbalon_reservationscontainer" xmlns:tns="http://AccommodationModule/DannCarltonReservations" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://com/ibm/j2ca/fault/afcfault" xmlns:tns="http://com/ibm/j2ca/fault/afcfault">
+      <xsd:include schemaLocation="MatchesExceededLimitFault.xsd"/>
+      <xsd:include schemaLocation="MultipleMatchingRecordsFault.xsd"/>
+      <xsd:include schemaLocation="RecordNotFoundFault.xsd"/>
+      <xsd:include schemaLocation="UniqueConstraintFault.xsd"/>
+      <xsd:include schemaLocation="ObjectNotFoundFault.xsd"/>
+      <xsd:include schemaLocation="MissingDataFault.xsd"/>
+      <xsd:include schemaLocation="IntegrityConstraintFault.xsd"/>
+    </xsd:schema>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://AccommodationModule/DannCarltonReservations" xmlns:bons5="http://com/ibm/j2ca/fault/afcfault">
+      <xsd:import namespace="http://com/ibm/j2ca/fault/afcfault"/>
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbotouresbalon_reservationscontainer" schemaLocation="com/danncarlton/bo/DboTouresbalon_ReservationsContainer.xsd"/>
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbotouresbalon_reservationsbg" schemaLocation="com/danncarlton/bo/DboTouresbalon_ReservationsBG.xsd"/>
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/existsresult" schemaLocation="com/danncarlton/bo/ExistsResult.xsd"/>
+      <xsd:element name="createDboTouresbalon_ReservationsBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="createDboTouresbalon_ReservationsBGInput" type="bons1:DboTouresbalon_ReservationsBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="createDboTouresbalon_ReservationsBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="createDboTouresbalon_ReservationsBGOutput" type="bons1:DboTouresbalon_ReservationsBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="MissingDataFault_element" nillable="true" type="bons5:MissingDataFault"/>
+      <xsd:element name="UniqueConstraintFault_element" nillable="true" type="bons5:UniqueConstraintFault"/>
+      <xsd:element name="IntegrityConstraintFault_element" nillable="true" type="bons5:IntegrityConstraintFault"/>
+      <xsd:element name="ObjectNotFoundFault_element" nillable="true" type="bons5:ObjectNotFoundFault"/>
+      <xsd:element name="updateDboTouresbalon_ReservationsBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="updateDboTouresbalon_ReservationsBGInput" type="bons1:DboTouresbalon_ReservationsBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="updateDboTouresbalon_ReservationsBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="updateDboTouresbalon_ReservationsBGOutput" type="bons1:DboTouresbalon_ReservationsBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="RecordNotFoundFault_element" nillable="true" type="bons5:RecordNotFoundFault"/>
+      <xsd:element name="MultipleMatchingRecordsFault_element" nillable="true" type="bons5:MultipleMatchingRecordsFault"/>
+      <xsd:element name="deleteDboTouresbalon_ReservationsBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="deleteDboTouresbalon_ReservationsBGInput" type="bons1:DboTouresbalon_ReservationsBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="deleteDboTouresbalon_ReservationsBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="deleteDboTouresbalon_ReservationsBGOutput" type="bons1:DboTouresbalon_ReservationsBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="retrieveDboTouresbalon_ReservationsBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="retrieveDboTouresbalon_ReservationsBGInput" type="bons1:DboTouresbalon_ReservationsBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="retrieveDboTouresbalon_ReservationsBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="retrieveDboTouresbalon_ReservationsBGOutput" type="bons1:DboTouresbalon_ReservationsBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="retrieveallDboTouresbalon_ReservationsBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="retrieveallDboTouresbalon_ReservationsBGInput" type="bons1:DboTouresbalon_ReservationsBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="retrieveallDboTouresbalon_ReservationsBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="retrieveallDboTouresbalon_ReservationsBGOutput" type="bons8:DboTouresbalon_ReservationsContainer"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="MatchesExceededLimitFault_element" nillable="true" type="bons5:MatchesExceededLimitFault"/>
+      <xsd:element name="applychangesDboTouresbalon_ReservationsBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="applychangesDboTouresbalon_ReservationsBGInput" type="bons1:DboTouresbalon_ReservationsBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="applychangesDboTouresbalon_ReservationsBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="applychangesDboTouresbalon_ReservationsBGOutput" type="bons1:DboTouresbalon_ReservationsBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="existsDboTouresbalon_ReservationsBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="existsDboTouresbalon_ReservationsBGInput" type="bons1:DboTouresbalon_ReservationsBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="existsDboTouresbalon_ReservationsBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="existsDboTouresbalon_ReservationsBGOutput" type="bons10:ExistsResult"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="createDboTouresbalon_ReservationsBGRequestMsg">
+    <wsdl:part element="tns:createDboTouresbalon_ReservationsBG" name="createDboTouresbalon_ReservationsBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="createDboTouresbalon_ReservationsBGResponseMsg">
+    <wsdl:part element="tns:createDboTouresbalon_ReservationsBGResponse" name="createDboTouresbalon_ReservationsBGResult"/>
+  </wsdl:message>
+  <wsdl:message name="createDboTouresbalon_ReservationsBGMissingDataFaultMsg">
+    <wsdl:part element="tns:MissingDataFault_element" name="MissingDataFault"/>
+  </wsdl:message>
+  <wsdl:message name="createDboTouresbalon_ReservationsBGUniqueConstraintFaultMsg">
+    <wsdl:part element="tns:UniqueConstraintFault_element" name="UniqueConstraintFault"/>
+  </wsdl:message>
+  <wsdl:message name="createDboTouresbalon_ReservationsBGIntegrityConstraintFaultMsg">
+    <wsdl:part element="tns:IntegrityConstraintFault_element" name="IntegrityConstraintFault"/>
+  </wsdl:message>
+  <wsdl:message name="createDboTouresbalon_ReservationsBGObjectNotFoundFaultMsg">
+    <wsdl:part element="tns:ObjectNotFoundFault_element" name="ObjectNotFoundFault"/>
+  </wsdl:message>
+  <wsdl:message name="updateDboTouresbalon_ReservationsBGRequestMsg">
+    <wsdl:part element="tns:updateDboTouresbalon_ReservationsBG" name="updateDboTouresbalon_ReservationsBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="updateDboTouresbalon_ReservationsBGResponseMsg">
+    <wsdl:part element="tns:updateDboTouresbalon_ReservationsBGResponse" name="updateDboTouresbalon_ReservationsBGResult"/>
+  </wsdl:message>
+  <wsdl:message name="updateDboTouresbalon_ReservationsBGMissingDataFaultMsg">
+    <wsdl:part element="tns:MissingDataFault_element" name="MissingDataFault"/>
+  </wsdl:message>
+  <wsdl:message name="updateDboTouresbalon_ReservationsBGUniqueConstraintFaultMsg">
+    <wsdl:part element="tns:UniqueConstraintFault_element" name="UniqueConstraintFault"/>
+  </wsdl:message>
+  <wsdl:message name="updateDboTouresbalon_ReservationsBGIntegrityConstraintFaultMsg">
+    <wsdl:part element="tns:IntegrityConstraintFault_element" name="IntegrityConstraintFault"/>
+  </wsdl:message>
+  <wsdl:message name="updateDboTouresbalon_ReservationsBGRecordNotFoundFaultMsg">
+    <wsdl:part element="tns:RecordNotFoundFault_element" name="RecordNotFoundFault"/>
+  </wsdl:message>
+  <wsdl:message name="updateDboTouresbalon_ReservationsBGMultipleMatchingRecordsFaultMsg">
+    <wsdl:part element="tns:MultipleMatchingRecordsFault_element" name="MultipleMatchingRecordsFault"/>
+  </wsdl:message>
+  <wsdl:message name="updateDboTouresbalon_ReservationsBGObjectNotFoundFaultMsg">
+    <wsdl:part element="tns:ObjectNotFoundFault_element" name="ObjectNotFoundFault"/>
+  </wsdl:message>
+  <wsdl:message name="deleteDboTouresbalon_ReservationsBGRequestMsg">
+    <wsdl:part element="tns:deleteDboTouresbalon_ReservationsBG" name="deleteDboTouresbalon_ReservationsBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="deleteDboTouresbalon_ReservationsBGResponseMsg">
+    <wsdl:part element="tns:deleteDboTouresbalon_ReservationsBGResponse" name="deleteDboTouresbalon_ReservationsBGResult"/>
+  </wsdl:message>
+  <wsdl:message name="deleteDboTouresbalon_ReservationsBGMissingDataFaultMsg">
+    <wsdl:part element="tns:MissingDataFault_element" name="MissingDataFault"/>
+  </wsdl:message>
+  <wsdl:message name="deleteDboTouresbalon_ReservationsBGRecordNotFoundFaultMsg">
+    <wsdl:part element="tns:RecordNotFoundFault_element" name="RecordNotFoundFault"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveDboTouresbalon_ReservationsBGRequestMsg">
+    <wsdl:part element="tns:retrieveDboTouresbalon_ReservationsBG" name="retrieveDboTouresbalon_ReservationsBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveDboTouresbalon_ReservationsBGResponseMsg">
+    <wsdl:part element="tns:retrieveDboTouresbalon_ReservationsBGResponse" name="retrieveDboTouresbalon_ReservationsBGResult"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveDboTouresbalon_ReservationsBGMissingDataFaultMsg">
+    <wsdl:part element="tns:MissingDataFault_element" name="MissingDataFault"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveDboTouresbalon_ReservationsBGRecordNotFoundFaultMsg">
+    <wsdl:part element="tns:RecordNotFoundFault_element" name="RecordNotFoundFault"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveDboTouresbalon_ReservationsBGMultipleMatchingRecordsFaultMsg">
+    <wsdl:part element="tns:MultipleMatchingRecordsFault_element" name="MultipleMatchingRecordsFault"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveallDboTouresbalon_ReservationsBGRequestMsg">
+    <wsdl:part element="tns:retrieveallDboTouresbalon_ReservationsBG" name="retrieveallDboTouresbalon_ReservationsBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveallDboTouresbalon_ReservationsBGResponseMsg">
+    <wsdl:part element="tns:retrieveallDboTouresbalon_ReservationsBGResponse" name="retrieveallDboTouresbalon_ReservationsBGResult"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveallDboTouresbalon_ReservationsBGRecordNotFoundFaultMsg">
+    <wsdl:part element="tns:RecordNotFoundFault_element" name="RecordNotFoundFault"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveallDboTouresbalon_ReservationsBGMatchesExceededLimitFaultMsg">
+    <wsdl:part element="tns:MatchesExceededLimitFault_element" name="MatchesExceededLimitFault"/>
+  </wsdl:message>
+  <wsdl:message name="applychangesDboTouresbalon_ReservationsBGRequestMsg">
+    <wsdl:part element="tns:applychangesDboTouresbalon_ReservationsBG" name="applychangesDboTouresbalon_ReservationsBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="applychangesDboTouresbalon_ReservationsBGResponseMsg">
+    <wsdl:part element="tns:applychangesDboTouresbalon_ReservationsBGResponse" name="applychangesDboTouresbalon_ReservationsBGResult"/>
+  </wsdl:message>
+  <wsdl:message name="applychangesDboTouresbalon_ReservationsBGMissingDataFaultMsg">
+    <wsdl:part element="tns:MissingDataFault_element" name="MissingDataFault"/>
+  </wsdl:message>
+  <wsdl:message name="applychangesDboTouresbalon_ReservationsBGUniqueConstraintFaultMsg">
+    <wsdl:part element="tns:UniqueConstraintFault_element" name="UniqueConstraintFault"/>
+  </wsdl:message>
+  <wsdl:message name="applychangesDboTouresbalon_ReservationsBGIntegrityConstraintFaultMsg">
+    <wsdl:part element="tns:IntegrityConstraintFault_element" name="IntegrityConstraintFault"/>
+  </wsdl:message>
+  <wsdl:message name="applychangesDboTouresbalon_ReservationsBGRecordNotFoundFaultMsg">
+    <wsdl:part element="tns:RecordNotFoundFault_element" name="RecordNotFoundFault"/>
+  </wsdl:message>
+  <wsdl:message name="applychangesDboTouresbalon_ReservationsBGMultipleMatchingRecordsFaultMsg">
+    <wsdl:part element="tns:MultipleMatchingRecordsFault_element" name="MultipleMatchingRecordsFault"/>
+  </wsdl:message>
+  <wsdl:message name="applychangesDboTouresbalon_ReservationsBGObjectNotFoundFaultMsg">
+    <wsdl:part element="tns:ObjectNotFoundFault_element" name="ObjectNotFoundFault"/>
+  </wsdl:message>
+  <wsdl:message name="existsDboTouresbalon_ReservationsBGRequestMsg">
+    <wsdl:part element="tns:existsDboTouresbalon_ReservationsBG" name="existsDboTouresbalon_ReservationsBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="existsDboTouresbalon_ReservationsBGResponseMsg">
+    <wsdl:part element="tns:existsDboTouresbalon_ReservationsBGResponse" name="existsDboTouresbalon_ReservationsBGResult"/>
+  </wsdl:message>
+  <wsdl:portType name="DannCarltonReservations">
+    <wsdl:operation name="createDboTouresbalon_ReservationsBG">
+      <wsdl:input message="tns:createDboTouresbalon_ReservationsBGRequestMsg" name="createDboTouresbalon_ReservationsBGRequest"/>
+      <wsdl:output message="tns:createDboTouresbalon_ReservationsBGResponseMsg" name="createDboTouresbalon_ReservationsBGResponse"/>
+      <wsdl:fault message="tns:createDboTouresbalon_ReservationsBGMissingDataFaultMsg" name="MISSING_DATA"/>
+      <wsdl:fault message="tns:createDboTouresbalon_ReservationsBGUniqueConstraintFaultMsg" name="UNIQUECONSTRAINT_VIOLATION"/>
+      <wsdl:fault message="tns:createDboTouresbalon_ReservationsBGIntegrityConstraintFaultMsg" name="INTEGRITY_CONSTRAINT_VIOLATION"/>
+      <wsdl:fault message="tns:createDboTouresbalon_ReservationsBGObjectNotFoundFaultMsg" name="OBJECT_NOTFOUND_EXCEPTION"/>
+    </wsdl:operation>
+    <wsdl:operation name="updateDboTouresbalon_ReservationsBG">
+      <wsdl:input message="tns:updateDboTouresbalon_ReservationsBGRequestMsg" name="updateDboTouresbalon_ReservationsBGRequest"/>
+      <wsdl:output message="tns:updateDboTouresbalon_ReservationsBGResponseMsg" name="updateDboTouresbalon_ReservationsBGResponse"/>
+      <wsdl:fault message="tns:updateDboTouresbalon_ReservationsBGMissingDataFaultMsg" name="MISSING_DATA"/>
+      <wsdl:fault message="tns:updateDboTouresbalon_ReservationsBGUniqueConstraintFaultMsg" name="UNIQUECONSTRAINT_VIOLATION"/>
+      <wsdl:fault message="tns:updateDboTouresbalon_ReservationsBGIntegrityConstraintFaultMsg" name="INTEGRITY_CONSTRAINT_VIOLATION"/>
+      <wsdl:fault message="tns:updateDboTouresbalon_ReservationsBGRecordNotFoundFaultMsg" name="RECORD_NOT_FOUND"/>
+      <wsdl:fault message="tns:updateDboTouresbalon_ReservationsBGMultipleMatchingRecordsFaultMsg" name="MULTIPLE_MATCHING_RECORDS"/>
+      <wsdl:fault message="tns:updateDboTouresbalon_ReservationsBGObjectNotFoundFaultMsg" name="OBJECT_NOTFOUND_EXCEPTION"/>
+    </wsdl:operation>
+    <wsdl:operation name="deleteDboTouresbalon_ReservationsBG">
+      <wsdl:input message="tns:deleteDboTouresbalon_ReservationsBGRequestMsg" name="deleteDboTouresbalon_ReservationsBGRequest"/>
+      <wsdl:output message="tns:deleteDboTouresbalon_ReservationsBGResponseMsg" name="deleteDboTouresbalon_ReservationsBGResponse"/>
+      <wsdl:fault message="tns:deleteDboTouresbalon_ReservationsBGMissingDataFaultMsg" name="MISSING_DATA"/>
+      <wsdl:fault message="tns:deleteDboTouresbalon_ReservationsBGRecordNotFoundFaultMsg" name="RECORD_NOT_FOUND"/>
+    </wsdl:operation>
+    <wsdl:operation name="retrieveDboTouresbalon_ReservationsBG">
+      <wsdl:input message="tns:retrieveDboTouresbalon_ReservationsBGRequestMsg" name="retrieveDboTouresbalon_ReservationsBGRequest"/>
+      <wsdl:output message="tns:retrieveDboTouresbalon_ReservationsBGResponseMsg" name="retrieveDboTouresbalon_ReservationsBGResponse"/>
+      <wsdl:fault message="tns:retrieveDboTouresbalon_ReservationsBGMissingDataFaultMsg" name="MISSING_DATA"/>
+      <wsdl:fault message="tns:retrieveDboTouresbalon_ReservationsBGRecordNotFoundFaultMsg" name="RECORD_NOT_FOUND"/>
+      <wsdl:fault message="tns:retrieveDboTouresbalon_ReservationsBGMultipleMatchingRecordsFaultMsg" name="MULTIPLE_MATCHING_RECORDS"/>
+    </wsdl:operation>
+    <wsdl:operation name="retrieveallDboTouresbalon_ReservationsBG">
+      <wsdl:input message="tns:retrieveallDboTouresbalon_ReservationsBGRequestMsg" name="retrieveallDboTouresbalon_ReservationsBGRequest"/>
+      <wsdl:output message="tns:retrieveallDboTouresbalon_ReservationsBGResponseMsg" name="retrieveallDboTouresbalon_ReservationsBGResponse"/>
+      <wsdl:fault message="tns:retrieveallDboTouresbalon_ReservationsBGRecordNotFoundFaultMsg" name="RECORD_NOT_FOUND"/>
+      <wsdl:fault message="tns:retrieveallDboTouresbalon_ReservationsBGMatchesExceededLimitFaultMsg" name="MATCHES_EXCEEDED_LIMIT"/>
+    </wsdl:operation>
+    <wsdl:operation name="applychangesDboTouresbalon_ReservationsBG">
+      <wsdl:input message="tns:applychangesDboTouresbalon_ReservationsBGRequestMsg" name="applychangesDboTouresbalon_ReservationsBGRequest"/>
+      <wsdl:output message="tns:applychangesDboTouresbalon_ReservationsBGResponseMsg" name="applychangesDboTouresbalon_ReservationsBGResponse"/>
+      <wsdl:fault message="tns:applychangesDboTouresbalon_ReservationsBGMissingDataFaultMsg" name="MISSING_DATA"/>
+      <wsdl:fault message="tns:applychangesDboTouresbalon_ReservationsBGUniqueConstraintFaultMsg" name="UNIQUECONSTRAINT_VIOLATION"/>
+      <wsdl:fault message="tns:applychangesDboTouresbalon_ReservationsBGIntegrityConstraintFaultMsg" name="INTEGRITY_CONSTRAINT_VIOLATION"/>
+      <wsdl:fault message="tns:applychangesDboTouresbalon_ReservationsBGRecordNotFoundFaultMsg" name="RECORD_NOT_FOUND"/>
+      <wsdl:fault message="tns:applychangesDboTouresbalon_ReservationsBGMultipleMatchingRecordsFaultMsg" name="MULTIPLE_MATCHING_RECORDS"/>
+      <wsdl:fault message="tns:applychangesDboTouresbalon_ReservationsBGObjectNotFoundFaultMsg" name="OBJECT_NOTFOUND_EXCEPTION"/>
+    </wsdl:operation>
+    <wsdl:operation name="existsDboTouresbalon_ReservationsBG">
+      <wsdl:input message="tns:existsDboTouresbalon_ReservationsBGRequestMsg" name="existsDboTouresbalon_ReservationsBGRequest"/>
+      <wsdl:output message="tns:existsDboTouresbalon_ReservationsBGResponseMsg" name="existsDboTouresbalon_ReservationsBGResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cfg:bindingConfiguration xmlns:cfg="http://www.ibm.com/xmlns/prod/websphere/bindingconfiguration/6.1.0" name="DataTransformationConfiguration" targetNamespace="http://MM_CustomerService">
+  <cfg:typeName>com.ibm.wbiserver.databinding.json.JSONHTTPDataBinding</cfg:typeName>
+  <cfg:propertyBean type="com.ibm.wbiserver.databinding.json.JSONHTTPDataBindingProperties"/>
+  <cfg:tag>BindingKind_DataBinding</cfg:tag>
+  <cfg:tag>BindingType_HTTP</cfg:tag>
+</cfg:bindingConfiguration>

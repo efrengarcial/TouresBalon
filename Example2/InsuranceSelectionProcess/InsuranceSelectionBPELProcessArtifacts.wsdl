@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="InsuranceSelectionBPELProcess" targetNamespace="http://Example2/InsuranceSelectionProcess/InsuranceSelectionBPELProcessArtifacts" xmlns:plnk="http://schemas.xmlsoap.org/ws/2004/03/partner-link/" xmlns:tns="http://Example2/InsuranceSelectionProcess/InsuranceSelectionBPELProcessArtifacts" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl0="http://Example2/InsuranceSelectionProcess/InsuranceSelectionBPELProcessInterface" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <plnk:partnerLinkType name="InsuranceSelectionBPELProcessPLT">
+    <plnk:role name="Interface">
+      <plnk:portType name="wsdl0:InsuranceSelectionBPELProcess"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+  <wsdl:import location="InsuranceSelectionBPELProcess.wsdl" namespace="http://Example2/InsuranceSelectionProcess/InsuranceSelectionBPELProcessInterface"/>
+</wsdl:definitions>

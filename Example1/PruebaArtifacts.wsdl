@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="Prueba" targetNamespace="http://Example1/PruebaArtifacts" xmlns:plnk="http://schemas.xmlsoap.org/ws/2004/03/partner-link/" xmlns:tns="http://Example1/PruebaArtifacts" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl0="http://Example1/InsuranceSelectionPT" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <plnk:partnerLinkType name="InsuranceSelectionPTPLT">
+    <plnk:role name="Interface">
+      <plnk:portType name="wsdl0:InsuranceSelectionPT"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+  <wsdl:import location="InsuranceSelectionPT.wsdl" namespace="http://Example1/InsuranceSelectionPT"/>
+</wsdl:definitions>

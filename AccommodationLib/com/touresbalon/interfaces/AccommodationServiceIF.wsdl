@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="AccommodationServiceIF" targetNamespace="http://AccommodationLib/com/touresbalon/interfaces/AccommodationServiceIF" xmlns:bons1="http://AccommodationLib/com/touresbalon/bo" xmlns:bons2="http://CommonDomain/com/touresbalon/bo" xmlns:tns="http://AccommodationLib/com/touresbalon/interfaces/AccommodationServiceIF" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://AccommodationLib/com/touresbalon/interfaces/AccommodationServiceIF">
+            <xsd:import namespace="http://CommonDomain/com/touresbalon/bo" schemaLocation="../bo/ReturnCode.xsd"/>
+            <xsd:import namespace="http://AccommodationLib/com/touresbalon/bo" schemaLocation="../bo/RoomReservationRequest.xsd"/>
+            <xsd:import namespace="http://AccommodationLib/com/touresbalon/bo" schemaLocation="../bo/RoomWrapperResponse.xsd"/>
+            <xsd:import namespace="http://CommonDomain/com/touresbalon/bo" schemaLocation="../bo/BusinessErrorFault.xsd"/>
+            <xsd:import namespace="http://AccommodationLib/com/touresbalon/bo" schemaLocation="../bo/RoomResponse.xsd"/>
+      <xsd:import namespace="http://AccommodationLib/com/touresbalon/bo" schemaLocation="../bo/RoomRequest.xsd"/>
+      <xsd:element name="checkAvailability">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="request" nillable="true" type="bons1:RoomRequest"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="checkAvailabilityResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="response" nillable="true" type="bons1:RoomWrapperResponse"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="checkAvailabilityFault1_businessError" nillable="true" type="bons2:BusinessErrorFault"/>
+            <xsd:element name="makeReservation">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="request" nillable="true" type="bons1:RoomReservationRequest"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="makeReservationResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="response" nillable="true" type="bons2:ReturnCode"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="cancelReservation">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="request" nillable="true" type="bons1:RoomReservationRequest"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="cancelReservationResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="response" nillable="true" type="bons2:ReturnCode"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+        </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="checkAvailabilityRequestMsg">
+    <wsdl:part element="tns:checkAvailability" name="checkAvailabilityParameters"/>
+  </wsdl:message>
+    <wsdl:message name="checkAvailabilityResponseMsg">
+    <wsdl:part element="tns:checkAvailabilityResponse" name="checkAvailabilityResult"/>
+  </wsdl:message>
+    <wsdl:message name="checkAvailability_businessErrorMsg">
+    <wsdl:part element="tns:checkAvailabilityFault1_businessError" name="businessError"/>
+  </wsdl:message>
+    <wsdl:message name="makeReservationRequestMsg">
+    <wsdl:part element="tns:makeReservation" name="makeReservationParameters"/>
+  </wsdl:message>
+    <wsdl:message name="makeReservationResponseMsg">
+    <wsdl:part element="tns:makeReservationResponse" name="makeReservationResult"/>
+  </wsdl:message>
+    <wsdl:message name="cancelReservationRequestMsg">
+    <wsdl:part element="tns:cancelReservation" name="cancelReservationParameters"/>
+  </wsdl:message>
+    <wsdl:message name="cancelReservationResponseMsg">
+    <wsdl:part element="tns:cancelReservationResponse" name="cancelReservationResult"/>
+  </wsdl:message>
+    <wsdl:portType name="AccommodationServiceIF">
+    <wsdl:operation name="checkAvailability">
+      <wsdl:input message="tns:checkAvailabilityRequestMsg" name="checkAvailabilityRequest"/>
+      <wsdl:output message="tns:checkAvailabilityResponseMsg" name="checkAvailabilityResponse"/>
+            <wsdl:fault message="tns:checkAvailability_businessErrorMsg" name="businessError"/>
+        </wsdl:operation>
+        <wsdl:operation name="makeReservation">
+      <wsdl:input message="tns:makeReservationRequestMsg" name="makeReservationRequest"/>
+      <wsdl:output message="tns:makeReservationResponseMsg" name="makeReservationResponse"/>
+    </wsdl:operation>
+        <wsdl:operation name="cancelReservation">
+      <wsdl:input message="tns:cancelReservationRequestMsg" name="cancelReservationRequest"/>
+      <wsdl:output message="tns:cancelReservationResponseMsg" name="cancelReservationResponse"/>
+    </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

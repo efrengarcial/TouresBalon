@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mfc:interfaceMediationFlow xmlns:mfc="http://www.ibm.com/xmlns/prod/websphere/wbiserver/mfc/6.0.0" name="Component2" targetNamespace="http://Example2/InsuranceSelectionProcess/Component2">
+  <operationFlow medflow="Component2.medflow"/>
+</mfc:interfaceMediationFlow>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="EmployeeTravelStatus" targetNamespace="http://Example2/EmployeeTravelStatus/EmployeeTravelStatusArtifacts" xmlns:plnk="http://schemas.xmlsoap.org/ws/2004/03/partner-link/" xmlns:tns="http://Example2/EmployeeTravelStatus/EmployeeTravelStatusArtifacts" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl0="http://packtpub.com/service/employee/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <plnk:partnerLinkType name="EmployeeTravelStatusPTPLT">
+    <plnk:role name="Interface">
+      <plnk:portType name="wsdl0:EmployeeTravelStatusPT"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+  <wsdl:import location="../EmployeeTravelStatusPT.wsdl" namespace="http://packtpub.com/service/employee/"/>
+</wsdl:definitions>

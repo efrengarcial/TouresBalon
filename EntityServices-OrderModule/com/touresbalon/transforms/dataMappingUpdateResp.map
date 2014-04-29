@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://OMSModule/com/touresbalon/transforms/dataMappingUpdateResp" version="7.0.500" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://OMSModule/com/touresbalon/transforms/dataMappingUpdateResp">
+    <input path="smo://smo/name%3Dwsdl-primary/message%3D%257Bhttp%253A%252F%252Fservice.model.orders.oms.touresbalon.com%252F%257DupdateStateOrderResponse/xpath%3D%252Fbody/smo.xsd"/>
+    <output path="smo://smo/name%3Dwsdl-primary/message%3D%257Bhttp%253A%252F%252FOrderModule%252Fcom%252Ftouresbalon%252Finterfaces%252FOrderServiceIF%257DupdateOrderResponseMsg/xpath%3D%252Fbody/smo.xsd"/>
+    <mappingDeclaration name="dataMappingUpdateResp">
+        <input path="body"/>
+        <output path="body"/>
+        <assign value="OK">
+            <output path="updateOrderResponse/response/RC"/>
+        </assign>
+    </mappingDeclaration>
+</mappingRoot>

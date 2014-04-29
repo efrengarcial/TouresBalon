@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="WarehouseItemSplitIF" targetNamespace="http://OrderManagementLib/WarehouseItemSplitIF" xmlns:bons1="http://OrderManagementLib" xmlns:tns="http://OrderManagementLib/WarehouseItemSplitIF" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://OrderManagementLib/WarehouseItemSplitIF">
+      <xsd:import namespace="http://OrderManagementLib" schemaLocation="Order.xsd"/>
+      <xsd:import namespace="http://OrderManagementLib" schemaLocation="Item.xsd"/>
+      <xsd:element name="split">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="item" nillable="true" type="bons1:Item"/>
+            <xsd:element name="order" nillable="true" type="bons1:Order"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="splitResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="item" nillable="true" type="bons1:Item"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="splitRequestMsg">
+    <wsdl:part element="tns:split" name="splitParameters"/>
+  </wsdl:message>
+    <wsdl:message name="splitResponseMsg">
+    <wsdl:part element="tns:splitResponse" name="splitResult"/>
+  </wsdl:message>
+    <wsdl:portType name="WarehouseItemSplitIF">
+    <wsdl:operation name="split">
+      <wsdl:input message="tns:splitRequestMsg" name="splitRequest"/>
+      <wsdl:output message="tns:splitResponseMsg" name="splitResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

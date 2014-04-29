@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:CustomerLocations.medflow="CustomerLocations.medflow" xmlns:Input.mednode="mednode://mednodes/Input.mednode/Input" xmlns:InputResponse.mednode="mednode://mednodes/InputResponse.mednode/InputResponse" xmlns:ServiceInvoke.mednode="mednode://mednodes/ServiceInvoke.mednode/ServiceInvoke" xmlns:XSLTransformation.mednode="mednode://mednodes/XSLTransformation.mednode/XSLTransformation" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:eflow2="http://www.ibm.com/2006/eflow" xmlns:type="http://www.ibm.com/2006/eflow/type" xmlns:utility="http://www.ibm.com/2006/eflow/utility" name="root" nsURI="CustomerLocations.medflow" nsPrefix="CustomerLocations.medflow">
+  <eClassifiers xmi:type="eflow2:FCMComposite" name="root_I_46">
+    <eSuperTypes href="http://www.ibm.com/2006/eflow#//FCMBlock"/>
+    <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="Property.name" name="name" lowerBound="1" defaultValueLiteral="">
+      <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <composition>
+      <type xmi:type="type:CompositeType" xmi:id="CompositeType_7">
+        <elements id="message">
+          <type xmi:type="type:WSDLMessageType" wsdlMessage="{http://Customers/GetCustomers}getCustomersRequestMsg"/>
+        </elements>
+      </type>
+      <type xmi:type="type:CompositeType" xmi:id="CompositeType_8">
+        <elements id="message">
+          <type xmi:type="type:WSDLMessageType" wsdlMessage="{http://Customers/GetCustomers}getCustomersResponseMsg"/>
+        </elements>
+      </type>
+      <nodes xmi:type="Input.mednode:Input" xmi:id="Input_3" name="GetCustomers_getCustomers_Input">
+        <location x="50" y="83"/>
+        <outTerminals terminalNodeID="OutTerminal.out" explicitType="true" type="CompositeType_7"/>
+        <translation xmi:type="utility:ConstantString" string="getCustomers : GetCustomers"/>
+      </nodes>
+      <nodes xmi:type="InputResponse.mednode:InputResponse" xmi:id="InputResponse_3" name="GetCustomers_getCustomers_InputResponse">
+        <location x="421" y="86"/>
+        <inTerminals terminalNodeID="InTerminal.in" explicitType="true" type="CompositeType_8"/>
+        <translation xmi:type="utility:ConstantString" string="getCustomers : GetCustomers"/>
+      </nodes>
+      <nodes xmi:type="XSLTransformation.mednode:XSLTransformation" xmi:id="XSLTransformation_4" name="XSLTransformation1" root="/" XMXMap="XSLTransformation2_req_1.map" associatedXSL="XSLTransformation2_req_1.xsl" XSLTransform="XSLTransformation2_req_1.xsl" SMOVersion="SMO61">
+        <location x="182" y="89"/>
+        <outTerminals terminalNodeID="OutTerminal.out" type="CompositeType_7"/>
+        <outTerminals terminalNodeID="OutTerminal.Failure" type="CompositeType_7"/>
+        <inTerminals terminalNodeID="InTerminal.in" type="CompositeType_7"/>
+        <translation xmi:type="utility:ConstantString" string="Extract Type From Query String"/>
+      </nodes>
+      <nodes xmi:type="ServiceInvoke.mednode:ServiceInvoke" xmi:id="ServiceInvoke_3" name="ServiceInvoke1" referenceName="GetCustomersPartner" operationName="getCustomers">
+        <location x="325" y="96"/>
+        <outTerminals terminalNodeID="OutTerminal.timeout" explicitType="true" type="CompositeType_7"/>
+        <outTerminals terminalNodeID="OutTerminal.Failure" type="CompositeType_7"/>
+        <outTerminals terminalNodeID="OutTerminal.dynamic:out:out" dynamic="true" explicitType="true" label="out" longDescription="Propagates the updated message to the output terminal." type="CompositeType_8"/>
+        <inTerminals terminalNodeID="InTerminal.in" explicitType="true" type="CompositeType_7"/>
+        <translation xmi:type="utility:ConstantString" string="ServiceInvoke1"/>
+      </nodes>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_8" targetNode="XSLTransformation_4" sourceNode="Input_3" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_9" targetNode="ServiceInvoke_3" sourceNode="XSLTransformation_4" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_10" targetNode="InputResponse_3" sourceNode="ServiceInvoke_3" sourceTerminalName="OutTerminal.dynamic:out:out" targetTerminalName="InTerminal.in"/>
+    </composition>
+    <propertyOrganizer>
+      <propertyDescriptor describedAttribute="Property.name"/>
+    </propertyOrganizer>
+  </eClassifiers>
+  <eClassifiers xmi:type="eflow2:FCMComposite" name="root_I_47">
+    <eSuperTypes href="http://www.ibm.com/2006/eflow#//FCMBlock"/>
+    <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="Property.name" name="name" lowerBound="1" defaultValueLiteral="">
+      <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <composition>
+      <type xmi:type="type:CompositeType" xmi:id="CompositeType_9">
+        <elements id="message">
+          <type xmi:type="type:WSDLMessageType" wsdlMessage="{http://CustomerLocationsFeed/GetCustomerLocationsFeed}getCustomersAsFeedRequestMsg"/>
+        </elements>
+      </type>
+      <type xmi:type="type:CompositeType" xmi:id="CompositeType_10">
+        <elements id="message">
+          <type xmi:type="type:WSDLMessageType" wsdlMessage="{http://CustomerLocationsFeed/GetCustomerLocationsFeed}getCustomersAsFeedResponseMsg"/>
+        </elements>
+      </type>
+      <type xmi:type="type:CompositeType" xmi:id="CompositeType_11">
+        <elements id="message">
+          <type xmi:type="type:WSDLMessageType" wsdlMessage="{http://Customers/GetCustomers}getCustomersRequestMsg"/>
+        </elements>
+      </type>
+      <type xmi:type="type:CompositeType" xmi:id="CompositeType_12">
+        <elements id="message">
+          <type xmi:type="type:WSDLMessageType" wsdlMessage="{http://Customers/GetCustomers}getCustomersResponseMsg"/>
+        </elements>
+      </type>
+      <nodes xmi:type="Input.mednode:Input" xmi:id="Input_4" name="GetCustomerLocationsFeed_getCustomersAsFeed_Input">
+        <location/>
+        <outTerminals terminalNodeID="OutTerminal.out" explicitType="true" type="CompositeType_9"/>
+        <translation xmi:type="utility:ConstantString" string="getCustomersAsFeed : GetCustomerLocationsFeed"/>
+      </nodes>
+      <nodes xmi:type="InputResponse.mednode:InputResponse" xmi:id="InputResponse_4" name="GetCustomerLocationsFeed_getCustomersAsFeed_InputResponse">
+        <location x="580" y="7"/>
+        <inTerminals terminalNodeID="InTerminal.in" explicitType="true" type="CompositeType_10"/>
+        <translation xmi:type="utility:ConstantString" string="getCustomersAsFeed : GetCustomerLocationsFeed"/>
+      </nodes>
+      <nodes xmi:type="XSLTransformation.mednode:XSLTransformation" xmi:id="XSLTransformation_5" name="XSLTransformation1" root="/" XMXMap="XSLTransformation2_req_1.map" associatedXSL="XSLTransformation2_req_1.xsl" XSLTransform="XSLTransformation2_req_1.xsl" SMOVersion="SMO61">
+        <location x="141" y="34"/>
+        <outTerminals terminalNodeID="OutTerminal.out" type="CompositeType_11"/>
+        <outTerminals terminalNodeID="OutTerminal.Failure" type="CompositeType_9"/>
+        <inTerminals terminalNodeID="InTerminal.in" type="CompositeType_9"/>
+        <translation xmi:type="utility:ConstantString" string="Extract Type From Query String"/>
+      </nodes>
+      <nodes xmi:type="XSLTransformation.mednode:XSLTransformation" xmi:id="XSLTransformation_6" name="XSLTransformation2" root="/" XMXMap="CustomersToFeed.map" associatedXSL="CustomersToFeed.xsl" XSLTransform="CustomersToFeed.xsl" SMOVersion="SMO61">
+        <location x="405" y="43"/>
+        <outTerminals terminalNodeID="OutTerminal.out" explicitType="true" type="CompositeType_10"/>
+        <outTerminals terminalNodeID="OutTerminal.Failure" type="CompositeType_12"/>
+        <inTerminals terminalNodeID="InTerminal.in" type="CompositeType_12"/>
+        <translation xmi:type="utility:ConstantString" string="Customers To Feed"/>
+      </nodes>
+      <nodes xmi:type="ServiceInvoke.mednode:ServiceInvoke" xmi:id="ServiceInvoke_4" name="ServiceInvoke1" referenceName="GetCustomersPartner" operationName="getCustomers">
+        <location x="288" y="43"/>
+        <outTerminals terminalNodeID="OutTerminal.timeout" explicitType="true" type="CompositeType_11"/>
+        <outTerminals terminalNodeID="OutTerminal.Failure" type="CompositeType_11"/>
+        <outTerminals terminalNodeID="OutTerminal.dynamic:out:out" dynamic="true" explicitType="true" label="out" longDescription="Propagates the updated message to the output terminal." type="CompositeType_12"/>
+        <inTerminals terminalNodeID="InTerminal.in" explicitType="true" type="CompositeType_11"/>
+        <translation xmi:type="utility:ConstantString" string="ServiceInvoke1"/>
+      </nodes>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_11" targetNode="XSLTransformation_5" sourceNode="Input_4" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_12" targetNode="ServiceInvoke_4" sourceNode="XSLTransformation_5" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_13" targetNode="InputResponse_4" sourceNode="XSLTransformation_6" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow2:FCMConnection" xmi:id="FCMConnection_14" targetNode="XSLTransformation_6" sourceNode="ServiceInvoke_4" sourceTerminalName="OutTerminal.dynamic:out:out" targetTerminalName="InTerminal.in"/>
+    </composition>
+    <propertyOrganizer>
+      <propertyDescriptor describedAttribute="Property.name"/>
+    </propertyOrganizer>
+  </eClassifiers>
+  <eClassifiers xmi:type="eflow2:FCMComposite" name="root">
+    <eSuperTypes href="http://www.ibm.com/2006/eflow#//FCMBlock"/>
+    <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="Property.name" name="name" lowerBound="1" defaultValueLiteral="">
+      <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <composition>
+      <nodes xmi:type="CustomerLocations.medflow:root_I_46" xmi:id="root_I_46_1" name="{http://Customers/GetCustomers}GetCustomers:getCustomers::request"/>
+      <nodes xmi:type="CustomerLocations.medflow:root_I_47" xmi:id="root_I_47_1" name="{http://CustomerLocationsFeed/GetCustomerLocationsFeed}GetCustomerLocationsFeed:getCustomersAsFeed::request"/>
+    </composition>
+    <propertyOrganizer>
+      <propertyDescriptor describedAttribute="Property.name"/>
+    </propertyOrganizer>
+  </eClassifiers>
+</ecore:EPackage>

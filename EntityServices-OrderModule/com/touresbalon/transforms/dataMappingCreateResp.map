@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map:businessObjectMap xmlns:createOrderResponse="smo://smo/name%3Dwsdl-body/message%3D%257Bhttp%253A%252F%252Fservice.model.orders.oms.touresbalon.com%252F%257DcreateOrderResponse/xpath%3D%252Fbody/namespace%3DBOMap/smo.xsd" xmlns:createOrderResponseMsg="smo://smo/name%3Dwsdl-body/message%3D%257Bhttp%253A%252F%252FOrderModule%252Fcom%252Ftouresbalon%252Finterfaces%252FOrderServiceIF%257DcreateOrderResponseMsg/xpath%3D%252Fbody/namespace%3DBOMap/smo.xsd" xmlns:dataMappingCreateResp="http://EntityServices-OrderModule/com/touresbalon/transforms" xmlns:map="http://www.ibm.com/xmlns/prod/websphere/wbiserver/map/6.0.0" targetNamespace="http://EntityServices-OrderModule/com/touresbalon/transforms">
+  <map:name>dataMappingCreateResp</map:name>
+  <map:inputBusinessObjectVariable businessObjectRef="createOrderResponse:createOrderResponse" name="createOrderResponse"/>
+  <map:outputBusinessObjectVariable businessObjectRef="createOrderResponseMsg:createOrderResponseMsg" name="createOrderResponseMsg"/>
+  <map:propertyMap executionOrder="1">
+    <map:move>
+      <map:input businessObjectVariableRef="createOrderResponse" property="createOrderResponse/ordId"/>
+      <map:output businessObjectVariableRef="createOrderResponseMsg" property="createOrderResponse/response/RC"/>
+    </map:move>
+  </map:propertyMap>
+</map:businessObjectMap>

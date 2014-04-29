@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mfc:interfaceMediationFlow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mfc="http://www.ibm.com/xmlns/prod/websphere/wbiserver/mfc/6.0.0" xmlns:ns1="http://PaymentsModuleLib/com/touresbalon/interfaces/PaymentServiceIF" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" name="Med-Payments" targetNamespace="http://PaymentsModule/com/touresbalon/mediations/Med-Payments">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" portType="ns1:PaymentServiceIF"/>
+  </interfaces>
+  <references>
+    <reference name="VisaServicePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns1:PaymentServiceIF"/>
+    </reference>
+    <reference name="MasterCardServicePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns1:PaymentServiceIF"/>
+    </reference>
+  </references>
+  <extendedOperationBinding source="validateCard" target="validateCard" sourcePortType="ns1:PaymentServiceIF" targetReference="VisaServicePartner"/>
+  <extendedOperationBinding source="validateCard" target="validateCard" sourcePortType="ns1:PaymentServiceIF" targetReference="MasterCardServicePartner"/>
+  <extendedOperationBinding source="applyPayment" target="applyPayment" sourcePortType="ns1:PaymentServiceIF" targetReference="VisaServicePartner"/>
+  <extendedOperationBinding source="applyPayment" target="applyPayment" sourcePortType="ns1:PaymentServiceIF" targetReference="MasterCardServicePartner"/>
+  <operationFlow medflow="Med-Payments.medflow"/>
+</mfc:interfaceMediationFlow>

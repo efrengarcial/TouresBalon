@@ -1,0 +1,1074 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="JDBCOutboundInterface.wsdl" targetNamespace="http://DBMSServiceMediation/JDBCOutboundInterface" xmlns:bons1="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadmincustomerbg" xmlns:bons10="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/existsresult" xmlns:bons11="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadminitembg" xmlns:bons12="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadminitemcontainer" xmlns:bons13="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadminorderheaderbg" xmlns:bons14="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadminorderheadercontainer" xmlns:bons15="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadminitemwhsbg" xmlns:bons16="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadminitemwhscontainer" xmlns:bons2="http://com/ibm/j2ca/fault/afcfault" xmlns:bons8="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadmincustomercontainer" xmlns:tns="http://DBMSServiceMediation/JDBCOutboundInterface" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://com/ibm/j2ca/fault/afcfault" xmlns:tns="http://com/ibm/j2ca/fault/afcfault">
+      <xsd:include schemaLocation="MatchesExceededLimitFault.xsd"/>
+      <xsd:include schemaLocation="MultipleMatchingRecordsFault.xsd"/>
+      <xsd:include schemaLocation="RecordNotFoundFault.xsd"/>
+      <xsd:include schemaLocation="UniqueConstraintFault.xsd"/>
+      <xsd:include schemaLocation="ObjectNotFoundFault.xsd"/>
+      <xsd:include schemaLocation="MissingDataFault.xsd"/>
+      <xsd:include schemaLocation="IntegrityConstraintFault.xsd"/>
+    </xsd:schema>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://DBMSServiceMediation/JDBCOutboundInterface" xmlns:bons5="http://com/ibm/j2ca/fault/afcfault">
+      <xsd:import namespace="http://com/ibm/j2ca/fault/afcfault"/>
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadmincustomercontainer" schemaLocation="DbadminCustomerContainer.xsd"/>
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadminitembg" schemaLocation="DbadminItemBG.xsd"/>
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadminorderheaderbg" schemaLocation="DbadminOrderheaderBG.xsd"/>
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadminitemcontainer" schemaLocation="DbadminItemContainer.xsd"/>
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadminorderheadercontainer" schemaLocation="DbadminOrderheaderContainer.xsd"/>
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadmincustomerbg" schemaLocation="DbadminCustomerBG.xsd"/>
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/existsresult" schemaLocation="ExistsResult.xsd"/>
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadminitemwhscontainer" schemaLocation="DbadminItemwhsContainer.xsd"/>
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadminitemwhsbg" schemaLocation="DbadminItemwhsBG.xsd"/>
+      <xsd:element name="createDbadminCustomerBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="createDbadminCustomerBGInput" type="bons1:DbadminCustomerBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="createDbadminCustomerBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="createDbadminCustomerBGOutput" type="bons1:DbadminCustomerBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="MissingDataFault_element" nillable="true" type="bons5:MissingDataFault"/>
+      <xsd:element name="UniqueConstraintFault_element" nillable="true" type="bons5:UniqueConstraintFault"/>
+      <xsd:element name="IntegrityConstraintFault_element" nillable="true" type="bons5:IntegrityConstraintFault"/>
+      <xsd:element name="ObjectNotFoundFault_element" nillable="true" type="bons5:ObjectNotFoundFault"/>
+      <xsd:element name="updateDbadminCustomerBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="updateDbadminCustomerBGInput" type="bons1:DbadminCustomerBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="updateDbadminCustomerBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="updateDbadminCustomerBGOutput" type="bons1:DbadminCustomerBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="RecordNotFoundFault_element" nillable="true" type="bons5:RecordNotFoundFault"/>
+      <xsd:element name="MultipleMatchingRecordsFault_element" nillable="true" type="bons5:MultipleMatchingRecordsFault"/>
+      <xsd:element name="deleteDbadminCustomerBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="deleteDbadminCustomerBGInput" type="bons1:DbadminCustomerBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="deleteDbadminCustomerBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="deleteDbadminCustomerBGOutput" type="bons1:DbadminCustomerBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="retrieveDbadminCustomerBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="retrieveDbadminCustomerBGInput" type="bons1:DbadminCustomerBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="retrieveDbadminCustomerBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="retrieveDbadminCustomerBGOutput" type="bons1:DbadminCustomerBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="retrieveallDbadminCustomerBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="retrieveallDbadminCustomerBGInput" type="bons1:DbadminCustomerBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="retrieveallDbadminCustomerBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="retrieveallDbadminCustomerBGOutput" type="bons8:DbadminCustomerContainer"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="MatchesExceededLimitFault_element" nillable="true" type="bons5:MatchesExceededLimitFault"/>
+      <xsd:element name="applychangesDbadminCustomerBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="applychangesDbadminCustomerBGInput" type="bons1:DbadminCustomerBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="applychangesDbadminCustomerBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="applychangesDbadminCustomerBGOutput" type="bons1:DbadminCustomerBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="existsDbadminCustomerBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="existsDbadminCustomerBGInput" type="bons1:DbadminCustomerBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="existsDbadminCustomerBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="existsDbadminCustomerBGOutput" type="bons10:ExistsResult"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="createDbadminItemBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="createDbadminItemBGInput" type="bons11:DbadminItemBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="createDbadminItemBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="createDbadminItemBGOutput" type="bons11:DbadminItemBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="updateDbadminItemBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="updateDbadminItemBGInput" type="bons11:DbadminItemBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="updateDbadminItemBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="updateDbadminItemBGOutput" type="bons11:DbadminItemBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="deleteDbadminItemBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="deleteDbadminItemBGInput" type="bons11:DbadminItemBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="deleteDbadminItemBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="deleteDbadminItemBGOutput" type="bons11:DbadminItemBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="retrieveDbadminItemBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="retrieveDbadminItemBGInput" type="bons11:DbadminItemBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="retrieveDbadminItemBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="retrieveDbadminItemBGOutput" type="bons11:DbadminItemBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="retrieveallDbadminItemBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="retrieveallDbadminItemBGInput" type="bons11:DbadminItemBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="retrieveallDbadminItemBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="retrieveallDbadminItemBGOutput" type="bons12:DbadminItemContainer"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="applychangesDbadminItemBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="applychangesDbadminItemBGInput" type="bons11:DbadminItemBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="applychangesDbadminItemBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="applychangesDbadminItemBGOutput" type="bons11:DbadminItemBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="existsDbadminItemBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="existsDbadminItemBGInput" type="bons11:DbadminItemBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="existsDbadminItemBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="existsDbadminItemBGOutput" type="bons10:ExistsResult"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="createDbadminOrderheaderBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="createDbadminOrderheaderBGInput" type="bons13:DbadminOrderheaderBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="createDbadminOrderheaderBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="createDbadminOrderheaderBGOutput" type="bons13:DbadminOrderheaderBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="updateDbadminOrderheaderBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="updateDbadminOrderheaderBGInput" type="bons13:DbadminOrderheaderBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="updateDbadminOrderheaderBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="updateDbadminOrderheaderBGOutput" type="bons13:DbadminOrderheaderBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="deleteDbadminOrderheaderBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="deleteDbadminOrderheaderBGInput" type="bons13:DbadminOrderheaderBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="deleteDbadminOrderheaderBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="deleteDbadminOrderheaderBGOutput" type="bons13:DbadminOrderheaderBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="retrieveDbadminOrderheaderBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="retrieveDbadminOrderheaderBGInput" type="bons13:DbadminOrderheaderBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="retrieveDbadminOrderheaderBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="retrieveDbadminOrderheaderBGOutput" type="bons13:DbadminOrderheaderBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="retrieveallDbadminOrderheaderBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="retrieveallDbadminOrderheaderBGInput" type="bons13:DbadminOrderheaderBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="retrieveallDbadminOrderheaderBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="retrieveallDbadminOrderheaderBGOutput" type="bons14:DbadminOrderheaderContainer"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="applychangesDbadminOrderheaderBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="applychangesDbadminOrderheaderBGInput" type="bons13:DbadminOrderheaderBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="applychangesDbadminOrderheaderBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="applychangesDbadminOrderheaderBGOutput" type="bons13:DbadminOrderheaderBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="existsDbadminOrderheaderBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="existsDbadminOrderheaderBGInput" type="bons13:DbadminOrderheaderBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="existsDbadminOrderheaderBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="existsDbadminOrderheaderBGOutput" type="bons10:ExistsResult"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="createDbadminItemwhsBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="createDbadminItemwhsBGInput" type="bons15:DbadminItemwhsBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="createDbadminItemwhsBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="createDbadminItemwhsBGOutput" type="bons15:DbadminItemwhsBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="updateDbadminItemwhsBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="updateDbadminItemwhsBGInput" type="bons15:DbadminItemwhsBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="updateDbadminItemwhsBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="updateDbadminItemwhsBGOutput" type="bons15:DbadminItemwhsBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="deleteDbadminItemwhsBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="deleteDbadminItemwhsBGInput" type="bons15:DbadminItemwhsBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="deleteDbadminItemwhsBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="deleteDbadminItemwhsBGOutput" type="bons15:DbadminItemwhsBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="retrieveDbadminItemwhsBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="retrieveDbadminItemwhsBGInput" type="bons15:DbadminItemwhsBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="retrieveDbadminItemwhsBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="retrieveDbadminItemwhsBGOutput" type="bons15:DbadminItemwhsBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="retrieveallDbadminItemwhsBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="retrieveallDbadminItemwhsBGInput" type="bons15:DbadminItemwhsBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="retrieveallDbadminItemwhsBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="retrieveallDbadminItemwhsBGOutput" type="bons16:DbadminItemwhsContainer"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="applychangesDbadminItemwhsBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="applychangesDbadminItemwhsBGInput" type="bons15:DbadminItemwhsBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="applychangesDbadminItemwhsBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="applychangesDbadminItemwhsBGOutput" type="bons15:DbadminItemwhsBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="existsDbadminItemwhsBG">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="existsDbadminItemwhsBGInput" type="bons15:DbadminItemwhsBG"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="existsDbadminItemwhsBGResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="existsDbadminItemwhsBGOutput" type="bons10:ExistsResult"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="createDbadminCustomerBGRequestMsg">
+    <wsdl:part element="tns:createDbadminCustomerBG" name="createDbadminCustomerBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="createDbadminCustomerBGResponseMsg">
+    <wsdl:part element="tns:createDbadminCustomerBGResponse" name="createDbadminCustomerBGResult"/>
+  </wsdl:message>
+  <wsdl:message name="createDbadminCustomerBGMissingDataFaultMsg">
+    <wsdl:part element="tns:MissingDataFault_element" name="MissingDataFault"/>
+  </wsdl:message>
+  <wsdl:message name="createDbadminCustomerBGUniqueConstraintFaultMsg">
+    <wsdl:part element="tns:UniqueConstraintFault_element" name="UniqueConstraintFault"/>
+  </wsdl:message>
+  <wsdl:message name="createDbadminCustomerBGIntegrityConstraintFaultMsg">
+    <wsdl:part element="tns:IntegrityConstraintFault_element" name="IntegrityConstraintFault"/>
+  </wsdl:message>
+  <wsdl:message name="createDbadminCustomerBGObjectNotFoundFaultMsg">
+    <wsdl:part element="tns:ObjectNotFoundFault_element" name="ObjectNotFoundFault"/>
+  </wsdl:message>
+  <wsdl:message name="updateDbadminCustomerBGRequestMsg">
+    <wsdl:part element="tns:updateDbadminCustomerBG" name="updateDbadminCustomerBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="updateDbadminCustomerBGResponseMsg">
+    <wsdl:part element="tns:updateDbadminCustomerBGResponse" name="updateDbadminCustomerBGResult"/>
+  </wsdl:message>
+  <wsdl:message name="updateDbadminCustomerBGMissingDataFaultMsg">
+    <wsdl:part element="tns:MissingDataFault_element" name="MissingDataFault"/>
+  </wsdl:message>
+  <wsdl:message name="updateDbadminCustomerBGUniqueConstraintFaultMsg">
+    <wsdl:part element="tns:UniqueConstraintFault_element" name="UniqueConstraintFault"/>
+  </wsdl:message>
+  <wsdl:message name="updateDbadminCustomerBGIntegrityConstraintFaultMsg">
+    <wsdl:part element="tns:IntegrityConstraintFault_element" name="IntegrityConstraintFault"/>
+  </wsdl:message>
+  <wsdl:message name="updateDbadminCustomerBGRecordNotFoundFaultMsg">
+    <wsdl:part element="tns:RecordNotFoundFault_element" name="RecordNotFoundFault"/>
+  </wsdl:message>
+  <wsdl:message name="updateDbadminCustomerBGMultipleMatchingRecordsFaultMsg">
+    <wsdl:part element="tns:MultipleMatchingRecordsFault_element" name="MultipleMatchingRecordsFault"/>
+  </wsdl:message>
+  <wsdl:message name="updateDbadminCustomerBGObjectNotFoundFaultMsg">
+    <wsdl:part element="tns:ObjectNotFoundFault_element" name="ObjectNotFoundFault"/>
+  </wsdl:message>
+  <wsdl:message name="deleteDbadminCustomerBGRequestMsg">
+    <wsdl:part element="tns:deleteDbadminCustomerBG" name="deleteDbadminCustomerBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="deleteDbadminCustomerBGResponseMsg">
+    <wsdl:part element="tns:deleteDbadminCustomerBGResponse" name="deleteDbadminCustomerBGResult"/>
+  </wsdl:message>
+  <wsdl:message name="deleteDbadminCustomerBGMissingDataFaultMsg">
+    <wsdl:part element="tns:MissingDataFault_element" name="MissingDataFault"/>
+  </wsdl:message>
+  <wsdl:message name="deleteDbadminCustomerBGRecordNotFoundFaultMsg">
+    <wsdl:part element="tns:RecordNotFoundFault_element" name="RecordNotFoundFault"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveDbadminCustomerBGRequestMsg">
+    <wsdl:part element="tns:retrieveDbadminCustomerBG" name="retrieveDbadminCustomerBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveDbadminCustomerBGResponseMsg">
+    <wsdl:part element="tns:retrieveDbadminCustomerBGResponse" name="retrieveDbadminCustomerBGResult"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveDbadminCustomerBGMissingDataFaultMsg">
+    <wsdl:part element="tns:MissingDataFault_element" name="MissingDataFault"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveDbadminCustomerBGRecordNotFoundFaultMsg">
+    <wsdl:part element="tns:RecordNotFoundFault_element" name="RecordNotFoundFault"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveDbadminCustomerBGMultipleMatchingRecordsFaultMsg">
+    <wsdl:part element="tns:MultipleMatchingRecordsFault_element" name="MultipleMatchingRecordsFault"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveallDbadminCustomerBGRequestMsg">
+    <wsdl:part element="tns:retrieveallDbadminCustomerBG" name="retrieveallDbadminCustomerBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveallDbadminCustomerBGResponseMsg">
+    <wsdl:part element="tns:retrieveallDbadminCustomerBGResponse" name="retrieveallDbadminCustomerBGResult"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveallDbadminCustomerBGRecordNotFoundFaultMsg">
+    <wsdl:part element="tns:RecordNotFoundFault_element" name="RecordNotFoundFault"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveallDbadminCustomerBGMatchesExceededLimitFaultMsg">
+    <wsdl:part element="tns:MatchesExceededLimitFault_element" name="MatchesExceededLimitFault"/>
+  </wsdl:message>
+  <wsdl:message name="applychangesDbadminCustomerBGRequestMsg">
+    <wsdl:part element="tns:applychangesDbadminCustomerBG" name="applychangesDbadminCustomerBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="applychangesDbadminCustomerBGResponseMsg">
+    <wsdl:part element="tns:applychangesDbadminCustomerBGResponse" name="applychangesDbadminCustomerBGResult"/>
+  </wsdl:message>
+  <wsdl:message name="applychangesDbadminCustomerBGMissingDataFaultMsg">
+    <wsdl:part element="tns:MissingDataFault_element" name="MissingDataFault"/>
+  </wsdl:message>
+  <wsdl:message name="applychangesDbadminCustomerBGUniqueConstraintFaultMsg">
+    <wsdl:part element="tns:UniqueConstraintFault_element" name="UniqueConstraintFault"/>
+  </wsdl:message>
+  <wsdl:message name="applychangesDbadminCustomerBGIntegrityConstraintFaultMsg">
+    <wsdl:part element="tns:IntegrityConstraintFault_element" name="IntegrityConstraintFault"/>
+  </wsdl:message>
+  <wsdl:message name="applychangesDbadminCustomerBGRecordNotFoundFaultMsg">
+    <wsdl:part element="tns:RecordNotFoundFault_element" name="RecordNotFoundFault"/>
+  </wsdl:message>
+  <wsdl:message name="applychangesDbadminCustomerBGMultipleMatchingRecordsFaultMsg">
+    <wsdl:part element="tns:MultipleMatchingRecordsFault_element" name="MultipleMatchingRecordsFault"/>
+  </wsdl:message>
+  <wsdl:message name="applychangesDbadminCustomerBGObjectNotFoundFaultMsg">
+    <wsdl:part element="tns:ObjectNotFoundFault_element" name="ObjectNotFoundFault"/>
+  </wsdl:message>
+  <wsdl:message name="existsDbadminCustomerBGRequestMsg">
+    <wsdl:part element="tns:existsDbadminCustomerBG" name="existsDbadminCustomerBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="existsDbadminCustomerBGResponseMsg">
+    <wsdl:part element="tns:existsDbadminCustomerBGResponse" name="existsDbadminCustomerBGResult"/>
+  </wsdl:message>
+  <wsdl:message name="createDbadminItemBGRequestMsg">
+    <wsdl:part element="tns:createDbadminItemBG" name="createDbadminItemBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="createDbadminItemBGResponseMsg">
+    <wsdl:part element="tns:createDbadminItemBGResponse" name="createDbadminItemBGResult"/>
+  </wsdl:message>
+  <wsdl:message name="createDbadminItemBGMissingDataFaultMsg">
+    <wsdl:part element="tns:MissingDataFault_element" name="MissingDataFault"/>
+  </wsdl:message>
+  <wsdl:message name="createDbadminItemBGUniqueConstraintFaultMsg">
+    <wsdl:part element="tns:UniqueConstraintFault_element" name="UniqueConstraintFault"/>
+  </wsdl:message>
+  <wsdl:message name="createDbadminItemBGIntegrityConstraintFaultMsg">
+    <wsdl:part element="tns:IntegrityConstraintFault_element" name="IntegrityConstraintFault"/>
+  </wsdl:message>
+  <wsdl:message name="createDbadminItemBGObjectNotFoundFaultMsg">
+    <wsdl:part element="tns:ObjectNotFoundFault_element" name="ObjectNotFoundFault"/>
+  </wsdl:message>
+  <wsdl:message name="updateDbadminItemBGRequestMsg">
+    <wsdl:part element="tns:updateDbadminItemBG" name="updateDbadminItemBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="updateDbadminItemBGResponseMsg">
+    <wsdl:part element="tns:updateDbadminItemBGResponse" name="updateDbadminItemBGResult"/>
+  </wsdl:message>
+  <wsdl:message name="updateDbadminItemBGMissingDataFaultMsg">
+    <wsdl:part element="tns:MissingDataFault_element" name="MissingDataFault"/>
+  </wsdl:message>
+  <wsdl:message name="updateDbadminItemBGUniqueConstraintFaultMsg">
+    <wsdl:part element="tns:UniqueConstraintFault_element" name="UniqueConstraintFault"/>
+  </wsdl:message>
+  <wsdl:message name="updateDbadminItemBGIntegrityConstraintFaultMsg">
+    <wsdl:part element="tns:IntegrityConstraintFault_element" name="IntegrityConstraintFault"/>
+  </wsdl:message>
+  <wsdl:message name="updateDbadminItemBGRecordNotFoundFaultMsg">
+    <wsdl:part element="tns:RecordNotFoundFault_element" name="RecordNotFoundFault"/>
+  </wsdl:message>
+  <wsdl:message name="updateDbadminItemBGMultipleMatchingRecordsFaultMsg">
+    <wsdl:part element="tns:MultipleMatchingRecordsFault_element" name="MultipleMatchingRecordsFault"/>
+  </wsdl:message>
+  <wsdl:message name="updateDbadminItemBGObjectNotFoundFaultMsg">
+    <wsdl:part element="tns:ObjectNotFoundFault_element" name="ObjectNotFoundFault"/>
+  </wsdl:message>
+  <wsdl:message name="deleteDbadminItemBGRequestMsg">
+    <wsdl:part element="tns:deleteDbadminItemBG" name="deleteDbadminItemBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="deleteDbadminItemBGResponseMsg">
+    <wsdl:part element="tns:deleteDbadminItemBGResponse" name="deleteDbadminItemBGResult"/>
+  </wsdl:message>
+  <wsdl:message name="deleteDbadminItemBGMissingDataFaultMsg">
+    <wsdl:part element="tns:MissingDataFault_element" name="MissingDataFault"/>
+  </wsdl:message>
+  <wsdl:message name="deleteDbadminItemBGRecordNotFoundFaultMsg">
+    <wsdl:part element="tns:RecordNotFoundFault_element" name="RecordNotFoundFault"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveDbadminItemBGRequestMsg">
+    <wsdl:part element="tns:retrieveDbadminItemBG" name="retrieveDbadminItemBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveDbadminItemBGResponseMsg">
+    <wsdl:part element="tns:retrieveDbadminItemBGResponse" name="retrieveDbadminItemBGResult"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveDbadminItemBGMissingDataFaultMsg">
+    <wsdl:part element="tns:MissingDataFault_element" name="MissingDataFault"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveDbadminItemBGRecordNotFoundFaultMsg">
+    <wsdl:part element="tns:RecordNotFoundFault_element" name="RecordNotFoundFault"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveDbadminItemBGMultipleMatchingRecordsFaultMsg">
+    <wsdl:part element="tns:MultipleMatchingRecordsFault_element" name="MultipleMatchingRecordsFault"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveallDbadminItemBGRequestMsg">
+    <wsdl:part element="tns:retrieveallDbadminItemBG" name="retrieveallDbadminItemBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveallDbadminItemBGResponseMsg">
+    <wsdl:part element="tns:retrieveallDbadminItemBGResponse" name="retrieveallDbadminItemBGResult"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveallDbadminItemBGRecordNotFoundFaultMsg">
+    <wsdl:part element="tns:RecordNotFoundFault_element" name="RecordNotFoundFault"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveallDbadminItemBGMatchesExceededLimitFaultMsg">
+    <wsdl:part element="tns:MatchesExceededLimitFault_element" name="MatchesExceededLimitFault"/>
+  </wsdl:message>
+  <wsdl:message name="applychangesDbadminItemBGRequestMsg">
+    <wsdl:part element="tns:applychangesDbadminItemBG" name="applychangesDbadminItemBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="applychangesDbadminItemBGResponseMsg">
+    <wsdl:part element="tns:applychangesDbadminItemBGResponse" name="applychangesDbadminItemBGResult"/>
+  </wsdl:message>
+  <wsdl:message name="applychangesDbadminItemBGMissingDataFaultMsg">
+    <wsdl:part element="tns:MissingDataFault_element" name="MissingDataFault"/>
+  </wsdl:message>
+  <wsdl:message name="applychangesDbadminItemBGUniqueConstraintFaultMsg">
+    <wsdl:part element="tns:UniqueConstraintFault_element" name="UniqueConstraintFault"/>
+  </wsdl:message>
+  <wsdl:message name="applychangesDbadminItemBGIntegrityConstraintFaultMsg">
+    <wsdl:part element="tns:IntegrityConstraintFault_element" name="IntegrityConstraintFault"/>
+  </wsdl:message>
+  <wsdl:message name="applychangesDbadminItemBGRecordNotFoundFaultMsg">
+    <wsdl:part element="tns:RecordNotFoundFault_element" name="RecordNotFoundFault"/>
+  </wsdl:message>
+  <wsdl:message name="applychangesDbadminItemBGMultipleMatchingRecordsFaultMsg">
+    <wsdl:part element="tns:MultipleMatchingRecordsFault_element" name="MultipleMatchingRecordsFault"/>
+  </wsdl:message>
+  <wsdl:message name="applychangesDbadminItemBGObjectNotFoundFaultMsg">
+    <wsdl:part element="tns:ObjectNotFoundFault_element" name="ObjectNotFoundFault"/>
+  </wsdl:message>
+  <wsdl:message name="existsDbadminItemBGRequestMsg">
+    <wsdl:part element="tns:existsDbadminItemBG" name="existsDbadminItemBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="existsDbadminItemBGResponseMsg">
+    <wsdl:part element="tns:existsDbadminItemBGResponse" name="existsDbadminItemBGResult"/>
+  </wsdl:message>
+  <wsdl:message name="createDbadminOrderheaderBGRequestMsg">
+    <wsdl:part element="tns:createDbadminOrderheaderBG" name="createDbadminOrderheaderBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="createDbadminOrderheaderBGResponseMsg">
+    <wsdl:part element="tns:createDbadminOrderheaderBGResponse" name="createDbadminOrderheaderBGResult"/>
+  </wsdl:message>
+  <wsdl:message name="createDbadminOrderheaderBGMissingDataFaultMsg">
+    <wsdl:part element="tns:MissingDataFault_element" name="MissingDataFault"/>
+  </wsdl:message>
+  <wsdl:message name="createDbadminOrderheaderBGUniqueConstraintFaultMsg">
+    <wsdl:part element="tns:UniqueConstraintFault_element" name="UniqueConstraintFault"/>
+  </wsdl:message>
+  <wsdl:message name="createDbadminOrderheaderBGIntegrityConstraintFaultMsg">
+    <wsdl:part element="tns:IntegrityConstraintFault_element" name="IntegrityConstraintFault"/>
+  </wsdl:message>
+  <wsdl:message name="createDbadminOrderheaderBGObjectNotFoundFaultMsg">
+    <wsdl:part element="tns:ObjectNotFoundFault_element" name="ObjectNotFoundFault"/>
+  </wsdl:message>
+  <wsdl:message name="updateDbadminOrderheaderBGRequestMsg">
+    <wsdl:part element="tns:updateDbadminOrderheaderBG" name="updateDbadminOrderheaderBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="updateDbadminOrderheaderBGResponseMsg">
+    <wsdl:part element="tns:updateDbadminOrderheaderBGResponse" name="updateDbadminOrderheaderBGResult"/>
+  </wsdl:message>
+  <wsdl:message name="updateDbadminOrderheaderBGMissingDataFaultMsg">
+    <wsdl:part element="tns:MissingDataFault_element" name="MissingDataFault"/>
+  </wsdl:message>
+  <wsdl:message name="updateDbadminOrderheaderBGUniqueConstraintFaultMsg">
+    <wsdl:part element="tns:UniqueConstraintFault_element" name="UniqueConstraintFault"/>
+  </wsdl:message>
+  <wsdl:message name="updateDbadminOrderheaderBGIntegrityConstraintFaultMsg">
+    <wsdl:part element="tns:IntegrityConstraintFault_element" name="IntegrityConstraintFault"/>
+  </wsdl:message>
+  <wsdl:message name="updateDbadminOrderheaderBGRecordNotFoundFaultMsg">
+    <wsdl:part element="tns:RecordNotFoundFault_element" name="RecordNotFoundFault"/>
+  </wsdl:message>
+  <wsdl:message name="updateDbadminOrderheaderBGMultipleMatchingRecordsFaultMsg">
+    <wsdl:part element="tns:MultipleMatchingRecordsFault_element" name="MultipleMatchingRecordsFault"/>
+  </wsdl:message>
+  <wsdl:message name="updateDbadminOrderheaderBGObjectNotFoundFaultMsg">
+    <wsdl:part element="tns:ObjectNotFoundFault_element" name="ObjectNotFoundFault"/>
+  </wsdl:message>
+  <wsdl:message name="deleteDbadminOrderheaderBGRequestMsg">
+    <wsdl:part element="tns:deleteDbadminOrderheaderBG" name="deleteDbadminOrderheaderBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="deleteDbadminOrderheaderBGResponseMsg">
+    <wsdl:part element="tns:deleteDbadminOrderheaderBGResponse" name="deleteDbadminOrderheaderBGResult"/>
+  </wsdl:message>
+  <wsdl:message name="deleteDbadminOrderheaderBGMissingDataFaultMsg">
+    <wsdl:part element="tns:MissingDataFault_element" name="MissingDataFault"/>
+  </wsdl:message>
+  <wsdl:message name="deleteDbadminOrderheaderBGRecordNotFoundFaultMsg">
+    <wsdl:part element="tns:RecordNotFoundFault_element" name="RecordNotFoundFault"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveDbadminOrderheaderBGRequestMsg">
+    <wsdl:part element="tns:retrieveDbadminOrderheaderBG" name="retrieveDbadminOrderheaderBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveDbadminOrderheaderBGResponseMsg">
+    <wsdl:part element="tns:retrieveDbadminOrderheaderBGResponse" name="retrieveDbadminOrderheaderBGResult"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveDbadminOrderheaderBGMissingDataFaultMsg">
+    <wsdl:part element="tns:MissingDataFault_element" name="MissingDataFault"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveDbadminOrderheaderBGRecordNotFoundFaultMsg">
+    <wsdl:part element="tns:RecordNotFoundFault_element" name="RecordNotFoundFault"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveDbadminOrderheaderBGMultipleMatchingRecordsFaultMsg">
+    <wsdl:part element="tns:MultipleMatchingRecordsFault_element" name="MultipleMatchingRecordsFault"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveallDbadminOrderheaderBGRequestMsg">
+    <wsdl:part element="tns:retrieveallDbadminOrderheaderBG" name="retrieveallDbadminOrderheaderBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveallDbadminOrderheaderBGResponseMsg">
+    <wsdl:part element="tns:retrieveallDbadminOrderheaderBGResponse" name="retrieveallDbadminOrderheaderBGResult"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveallDbadminOrderheaderBGRecordNotFoundFaultMsg">
+    <wsdl:part element="tns:RecordNotFoundFault_element" name="RecordNotFoundFault"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveallDbadminOrderheaderBGMatchesExceededLimitFaultMsg">
+    <wsdl:part element="tns:MatchesExceededLimitFault_element" name="MatchesExceededLimitFault"/>
+  </wsdl:message>
+  <wsdl:message name="applychangesDbadminOrderheaderBGRequestMsg">
+    <wsdl:part element="tns:applychangesDbadminOrderheaderBG" name="applychangesDbadminOrderheaderBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="applychangesDbadminOrderheaderBGResponseMsg">
+    <wsdl:part element="tns:applychangesDbadminOrderheaderBGResponse" name="applychangesDbadminOrderheaderBGResult"/>
+  </wsdl:message>
+  <wsdl:message name="applychangesDbadminOrderheaderBGMissingDataFaultMsg">
+    <wsdl:part element="tns:MissingDataFault_element" name="MissingDataFault"/>
+  </wsdl:message>
+  <wsdl:message name="applychangesDbadminOrderheaderBGUniqueConstraintFaultMsg">
+    <wsdl:part element="tns:UniqueConstraintFault_element" name="UniqueConstraintFault"/>
+  </wsdl:message>
+  <wsdl:message name="applychangesDbadminOrderheaderBGIntegrityConstraintFaultMsg">
+    <wsdl:part element="tns:IntegrityConstraintFault_element" name="IntegrityConstraintFault"/>
+  </wsdl:message>
+  <wsdl:message name="applychangesDbadminOrderheaderBGRecordNotFoundFaultMsg">
+    <wsdl:part element="tns:RecordNotFoundFault_element" name="RecordNotFoundFault"/>
+  </wsdl:message>
+  <wsdl:message name="applychangesDbadminOrderheaderBGMultipleMatchingRecordsFaultMsg">
+    <wsdl:part element="tns:MultipleMatchingRecordsFault_element" name="MultipleMatchingRecordsFault"/>
+  </wsdl:message>
+  <wsdl:message name="applychangesDbadminOrderheaderBGObjectNotFoundFaultMsg">
+    <wsdl:part element="tns:ObjectNotFoundFault_element" name="ObjectNotFoundFault"/>
+  </wsdl:message>
+  <wsdl:message name="existsDbadminOrderheaderBGRequestMsg">
+    <wsdl:part element="tns:existsDbadminOrderheaderBG" name="existsDbadminOrderheaderBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="existsDbadminOrderheaderBGResponseMsg">
+    <wsdl:part element="tns:existsDbadminOrderheaderBGResponse" name="existsDbadminOrderheaderBGResult"/>
+  </wsdl:message>
+  <wsdl:message name="createDbadminItemwhsBGRequestMsg">
+    <wsdl:part element="tns:createDbadminItemwhsBG" name="createDbadminItemwhsBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="createDbadminItemwhsBGResponseMsg">
+    <wsdl:part element="tns:createDbadminItemwhsBGResponse" name="createDbadminItemwhsBGResult"/>
+  </wsdl:message>
+  <wsdl:message name="createDbadminItemwhsBGMissingDataFaultMsg">
+    <wsdl:part element="tns:MissingDataFault_element" name="MissingDataFault"/>
+  </wsdl:message>
+  <wsdl:message name="createDbadminItemwhsBGUniqueConstraintFaultMsg">
+    <wsdl:part element="tns:UniqueConstraintFault_element" name="UniqueConstraintFault"/>
+  </wsdl:message>
+  <wsdl:message name="createDbadminItemwhsBGIntegrityConstraintFaultMsg">
+    <wsdl:part element="tns:IntegrityConstraintFault_element" name="IntegrityConstraintFault"/>
+  </wsdl:message>
+  <wsdl:message name="createDbadminItemwhsBGObjectNotFoundFaultMsg">
+    <wsdl:part element="tns:ObjectNotFoundFault_element" name="ObjectNotFoundFault"/>
+  </wsdl:message>
+  <wsdl:message name="updateDbadminItemwhsBGRequestMsg">
+    <wsdl:part element="tns:updateDbadminItemwhsBG" name="updateDbadminItemwhsBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="updateDbadminItemwhsBGResponseMsg">
+    <wsdl:part element="tns:updateDbadminItemwhsBGResponse" name="updateDbadminItemwhsBGResult"/>
+  </wsdl:message>
+  <wsdl:message name="updateDbadminItemwhsBGMissingDataFaultMsg">
+    <wsdl:part element="tns:MissingDataFault_element" name="MissingDataFault"/>
+  </wsdl:message>
+  <wsdl:message name="updateDbadminItemwhsBGUniqueConstraintFaultMsg">
+    <wsdl:part element="tns:UniqueConstraintFault_element" name="UniqueConstraintFault"/>
+  </wsdl:message>
+  <wsdl:message name="updateDbadminItemwhsBGIntegrityConstraintFaultMsg">
+    <wsdl:part element="tns:IntegrityConstraintFault_element" name="IntegrityConstraintFault"/>
+  </wsdl:message>
+  <wsdl:message name="updateDbadminItemwhsBGRecordNotFoundFaultMsg">
+    <wsdl:part element="tns:RecordNotFoundFault_element" name="RecordNotFoundFault"/>
+  </wsdl:message>
+  <wsdl:message name="updateDbadminItemwhsBGMultipleMatchingRecordsFaultMsg">
+    <wsdl:part element="tns:MultipleMatchingRecordsFault_element" name="MultipleMatchingRecordsFault"/>
+  </wsdl:message>
+  <wsdl:message name="updateDbadminItemwhsBGObjectNotFoundFaultMsg">
+    <wsdl:part element="tns:ObjectNotFoundFault_element" name="ObjectNotFoundFault"/>
+  </wsdl:message>
+  <wsdl:message name="deleteDbadminItemwhsBGRequestMsg">
+    <wsdl:part element="tns:deleteDbadminItemwhsBG" name="deleteDbadminItemwhsBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="deleteDbadminItemwhsBGResponseMsg">
+    <wsdl:part element="tns:deleteDbadminItemwhsBGResponse" name="deleteDbadminItemwhsBGResult"/>
+  </wsdl:message>
+  <wsdl:message name="deleteDbadminItemwhsBGMissingDataFaultMsg">
+    <wsdl:part element="tns:MissingDataFault_element" name="MissingDataFault"/>
+  </wsdl:message>
+  <wsdl:message name="deleteDbadminItemwhsBGRecordNotFoundFaultMsg">
+    <wsdl:part element="tns:RecordNotFoundFault_element" name="RecordNotFoundFault"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveDbadminItemwhsBGRequestMsg">
+    <wsdl:part element="tns:retrieveDbadminItemwhsBG" name="retrieveDbadminItemwhsBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveDbadminItemwhsBGResponseMsg">
+    <wsdl:part element="tns:retrieveDbadminItemwhsBGResponse" name="retrieveDbadminItemwhsBGResult"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveDbadminItemwhsBGMissingDataFaultMsg">
+    <wsdl:part element="tns:MissingDataFault_element" name="MissingDataFault"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveDbadminItemwhsBGRecordNotFoundFaultMsg">
+    <wsdl:part element="tns:RecordNotFoundFault_element" name="RecordNotFoundFault"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveDbadminItemwhsBGMultipleMatchingRecordsFaultMsg">
+    <wsdl:part element="tns:MultipleMatchingRecordsFault_element" name="MultipleMatchingRecordsFault"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveallDbadminItemwhsBGRequestMsg">
+    <wsdl:part element="tns:retrieveallDbadminItemwhsBG" name="retrieveallDbadminItemwhsBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveallDbadminItemwhsBGResponseMsg">
+    <wsdl:part element="tns:retrieveallDbadminItemwhsBGResponse" name="retrieveallDbadminItemwhsBGResult"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveallDbadminItemwhsBGRecordNotFoundFaultMsg">
+    <wsdl:part element="tns:RecordNotFoundFault_element" name="RecordNotFoundFault"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveallDbadminItemwhsBGMatchesExceededLimitFaultMsg">
+    <wsdl:part element="tns:MatchesExceededLimitFault_element" name="MatchesExceededLimitFault"/>
+  </wsdl:message>
+  <wsdl:message name="applychangesDbadminItemwhsBGRequestMsg">
+    <wsdl:part element="tns:applychangesDbadminItemwhsBG" name="applychangesDbadminItemwhsBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="applychangesDbadminItemwhsBGResponseMsg">
+    <wsdl:part element="tns:applychangesDbadminItemwhsBGResponse" name="applychangesDbadminItemwhsBGResult"/>
+  </wsdl:message>
+  <wsdl:message name="applychangesDbadminItemwhsBGMissingDataFaultMsg">
+    <wsdl:part element="tns:MissingDataFault_element" name="MissingDataFault"/>
+  </wsdl:message>
+  <wsdl:message name="applychangesDbadminItemwhsBGUniqueConstraintFaultMsg">
+    <wsdl:part element="tns:UniqueConstraintFault_element" name="UniqueConstraintFault"/>
+  </wsdl:message>
+  <wsdl:message name="applychangesDbadminItemwhsBGIntegrityConstraintFaultMsg">
+    <wsdl:part element="tns:IntegrityConstraintFault_element" name="IntegrityConstraintFault"/>
+  </wsdl:message>
+  <wsdl:message name="applychangesDbadminItemwhsBGRecordNotFoundFaultMsg">
+    <wsdl:part element="tns:RecordNotFoundFault_element" name="RecordNotFoundFault"/>
+  </wsdl:message>
+  <wsdl:message name="applychangesDbadminItemwhsBGMultipleMatchingRecordsFaultMsg">
+    <wsdl:part element="tns:MultipleMatchingRecordsFault_element" name="MultipleMatchingRecordsFault"/>
+  </wsdl:message>
+  <wsdl:message name="applychangesDbadminItemwhsBGObjectNotFoundFaultMsg">
+    <wsdl:part element="tns:ObjectNotFoundFault_element" name="ObjectNotFoundFault"/>
+  </wsdl:message>
+  <wsdl:message name="existsDbadminItemwhsBGRequestMsg">
+    <wsdl:part element="tns:existsDbadminItemwhsBG" name="existsDbadminItemwhsBGParameters"/>
+  </wsdl:message>
+  <wsdl:message name="existsDbadminItemwhsBGResponseMsg">
+    <wsdl:part element="tns:existsDbadminItemwhsBGResponse" name="existsDbadminItemwhsBGResult"/>
+  </wsdl:message>
+  <wsdl:portType name="JDBCOutboundInterface">
+    <wsdl:operation name="createDbadminCustomerBG">
+      <wsdl:input message="tns:createDbadminCustomerBGRequestMsg" name="createDbadminCustomerBGRequest"/>
+      <wsdl:output message="tns:createDbadminCustomerBGResponseMsg" name="createDbadminCustomerBGResponse"/>
+      <wsdl:fault message="tns:createDbadminCustomerBGMissingDataFaultMsg" name="MISSING_DATA"/>
+      <wsdl:fault message="tns:createDbadminCustomerBGUniqueConstraintFaultMsg" name="UNIQUECONSTRAINT_VIOLATION"/>
+      <wsdl:fault message="tns:createDbadminCustomerBGIntegrityConstraintFaultMsg" name="INTEGRITY_CONSTRAINT_VIOLATION"/>
+      <wsdl:fault message="tns:createDbadminCustomerBGObjectNotFoundFaultMsg" name="OBJECT_NOTFOUND_EXCEPTION"/>
+    </wsdl:operation>
+    <wsdl:operation name="updateDbadminCustomerBG">
+      <wsdl:input message="tns:updateDbadminCustomerBGRequestMsg" name="updateDbadminCustomerBGRequest"/>
+      <wsdl:output message="tns:updateDbadminCustomerBGResponseMsg" name="updateDbadminCustomerBGResponse"/>
+      <wsdl:fault message="tns:updateDbadminCustomerBGMissingDataFaultMsg" name="MISSING_DATA"/>
+      <wsdl:fault message="tns:updateDbadminCustomerBGUniqueConstraintFaultMsg" name="UNIQUECONSTRAINT_VIOLATION"/>
+      <wsdl:fault message="tns:updateDbadminCustomerBGIntegrityConstraintFaultMsg" name="INTEGRITY_CONSTRAINT_VIOLATION"/>
+      <wsdl:fault message="tns:updateDbadminCustomerBGRecordNotFoundFaultMsg" name="RECORD_NOT_FOUND"/>
+      <wsdl:fault message="tns:updateDbadminCustomerBGMultipleMatchingRecordsFaultMsg" name="MULTIPLE_MATCHING_RECORDS"/>
+      <wsdl:fault message="tns:updateDbadminCustomerBGObjectNotFoundFaultMsg" name="OBJECT_NOTFOUND_EXCEPTION"/>
+    </wsdl:operation>
+    <wsdl:operation name="deleteDbadminCustomerBG">
+      <wsdl:input message="tns:deleteDbadminCustomerBGRequestMsg" name="deleteDbadminCustomerBGRequest"/>
+      <wsdl:output message="tns:deleteDbadminCustomerBGResponseMsg" name="deleteDbadminCustomerBGResponse"/>
+      <wsdl:fault message="tns:deleteDbadminCustomerBGMissingDataFaultMsg" name="MISSING_DATA"/>
+      <wsdl:fault message="tns:deleteDbadminCustomerBGRecordNotFoundFaultMsg" name="RECORD_NOT_FOUND"/>
+    </wsdl:operation>
+    <wsdl:operation name="retrieveDbadminCustomerBG">
+      <wsdl:input message="tns:retrieveDbadminCustomerBGRequestMsg" name="retrieveDbadminCustomerBGRequest"/>
+      <wsdl:output message="tns:retrieveDbadminCustomerBGResponseMsg" name="retrieveDbadminCustomerBGResponse"/>
+      <wsdl:fault message="tns:retrieveDbadminCustomerBGMissingDataFaultMsg" name="MISSING_DATA"/>
+      <wsdl:fault message="tns:retrieveDbadminCustomerBGRecordNotFoundFaultMsg" name="RECORD_NOT_FOUND"/>
+      <wsdl:fault message="tns:retrieveDbadminCustomerBGMultipleMatchingRecordsFaultMsg" name="MULTIPLE_MATCHING_RECORDS"/>
+    </wsdl:operation>
+    <wsdl:operation name="retrieveallDbadminCustomerBG">
+      <wsdl:input message="tns:retrieveallDbadminCustomerBGRequestMsg" name="retrieveallDbadminCustomerBGRequest"/>
+      <wsdl:output message="tns:retrieveallDbadminCustomerBGResponseMsg" name="retrieveallDbadminCustomerBGResponse"/>
+      <wsdl:fault message="tns:retrieveallDbadminCustomerBGRecordNotFoundFaultMsg" name="RECORD_NOT_FOUND"/>
+      <wsdl:fault message="tns:retrieveallDbadminCustomerBGMatchesExceededLimitFaultMsg" name="MATCHES_EXCEEDED_LIMIT"/>
+    </wsdl:operation>
+    <wsdl:operation name="applychangesDbadminCustomerBG">
+      <wsdl:input message="tns:applychangesDbadminCustomerBGRequestMsg" name="applychangesDbadminCustomerBGRequest"/>
+      <wsdl:output message="tns:applychangesDbadminCustomerBGResponseMsg" name="applychangesDbadminCustomerBGResponse"/>
+      <wsdl:fault message="tns:applychangesDbadminCustomerBGMissingDataFaultMsg" name="MISSING_DATA"/>
+      <wsdl:fault message="tns:applychangesDbadminCustomerBGUniqueConstraintFaultMsg" name="UNIQUECONSTRAINT_VIOLATION"/>
+      <wsdl:fault message="tns:applychangesDbadminCustomerBGIntegrityConstraintFaultMsg" name="INTEGRITY_CONSTRAINT_VIOLATION"/>
+      <wsdl:fault message="tns:applychangesDbadminCustomerBGRecordNotFoundFaultMsg" name="RECORD_NOT_FOUND"/>
+      <wsdl:fault message="tns:applychangesDbadminCustomerBGMultipleMatchingRecordsFaultMsg" name="MULTIPLE_MATCHING_RECORDS"/>
+      <wsdl:fault message="tns:applychangesDbadminCustomerBGObjectNotFoundFaultMsg" name="OBJECT_NOTFOUND_EXCEPTION"/>
+    </wsdl:operation>
+    <wsdl:operation name="existsDbadminCustomerBG">
+      <wsdl:input message="tns:existsDbadminCustomerBGRequestMsg" name="existsDbadminCustomerBGRequest"/>
+      <wsdl:output message="tns:existsDbadminCustomerBGResponseMsg" name="existsDbadminCustomerBGResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="createDbadminItemBG">
+      <wsdl:input message="tns:createDbadminItemBGRequestMsg" name="createDbadminItemBGRequest"/>
+      <wsdl:output message="tns:createDbadminItemBGResponseMsg" name="createDbadminItemBGResponse"/>
+      <wsdl:fault message="tns:createDbadminItemBGMissingDataFaultMsg" name="MISSING_DATA"/>
+      <wsdl:fault message="tns:createDbadminItemBGUniqueConstraintFaultMsg" name="UNIQUECONSTRAINT_VIOLATION"/>
+      <wsdl:fault message="tns:createDbadminItemBGIntegrityConstraintFaultMsg" name="INTEGRITY_CONSTRAINT_VIOLATION"/>
+      <wsdl:fault message="tns:createDbadminItemBGObjectNotFoundFaultMsg" name="OBJECT_NOTFOUND_EXCEPTION"/>
+    </wsdl:operation>
+    <wsdl:operation name="updateDbadminItemBG">
+      <wsdl:input message="tns:updateDbadminItemBGRequestMsg" name="updateDbadminItemBGRequest"/>
+      <wsdl:output message="tns:updateDbadminItemBGResponseMsg" name="updateDbadminItemBGResponse"/>
+      <wsdl:fault message="tns:updateDbadminItemBGMissingDataFaultMsg" name="MISSING_DATA"/>
+      <wsdl:fault message="tns:updateDbadminItemBGUniqueConstraintFaultMsg" name="UNIQUECONSTRAINT_VIOLATION"/>
+      <wsdl:fault message="tns:updateDbadminItemBGIntegrityConstraintFaultMsg" name="INTEGRITY_CONSTRAINT_VIOLATION"/>
+      <wsdl:fault message="tns:updateDbadminItemBGRecordNotFoundFaultMsg" name="RECORD_NOT_FOUND"/>
+      <wsdl:fault message="tns:updateDbadminItemBGMultipleMatchingRecordsFaultMsg" name="MULTIPLE_MATCHING_RECORDS"/>
+      <wsdl:fault message="tns:updateDbadminItemBGObjectNotFoundFaultMsg" name="OBJECT_NOTFOUND_EXCEPTION"/>
+    </wsdl:operation>
+    <wsdl:operation name="deleteDbadminItemBG">
+      <wsdl:input message="tns:deleteDbadminItemBGRequestMsg" name="deleteDbadminItemBGRequest"/>
+      <wsdl:output message="tns:deleteDbadminItemBGResponseMsg" name="deleteDbadminItemBGResponse"/>
+      <wsdl:fault message="tns:deleteDbadminItemBGMissingDataFaultMsg" name="MISSING_DATA"/>
+      <wsdl:fault message="tns:deleteDbadminItemBGRecordNotFoundFaultMsg" name="RECORD_NOT_FOUND"/>
+    </wsdl:operation>
+    <wsdl:operation name="retrieveDbadminItemBG">
+      <wsdl:input message="tns:retrieveDbadminItemBGRequestMsg" name="retrieveDbadminItemBGRequest"/>
+      <wsdl:output message="tns:retrieveDbadminItemBGResponseMsg" name="retrieveDbadminItemBGResponse"/>
+      <wsdl:fault message="tns:retrieveDbadminItemBGMissingDataFaultMsg" name="MISSING_DATA"/>
+      <wsdl:fault message="tns:retrieveDbadminItemBGRecordNotFoundFaultMsg" name="RECORD_NOT_FOUND"/>
+      <wsdl:fault message="tns:retrieveDbadminItemBGMultipleMatchingRecordsFaultMsg" name="MULTIPLE_MATCHING_RECORDS"/>
+    </wsdl:operation>
+    <wsdl:operation name="retrieveallDbadminItemBG">
+      <wsdl:input message="tns:retrieveallDbadminItemBGRequestMsg" name="retrieveallDbadminItemBGRequest"/>
+      <wsdl:output message="tns:retrieveallDbadminItemBGResponseMsg" name="retrieveallDbadminItemBGResponse"/>
+      <wsdl:fault message="tns:retrieveallDbadminItemBGRecordNotFoundFaultMsg" name="RECORD_NOT_FOUND"/>
+      <wsdl:fault message="tns:retrieveallDbadminItemBGMatchesExceededLimitFaultMsg" name="MATCHES_EXCEEDED_LIMIT"/>
+    </wsdl:operation>
+    <wsdl:operation name="applychangesDbadminItemBG">
+      <wsdl:input message="tns:applychangesDbadminItemBGRequestMsg" name="applychangesDbadminItemBGRequest"/>
+      <wsdl:output message="tns:applychangesDbadminItemBGResponseMsg" name="applychangesDbadminItemBGResponse"/>
+      <wsdl:fault message="tns:applychangesDbadminItemBGMissingDataFaultMsg" name="MISSING_DATA"/>
+      <wsdl:fault message="tns:applychangesDbadminItemBGUniqueConstraintFaultMsg" name="UNIQUECONSTRAINT_VIOLATION"/>
+      <wsdl:fault message="tns:applychangesDbadminItemBGIntegrityConstraintFaultMsg" name="INTEGRITY_CONSTRAINT_VIOLATION"/>
+      <wsdl:fault message="tns:applychangesDbadminItemBGRecordNotFoundFaultMsg" name="RECORD_NOT_FOUND"/>
+      <wsdl:fault message="tns:applychangesDbadminItemBGMultipleMatchingRecordsFaultMsg" name="MULTIPLE_MATCHING_RECORDS"/>
+      <wsdl:fault message="tns:applychangesDbadminItemBGObjectNotFoundFaultMsg" name="OBJECT_NOTFOUND_EXCEPTION"/>
+    </wsdl:operation>
+    <wsdl:operation name="existsDbadminItemBG">
+      <wsdl:input message="tns:existsDbadminItemBGRequestMsg" name="existsDbadminItemBGRequest"/>
+      <wsdl:output message="tns:existsDbadminItemBGResponseMsg" name="existsDbadminItemBGResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="createDbadminOrderheaderBG">
+      <wsdl:input message="tns:createDbadminOrderheaderBGRequestMsg" name="createDbadminOrderheaderBGRequest"/>
+      <wsdl:output message="tns:createDbadminOrderheaderBGResponseMsg" name="createDbadminOrderheaderBGResponse"/>
+      <wsdl:fault message="tns:createDbadminOrderheaderBGMissingDataFaultMsg" name="MISSING_DATA"/>
+      <wsdl:fault message="tns:createDbadminOrderheaderBGUniqueConstraintFaultMsg" name="UNIQUECONSTRAINT_VIOLATION"/>
+      <wsdl:fault message="tns:createDbadminOrderheaderBGIntegrityConstraintFaultMsg" name="INTEGRITY_CONSTRAINT_VIOLATION"/>
+      <wsdl:fault message="tns:createDbadminOrderheaderBGObjectNotFoundFaultMsg" name="OBJECT_NOTFOUND_EXCEPTION"/>
+    </wsdl:operation>
+    <wsdl:operation name="updateDbadminOrderheaderBG">
+      <wsdl:input message="tns:updateDbadminOrderheaderBGRequestMsg" name="updateDbadminOrderheaderBGRequest"/>
+      <wsdl:output message="tns:updateDbadminOrderheaderBGResponseMsg" name="updateDbadminOrderheaderBGResponse"/>
+      <wsdl:fault message="tns:updateDbadminOrderheaderBGMissingDataFaultMsg" name="MISSING_DATA"/>
+      <wsdl:fault message="tns:updateDbadminOrderheaderBGUniqueConstraintFaultMsg" name="UNIQUECONSTRAINT_VIOLATION"/>
+      <wsdl:fault message="tns:updateDbadminOrderheaderBGIntegrityConstraintFaultMsg" name="INTEGRITY_CONSTRAINT_VIOLATION"/>
+      <wsdl:fault message="tns:updateDbadminOrderheaderBGRecordNotFoundFaultMsg" name="RECORD_NOT_FOUND"/>
+      <wsdl:fault message="tns:updateDbadminOrderheaderBGMultipleMatchingRecordsFaultMsg" name="MULTIPLE_MATCHING_RECORDS"/>
+      <wsdl:fault message="tns:updateDbadminOrderheaderBGObjectNotFoundFaultMsg" name="OBJECT_NOTFOUND_EXCEPTION"/>
+    </wsdl:operation>
+    <wsdl:operation name="deleteDbadminOrderheaderBG">
+      <wsdl:input message="tns:deleteDbadminOrderheaderBGRequestMsg" name="deleteDbadminOrderheaderBGRequest"/>
+      <wsdl:output message="tns:deleteDbadminOrderheaderBGResponseMsg" name="deleteDbadminOrderheaderBGResponse"/>
+      <wsdl:fault message="tns:deleteDbadminOrderheaderBGMissingDataFaultMsg" name="MISSING_DATA"/>
+      <wsdl:fault message="tns:deleteDbadminOrderheaderBGRecordNotFoundFaultMsg" name="RECORD_NOT_FOUND"/>
+    </wsdl:operation>
+    <wsdl:operation name="retrieveDbadminOrderheaderBG">
+      <wsdl:input message="tns:retrieveDbadminOrderheaderBGRequestMsg" name="retrieveDbadminOrderheaderBGRequest"/>
+      <wsdl:output message="tns:retrieveDbadminOrderheaderBGResponseMsg" name="retrieveDbadminOrderheaderBGResponse"/>
+      <wsdl:fault message="tns:retrieveDbadminOrderheaderBGMissingDataFaultMsg" name="MISSING_DATA"/>
+      <wsdl:fault message="tns:retrieveDbadminOrderheaderBGRecordNotFoundFaultMsg" name="RECORD_NOT_FOUND"/>
+      <wsdl:fault message="tns:retrieveDbadminOrderheaderBGMultipleMatchingRecordsFaultMsg" name="MULTIPLE_MATCHING_RECORDS"/>
+    </wsdl:operation>
+    <wsdl:operation name="retrieveallDbadminOrderheaderBG">
+      <wsdl:input message="tns:retrieveallDbadminOrderheaderBGRequestMsg" name="retrieveallDbadminOrderheaderBGRequest"/>
+      <wsdl:output message="tns:retrieveallDbadminOrderheaderBGResponseMsg" name="retrieveallDbadminOrderheaderBGResponse"/>
+      <wsdl:fault message="tns:retrieveallDbadminOrderheaderBGRecordNotFoundFaultMsg" name="RECORD_NOT_FOUND"/>
+      <wsdl:fault message="tns:retrieveallDbadminOrderheaderBGMatchesExceededLimitFaultMsg" name="MATCHES_EXCEEDED_LIMIT"/>
+    </wsdl:operation>
+    <wsdl:operation name="applychangesDbadminOrderheaderBG">
+      <wsdl:input message="tns:applychangesDbadminOrderheaderBGRequestMsg" name="applychangesDbadminOrderheaderBGRequest"/>
+      <wsdl:output message="tns:applychangesDbadminOrderheaderBGResponseMsg" name="applychangesDbadminOrderheaderBGResponse"/>
+      <wsdl:fault message="tns:applychangesDbadminOrderheaderBGMissingDataFaultMsg" name="MISSING_DATA"/>
+      <wsdl:fault message="tns:applychangesDbadminOrderheaderBGUniqueConstraintFaultMsg" name="UNIQUECONSTRAINT_VIOLATION"/>
+      <wsdl:fault message="tns:applychangesDbadminOrderheaderBGIntegrityConstraintFaultMsg" name="INTEGRITY_CONSTRAINT_VIOLATION"/>
+      <wsdl:fault message="tns:applychangesDbadminOrderheaderBGRecordNotFoundFaultMsg" name="RECORD_NOT_FOUND"/>
+      <wsdl:fault message="tns:applychangesDbadminOrderheaderBGMultipleMatchingRecordsFaultMsg" name="MULTIPLE_MATCHING_RECORDS"/>
+      <wsdl:fault message="tns:applychangesDbadminOrderheaderBGObjectNotFoundFaultMsg" name="OBJECT_NOTFOUND_EXCEPTION"/>
+    </wsdl:operation>
+    <wsdl:operation name="existsDbadminOrderheaderBG">
+      <wsdl:input message="tns:existsDbadminOrderheaderBGRequestMsg" name="existsDbadminOrderheaderBGRequest"/>
+      <wsdl:output message="tns:existsDbadminOrderheaderBGResponseMsg" name="existsDbadminOrderheaderBGResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="createDbadminItemwhsBG">
+      <wsdl:input message="tns:createDbadminItemwhsBGRequestMsg" name="createDbadminItemwhsBGRequest"/>
+      <wsdl:output message="tns:createDbadminItemwhsBGResponseMsg" name="createDbadminItemwhsBGResponse"/>
+      <wsdl:fault message="tns:createDbadminItemwhsBGMissingDataFaultMsg" name="MISSING_DATA"/>
+      <wsdl:fault message="tns:createDbadminItemwhsBGUniqueConstraintFaultMsg" name="UNIQUECONSTRAINT_VIOLATION"/>
+      <wsdl:fault message="tns:createDbadminItemwhsBGIntegrityConstraintFaultMsg" name="INTEGRITY_CONSTRAINT_VIOLATION"/>
+      <wsdl:fault message="tns:createDbadminItemwhsBGObjectNotFoundFaultMsg" name="OBJECT_NOTFOUND_EXCEPTION"/>
+    </wsdl:operation>
+    <wsdl:operation name="updateDbadminItemwhsBG">
+      <wsdl:input message="tns:updateDbadminItemwhsBGRequestMsg" name="updateDbadminItemwhsBGRequest"/>
+      <wsdl:output message="tns:updateDbadminItemwhsBGResponseMsg" name="updateDbadminItemwhsBGResponse"/>
+      <wsdl:fault message="tns:updateDbadminItemwhsBGMissingDataFaultMsg" name="MISSING_DATA"/>
+      <wsdl:fault message="tns:updateDbadminItemwhsBGUniqueConstraintFaultMsg" name="UNIQUECONSTRAINT_VIOLATION"/>
+      <wsdl:fault message="tns:updateDbadminItemwhsBGIntegrityConstraintFaultMsg" name="INTEGRITY_CONSTRAINT_VIOLATION"/>
+      <wsdl:fault message="tns:updateDbadminItemwhsBGRecordNotFoundFaultMsg" name="RECORD_NOT_FOUND"/>
+      <wsdl:fault message="tns:updateDbadminItemwhsBGMultipleMatchingRecordsFaultMsg" name="MULTIPLE_MATCHING_RECORDS"/>
+      <wsdl:fault message="tns:updateDbadminItemwhsBGObjectNotFoundFaultMsg" name="OBJECT_NOTFOUND_EXCEPTION"/>
+    </wsdl:operation>
+    <wsdl:operation name="deleteDbadminItemwhsBG">
+      <wsdl:input message="tns:deleteDbadminItemwhsBGRequestMsg" name="deleteDbadminItemwhsBGRequest"/>
+      <wsdl:output message="tns:deleteDbadminItemwhsBGResponseMsg" name="deleteDbadminItemwhsBGResponse"/>
+      <wsdl:fault message="tns:deleteDbadminItemwhsBGMissingDataFaultMsg" name="MISSING_DATA"/>
+      <wsdl:fault message="tns:deleteDbadminItemwhsBGRecordNotFoundFaultMsg" name="RECORD_NOT_FOUND"/>
+    </wsdl:operation>
+    <wsdl:operation name="retrieveDbadminItemwhsBG">
+      <wsdl:input message="tns:retrieveDbadminItemwhsBGRequestMsg" name="retrieveDbadminItemwhsBGRequest"/>
+      <wsdl:output message="tns:retrieveDbadminItemwhsBGResponseMsg" name="retrieveDbadminItemwhsBGResponse"/>
+      <wsdl:fault message="tns:retrieveDbadminItemwhsBGMissingDataFaultMsg" name="MISSING_DATA"/>
+      <wsdl:fault message="tns:retrieveDbadminItemwhsBGRecordNotFoundFaultMsg" name="RECORD_NOT_FOUND"/>
+      <wsdl:fault message="tns:retrieveDbadminItemwhsBGMultipleMatchingRecordsFaultMsg" name="MULTIPLE_MATCHING_RECORDS"/>
+    </wsdl:operation>
+    <wsdl:operation name="retrieveallDbadminItemwhsBG">
+      <wsdl:input message="tns:retrieveallDbadminItemwhsBGRequestMsg" name="retrieveallDbadminItemwhsBGRequest"/>
+      <wsdl:output message="tns:retrieveallDbadminItemwhsBGResponseMsg" name="retrieveallDbadminItemwhsBGResponse"/>
+      <wsdl:fault message="tns:retrieveallDbadminItemwhsBGRecordNotFoundFaultMsg" name="RECORD_NOT_FOUND"/>
+      <wsdl:fault message="tns:retrieveallDbadminItemwhsBGMatchesExceededLimitFaultMsg" name="MATCHES_EXCEEDED_LIMIT"/>
+    </wsdl:operation>
+    <wsdl:operation name="applychangesDbadminItemwhsBG">
+      <wsdl:input message="tns:applychangesDbadminItemwhsBGRequestMsg" name="applychangesDbadminItemwhsBGRequest"/>
+      <wsdl:output message="tns:applychangesDbadminItemwhsBGResponseMsg" name="applychangesDbadminItemwhsBGResponse"/>
+      <wsdl:fault message="tns:applychangesDbadminItemwhsBGMissingDataFaultMsg" name="MISSING_DATA"/>
+      <wsdl:fault message="tns:applychangesDbadminItemwhsBGUniqueConstraintFaultMsg" name="UNIQUECONSTRAINT_VIOLATION"/>
+      <wsdl:fault message="tns:applychangesDbadminItemwhsBGIntegrityConstraintFaultMsg" name="INTEGRITY_CONSTRAINT_VIOLATION"/>
+      <wsdl:fault message="tns:applychangesDbadminItemwhsBGRecordNotFoundFaultMsg" name="RECORD_NOT_FOUND"/>
+      <wsdl:fault message="tns:applychangesDbadminItemwhsBGMultipleMatchingRecordsFaultMsg" name="MULTIPLE_MATCHING_RECORDS"/>
+      <wsdl:fault message="tns:applychangesDbadminItemwhsBGObjectNotFoundFaultMsg" name="OBJECT_NOTFOUND_EXCEPTION"/>
+    </wsdl:operation>
+    <wsdl:operation name="existsDbadminItemwhsBG">
+      <wsdl:input message="tns:existsDbadminItemwhsBGRequestMsg" name="existsDbadminItemwhsBGRequest"/>
+      <wsdl:output message="tns:existsDbadminItemwhsBGResponseMsg" name="existsDbadminItemwhsBGResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://packtpub.com/service/airline/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:bons0="http://packtpub.com/service/airline/">
+	<xsd:include schemaLocation="FlightReservationType.xsd"></xsd:include>
+	<xsd:complexType name="FlightReservationMessage">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="FlightReservation"
+				type="bons0:FlightReservationType">
+			</xsd:element>
+
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

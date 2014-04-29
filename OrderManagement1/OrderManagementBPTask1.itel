@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ ##[lineageStampBegin]##
+ ##[generatedBy:/OrderManagement/OrderManagementBP.bpel]##
+ ##[lineageStampEnd]##
+-->
+<tel:task xmlns:tel="http://www.ibm.com/xmlns/prod/websphere/human-task/6.0.0/" xmlns:wsdl="http://OrderManagement/FinancialAuthorizationIF" allowClaimWhenSuspended="no" autoClaim="yes" businessRelevance="no" calendarName="Simple" contextAuthorizationForOwner="none" defaultLocale="en-US" jndiNameStaffPluginProvider="bpe/staff/samplevmmconfiguration" kind="pTask" name="OrderManagementBPTask1" priorityDefinition="5" supportsDelegation="yes" supportsFollowOnTask="yes" supportsSubTask="yes" targetNamespace="http://OrderManagement/Task1">
+  <tel:import importType="http://schemas.xmlsoap.org/wsdl/" location="FinancialAuthorizationIF.wsdl" namespace="http://OrderManagement/FinancialAuthorizationIF"/>
+  <tel:interface kind="inbound" operation="athorize" portType="wsdl:FinancialAuthorizationIF"/>
+  <tel:staffSettings>
+    <tel:potentialOwner>
+      <tel:verb>
+        <tel:name>Group Members</tel:name>
+        <tel:parameter id="GroupName">cn=Financial Office,o=defaultWIMFileBasedRealm</tel:parameter>
+        <tel:parameter id="IncludeSubgroups">false</tel:parameter>
+      </tel:verb>
+    </tel:potentialOwner>
+  </tel:staffSettings>
+  <tel:uiSettings/>
+  <tel:escalationSettings/>
+</tel:task>

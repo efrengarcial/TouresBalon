@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappingRoot xmlns="http://www.ibm.com/2006/ccl/Mapping" xmlns:map="http://CustomerLocations/xslt/CustomersToFeed" domainID="com.ibm.ccl.mapping.codegen.xslt.domain" targetNamespace="http://CustomerLocations/xslt/CustomersToFeed">
+    <input path="smo://smo/name%3Dwsdl-primary/transientContext%3D%257B%257D/correlationContext%3D%257B%257D/sharedContext%3D%257B%257D/message%3D%257Bhttp%253A%252F%252FCustomers%252FGetCustomers%257DgetCustomersResponseMsg/xpath%3D%252F/smo.xsd"/>
+    <output path="smo://smo/name%3Dwsdl-primary/transientContext%3D%257B%257D/correlationContext%3D%257B%257D/sharedContext%3D%257B%257D/message%3D%257Bhttp%253A%252F%252FCustomerLocationsFeed%252FGetCustomerLocationsFeed%257DgetCustomersAsFeedResponseMsg/xpath%3D%252F/smo.xsd"/>
+    <mappingDeclaration name="CustomersToFeed">
+        <input path="smo"/>
+        <output path="smo"/>
+        <mapping>
+            <output path="body/getCustomersAsFeedResponse/feed/title"/>
+            <function ref="assign">
+                <property key="value" value="Customers Feed"/>
+            </function>
+        </mapping>
+        <mapping>
+            <input path="body/getCustomersResponse/customers/customers"/>
+            <output path="body/getCustomersAsFeedResponse/feed/entry"/>
+            <mapping>
+                <input path="name"/>
+                <output path="title"/>
+            </mapping>
+            <mapping>
+                <input path="coordinates/latitude" var="latitude"/>
+                <input overrideDelimiter="" path="coordinates/longitude" var="longitude"/>
+                <output path="link/@href"/>
+                <function ref="concat">
+                    <property key="defaultDelimiter" value="+"/>
+                    <property key="prefix" value="http://maps.google.com/maps?f=q&amp;amp;amp;q="/>
+                    <property key="postfix" value="&amp;amp;amp;z=14"/>
+                </function>
+            </mapping>
+        </mapping>
+        <mapping>
+            <input path="context/transient" var="transient"/>
+            <output path="body/getCustomersAsFeedResponse/feed/link[1]/@href"/>
+            <custom>
+                <code language="XPath">$transient</code>
+            </custom>
+        </mapping>
+    </mappingDeclaration>
+</mappingRoot>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scaj2ee:IntegrationModuleDeploymentConfiguration xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.ibm.ejs.models.base.bindings.applicationbnd="applicationbnd.xmi" xmlns:scaj2ee="http://www.ibm.com/xmlns/prod/websphere/sca/j2ee/6.0.2">
+  <appProject>
+    <authorizationTable>
+      <authorizations role="//@appProject/@securityrole.0">
+        <specialSubjects xsi:type="com.ibm.ejs.models.base.bindings.applicationbnd:AllAuthenticatedUsers" name="AllAuthenticatedUsers"/>
+      </authorizations>
+    </authorizationTable>
+    <securityrole description="REST Interface Users" roleName="RESTUsers"/>
+  </appProject>
+  <webProject>
+    <securityconstraint displayName="">
+      <webResourceCollections webResourceName="receiverestrequests">
+        <urlPattern>/*</urlPattern>
+        <httpMethod>GET</httpMethod>
+        <httpMethod>PUT</httpMethod>
+        <httpMethod>HEAD</httpMethod>
+        <httpMethod>TRACE</httpMethod>
+        <httpMethod>POST</httpMethod>
+        <httpMethod>DELETE</httpMethod>
+        <httpMethod>OPTIONS</httpMethod>
+        <descriptions value=""/>
+      </webResourceCollections>
+      <authConstraint>
+        <roles>RESTUsers</roles>
+        <descriptions value="RESTUsersConstraint"/>
+      </authConstraint>
+      <displayNames value="restconstraint"/>
+    </securityconstraint>
+    <securityrole description="REST Interface Users" roleName="RESTUsers"/>
+  </webProject>
+</scaj2ee:IntegrationModuleDeploymentConfiguration>

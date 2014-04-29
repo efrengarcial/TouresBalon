@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mfc="http://www.ibm.com/xmlns/prod/websphere/scdl/mfc/6.0.0" xmlns:ns1="http://com.mastercard.com/services" xmlns:ns2="http://PaymentsModuleLib/com/touresbalon/interfaces/PaymentServiceIF" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="Med-MasterCard" name="Med-MasterCard">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" portType="ns2:PaymentServiceIF"/>
+  </interfaces>
+  <references>
+    <reference name="MasterCardSoapPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns1:MasterCardSoap"/>
+      <wire target="MasterCardWebServiceAdapter"/>
+    </reference>
+  </references>
+  <implementation xsi:type="mfc:MediationFlowImplementation" mfcFile="com/touresbalon/mediations/Med-MasterCard.mfc"/>
+</scdl:component>

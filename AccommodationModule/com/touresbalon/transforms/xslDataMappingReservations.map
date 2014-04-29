@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://AccommodationModule/com/touresbalon/transforms/xslDataMappingReservations" version="7.0.500" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://AccommodationModule/com/touresbalon/transforms/xslDataMappingReservations">
+    <input path="smo://smo/name%3Dwsdl-primary/message%3D%257Bhttp%253A%252F%252FAccommodationLib%252Fcom%252Ftouresbalon%252Finterfaces%252FAccommodationServiceIF%257DmakeReservationRequestMsg/xpath%3D%252Fbody/smo.xsd"/>
+    <output path="smo://smo/name%3Dwsdl-primary/message%3D%257Bhttp%253A%252F%252FAccommodationModule%252FDannCarltonReservations%257DcreateDboTouresbalon_ReservationsBGRequestMsg/xpath%3D%252Fbody/smo.xsd"/>
+    <mappingDeclaration name="xslDataMappingReservations">
+        <input path="body"/>
+        <output path="body"/>
+        <move>
+            <input path="makeReservation/request/hotelID"/>
+            <output path="createDboTouresbalon_ReservationsBG/createDboTouresbalon_ReservationsBGInput/DboTouresbalon_Reservations/hotel_id"/>
+        </move>
+        <move>
+            <input path="makeReservation/request/roomNumber"/>
+            <output path="createDboTouresbalon_ReservationsBG/createDboTouresbalon_ReservationsBGInput/DboTouresbalon_Reservations/room_number"/>
+        </move>
+        <move>
+            <input path="makeReservation/request/checkInDate"/>
+            <output path="createDboTouresbalon_ReservationsBG/createDboTouresbalon_ReservationsBGInput/DboTouresbalon_Reservations/check_in_date"/>
+        </move>
+        <move>
+            <input path="makeReservation/request/checkOutDate"/>
+            <output path="createDboTouresbalon_ReservationsBG/createDboTouresbalon_ReservationsBGInput/DboTouresbalon_Reservations/check_out_date"/>
+        </move>
+        <move>
+            <input path="makeReservation/request/orderID"/>
+            <output path="createDboTouresbalon_ReservationsBG/createDboTouresbalon_ReservationsBGInput/DboTouresbalon_Reservations/order_id"/>
+        </move>
+        <move>
+            <input path="makeReservation/request/guestName"/>
+            <output path="createDboTouresbalon_ReservationsBG/createDboTouresbalon_ReservationsBGInput/DboTouresbalon_Reservations/guest_name"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

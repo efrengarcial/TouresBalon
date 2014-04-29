@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="DevWorksEar">
+        <wb-resource deploy-path="/" source-path="/"/>
+        <dependent-module archiveName="DevWorksJPA.jar" deploy-path="/" handle="module:/resource/DevWorksJPA/DevWorksJPA">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module deploy-path="/" handle="module:/resource/DevWorksUI/DevWorksUI">
+            <dependent-object>Module_1297823822968</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    </wb-module>
+</project-modules>

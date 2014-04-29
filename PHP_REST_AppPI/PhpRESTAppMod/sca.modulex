@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.ibm.wbit.wiring.ui.ext.model="http:///com/ibm/wbit/wiring/ui/ext/model.ecore" xmlns:extensionmodel="http:///extensionmodel.ecore" xmlns:sb="http://com.ibm.wbit.stickyboard.model/model/StickyBoard.xsd">
+  <extensionmodel:ExtensionMap xmi:id="ExtensionMap_1220408014531" namespace="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0">
+    <extensions xmi:id="Extension_1220408014531">
+      <extendedObject href="POrderApprovalProc.component#//@Component"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" xmi:id="NodeExtension_1220408014531" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/business-process/6.0.0}ProcessImplementation" unknown="false" visible="true" x="470" y="44"/>
+    </extensions>
+    <extensions xmi:id="Extension_1220408014532">
+      <extendedObject href="sca.module#//@module"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:ModuleExtension" xmi:id="ModuleExtension_1220408014531"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="POrderApprovalExp.export#//@export"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:ExportExtension" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/http/6.1.0}HTTPExportBinding" unknown="false" visible="true" x="20" y="45" bound="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="TaskHuman.component#//@Component"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/human-task/6.0.0}TaskImplementation" unknown="false" visible="true" x="905" y="92"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="POrderProcIFExport1.export#//@export"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:ExportExtension" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/jaxws/6.0.0}JaxWsExportBinding" unknown="false" visible="true" x="328" y="242" bound="true"/>
+    </extensions>
+  </extensionmodel:ExtensionMap>
+  <extensionmodel:ExtensionMap xmi:id="ExtensionMap_1220408014532" namespace="http://com.ibm.wbit.stickyboard.model/model/StickyBoard.xsd">
+    <extensions xmi:id="Extension_1220408014533">
+      <extendedObject href="sca.module#//@module"/>
+      <extensionObject xsi:type="sb:StickyDocument" xmi:id="StickyDocument_1220408014531">
+        <stickyBoard xmi:id="StickyBoard_1220408014531" id="default">
+          <stickyNote body="SCA Http Binding Export that will receive &#xA;the request to start the process.  &#xA;&#xA;Part of the properties is the JSON data binding&#xA;configuration that will parse the JSON data to&#xA;create a business object.">
+            <bounds x="12" y="141"/>
+            <association>
+              <target href="POrderApprovalExp.export#//@export"/>
+            </association>
+          </stickyNote>
+          <stickyNote body="This is the simple Business Process &#xA;that will simulate a Approval process.">
+            <bounds x="344" y="150"/>
+            <association>
+              <target href="POrderApprovalProc.component#//@Component"/>
+            </association>
+          </stickyNote>
+        </stickyBoard>
+      </extensionObject>
+    </extensions>
+  </extensionmodel:ExtensionMap>
+</xmi:XMI>

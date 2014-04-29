@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://MM_CustomerService/xslt/MapFail_res_1" version="7.0.100" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://MM_CustomerService/xslt/MapFail_res_1">
+    <input path="smo://smo/name%3Dwsdl-primary/message%3D%257Bhttp%253A%252F%252FLB_Customer%252FCustomerService%257DaddCostumerRequestMsg/xpath%3D%252F/smo.xsd"/>
+    <output path="smo://smo/name%3Dwsdl-primary/message%3D%257Bhttp%253A%252F%252FLB_Customer%252FCustomerService%257DaddCostumerResponseMsg/xpath%3D%252F/smo.xsd"/>
+    <mappingDeclaration name="MapFail_res_1">
+        <input path="smo"/>
+        <output path="smo"/>
+        <move>
+            <input path="headers/HTTPHeader/control/StatusCode"/>
+            <output path="body/addCostumerResponse/response/statusCode"/>
+        </move>
+        <move>
+            <input path="headers/HTTPHeader/control/ReasonPhrase"/>
+            <output path="body/addCostumerResponse/response/reasonPhrase"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<body xmlns:bo="http://www.ibm.com/xmlns/prod/websphere/bo/6.0.0" xmlns:flatfile="http://www.ibm.com/xmlns/prod/websphere/j2ca/flatfile/flatfile" xmlns:httpsca="http://www.ibm.com/xmlns/prod/websphere/http/sca/6.1.0" xmlns:mq="http://www.ibm.com/xmlns/prod/websphere/mq/sca/6.0.0" xmlns:p="http://com/ibm/j2ca/fault/afcfault" xmlns:p1="http://BolivarianoModule/com/touresbalon/bo/transportbolivarianoretrievewrapperbg" xmlns:p2="http://BolivarianoModule/com/touresbalon/bo" xmlns:primkey="http://com/ibm/j2ca/fault" xmlns:smo="http://www.ibm.com/websphere/sibx/smo/v6.0.1" xmlns:tns="http://BolivarianoModule/BolivarianoTravelsFile" xmlns:tns1="http://www.w3.org/2005/08/addressing" xmlns:tns2="http://www.w3.org/2003/05/soap-envelope" xmlns:tns_1="wsdl.http://BolivarianoModule/BolivarianoTravelsFile" xmlns:transportbolivarianoretrievewrapper="http://BolivarianoModule/com/touresbalon/bo/transportbolivarianoretrievewrapper" xmlns:unstructuredcontent="http://www.ibm.com/xmlns/prod/websphere/j2ca/base/unstructuredcontent" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="foo.xsd">
+  <tns:retrieveTravelsResponse>
+    <tns:retrieveTravelsOutput>
+      <bo:package xsi:type="anyType"/>
+      <bo:eventSummary key="http://tempuri.org">
+        <bo:value ObjectEventId="" verb=""/>
+      </bo:eventSummary>
+      <bo:changeSummary>bo:changeSummary</bo:changeSummary>
+      <bo:rootObject>http://tempuri.org</bo:rootObject>
+      <bo:properties>
+        <ANY-ELEMENT/>
+      </bo:properties>
+      <bo:eventSummary key="http://tempuri.org">
+        <bo:value ObjectEventId="" verb=""/>
+      </bo:eventSummary>
+      <verb>CREATE</verb>
+      <TransportBolivarianoRetrieveWrapper>
+        <Content>
+          <numViaje>0</numViaje>
+          <ciudadOrigen>ciudadOrigen</ciudadOrigen>
+          <ciudadDestino>ciudadDestino</ciudadDestino>
+          <numSilla>0</numSilla>
+          <horaSalida>horaSalida</horaSalida>
+        </Content>
+      </TransportBolivarianoRetrieveWrapper>
+    </tns:retrieveTravelsOutput>
+  </tns:retrieveTravelsResponse>
+</body>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://TransportLib/com/touresbalon/bo"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:complexType name="Reservation">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="identificacion"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="nombre"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="apellido"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="numeroViaje"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="codigoCiudadOrigen"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="codigoCiudadDestino"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="numeroSilla"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="fechaSalida"
+				type="xsd:dateTime">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="orderID"
+				type="xsd:string">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

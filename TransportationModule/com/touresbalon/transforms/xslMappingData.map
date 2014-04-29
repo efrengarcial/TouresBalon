@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://BolivarianoModule/com/touresbalon/transforms/xslMappingData" version="7.0.500" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://BolivarianoModule/com/touresbalon/transforms/xslMappingData">
+    <input path="smo://smo/name%3Dwsdl-primary/correlationContext%3D%257Bhttp%253A%252F%252FTransportLib%252Fcom%252Ftouresbalon%252Fbo%257DTravelRequest/message%3D%257Bhttp%253A%252F%252FBolivarianoModule%252FBolivarianoTravelsFile%257DretrieveTravelsResponseMsg/xpath%3D%252F/smo.xsd"/>
+    <output path="smo://smo/name%3Dwsdl-primary/correlationContext%3D%257Bhttp%253A%252F%252FTransportLib%252Fcom%252Ftouresbalon%252Fbo%257DTravelRequest/message%3D%257Bhttp%253A%252F%252FTransportationLib%257DcheckAvailabilityResponseMsg/xpath%3D%252F/smo.xsd"/>
+    <mappingDeclaration name="xslMappingData">
+        <input path="smo"/>
+        <output path="smo"/>
+        <move>
+            <input path="context/correlation/travelDate"/>
+            <output path="context/correlation/travelDate"/>
+        </move>
+        <foreach>
+            <input path="body/retrieveTravelsResponse/retrieveTravelsOutput/TransportBolivarianoRetrieveWrapper/Content"/>
+            <output path="body/checkAvailabilityResponse/response/Content"/>
+            <move>
+                <input path="numViaje"/>
+                <output path="numViaje"/>
+            </move>
+            <move>
+                <input path="ciudadOrigen"/>
+                <output path="ciudadOrigen"/>
+            </move>
+            <move>
+                <input path="ciudadDestino"/>
+                <output path="ciudadDestino"/>
+            </move>
+            <move>
+                <input path="numSilla"/>
+                <output path="numSilla"/>
+            </move>
+            <assign value="2002-01-01T11:00:00">
+                <output path="fechaSalida"/>
+            </assign>
+        </foreach>
+        <move>
+            <input path="context/correlation/ciudadOrigen"/>
+            <output path="context/correlation/ciudadOrigen"/>
+        </move>
+        <move>
+            <input path="context/correlation/ciudadDestino"/>
+            <output path="context/correlation/ciudadDestino"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mfc:interfaceMediationFlow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:TransportationLib="http://TransportationLib" xmlns:mfc="http://www.ibm.com/xmlns/prod/websphere/wbiserver/mfc/6.0.0" xmlns:ns1="http://TransportLib" xmlns:ns2="http://tempuri.org/" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" name="Med-AA" targetNamespace="http://AmericanAirlinesModule/com/touresbalon/mediations/Med-AA">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" portType="TransportationLib:TransportationServiceIF"/>
+  </interfaces>
+  <references>
+    <reference name="AAFlightsServiceSoapPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns2:AAFlightsServiceSoap"/>
+    </reference>
+  </references>
+  <extendedOperationBinding source="checkAvailability" target="checkAvailability" sourcePortType="TransportationLib:TransportationServiceIF" targetReference="AAFlightsServiceSoapPartner"/>
+  <extendedOperationBinding source="makeReservation" target="bookingFlight" sourcePortType="TransportationLib:TransportationServiceIF" targetReference="AAFlightsServiceSoapPartner"/>
+  <extendedOperationBinding source="cancelReservation" target="cancelFlight" sourcePortType="TransportationLib:TransportationServiceIF" targetReference="AAFlightsServiceSoapPartner"/>
+  <operationFlow medflow="Med-AA.medflow"/>
+</mfc:interfaceMediationFlow>

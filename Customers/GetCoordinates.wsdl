@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:bons1="http://Customers" xmlns:bons2="http://CustomersLib" xmlns:tns="http://Customers/GetCoordinates" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="GetCoordinates" targetNamespace="http://Customers/GetCoordinates">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://Customers/GetCoordinates" xmlns:bons1="http://Customers" xmlns:bons2="http://CustomersLib" xmlns:tns="http://Customers/GetCoordinates" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:import namespace="http://CustomersLib" schemaLocation="Coordinates.xsd"/>
+      <xsd:import namespace="http://Customers" schemaLocation="Address.xsd"/>
+      <xsd:element name="getCoordinates">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="address" nillable="true" type="bons1:Address"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getCoordinatesResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="coordinates" nillable="true" type="bons2:Coordinates"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="getCoordinatesRequestMsg">
+    <wsdl:part element="tns:getCoordinates" name="getCoordinatesParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getCoordinatesResponseMsg">
+    <wsdl:part element="tns:getCoordinatesResponse" name="getCoordinatesResult"/>
+  </wsdl:message>
+    <wsdl:portType name="GetCoordinates">
+    <wsdl:operation name="getCoordinates">
+      <wsdl:input message="tns:getCoordinatesRequestMsg" name="getCoordinatesRequest"/>
+      <wsdl:output message="tns:getCoordinatesResponseMsg" name="getCoordinatesResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

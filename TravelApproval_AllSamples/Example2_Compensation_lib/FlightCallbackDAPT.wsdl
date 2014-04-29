@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="FlightCallbackDAPT" targetNamespace="http://packtpub.com/service/deltaairline/" xmlns:bons1="http://packtpub.com/service/airline/" xmlns:tns="http://packtpub.com/service/deltaairline/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://packtpub.com/service/deltaairline/">
+      <xsd:import namespace="http://packtpub.com/service/airline/" schemaLocation="TravelResponseMessage.xsd"/>
+      <xsd:element name="FlightTicketCallbackDA">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="TravelResponse" nillable="true" type="bons1:TravelResponseMessage"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="FlightTicketCallbackDARequestMsg">
+    <wsdl:part element="tns:FlightTicketCallbackDA" name="FlightTicketCallbackDAParameters"/>
+  </wsdl:message>
+    <wsdl:portType name="FlightCallbackDAPT">
+    <wsdl:operation name="FlightTicketCallbackDA">
+      <wsdl:input message="tns:FlightTicketCallbackDARequestMsg" name="FlightTicketCallbackDARequest"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://DBMSServiceMediation/xslt/output_map_res_1" version="7.0.100" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://DBMSServiceMediation/xslt/output_map_res_1">
+    <input path="smo://smo/name%3Dwsdl-primary/message%3D%257Bhttp%253A%252F%252FDBMSServiceMediation%252FJDBCOutboundInterface%257DretrieveDbadminItemBGResponseMsg/xpath%3D%252Fbody/smo.xsd"/>
+    <output path="smo://smo/name%3Dwsdl-primary/message%3D%257Bhttp%253A%252F%252FOrderManagementLib%252FItemServiceIF%257DretrieveItemResponseMsg/xpath%3D%252Fbody/smo.xsd"/>
+    <mappingDeclaration name="output_map_res_1">
+        <input path="body"/>
+        <output path="body"/>
+        <move>
+            <input path="retrieveDbadminItemBGResponse/retrieveDbadminItemBGOutput/DbadminItem/itemid"/>
+            <output path="retrieveItemResponse/item/itemID"/>
+        </move>
+        <move>
+            <input path="retrieveDbadminItemBGResponse/retrieveDbadminItemBGOutput/DbadminItem/itemname"/>
+            <output path="retrieveItemResponse/item/itemName"/>
+        </move>
+        <move>
+            <input path="retrieveDbadminItemBGResponse/retrieveDbadminItemBGOutput/DbadminItem/price"/>
+            <output path="retrieveItemResponse/item/price"/>
+        </move>
+        <assign value="3">
+            <output path="retrieveItemResponse/returnCode/RC"/>
+        </assign>
+        <foreach>
+            <input path="retrieveDbadminItemBGResponse/retrieveDbadminItemBGOutput/DbadminItem/warehouses"/>
+            <output path="retrieveItemResponse/item/warehouses"/>
+            <move>
+                <input path="whsid"/>
+                <output path="whsID"/>
+            </move>
+            <move>
+                <input path="indelivery"/>
+                <output path="indelivery"/>
+            </move>
+            <move>
+                <input path="stock"/>
+                <output path="stock"/>
+            </move>
+        </foreach>
+    </mappingDeclaration>
+</mappingRoot>

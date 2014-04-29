@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+	targetNamespace="http://BolivarianoModule/com/touresbalon/bo"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:complexType name="TransportBolivariano">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="numViaje"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="ciudadOrigen"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="ciudadDestino"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="numSilla"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="horaSalida"
+				type="xsd:string">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

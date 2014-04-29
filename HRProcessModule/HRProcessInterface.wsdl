@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:bons1="http://HRProcessModule" xmlns:tns="http://HRProcessModule/HRProcessInterface" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="HRProcessInterface" targetNamespace="http://HRProcessModule/HRProcessInterface">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://HRProcessModule/HRProcessInterface" xmlns:bons1="http://HRProcessModule" xmlns:tns="http://HRProcessModule/HRProcessInterface" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:import namespace="http://HRProcessModule" schemaLocation="HRInfo.xsd"/>
+      <xsd:element name="processNewEmployee">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="info" nillable="true" type="bons1:HRInfo"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="processNewEmployeeRequestMsg">
+    <wsdl:part element="tns:processNewEmployee" name="processNewEmployeeParameters"/>
+  </wsdl:message>
+    <wsdl:portType name="HRProcessInterface">
+    <wsdl:operation name="processNewEmployee">
+      <wsdl:input message="tns:processNewEmployeeRequestMsg" name="processNewEmployeeRequest"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

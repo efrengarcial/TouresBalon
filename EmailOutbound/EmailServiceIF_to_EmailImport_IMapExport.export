@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:export xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns1="http://OrderManagementLib/EmailServiceIF" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="EmailServiceIF_to_EmailImport_IMapExport" name="EmailServiceIF_to_EmailImport_IMapExport" target="EmailServiceIF_to_EmailImport_IMap">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" portType="ns1:EmailServiceIF"/>
+  </interfaces>
+</scdl:export>

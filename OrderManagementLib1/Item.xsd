@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://OrderManagementLib"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:bons0="http://OrderManagementLib">
+	<xsd:include schemaLocation="Warehouse.xsd"></xsd:include>
+	<xsd:complexType name="Item">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="itemID"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="itemName"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="price" type="xsd:int"></xsd:element>
+			<xsd:element minOccurs="0" name="warehouses"
+				type="bons0:Warehouse" maxOccurs="unbounded">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

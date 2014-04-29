@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mfc:interfaceMediationFlow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:TransporteService="http://Bolivariano/TransporteService" xmlns:mfc="http://www.ibm.com/xmlns/prod/websphere/wbiserver/mfc/6.0.0" xmlns:ns1="http://Bolivariano/FlatFileImport1" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" name="Component1" targetNamespace="http://Bolivariano/Component1">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" portType="TransporteService:TransporteService"/>
+  </interfaces>
+  <references>
+    <reference name="FlatFileImport1Partner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns1:FlatFileImport1"/>
+    </reference>
+  </references>
+  <extendedOperationBinding source="operation1" target="retrieveFlatFile" sourcePortType="TransporteService:TransporteService" targetReference="FlatFileImport1Partner"/>
+  <operationFlow medflow="Component1.medflow"/>
+</mfc:interfaceMediationFlow>

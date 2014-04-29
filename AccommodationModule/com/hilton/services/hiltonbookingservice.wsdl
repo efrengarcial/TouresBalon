@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions targetNamespace="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:tns="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="bookingRoom">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="0" name="reservation" type="tns:ReservationRoom"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ReservationRoom">
+        <s:sequence>
+          <s:element maxOccurs="1" minOccurs="1" name="HotelID" type="s:int"/>
+          <s:element maxOccurs="1" minOccurs="1" name="RoomNumber" type="s:int"/>
+          <s:element maxOccurs="1" minOccurs="1" name="CheckInDate" type="s:dateTime"/>
+          <s:element maxOccurs="1" minOccurs="1" name="checkOutDate" type="s:dateTime"/>
+          <s:element maxOccurs="1" minOccurs="0" name="OrderID" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="bookingRoomResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="1" name="bookingRoomResult" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="cancelRoom">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="0" name="reservation" type="tns:ReservationRoom"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="cancelRoomResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="1" name="cancelRoomResult" type="s:boolean"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="validateAvailability">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="0" name="query" type="tns:QueryRoom"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="QueryRoom">
+        <s:sequence>
+          <s:element maxOccurs="1" minOccurs="0" name="City" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="Country" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="1" name="CheckInDate" type="s:dateTime"/>
+          <s:element maxOccurs="1" minOccurs="1" name="checkOutDate" type="s:dateTime"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="validateAvailabilityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="0" name="validateAvailabilityResult" type="tns:ArrayOfRoom"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfRoom">
+        <s:sequence>
+          <s:element maxOccurs="unbounded" minOccurs="0" name="Room" nillable="true" type="tns:Room"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Room">
+        <s:sequence>
+          <s:element maxOccurs="1" minOccurs="1" name="HotelID" type="s:int"/>
+          <s:element maxOccurs="1" minOccurs="1" name="RoomNumber" type="s:int"/>
+          <s:element maxOccurs="1" minOccurs="0" name="Name" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="Address" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="City" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="Country" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="0" name="Type" type="s:string"/>
+          <s:element maxOccurs="1" minOccurs="1" name="Price" type="s:double"/>
+          <s:element maxOccurs="1" minOccurs="1" name="CheckInDate" type="s:dateTime"/>
+          <s:element maxOccurs="1" minOccurs="1" name="checkOutDate" type="s:dateTime"/>
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="bookingRoomSoapIn">
+    <wsdl:part element="tns:bookingRoom" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="bookingRoomSoapOut">
+    <wsdl:part element="tns:bookingRoomResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="cancelRoomSoapIn">
+    <wsdl:part element="tns:cancelRoom" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="cancelRoomSoapOut">
+    <wsdl:part element="tns:cancelRoomResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="validateAvailabilitySoapIn">
+    <wsdl:part element="tns:validateAvailability" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="validateAvailabilitySoapOut">
+    <wsdl:part element="tns:validateAvailabilityResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="HiltonBookingServiceSoap">
+    <wsdl:operation name="bookingRoom">
+      <wsdl:input message="tns:bookingRoomSoapIn"/>
+      <wsdl:output message="tns:bookingRoomSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="cancelRoom">
+      <wsdl:input message="tns:cancelRoomSoapIn"/>
+      <wsdl:output message="tns:cancelRoomSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="validateAvailability">
+      <wsdl:input message="tns:validateAvailabilitySoapIn"/>
+      <wsdl:output message="tns:validateAvailabilitySoapOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="HiltonBookingServiceSoap" type="tns:HiltonBookingServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="bookingRoom">
+      <soap:operation soapAction="http://tempuri.org/bookingRoom" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelRoom">
+      <soap:operation soapAction="http://tempuri.org/cancelRoom" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validateAvailability">
+      <soap:operation soapAction="http://tempuri.org/validateAvailability" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="HiltonBookingServiceSoap12" type="tns:HiltonBookingServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="bookingRoom">
+      <soap12:operation soapAction="http://tempuri.org/bookingRoom" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelRoom">
+      <soap12:operation soapAction="http://tempuri.org/cancelRoom" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validateAvailability">
+      <soap12:operation soapAction="http://tempuri.org/validateAvailability" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="HiltonBookingService">
+    <wsdl:port binding="tns:HiltonBookingServiceSoap" name="HiltonBookingServiceSoap">
+      <soap:address location="http://localhost/TouresBalon.OMS.MockServices/Services/HiltonBookingService.asmx"/>
+    </wsdl:port>
+    <wsdl:port binding="tns:HiltonBookingServiceSoap12" name="HiltonBookingServiceSoap12">
+      <soap12:address location="http://localhost/TouresBalon.OMS.MockServices/Services/HiltonBookingService.asmx"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

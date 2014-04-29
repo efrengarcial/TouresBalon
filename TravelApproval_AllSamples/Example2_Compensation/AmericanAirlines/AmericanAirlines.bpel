@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?><bpws:process xmlns:bpws="http://schemas.xmlsoap.org/ws/2004/03/business-process/" xmlns:ns="http://Example2/AmericanAirlines/AmericanAirlinesArtifacts" xmlns:ns0="http://packtpub.com/service/airline/" xmlns:ns1="http://packtpub.com/service/americanairline/" xmlns:wpc="http://www.ibm.com/xmlns/prod/websphere/business-process/6.0.0/" expressionLanguage="http://www.ibm.com/xmlns/prod/websphere/business-process/expression-lang/java/6.0.0/" name="AmericanAirlines" suppressJoinFailure="yes" targetNamespace="http://packtpub.com/service/airline/" wpc:continueOnError="no" wpc:displayName="AmericanAirlines" wpc:executionMode="longRunning" wpc:id="4" wpc:validFrom="2009-12-08T07:41:34" wpc:version="IBM_7.0.100">
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="/resource/Example2_lib/FlightReservationPT.wsdl" namespace="http://packtpub.com/service/airline/"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="/resource/Example2_lib/FlightAvailabilityPT.wsdl" namespace="http://packtpub.com/service/airline/"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="/resource/Example2_lib/FlightReservationCallbackPT.wsdl" namespace="http://packtpub.com/service/airline/"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="/resource/Example2_lib/FlightCallbackPT.wsdl" namespace="http://packtpub.com/service/airline/"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="AmericanAirlinesArtifacts.wsdl" namespace="http://Example2/AmericanAirlines/AmericanAirlinesArtifacts"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../FlightAvailabilityPT.wsdl" namespace="http://packtpub.com/service/airline/"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../FlightTicketRequestMessage.xsd" namespace="http://packtpub.com/service/airline/"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../FlightReservationPT.wsdl" namespace="http://packtpub.com/service/airline/"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../TravelResponseMessage.xsd" namespace="http://packtpub.com/service/airline/"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../FlightReservationCallbackPT.wsdl" namespace="http://packtpub.com/service/airline/"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../FlightCallbackPT.wsdl" namespace="http://packtpub.com/service/airline/"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../FlightReservationMessage.xsd" namespace="http://packtpub.com/service/airline/"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../FlightCallbackAAPT.wsdl" namespace="http://packtpub.com/service/americanairline/"/>
+  <bpws:partnerLinks>
+    <bpws:partnerLink myRole="Interface" name="FlightReservationPT" partnerLinkType="ns:FlightReservationPTPLT" wpc:id="19"/>
+    <bpws:partnerLink myRole="Interface" name="FlightAvailabilityPT" partnerLinkType="ns:FlightAvailabilityPTPLT" wpc:id="20"/>
+    <bpws:partnerLink name="FlightReservationCallbackPTPartner" partnerLinkType="ns:FlightReservationCallbackPTPLT" partnerRole="Interface" wpc:id="21"/>
+    <bpws:partnerLink name="FlightCallbackPTPartner" partnerLinkType="ns:FlightCallbackPTPLT" partnerRole="Interface" wpc:id="22"/>
+  </bpws:partnerLinks>
+  <bpws:variables>
+    <bpws:variable name="FlightTicketRequest" type="ns0:FlightTicketRequestMessage" wpc:id="3"/>
+    <bpws:variable name="TravelResponse" type="ns0:TravelResponseMessage" wpc:id="6"/>
+    <bpws:variable name="FlightReservation" type="ns0:FlightReservationMessage" wpc:id="13"/>
+  </bpws:variables>
+  <bpws:pick createInstance="yes" name="ReceiveChoice" wpc:displayName="ReceiveChoice" wpc:id="5" wpc:transactionalBehavior="commitAfter">
+    <bpws:onMessage operation="FlightAvailability" partnerLink="FlightAvailabilityPT" portType="ns0:FlightAvailabilityPT" wpc:id="23">
+      <wpc:output>
+        <wpc:parameter name="FlightTicketRequest" variable="FlightTicketRequest"/>
+      </wpc:output>
+      <bpws:sequence name="FlightAvailabilitySequence" wpc:displayName="Flight Availability Sequence" wpc:id="1073741838">
+        <bpws:assign name="Assignflightdata" wpc:displayName="Assign flight data" wpc:id="15">
+          <bpws:copy>
+            <bpws:from variable="FlightTicketRequest">
+              <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[travelClass]]></bpws:query>
+            </bpws:from>
+            <bpws:to variable="TravelResponse">
+              <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[confirmationData/TravelClass]]></bpws:query>
+            </bpws:to>
+          </bpws:copy>
+          <bpws:copy>
+            <bpws:from variable="FlightTicketRequest">
+              <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[flightData/RequestNo]]></bpws:query>
+            </bpws:from>
+            <bpws:to variable="TravelResponse">
+              <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[confirmationData/FlightNo]]></bpws:query>
+            </bpws:to>
+          </bpws:copy>
+          <bpws:copy>
+            <bpws:from>
+              <bpws:expression expressionLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[((10 - string-length($FlightTicketRequest/travelClass)) * 4)*15.4]]></bpws:expression>
+            </bpws:from>
+            <bpws:to variable="TravelResponse">
+              <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[confirmationData/Price]]></bpws:query>
+            </bpws:to>
+          </bpws:copy>
+          <bpws:copy>
+            <bpws:from>true</bpws:from>
+            <bpws:to variable="TravelResponse">
+              <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[confirmationData/Approved]]></bpws:query>
+            </bpws:to>
+          </bpws:copy>
+          <bpws:copy>
+            <bpws:from variable="FlightTicketRequest">
+              <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[flightData/DesiredDepartureDate]]></bpws:query>
+            </bpws:from>
+            <bpws:to variable="TravelResponse">
+              <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[confirmationData/DepartureDateTime]]></bpws:query>
+            </bpws:to>
+          </bpws:copy>
+          <bpws:copy>
+            <bpws:from variable="FlightTicketRequest">
+              <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[flightData/DesiredReturnDate]]></bpws:query>
+            </bpws:from>
+            <bpws:to variable="TravelResponse">
+              <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[confirmationData/ReturnDateTime]]></bpws:query>
+            </bpws:to>
+          </bpws:copy>
+        </bpws:assign>
+        <bpws:invoke name="FlightCallback" operation="FlightTicketCallbackAA" partnerLink="FlightCallbackPTPartner" portType="ns1:FlightCallbackAAPT" wpc:displayName="Flight Callback" wpc:id="10">
+          <wpc:input>
+            <wpc:parameter name="TravelResponse" variable="TravelResponse"/>
+          </wpc:input>
+        </bpws:invoke>
+      </bpws:sequence>
+    </bpws:onMessage>
+    <bpws:onMessage operation="MakeReservation" partnerLink="FlightReservationPT" portType="ns0:FlightReservationPT" wpc:id="24">
+      <wpc:output>
+        <wpc:parameter name="TravelResponse" variable="TravelResponse"/>
+      </wpc:output>
+      <bpws:sequence name="FlightReservationSequence" wpc:displayName="Flight Reservation Sequence" wpc:id="18">
+        <bpws:assign name="AssignReservationConfirmation" wpc:displayName="Assign Reservation Confirmation" wpc:id="17">
+          <bpws:copy>
+            <bpws:from variable="TravelResponse">
+              <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[confirmationData/FlightNo]]></bpws:query>
+            </bpws:from>
+            <bpws:to variable="FlightReservation">
+              <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[FlightReservation/FlightNo]]></bpws:query>
+            </bpws:to>
+          </bpws:copy>
+          <bpws:copy>
+            <bpws:from variable="TravelResponse">
+              <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[confirmationData/Approved]]></bpws:query>
+            </bpws:from>
+            <bpws:to variable="FlightReservation">
+              <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[FlightReservation/Confirmed]]></bpws:query>
+            </bpws:to>
+          </bpws:copy>
+        </bpws:assign>
+        <bpws:invoke name="FlightReservationCallback" operation="FlightReservationCallback" partnerLink="FlightReservationCallbackPTPartner" portType="ns0:FlightReservationCallbackPT" wpc:displayName="Flight Reservation Callback" wpc:id="12">
+          <wpc:input>
+            <wpc:parameter name="FlightReservation" variable="FlightReservation"/>
+          </wpc:input>
+        </bpws:invoke>
+      </bpws:sequence>
+    </bpws:onMessage>
+    <bpws:onMessage operation="CancelReservation" partnerLink="FlightReservationPT" portType="ns0:FlightReservationPT" wpc:displayName="Flight Cancelation" wpc:id="25">
+      <wpc:output>
+        <wpc:parameter name="TravelResponse" variable="TravelResponse"/>
+      </wpc:output>
+      <bpws:sequence name="FlightCancelationSequence1" wpc:displayName="Flight Cancelation Sequence" wpc:id="26">
+        <bpws:assign name="AssignCancelationConfirmation1" wpc:displayName="Assign Cancelation Confirmation" wpc:id="27">
+          <bpws:copy>
+            <bpws:from variable="TravelResponse">
+              <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[confirmationData/FlightNo]]></bpws:query>
+            </bpws:from>
+            <bpws:to variable="FlightReservation">
+              <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[FlightReservation/FlightNo]]></bpws:query>
+            </bpws:to>
+          </bpws:copy>
+          <bpws:copy>
+            <bpws:from variable="TravelResponse">
+              <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[confirmationData/Approved]]></bpws:query>
+            </bpws:from>
+            <bpws:to variable="FlightReservation">
+              <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[FlightReservation/Confirmed]]></bpws:query>
+            </bpws:to>
+          </bpws:copy>
+        </bpws:assign>
+        <bpws:invoke name="FlightCancelationCallback1" operation="FlightReservationCallback" partnerLink="FlightReservationCallbackPTPartner" portType="ns0:FlightReservationCallbackPT" wpc:displayName="Flight Cancelation Callback" wpc:id="28">
+          <wpc:input>
+            <wpc:parameter name="FlightReservation" variable="FlightReservation"/>
+          </wpc:input>
+        </bpws:invoke>
+      </bpws:sequence>
+    </bpws:onMessage>
+  </bpws:pick>
+</bpws:process>

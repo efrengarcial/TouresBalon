@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map:businessObjectMap xmlns:Order2OrderRegular="http://OrderPreProcessingMediation" xmlns:createOrderRequestMsg="smo://smo/name%3Dwsdl-body/message%3D%257Bhttp%253A%252F%252FOrderManagementLib%252FOrderManagementIF%257DcreateOrderRequestMsg/xpath%3D%252Fbody/namespace%3DBOMap/smo.xsd" xmlns:createOrderRequestMsg_1="smo://smo/name%3Dwsdl-body/message%3D%257Bhttp%253A%252F%252FOrderPreProcessingMediation%252FOrderPreProcessingIF%257DcreateOrderRequestMsg/xpath%3D%252Fbody/namespace%3DBOMap/smo.xsd" xmlns:map="http://www.ibm.com/xmlns/prod/websphere/wbiserver/map/6.0.0" targetNamespace="http://OrderPreProcessingMediation">
+  <map:name>Order2OrderRegular</map:name>
+  <map:inputBusinessObjectVariable businessObjectRef="createOrderRequestMsg_1:createOrderRequestMsg" name="createOrderRequestMsg"/>
+  <map:outputBusinessObjectVariable businessObjectRef="createOrderRequestMsg:createOrderRequestMsg" name="createOrderRequestMsg_1"/>
+  <map:propertyMap executionOrder="1">
+    <map:move>
+      <map:input businessObjectVariableRef="createOrderRequestMsg" property="createOrder/orderManagementInputSb/custID"/>
+      <map:output businessObjectVariableRef="createOrderRequestMsg_1" property="createOrder/orderManagementInput/custID"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="2">
+    <map:move>
+      <map:input businessObjectVariableRef="createOrderRequestMsg" property="createOrder/orderManagementInputSb/itemID"/>
+      <map:output businessObjectVariableRef="createOrderRequestMsg_1" property="createOrder/orderManagementInput/itemID"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="3">
+    <map:move>
+      <map:input businessObjectVariableRef="createOrderRequestMsg" property="createOrder/orderManagementInputSb/itemQty"/>
+      <map:output businessObjectVariableRef="createOrderRequestMsg_1" property="createOrder/orderManagementInput/itemQty"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="4">
+    <map:move>
+      <map:input businessObjectVariableRef="createOrderRequestMsg" property="createOrder/orderManagementInputSb/submitterID"/>
+      <map:output businessObjectVariableRef="createOrderRequestMsg_1" property="createOrder/orderManagementInput/submitterID"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="5">
+    <map:move>
+      <map:input businessObjectVariableRef="createOrderRequestMsg" property="createOrder/orderManagementInputSb/submitterEmail"/>
+      <map:output businessObjectVariableRef="createOrderRequestMsg_1" property="createOrder/orderManagementInput/submitterEmail"/>
+    </map:move>
+  </map:propertyMap>
+</map:businessObjectMap>

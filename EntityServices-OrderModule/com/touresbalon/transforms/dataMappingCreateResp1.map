@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://EntityServices-OrderModule/com/touresbalon/transforms/dataMappingCreateResp1" version="7.0.500" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://EntityServices-OrderModule/com/touresbalon/transforms/dataMappingCreateResp1">
+    <input path="smo://smo/name%3Dwsdl-primary/message%3D%257Bhttp%253A%252F%252Fservice.model.orders.oms.touresbalon.com%252F%257DcreateOrderResponse/xpath%3D%252Fbody/smo.xsd"/>
+    <output path="smo://smo/name%3Dwsdl-primary/message%3D%257Bhttp%253A%252F%252FOrderModule%252Fcom%252Ftouresbalon%252Finterfaces%252FOrderServiceIF%257DcreateResponseMsg/xpath%3D%252Fbody/smo.xsd"/>
+    <mappingDeclaration name="dataMappingCreateResp1">
+        <input path="body"/>
+        <output path="body"/>
+    </mappingDeclaration>
+</mappingRoot>

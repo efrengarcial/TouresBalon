@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://AccommodationLib/com/touresbalon/bo"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:complexType name="RoomReservationRequest">
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="0" name="hotelID"
+				nillable="true" type="xsd:int">
+				<xsd:annotation/>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="roomNumber"
+				nillable="true" type="xsd:int">
+				<xsd:annotation/>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="checkInDate"
+				nillable="true" type="xsd:date">
+				<xsd:annotation/>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="checkOutDate"
+				nillable="true" type="xsd:date">
+				<xsd:annotation/>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="orderID"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="guestName"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="hotelCompany"
+				type="xsd:string">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

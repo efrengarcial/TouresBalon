@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objectdefinition:ObjectDefinitions xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:base="http:///base.ecore" xmlns:objectdefinition="http:///objectdefinition.ecore" timeStamp="1395629033970">
+  <descriptor name="projectUID">
+    <value xsi:type="base:LiteralValue" value="PID-0702f7235977ba193912d659e1ae50a0"/>
+  </descriptor>
+  <descriptor name="widManaged">
+    <value xsi:type="base:LiteralValue" value="true"/>
+  </descriptor>
+</objectdefinition:ObjectDefinitions>

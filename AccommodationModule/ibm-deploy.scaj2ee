@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scaj2ee:IntegrationModuleDeploymentConfiguration xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:scaj2ee="http://www.ibm.com/xmlns/prod/websphere/sca/j2ee/6.0.2">
+  <appProject/>
+  <ejbProject/>
+  <wsImports/>
+  <wsExports/>
+  <webProject/>
+</scaj2ee:IntegrationModuleDeploymentConfiguration>

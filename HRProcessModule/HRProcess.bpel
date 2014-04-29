@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpws:process xmlns:bpws="http://schemas.xmlsoap.org/ws/2004/03/business-process/" xmlns:ns="http://HRProcessModule/HRProcessArtifacts" xmlns:ns0="http://HRProcessModule" xmlns:ns1="http://HRProcessModule/HRProcessInterface" xmlns:ns2="http://hr.issw.ibm.com" xmlns:wpc="http://www.ibm.com/xmlns/prod/websphere/business-process/6.0.0/" expressionLanguage="http://www.ibm.com/xmlns/prod/websphere/business-process/expression-lang/java/6.0.0/" name="HRProcess" suppressJoinFailure="yes" targetNamespace="http://HRProcessModule" wpc:displayName="HRProcess" wpc:executionMode="microflow" wpc:id="1" wpc:validFrom="2004-01-01T12:00:00">
+  <wpc:javaGlobals>
+    <wpc:import packages="javax.xml.namespace.QName"/>
+    <wpc:import packages="javax.naming.InitialContext"/>
+    <wpc:import packages="javax.sql.DataSource"/>
+    <wpc:import packages="java.sql.Connection"/>
+    <wpc:import packages="java.sql.Statement"/>
+  </wpc:javaGlobals>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="HRProcessInterface.wsdl" namespace="http://HRProcessModule/HRProcessInterface"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="HRInfo.xsd" namespace="http://HRProcessModule"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="HRProcessArtifacts.wsdl" namespace="http://HRProcessModule/HRProcessArtifacts"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="EmployeeServices.wsdl" namespace="http://hr.issw.ibm.com"/>
+  <bpws:partnerLinks>
+    <bpws:partnerLink myRole="HRProcessInterfaceRole" name="HRProcessInterface" partnerLinkType="ns:HRProcessInterfacePLT"/>
+    <bpws:partnerLink name="EmployeeServicesPartner" partnerLinkType="ns:EmployeeServicesLT" partnerRole="EmployeeServicesRole"/>
+  </bpws:partnerLinks>
+  <bpws:variables>
+    <bpws:variable name="Info" type="ns0:HRInfo" wpc:id="2"/>
+    <bpws:variable name="Emp" type="ns2:Employee" wpc:id="10"/>
+  </bpws:variables>
+  <bpws:sequence name="HiddenSequence" wpc:id="1073741827">
+    <bpws:receive createInstance="yes" name="Receive" operation="processNewEmployee" partnerLink="HRProcessInterface" portType="ns1:HRProcessInterface" wpc:displayName="Receive" wpc:id="4">
+      <wpc:output>
+        <wpc:parameter name="info" variable="Info"/>
+      </wpc:output>
+    </bpws:receive>
+    <bpws:invoke name="AddToPayroll" operation="null" partnerLink="null" portType="wpc:null" wpc:displayName="addToPayroll" wpc:id="8">
+      <wpc:script>
+        <wpc:javaCode><![CDATA[System.out.println("##########Add employee to payroll");
+]]></wpc:javaCode>
+      </wpc:script>
+    </bpws:invoke>
+    <bpws:assign name="Info2Emp" wpc:displayName="Info2Emp" wpc:id="11">
+      <bpws:copy>
+        <bpws:from variable="Info">
+          <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[/employeeID]]></bpws:query>
+        </bpws:from>
+        <bpws:to variable="Emp">
+          <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[/empNO]]></bpws:query>
+        </bpws:to>
+      </bpws:copy>
+      <bpws:copy>
+        <bpws:from variable="Info">
+          <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[/fName]]></bpws:query>
+        </bpws:from>
+        <bpws:to variable="Emp">
+          <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[/firstName]]></bpws:query>
+        </bpws:to>
+      </bpws:copy>
+      <bpws:copy>
+        <bpws:from variable="Info">
+          <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[/MI]]></bpws:query>
+        </bpws:from>
+        <bpws:to variable="Emp">
+          <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[/midInit]]></bpws:query>
+        </bpws:to>
+      </bpws:copy>
+      <bpws:copy>
+        <bpws:from variable="Info">
+          <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[/lName]]></bpws:query>
+        </bpws:from>
+        <bpws:to variable="Emp">
+          <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[/lastName]]></bpws:query>
+        </bpws:to>
+      </bpws:copy>
+      <bpws:copy>
+        <bpws:from variable="Info">
+          <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[/education]]></bpws:query>
+        </bpws:from>
+        <bpws:to variable="Emp">
+          <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[/edLevel]]></bpws:query>
+        </bpws:to>
+      </bpws:copy>
+    </bpws:assign>
+    <bpws:invoke name="AddToEmployeeRegistry" operation="addEmployee" partnerLink="EmployeeServicesPartner" portType="ns2:EmployeeServices" wpc:displayName="addToEmployeeRegistry" wpc:id="9">
+      <wpc:input>
+        <wpc:parameter name="e" variable="Emp"/>
+      </wpc:input>
+      <wpc:output/>
+    </bpws:invoke>
+    <bpws:invoke name="CheckSSN" operation="null" partnerLink="null" portType="wpc:null" wpc:displayName="checkSSN" wpc:id="6">
+      <wpc:script>
+        <wpc:javaCode><![CDATA[System.out.println("##########Done adding Employee to registry using Web service");
+System.out.println("##########Start to Check employee SSN .....");
+
+//int i = 5/0;
+//throw new IllegalStateException("my excpetion");
+if (Emp.getString("empNO").startsWith("C")){
+System.out.println("##########Checking employee SSN failed, raising fault");
+raiseFault(new QName("http://www.ibm.com/issw/HRProcessModule","SSNCheckingFault"));
+
+}
+
+System.out.println("##########Done Checking employee SSN, HR process finished succefully");]]></wpc:javaCode>
+      </wpc:script>
+    </bpws:invoke>
+  </bpws:sequence>
+</bpws:process>

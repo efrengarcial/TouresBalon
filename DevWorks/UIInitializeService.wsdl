@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="UIInitializeService" targetNamespace="http://DevWorks/UIInitializeService" xmlns:bons1="http://com.ibm.dwexample.bo" xmlns:tns="http://DevWorks/UIInitializeService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://DevWorks/UIInitializeService">
+      <xsd:import namespace="http://com.ibm.dwexample.bo" schemaLocation="UserDataStore.xsd"/>
+      <xsd:import namespace="http://com.ibm.dwexample.bo" schemaLocation="Picklist.xsd"/>
+      <xsd:element name="getDivisions">
+        <xsd:complexType>
+          <xsd:sequence/>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getDivisionsResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="divs" nillable="true" type="bons1:Picklist"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getJobLevels">
+        <xsd:complexType>
+          <xsd:sequence/>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getJobLevelsResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="joblevels" nillable="true" type="bons1:Picklist"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getJobTypes">
+        <xsd:complexType>
+          <xsd:sequence/>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getJobTypesResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="jobtypes" nillable="true" type="bons1:Picklist"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getUserDetails">
+        <xsd:complexType>
+          <xsd:sequence/>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getUserDetailsResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="user" nillable="true" type="bons1:UserDataStore"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="getDivisionsRequestMsg">
+    <wsdl:part element="tns:getDivisions" name="getDivisionsParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getDivisionsResponseMsg">
+    <wsdl:part element="tns:getDivisionsResponse" name="getDivisionsResult"/>
+  </wsdl:message>
+    <wsdl:message name="getJobLevelsRequestMsg">
+    <wsdl:part element="tns:getJobLevels" name="getJobLevelsParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getJobLevelsResponseMsg">
+    <wsdl:part element="tns:getJobLevelsResponse" name="getJobLevelsResult"/>
+  </wsdl:message>
+    <wsdl:message name="getJobTypesRequestMsg">
+    <wsdl:part element="tns:getJobTypes" name="getJobTypesParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getJobTypesResponseMsg">
+    <wsdl:part element="tns:getJobTypesResponse" name="getJobTypesResult"/>
+  </wsdl:message>
+    <wsdl:message name="getUserDetailsRequestMsg">
+    <wsdl:part element="tns:getUserDetails" name="getUserDetailsParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getUserDetailsResponseMsg">
+    <wsdl:part element="tns:getUserDetailsResponse" name="getUserDetailsResult"/>
+  </wsdl:message>
+    <wsdl:portType name="UIInitializeService">
+    <wsdl:operation name="getDivisions">
+      <wsdl:input message="tns:getDivisionsRequestMsg" name="getDivisionsRequest"/>
+      <wsdl:output message="tns:getDivisionsResponseMsg" name="getDivisionsResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="getJobLevels">
+      <wsdl:input message="tns:getJobLevelsRequestMsg" name="getJobLevelsRequest"/>
+      <wsdl:output message="tns:getJobLevelsResponseMsg" name="getJobLevelsResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="getJobTypes">
+      <wsdl:input message="tns:getJobTypesRequestMsg" name="getJobTypesRequest"/>
+      <wsdl:output message="tns:getJobTypesResponseMsg" name="getJobTypesResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="getUserDetails">
+      <wsdl:input message="tns:getUserDetailsRequestMsg" name="getUserDetailsRequest"/>
+      <wsdl:output message="tns:getUserDetailsResponseMsg" name="getUserDetailsResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

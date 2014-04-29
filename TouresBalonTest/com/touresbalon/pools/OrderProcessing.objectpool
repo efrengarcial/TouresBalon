@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.ibm.ccl.soa.test.common.models.datatable:ComplexDataPool xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.ibm.ccl.soa.test.common.models.datatable="http:///com/ibm/ccl/soa/test/common/models/datatable.ecore" xmlns:com.ibm.ccl.soa.test.common.models.value="http:///com/ibm/ccl/soa/test/common/models/value.ecore" id="1398748325619_11205">
+  <dataSets name="Default" id="1398748325639_11207">
+    <entries xsi:type="com.ibm.ccl.soa.test.common.models.datatable:DataSetColumn" name="Value" id="1398748325639_11208">
+      <elements xsi:type="com.ibm.ccl.soa.test.common.models.datatable:DataSetColumnComplexValue">
+        <value xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueStructure" name="request" id="1398748338674_11225" value="" defaultValue="" typeURI="xsd:/http://OrderManagementLib/com/touresbalon/bo#Order" baseTypeURI="xsd:/http://OrderManagementLib/com/touresbalon/bo#Order" hasChildren="true">
+          <context>
+            <properties name="project_context" value="OrderManagement"/>
+          </context>
+          <properties name="paramlist_context" value="OrderManagement.OrderProcessingBP.startProcess"/>
+          <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="orderDate" id="1398748338674_11226" value="2014-04-28T23:55:33.631-0500" defaultValue="2014-04-28T23:55:33.631-0500" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#dateTime" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#dateTime"/>
+          <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="price" id="1398748338674_11227" value="5000" defaultValue="0" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#decimal" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#decimal"/>
+          <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="comments" id="1398748338674_11228" value="xxxxxx" defaultValue="" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#string"/>
+          <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueStructure" name="creditCard" id="1398748338674_11229" value="" defaultValue="" typeURI="xsd:/http://OrderManagementLib/com/touresbalon/bo#CreditCard" baseTypeURI="xsd:/http://OrderManagementLib/com/touresbalon/bo#CreditCard" hasChildren="true">
+            <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="type" id="1398748338674_11230" value="" defaultValue="" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#string"/>
+            <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="number" id="1398748338674_11231" value="" defaultValue="" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#string"/>
+            <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="securityCode" id="1398748338674_11232" value="" defaultValue="" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#string"/>
+            <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="expiration" id="1398748338674_11233" value="2014-04-28-0500" defaultValue="2014-04-28-0500" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#date" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#date"/>
+          </elements>
+          <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueArray" name="products" id="1398748338674_11234" writeable="false" value="" defaultValue="" typeURI="xsd:/http://OrderManagementLib/com/touresbalon/bo#Product[]" baseTypeURI="xsd:/http://OrderManagementLib/com/touresbalon/bo#Product[]" elementTypeURI="xsd:/http://OrderManagementLib/com/touresbalon/bo#Product" elementBaseTypeURI="xsd:/http://OrderManagementLib/com/touresbalon/bo#Product"/>
+          <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueStructure" name="customer" id="1398748338674_11235" value="" defaultValue="" typeURI="xsd:/http://OrderManagementLib/com/touresbalon/bo#Customer" baseTypeURI="xsd:/http://OrderManagementLib/com/touresbalon/bo#Customer" hasChildren="true">
+            <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="Id" id="1398748338674_11236" value="1" defaultValue="" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#string"/>
+            <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="firstName" id="1398748338674_11237" value="xxxxx" defaultValue="" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#string"/>
+            <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="lastName" id="1398748338674_11238" value="yyyyy" defaultValue="" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#string"/>
+            <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="emailAddress" id="1398748338674_11239" value="efren.gl@gmail.com" defaultValue="" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#string"/>
+            <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="type" id="1398748338674_11240" value="PLATINO" defaultValue="" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#string"/>
+          </elements>
+        </value>
+      </elements>
+    </entries>
+  </dataSets>
+  <columnTemplates name="Value" id="1398748325619_11206" typeURI="java:/java.lang#Object"/>
+</com.ibm.ccl.soa.test.common.models.datatable:ComplexDataPool>

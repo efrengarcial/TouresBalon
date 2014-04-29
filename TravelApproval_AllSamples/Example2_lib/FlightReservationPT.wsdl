@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="FlightReservationPT" targetNamespace="http://packtpub.com/service/airline/" xmlns:tns="http://packtpub.com/service/airline/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://packtpub.com/service/airline/">
+      <xsd:include schemaLocation="TravelResponseMessage.xsd"/>
+      <xsd:element name="MakeReservation">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="TravelResponse" nillable="true" type="tns:TravelResponseMessage"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="MakeReservationRequestMsg">
+    <wsdl:part element="tns:MakeReservation" name="MakeReservationParameters"/>
+  </wsdl:message>
+    <wsdl:portType name="FlightReservationPT">
+    <wsdl:operation name="MakeReservation">
+      <wsdl:input message="tns:MakeReservationRequestMsg" name="MakeReservationRequest"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

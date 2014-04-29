@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="InsuranceSelectionPT" targetNamespace="http://Example1/InsuranceSelectionPT" xmlns:bons1="http://Example1" xmlns:tns="http://Example1/InsuranceSelectionPT" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://Example1/InsuranceSelectionPT">
+      <xsd:import namespace="http://Example1" schemaLocation="InsuranceResponseMessage.xsd"/>
+      <xsd:import namespace="http://Example1" schemaLocation="InsuranceRequestMessage.xsd"/>
+      <xsd:element name="SelectInsurance">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="InsuranceRequest" nillable="true" type="bons1:InsuranceRequestMessage"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="SelectInsuranceResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="InsuranceSelectionResponse" nillable="true" type="bons1:InsuranceResponseMessage"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="SelectInsuranceRequestMsg">
+    <wsdl:part element="tns:SelectInsurance" name="SelectInsuranceParameters"/>
+  </wsdl:message>
+    <wsdl:message name="SelectInsuranceResponseMsg">
+    <wsdl:part element="tns:SelectInsuranceResponse" name="SelectInsuranceResult"/>
+  </wsdl:message>
+    <wsdl:portType name="InsuranceSelectionPT">
+    <wsdl:operation name="SelectInsurance">
+      <wsdl:input message="tns:SelectInsuranceRequestMsg" name="SelectInsuranceRequest"/>
+      <wsdl:output message="tns:SelectInsuranceResponseMsg" name="SelectInsuranceResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

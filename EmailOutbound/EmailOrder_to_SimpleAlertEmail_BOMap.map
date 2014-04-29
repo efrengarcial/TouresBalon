@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map:businessObjectMap xmlns:Customer="http://OrderManagementLib" xmlns:EmailOrder_to_SimpleAlertEmail_BOMap="http://EmailOutbound" xmlns:map="http://www.ibm.com/xmlns/prod/websphere/wbiserver/map/6.0.0" xmlns:sendEmailRequestMsg="smo://smo/name%3Dwsdl-body/message%3D%257Bhttp%253A%252F%252FOrderManagementLib%252FEmailServiceIF%257DsendEmailRequestMsg/xpath%3D%252Fbody/namespace%3DBOMap/smo.xsd" xmlns:sendSimpleAlertEmailRequestMsg="smo://smo/name%3Dwsdl-body/message%3D%257Bhttp%253A%252F%252FEmailOutbound%252FEmailImport%257DsendSimpleAlertEmailRequestMsg/xpath%3D%252Fbody/namespace%3DBOMap/smo.xsd" targetNamespace="http://EmailOutbound">
+  <map:name>EmailOrder_to_SimpleAlertEmail_BOMap</map:name>
+  <map:inputBusinessObjectVariable businessObjectRef="sendEmailRequestMsg:sendEmailRequestMsg" name="sendEmailRequestMsg"/>
+  <map:outputBusinessObjectVariable businessObjectRef="sendSimpleAlertEmailRequestMsg:sendSimpleAlertEmailRequestMsg" name="sendSimpleAlertEmailRequestMsg"/>
+  <map:propertyMap executionOrder="1">
+    <map:move>
+      <map:input businessObjectVariableRef="sendEmailRequestMsg" property="sendEmail/emailOrderSuspend/to"/>
+      <map:output businessObjectVariableRef="sendSimpleAlertEmailRequestMsg" property="sendSimpleAlertEmail/sendSimpleAlertEmailInput/To"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="2">
+    <map:move>
+      <map:input businessObjectVariableRef="sendEmailRequestMsg" property="sendEmail/emailOrderSuspend/from"/>
+      <map:output businessObjectVariableRef="sendSimpleAlertEmailRequestMsg" property="sendSimpleAlertEmail/sendSimpleAlertEmailInput/From"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="3">
+    <map:move>
+      <map:input businessObjectVariableRef="sendEmailRequestMsg" property="sendEmail/emailOrderSuspend/subject"/>
+      <map:output businessObjectVariableRef="sendSimpleAlertEmailRequestMsg" property="sendSimpleAlertEmail/sendSimpleAlertEmailInput/Subject"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="4">
+    <map:move>
+      <map:input businessObjectVariableRef="sendEmailRequestMsg" property="sendEmail/emailOrderSuspend/body"/>
+      <map:output businessObjectVariableRef="sendSimpleAlertEmailRequestMsg" property="sendSimpleAlertEmail/sendSimpleAlertEmailInput/mailContent"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="5">
+    <map:set value="UTF-8">
+      <map:output businessObjectVariableRef="sendSimpleAlertEmailRequestMsg" property="sendSimpleAlertEmail/sendSimpleAlertEmailInput/Encoding"/>
+    </map:set>
+  </map:propertyMap>
+</map:businessObjectMap>

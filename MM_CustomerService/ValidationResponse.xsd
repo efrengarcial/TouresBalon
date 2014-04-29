@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://MM_CustomerService"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:bons0="http://MM_CustomerService">
+	<xsd:include schemaLocation="Meta.xsd"></xsd:include>
+	<xsd:complexType name="Response" mixed="true">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="result" type="xsd:string"
+				maxOccurs="unbounded">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="meta" type="bons0:Meta"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

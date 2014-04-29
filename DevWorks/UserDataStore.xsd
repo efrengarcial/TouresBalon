@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://com.ibm.dwexample.bo"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:bons0="http://com.ibm.dwexample.bo">
+	<xsd:include schemaLocation="User.xsd"></xsd:include>
+	<xsd:complexType name="UserDataStore">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="label" type="xsd:string"></xsd:element>
+			<xsd:element minOccurs="0" name="identifier"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="items" type="bons0:User"
+				maxOccurs="unbounded">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

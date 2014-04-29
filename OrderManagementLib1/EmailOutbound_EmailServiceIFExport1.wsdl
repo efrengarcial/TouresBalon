@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="EmailServiceIFExport1_EmailServiceIFHttp_Service" targetNamespace="http://OrderManagementLib/EmailServiceIF/Binding" xmlns:Port_0="http://OrderManagementLib/EmailServiceIF" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:this="http://OrderManagementLib/EmailServiceIF/Binding" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import location="EmailServiceIF.wsdl" namespace="http://OrderManagementLib/EmailServiceIF"/>
+  <wsdl:binding name="EmailServiceIFExport1_EmailServiceIFHttpBinding" type="Port_0:EmailServiceIF">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="sendEmail">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="sendEmailRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EmailServiceIFExport1_EmailServiceIFHttpService">
+    <wsdl:port binding="this:EmailServiceIFExport1_EmailServiceIFHttpBinding" name="EmailServiceIFExport1_EmailServiceIFHttpPort">
+      <soap:address location="http://localhost:9080/EmailOutboundWeb/sca/EmailServiceIFExport1"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

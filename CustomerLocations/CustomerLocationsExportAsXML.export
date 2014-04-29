@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:export xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:http="http://www.ibm.com/xmlns/prod/websphere/scdl/http/6.1.0" xmlns:ns1="http://Customers/GetCustomers" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="CustomerLocationsExportAsXML" name="CustomerLocationsExportAsXML" target="CustomerLocations">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" portType="ns1:GetCustomers"/>
+  </interfaces>
+  <esbBinding xsi:type="http:HTTPExportBinding" defaultDataBinding="com.ibm.websphere.http.data.bindings.HTTPStreamDataBindingXML">
+    <exportInteraction contextPath="/CustomerLocationsExportAsXML">
+      <httpMethod>
+        <httpMethod>GET</httpMethod>
+      </httpMethod>
+    </exportInteraction>
+    <functionSelector>com.ibm.websphere.http.selectors.UrlMethodFunctionSelector</functionSelector>
+    <methodBinding method="getCustomers">
+      <exportInteraction contextPath="/getCustomers">
+        <httpMethod>
+          <httpMethod>GET</httpMethod>
+        </httpMethod>
+      </exportInteraction>
+      <nativeMethod>/CustomerLocationsExportAsXML/getCustomers@GET</nativeMethod>
+    </methodBinding>
+  </esbBinding>
+</scdl:export>

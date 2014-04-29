@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:import xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:configuration_6.1.0="http://www.ibm.com/xmlns/prod/websphere/j2ca/configuration/6.1.0" xmlns:http="http://www.ibm.com/xmlns/prod/websphere/scdl/http/6.1.0" xmlns:ns1="http://LB_Customer/CustomerService" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="HttpImport" name="HttpImport">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" preferredInteractionStyle="sync" portType="ns1:CustomerService">
+      <scdl:interfaceQualifier xsi:type="scdl:JoinTransaction" value="false"/>
+    </interface>
+  </interfaces>
+  <esbBinding xsi:type="http:HTTPImportBinding" defaultDataBinding="com.ibm.websphere.http.data.bindings.HTTPStreamDataBindingSOAP">
+    <importInteraction endpointURL="http://localhost:9080/CustomerServiceWeb/sca/CustomerServiceExport1" httpMethod="GET"/>
+    <methodBinding method="addCostumer">
+      <importInteraction endpointURL="http://localhost:9080/CustomerServiceWeb/sca/CustomerServiceExport1" httpMethod="POST">
+        <requestHeaders>
+          <header>
+            <name>SOAPAction</name>
+            <value> </value>
+          </header>
+        </requestHeaders>
+      </importInteraction>
+    </methodBinding>
+  </esbBinding>
+</scdl:import>

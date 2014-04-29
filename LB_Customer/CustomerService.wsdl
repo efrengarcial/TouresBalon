@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="CustomerService" targetNamespace="http://LB_Customer/CustomerService" xmlns:bons1="http://LB_Customer" xmlns:tns="http://LB_Customer/CustomerService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://LB_Customer/CustomerService">
+      <xsd:import namespace="http://LB_Customer" schemaLocation="Customer.xsd"/>
+      <xsd:element name="addCostumer">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="costumer" nillable="true" type="bons1:Customer"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="addCostumerRequestMsg">
+    <wsdl:part element="tns:addCostumer" name="addCostumerParameters"/>
+  </wsdl:message>
+    <wsdl:portType name="CustomerService">
+    <wsdl:operation name="addCostumer">
+      <wsdl:input message="tns:addCostumerRequestMsg" name="addCostumerRequest"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

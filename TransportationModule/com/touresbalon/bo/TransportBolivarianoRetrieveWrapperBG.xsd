@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://BolivarianoModule/com/touresbalon/bo/transportbolivarianoretrievewrapperbg" xmlns:transportbolivarianoretrievewrapper="http://BolivarianoModule/com/touresbalon/bo/transportbolivarianoretrievewrapper" xmlns:bo="http://www.ibm.com/xmlns/prod/websphere/bo/6.0.0">
+<xsd:import namespace="http://BolivarianoModule/com/touresbalon/bo/transportbolivarianoretrievewrapper" schemaLocation="TransportBolivarianoRetrieveWrapper.xsd"/>
+<xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/bo/6.0.0" schemaLocation="../../../BusinessGraph.xsd"/>
+
+<xsd:annotation xml:space="preserve">
+<xsd:appinfo source="http://www.ibm.com/xmlns/prod/j2ca/versionCompatability">
+<info:resourceAdapter xmlns:info="http://www.ibm.com/xmlns/prod/j2ca/versionCompatability" version="7.0.0.0"/>
+</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType name="TransportBolivarianoRetrieveWrapperBG">
+<xsd:complexContent>
+<xsd:extension base="bo:BusinessGraph">
+<xsd:sequence>
+<xsd:element name="verb" minOccurs="0" maxOccurs="1">
+<xsd:simpleType>
+<xsd:restriction base="xsd:string">
+<xsd:enumeration value="CREATE"/>
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="TransportBolivarianoRetrieveWrapper" type="transportbolivarianoretrievewrapper:TransportBolivarianoRetrieveWrapper"/>
+</xsd:sequence>
+</xsd:extension>
+</xsd:complexContent>
+</xsd:complexType>
+</xsd:schema>

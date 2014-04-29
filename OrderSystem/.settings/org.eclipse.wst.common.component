@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="OrderSystem">
+        <wb-resource deploy-path="/" source-path="/"/>
+        <dependent-module archiveName="OrderSystemEJB.jar" deploy-path="/" handle="module:/resource/OrderSystemEJB/OrderSystemEJB">
+            <dependent-object>Module_1292203928548</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module deploy-path="/" handle="module:/resource/OrderClient/OrderClient">
+            <dependent-object>Module_1292205529751</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    </wb-module>
+</project-modules>

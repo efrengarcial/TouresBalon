@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="BolivarianoFile" targetNamespace="http://TransportationLib" xmlns:bons0="http://CommonDomain/com/touresbalon/bo" xmlns:bons1="http://TransportLib/com/touresbalon/bo" xmlns:bons2="http://TransportLib" xmlns:tns="http://TransportationLib" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://com/ibm/j2ca/fault/afcfault">
+    </xsd:schema>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://TransportationLib" xmlns:bons2="http://TransportationLib">
+            <xsd:import namespace="http://CommonDomain/com/touresbalon/bo" schemaLocation="com/touresbalon/bo/ReturnCode.xsd"/>
+            <xsd:import namespace="http://TransportLib/com/touresbalon/bo" schemaLocation="com/touresbalon/bo/ReservationCancelWrapperRequest.xsd"/>
+            <xsd:import namespace="http://TransportLib/com/touresbalon/bo" schemaLocation="com/touresbalon/bo/TravelResponse.xsd"/>
+            <xsd:import namespace="http://TransportLib/com/touresbalon/bo" schemaLocation="com/touresbalon/bo/TravelRequest.xsd"/>
+            <xsd:import namespace="http://TransportLib/com/touresbalon/bo" schemaLocation="com/touresbalon/bo/ReservationWrapperRequest.xsd"/>
+            <xsd:import namespace="http://TransportLib/com/touresbalon/bo" schemaLocation="com/touresbalon/bo/TransportWrapper.xsd"/>
+            <xsd:element name="checkAvailability">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="request" nillable="true" type="bons1:TravelRequest"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="checkAvailabilityResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="response" nillable="true" type="bons1:TravelWrapperResponse"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="makeReservation">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="request" nillable="true" type="bons1:ReservationWrapperRequest"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="cancelReservation">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="request" nillable="true" type="bons1:ReservationCancelWrapperRequest"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="cancelReservationResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="response" nillable="true" type="bons0:ReturnCode"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+        </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="checkAvailabilityRequestMsg">
+    <wsdl:part element="tns:checkAvailability" name="checkAvailabilityParameters"/>
+  </wsdl:message>
+    <wsdl:message name="checkAvailabilityResponseMsg">
+    <wsdl:part element="tns:checkAvailabilityResponse" name="checkAvailabilityResult"/>
+  </wsdl:message>
+    <wsdl:message name="makeReservationRequestMsg">
+    <wsdl:part element="tns:makeReservation" name="makeReservationParameters"/>
+  </wsdl:message>
+    <wsdl:message name="cancelReservationRequestMsg">
+    <wsdl:part element="tns:cancelReservation" name="cancelReservationParameters"/>
+  </wsdl:message>
+    <wsdl:message name="cancelReservationResponseMsg">
+    <wsdl:part element="tns:cancelReservationResponse" name="cancelReservationResult"/>
+  </wsdl:message>
+    <wsdl:portType name="TransportationServiceIF">
+        <wsdl:operation name="checkAvailability">
+      <wsdl:input message="tns:checkAvailabilityRequestMsg" name="checkAvailabilityRequest"/>
+      <wsdl:output message="tns:checkAvailabilityResponseMsg" name="checkAvailabilityResponse"/>
+    </wsdl:operation>
+        <wsdl:operation name="makeReservation">
+      <wsdl:input message="tns:makeReservationRequestMsg" name="makeReservationRequest"/>
+    </wsdl:operation>
+        <wsdl:operation name="cancelReservation">
+      <wsdl:input message="tns:cancelReservationRequestMsg" name="cancelReservationRequest"/>
+      <wsdl:output message="tns:cancelReservationResponseMsg" name="cancelReservationResponse"/>
+    </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mfc:interfaceMediationFlow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:AddCustomer="http://CustomersLib/AddCustomer" xmlns:GetCustomerLocationsFeed="http://CustomerLocationsFeed/GetCustomerLocationsFeed" xmlns:GetCustomers="http://Customers/GetCustomers" xmlns:mfc="http://www.ibm.com/xmlns/prod/websphere/wbiserver/mfc/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" name="CustomerLocations" targetNamespace="http://CustomerLocations/CustomerLocations">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" portType="GetCustomers:GetCustomers"/>
+    <interface xsi:type="wsdl:WSDLPortType" portType="GetCustomerLocationsFeed:GetCustomerLocationsFeed"/>
+  </interfaces>
+  <references>
+    <reference name="GetCustomersPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="GetCustomers:GetCustomers"/>
+      <wire target="GetCustomersWithLocationsImport"/>
+    </reference>
+  </references>
+  <operationFlow medflow="CustomerLocations.medflow"/>
+</mfc:interfaceMediationFlow>

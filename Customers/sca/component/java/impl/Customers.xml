@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><Customers>
+	<Customer>
+		<Name>IBM Austin Software Lab</Name>
+		<Type>Software</Type>
+		<Address>11400 Burnet Road, Austin, TX 78758</Address>
+	</Customer>
+	<Customer>
+		<Name>IBM Poughkeepsie Research</Name>
+		<Type>Research</Type>
+		<Address>2455 South Road,Poughkeepsie, NY 12601</Address>
+	</Customer>
+	<Customer>
+		<Name>IBM Santa Teresa Laboratory</Name>
+		<Type>Software</Type>
+		<Address>555 Bailey Avenue, San Jose, CA 95141</Address>
+	</Customer>
+</Customers>

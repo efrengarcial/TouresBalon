@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://DBMSServiceMediation/xslt/input_map_req_1" version="7.0.100" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://DBMSServiceMediation/xslt/input_map_req_1">
+    <input path="smo://smo/name%3Dwsdl-primary/message%3D%257Bhttp%253A%252F%252FOrderManagementLib%252FItemServiceIF%257DretrieveItemRequestMsg/xpath%3D%252Fbody/smo.xsd"/>
+    <output path="smo://smo/name%3Dwsdl-primary/message%3D%257Bhttp%253A%252F%252FDBMSServiceMediation%252FJDBCOutboundInterface%257DretrieveDbadminItemBGRequestMsg/xpath%3D%252Fbody/smo.xsd"/>
+    <mappingDeclaration name="input_map_req_1">
+        <input path="body"/>
+        <output path="body"/>
+        <move>
+            <input path="retrieveItem/item/itemID"/>
+            <output path="retrieveDbadminItemBG/retrieveDbadminItemBGInput/DbadminItem/itemid"/>
+        </move>
+        <assign value="R">
+            <output path="retrieveDbadminItemBG/retrieveDbadminItemBGInput/changeSummary"/>
+        </assign>
+    </mappingDeclaration>
+</mappingRoot>

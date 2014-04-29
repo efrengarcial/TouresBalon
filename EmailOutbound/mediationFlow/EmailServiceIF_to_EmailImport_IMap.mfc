@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mfc:interfaceMediationFlow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:EmailServiceIF="http://OrderManagementLib/EmailServiceIF" xmlns:mfc="http://www.ibm.com/xmlns/prod/websphere/wbiserver/mfc/6.0.0" xmlns:ns1="http://EmailOutbound/EmailImport" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" name="EmailServiceIF_to_EmailImport_IMap" targetNamespace="http://EmailOutbound/mediationFlow/EmailServiceIF_to_EmailImport_IMap">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" portType="EmailServiceIF:EmailServiceIF"/>
+  </interfaces>
+  <references>
+    <reference name="EmailImportPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns1:EmailImport"/>
+    </reference>
+  </references>
+  <extendedOperationBinding source="sendEmail" target="sendSimpleAlertEmail" sourcePortType="EmailServiceIF:EmailServiceIF" targetReference="EmailImportPartner"/>
+  <operationFlow medflow="EmailServiceIF_to_EmailImport_IMap.medflow"/>
+</mfc:interfaceMediationFlow>

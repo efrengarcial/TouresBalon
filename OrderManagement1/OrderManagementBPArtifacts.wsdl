@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="OrderManagementBP" targetNamespace="http://OrderManagement/OrderManagementBPArtifacts" xmlns:ns="http://OrderManagementLib/CustomerServiceIF" xmlns:ns0="http://OrderManagementLib/ItemServiceIF" xmlns:ns1="http://OrderManagementLib/OrderServiceIF" xmlns:ns2="http://OrderManagement/FinancialOfficeBRIF" xmlns:ns3="http://OrderManagement/WarehouseOfficeBRIF" xmlns:ns4="http://OrderManagementLib/WarehouseItemSplitIF" xmlns:ns5="http://OrderManagementLib/EmailServiceIF" xmlns:plnk="http://schemas.xmlsoap.org/ws/2004/03/partner-link/" xmlns:tns="http://OrderManagement/OrderManagementBPArtifacts" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl0="http://OrderManagementLib/OrderManagementIF">
+  <plnk:partnerLinkType name="OrderManagementIFPLT">
+    <plnk:role name="Interface">
+      <plnk:portType name="wsdl0:OrderManagementIF"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="nullPLT">
+    <plnk:role name="Reference">
+      <plnk:portType name="ns:CustomerServiceIF"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="nullPLT1">
+    <plnk:role name="Reference">
+      <plnk:portType name="ns0:ItemServiceIF"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="nullPLT2">
+    <plnk:role name="Reference">
+      <plnk:portType name="ns1:OrderServiceIF"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="nullPLT3">
+    <plnk:role name="Reference">
+      <plnk:portType name="ns2:FinancialOfficeBRIF"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="nullPLT4">
+    <plnk:role name="Reference">
+      <plnk:portType name="ns3:WarehouseOfficeBRIF"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="PartnerPLT">
+    <plnk:role name="Reference">
+      <plnk:portType name="ns4:WarehouseItemSplitIF"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="nullPLT5">
+    <plnk:role name="Reference">
+      <plnk:portType name="ns5:EmailServiceIF"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <wsdl:import location="OrderManagementIF.wsdl" namespace="http://OrderManagementLib/OrderManagementIF"/>
+    <wsdl:import location="CustomerServiceIF.wsdl" namespace="http://OrderManagementLib/CustomerServiceIF"/>
+    <wsdl:import location="ItemServiceIF.wsdl" namespace="http://OrderManagementLib/ItemServiceIF"/>
+    <wsdl:import location="OrderServiceIF.wsdl" namespace="http://OrderManagementLib/OrderServiceIF"/>
+    <wsdl:import location="FinancialOfficeBRIF.wsdl" namespace="http://OrderManagement/FinancialOfficeBRIF"/>
+    <wsdl:import location="WarehouseOfficeBRIF.wsdl" namespace="http://OrderManagement/WarehouseOfficeBRIF"/>
+    <wsdl:import location="WarehouseItemSplitIF.wsdl" namespace="http://OrderManagementLib/WarehouseItemSplitIF"/>
+    <wsdl:import location="EmailServiceIF.wsdl" namespace="http://OrderManagementLib/EmailServiceIF"/>
+</wsdl:definitions>

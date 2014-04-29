@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Class-Path: OrderManagementLib1.jar
+Created-By: 1.5.0 (IBM Corporation)
+
