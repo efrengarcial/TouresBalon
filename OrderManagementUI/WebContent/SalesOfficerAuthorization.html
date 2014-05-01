@@ -1,0 +1,378 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="ibm.message.newOptionalBO" content="yes" />
+		<title>OrderProcessingBPTask1</title>	
+		
+	<style type="text/css">
+				/**
+		 * General
+		 */
+	    
+	    .HTM_OrderProcessingBPTask1_1906401182_7_0_500_v20120616-1214 .fieldLabel {
+	        width: 150px;
+	        text-align: left;
+	        display: inline-block;
+	    }
+	    	    
+	    .HTM_OrderProcessingBPTask1_1906401182_7_0_500_v20120616-1214 .arrayTemplate{
+	        padding-left: 10px;
+	        padding-bottom: 5px;
+	        clear: both;
+	    }
+	    
+	    .HTM_OrderProcessingBPTask1_1906401182_7_0_500_v20120616-1214 .arrayLabelFont {
+	    	font-size: 12px;
+	    	font-weight: bold;
+	    }
+	    
+	    .HTM_OrderProcessingBPTask1_1906401182_7_0_500_v20120616-1214 .arrayHeaderLabel {
+	    	margin: 0;
+	    }
+	    
+	    .HTM_OrderProcessingBPTask1_1906401182_7_0_500_v20120616-1214 span.addButton{
+            padding-right: 6px;
+        }
+        
+        .HTM_OrderProcessingBPTask1_1906401182_7_0_500_v20120616-1214 span.removeButton{
+            padding-right: 6px;
+        }
+	    
+	    .HTM_OrderProcessingBPTask1_1906401182_7_0_500_v20120616-1214 div.array_header_left {
+	    	display: block;
+	    	width: auto;
+	    	padding: 3px;
+	    	padding-left: 0px;
+	    	padding-bottom: 5px;
+	    }
+	    
+	    .HTM_OrderProcessingBPTask1_1906401182_7_0_500_v20120616-1214 div.array_header_right {
+	    	position: absolute;
+	    	right: 4px;
+	    	top: 3px;
+	    }
+	    
+		.HTM_OrderProcessingBPTask1_1906401182_7_0_500_v20120616-1214 div.array_content_container {
+		    float: left;
+		}
+		
+		.HTM_OrderProcessingBPTask1_1906401182_7_0_500_v20120616-1214 div.array_outer_container {
+		    width: 100%;
+		    display: block;
+		}
+	    
+		
+		.HTM_OrderProcessingBPTask1_1906401182_7_0_500_v20120616-1214 div.fieldContainer {
+			padding-left: 18px;
+			padding-bottom: 10px;
+			padding-top: 5px;
+			clear: both;
+		}
+		
+		.HTM_OrderProcessingBPTask1_1906401182_7_0_500_v20120616-1214 div.businessObject {
+		    padding-left: 15px;
+	       	padding-bottom: 25px;
+	       	clear: both;
+		}
+		
+		
+		.HTM_OrderProcessingBPTask1_1906401182_7_0_500_v20120616-1214 div.arrayBO {
+	       	padding-bottom: 5px;
+	       	clear: both;
+		}
+		
+		.HTM_OrderProcessingBPTask1_1906401182_7_0_500_v20120616-1214 div.arrayHeader {
+			background-color: #eff7ff;
+			border-top: thin solid #aeddef;
+			padding: 3px;
+			padding-bottom: 5px;
+		}
+		
+		.HTM_OrderProcessingBPTask1_1906401182_7_0_500_v20120616-1214 .arrayHeaderContainer {
+			padding-left: 15px;
+			position: relative;
+		}
+		
+		.HTM_OrderProcessingBPTask1_1906401182_7_0_500_v20120616-1214 img.collapseStyle {
+			float: left;
+			padding-top: 4px;
+			padding-right: 2px;
+			padding-bottom: 10px;
+			background-color: white;
+		}
+		
+		.HTM_OrderProcessingBPTask1_1906401182_7_0_500_v20120616-1214 div.caseFolder {
+			padding-left: 15px;
+			padding-top: 1px;
+		}
+		
+		
+		/**
+		 * CSS Styles for initiating a task. Show the input message.
+		 */
+		.HTM_OrderProcessingBPTask1_1906401182_7_0_500_v20120616-1214 .init div.inputMessage {
+
+		}
+		
+		.HTM_OrderProcessingBPTask1_1906401182_7_0_500_v20120616-1214 .init div.outputMessage {
+      		visibility :collapse;
+			display:none;
+		}
+				
+				
+		/**
+		 * CSS Styles for editing a task. Show both messages.
+		 */
+		.HTM_OrderProcessingBPTask1_1906401182_7_0_500_v20120616-1214 .edit div.inputMessage {
+
+		}
+		
+		.HTM_OrderProcessingBPTask1_1906401182_7_0_500_v20120616-1214 .edit div.outputMessage {
+
+		}
+		
+		
+		/**
+		 * CSS Styles for viewing a task. Show both messages.
+		 */
+		.HTM_OrderProcessingBPTask1_1906401182_7_0_500_v20120616-1214 .view div.inputMessage {
+
+		}
+		
+		.HTM_OrderProcessingBPTask1_1906401182_7_0_500_v20120616-1214 .view div.outputMessage {
+
+		}
+		
+		/** 
+		 * CSS Style for required field marker
+		 */
+		.HTM_OrderProcessingBPTask1_1906401182_7_0_500_v20120616-1214 span.requiredMarker {
+			color: #ff8000;
+		}
+		
+		/**
+		 * CSS Style for background color of required fields
+		 */
+		.HTM_OrderProcessingBPTask1_1906401182_7_0_500_v20120616-1214 .fieldInput .requiredBackgroundColor {
+		/*
+            background: none;
+			background-color: #ffffd0;
+		*/
+		}
+				
+	</style>
+	
+	</head>
+	<body class="tundra">	
+		<div class="HTM_OrderProcessingBPTask1_1906401182_7_0_500_v20120616-1214">
+			<form dojoType="dijit.form.Form" class="view" action="">
+				<!-- Input message -->
+				<div class="inputMessage">
+	<div class="businessObject" sdoMinOccurence="1" name="/order" sdoMaxOccurence="1" sdoPosition="0">
+	<h3 class="input">order</h3>
+	<div class="fieldContainer">
+	<label class="fieldLabel" for="http___OrderManagementLib_com_touresbalon_interfaces_SalesAuthorizationIFauthorizeRequestMsg_input0_HTMUniqueWidgetID">
+		orderDate
+	</label>
+	<input type="text" name="/order/orderDate" value="" dojoType="bpc.forms.DateTimeBox" id="http___OrderManagementLib_com_touresbalon_interfaces_SalesAuthorizationIFauthorizeRequestMsg_input0_HTMUniqueWidgetID" sdoPosition="0"
+		 sdoMessageType="input"  sdoPrepopulation="" required="false" class=""/>
+</div><div class="fieldContainer">
+	<label class="fieldLabel" for="http___OrderManagementLib_com_touresbalon_interfaces_SalesAuthorizationIFauthorizeRequestMsg_input1_HTMUniqueWidgetID">
+		price
+	</label>
+	<input type="text" name="/order/price" value="" dojoType="dijit.form.ValidationTextBox" sdoPosition="1" id="http___OrderManagementLib_com_touresbalon_interfaces_SalesAuthorizationIFauthorizeRequestMsg_input1_HTMUniqueWidgetID" 
+			regExp="\d*([.|,]\d*)?"	 sdoMessageType="input"  sdoPrepopulation="" required="false" class=""/>
+</div>
+<div class="fieldContainer">
+	<label class="fieldLabel" for="http___OrderManagementLib_com_touresbalon_interfaces_SalesAuthorizationIFauthorizeRequestMsg_input2_HTMUniqueWidgetID">
+		comments
+	</label>
+	<input type="text" name="/order/comments" value="" sdoPosition="2" dojoType="dijit.form.ValidationTextBox" regExp=".*" id="http___OrderManagementLib_com_touresbalon_interfaces_SalesAuthorizationIFauthorizeRequestMsg_input2_HTMUniqueWidgetID"
+		 sdoMessageType="input"  sdoPrepopulation="" required="false" class=""/>
+</div>
+<div name="/order/creditCard[]" class="arrayBO" dojoType="bpc.forms.FormArrayContainer" 
+	sdoMessageType="input" sdoMinOccurence="0" sdoMaxOccurence="1" sdoPosition="3">
+   <div class="arrayHeaderContainer" dojoAttachPoint="arrayHeaderContainer">
+   	  <img class="collapseStyle" dojoAttachPoint="collapseImage"></img>
+   	  <div class="arrayHeader">
+   		<h4 class="arrayLabelFont arrayHeaderLabel" dojoAttachPoint="arrayHeaderLabel">creditCard</h4>
+   		<div class="array_header_right">
+   		  <span class="addButton" tabIndex="0" role="button">Add</span>
+   		</div>
+   	  </div>
+   </div>
+   <div dojoAttachPoint="ArrayTemplate" class="arrayTemplate">
+     <div class="arrayHeaderContainer">
+   	    <div class="array_header_left">
+   	 	   <span class="arrayLabelFont">creditCard</span>
+   	    </div>
+   	    <div class="array_header_right">
+   	 	   <span class="removeButton" tabIndex="0" role="button">Remove</span>
+   	    </div>
+   	 </div>
+     <div class="fieldContainer">
+	<label class="fieldLabel" for="http___OrderManagementLib_com_touresbalon_interfaces_SalesAuthorizationIFauthorizeRequestMsg_input3_HTMUniqueWidgetID">
+		type
+	</label>
+	<input type="text" name="/order/creditCard[]/type" value="" sdoPosition="0" dojoType="dijit.form.ValidationTextBox" regExp=".*" id="http___OrderManagementLib_com_touresbalon_interfaces_SalesAuthorizationIFauthorizeRequestMsg_input3_HTMUniqueWidgetID"
+		 sdoMessageType="input"  sdoPrepopulation="" required="false" class=""/>
+</div>
+<div class="fieldContainer">
+	<label class="fieldLabel" for="http___OrderManagementLib_com_touresbalon_interfaces_SalesAuthorizationIFauthorizeRequestMsg_input4_HTMUniqueWidgetID">
+		number
+	</label>
+	<input type="text" name="/order/creditCard[]/number" value="" sdoPosition="1" dojoType="dijit.form.ValidationTextBox" regExp=".*" id="http___OrderManagementLib_com_touresbalon_interfaces_SalesAuthorizationIFauthorizeRequestMsg_input4_HTMUniqueWidgetID"
+		 sdoMessageType="input"  sdoPrepopulation="" required="false" class=""/>
+</div>
+<div class="fieldContainer">
+	<label class="fieldLabel" for="http___OrderManagementLib_com_touresbalon_interfaces_SalesAuthorizationIFauthorizeRequestMsg_input5_HTMUniqueWidgetID">
+		securityCode
+	</label>
+	<input type="text" name="/order/creditCard[]/securityCode" value="" sdoPosition="2" dojoType="dijit.form.ValidationTextBox" regExp=".*" id="http___OrderManagementLib_com_touresbalon_interfaces_SalesAuthorizationIFauthorizeRequestMsg_input5_HTMUniqueWidgetID"
+		 sdoMessageType="input"  sdoPrepopulation="" required="false" class=""/>
+</div>
+<div class="fieldContainer">
+	<label class="fieldLabel" for="http___OrderManagementLib_com_touresbalon_interfaces_SalesAuthorizationIFauthorizeRequestMsg_input6_HTMUniqueWidgetID">
+		expiration
+	</label>
+	<input type="text" name="/order/creditCard[]/expiration" value="" dojoType="dijit.form.DateTextBox" id="http___OrderManagementLib_com_touresbalon_interfaces_SalesAuthorizationIFauthorizeRequestMsg_input6_HTMUniqueWidgetID" required="false"
+		 sdoMessageType="input"  sdoPrepopulation="" class="" sdoPosition="3"/>
+</div>
+
+   </div>
+</div><div name="/order/products[]" class="arrayBO" dojoType="bpc.forms.FormArrayContainer" 
+	sdoMessageType="input" sdoMinOccurence="0" sdoMaxOccurence="-1" sdoPosition="4">
+   <div class="arrayHeaderContainer" dojoAttachPoint="arrayHeaderContainer">
+   	  <img class="collapseStyle" dojoAttachPoint="collapseImage"></img>
+   	  <div class="arrayHeader">
+   		<h4 class="arrayLabelFont arrayHeaderLabel" dojoAttachPoint="arrayHeaderLabel">products</h4>
+   		<div class="array_header_right">
+   		  <span class="addButton" tabIndex="0" role="button">Add</span>
+   		</div>
+   	  </div>
+   </div>
+   <div dojoAttachPoint="ArrayTemplate" class="arrayTemplate">
+     <div class="arrayHeaderContainer">
+   	    <div class="array_header_left">
+   	 	   <span class="arrayLabelFont">products</span>
+   	    </div>
+   	    <div class="array_header_right">
+   	 	   <span class="removeButton" tabIndex="0" role="button">Remove</span>
+   	    </div>
+   	 </div>
+     <div class="fieldContainer">
+	<label class="fieldLabel" for="http___OrderManagementLib_com_touresbalon_interfaces_SalesAuthorizationIFauthorizeRequestMsg_input7_HTMUniqueWidgetID">
+		prodId
+	</label>
+	<input type="text" name="/order/products[]/prodId" value="" dojoType="dijit.form.NumberTextBox" sdoPosition="0" id="http___OrderManagementLib_com_touresbalon_interfaces_SalesAuthorizationIFauthorizeRequestMsg_input7_HTMUniqueWidgetID" constraints="{min:-2147483648,max:2147483647,places:0}"
+		 sdoMessageType="input"  sdoPrepopulation="" required="false" class=""/>
+</div>
+<div class="fieldContainer">
+	<label class="fieldLabel" for="http___OrderManagementLib_com_touresbalon_interfaces_SalesAuthorizationIFauthorizeRequestMsg_input8_HTMUniqueWidgetID">
+		partNum
+	</label>
+	<input type="text" name="/order/products[]/partNum" value="" dojoType="dijit.form.NumberTextBox" sdoPosition="1" id="http___OrderManagementLib_com_touresbalon_interfaces_SalesAuthorizationIFauthorizeRequestMsg_input8_HTMUniqueWidgetID" constraints="{min:-2147483648,max:2147483647,places:0}"
+		 sdoMessageType="input"  sdoPrepopulation="" required="false" class=""/>
+</div>
+<div class="fieldContainer">
+	<label class="fieldLabel" for="http___OrderManagementLib_com_touresbalon_interfaces_SalesAuthorizationIFauthorizeRequestMsg_input9_HTMUniqueWidgetID">
+		price
+	</label>
+	<input type="text" name="/order/products[]/price" value="" dojoType="dijit.form.ValidationTextBox" id="http___OrderManagementLib_com_touresbalon_interfaces_SalesAuthorizationIFauthorizeRequestMsg_input9_HTMUniqueWidgetID" regExp="\d*([.|,]\d*)?"
+		 sdoMessageType="input"  sdoPrepopulation="" sdoPosition="2" required="false" class=""/>
+</div>
+<div class="fieldContainer">
+	<label class="fieldLabel" for="http___OrderManagementLib_com_touresbalon_interfaces_SalesAuthorizationIFauthorizeRequestMsg_input10_HTMUniqueWidgetID">
+		productName
+	</label>
+	<input type="text" name="/order/products[]/productName" value="" sdoPosition="3" dojoType="dijit.form.ValidationTextBox" regExp=".*" id="http___OrderManagementLib_com_touresbalon_interfaces_SalesAuthorizationIFauthorizeRequestMsg_input10_HTMUniqueWidgetID"
+		 sdoMessageType="input"  sdoPrepopulation="" required="false" class=""/>
+</div>
+<div class="fieldContainer">
+	<label class="fieldLabel" for="http___OrderManagementLib_com_touresbalon_interfaces_SalesAuthorizationIFauthorizeRequestMsg_input11_HTMUniqueWidgetID">
+		quantity
+	</label>
+	<input type="text" name="/order/products[]/quantity" value="" dojoType="dijit.form.NumberTextBox" sdoPosition="4" id="http___OrderManagementLib_com_touresbalon_interfaces_SalesAuthorizationIFauthorizeRequestMsg_input11_HTMUniqueWidgetID" constraints="{min:-2147483648,max:2147483647,places:0}"
+		 sdoMessageType="input"  sdoPrepopulation="" required="false" class=""/>
+</div>
+
+   </div>
+</div><div name="/order/customer[]" class="arrayBO" dojoType="bpc.forms.FormArrayContainer" 
+	sdoMessageType="input" sdoMinOccurence="0" sdoMaxOccurence="1" sdoPosition="5">
+   <div class="arrayHeaderContainer" dojoAttachPoint="arrayHeaderContainer">
+   	  <img class="collapseStyle" dojoAttachPoint="collapseImage"></img>
+   	  <div class="arrayHeader">
+   		<h4 class="arrayLabelFont arrayHeaderLabel" dojoAttachPoint="arrayHeaderLabel">customer</h4>
+   		<div class="array_header_right">
+   		  <span class="addButton" tabIndex="0" role="button">Add</span>
+   		</div>
+   	  </div>
+   </div>
+   <div dojoAttachPoint="ArrayTemplate" class="arrayTemplate">
+     <div class="arrayHeaderContainer">
+   	    <div class="array_header_left">
+   	 	   <span class="arrayLabelFont">customer</span>
+   	    </div>
+   	    <div class="array_header_right">
+   	 	   <span class="removeButton" tabIndex="0" role="button">Remove</span>
+   	    </div>
+   	 </div>
+     <div class="fieldContainer">
+	<label class="fieldLabel" for="http___OrderManagementLib_com_touresbalon_interfaces_SalesAuthorizationIFauthorizeRequestMsg_input12_HTMUniqueWidgetID">
+		Id
+	</label>
+	<input type="text" name="/order/customer[]/Id" value="" sdoPosition="0" dojoType="dijit.form.ValidationTextBox" regExp=".*" id="http___OrderManagementLib_com_touresbalon_interfaces_SalesAuthorizationIFauthorizeRequestMsg_input12_HTMUniqueWidgetID"
+		 sdoMessageType="input"  sdoPrepopulation="" required="false" class=""/>
+</div>
+<div class="fieldContainer">
+	<label class="fieldLabel" for="http___OrderManagementLib_com_touresbalon_interfaces_SalesAuthorizationIFauthorizeRequestMsg_input13_HTMUniqueWidgetID">
+		firstName
+	</label>
+	<input type="text" name="/order/customer[]/firstName" value="" sdoPosition="1" dojoType="dijit.form.ValidationTextBox" regExp=".*" id="http___OrderManagementLib_com_touresbalon_interfaces_SalesAuthorizationIFauthorizeRequestMsg_input13_HTMUniqueWidgetID"
+		 sdoMessageType="input"  sdoPrepopulation="" required="false" class=""/>
+</div>
+<div class="fieldContainer">
+	<label class="fieldLabel" for="http___OrderManagementLib_com_touresbalon_interfaces_SalesAuthorizationIFauthorizeRequestMsg_input14_HTMUniqueWidgetID">
+		lastName
+	</label>
+	<input type="text" name="/order/customer[]/lastName" value="" sdoPosition="2" dojoType="dijit.form.ValidationTextBox" regExp=".*" id="http___OrderManagementLib_com_touresbalon_interfaces_SalesAuthorizationIFauthorizeRequestMsg_input14_HTMUniqueWidgetID"
+		 sdoMessageType="input"  sdoPrepopulation="" required="false" class=""/>
+</div>
+<div class="fieldContainer">
+	<label class="fieldLabel" for="http___OrderManagementLib_com_touresbalon_interfaces_SalesAuthorizationIFauthorizeRequestMsg_input15_HTMUniqueWidgetID">
+		emailAddress
+	</label>
+	<input type="text" name="/order/customer[]/emailAddress" value="" sdoPosition="3" dojoType="dijit.form.ValidationTextBox" regExp=".*" id="http___OrderManagementLib_com_touresbalon_interfaces_SalesAuthorizationIFauthorizeRequestMsg_input15_HTMUniqueWidgetID"
+		 sdoMessageType="input"  sdoPrepopulation="" required="false" class=""/>
+</div>
+<div class="fieldContainer">
+	<label class="fieldLabel" for="http___OrderManagementLib_com_touresbalon_interfaces_SalesAuthorizationIFauthorizeRequestMsg_input16_HTMUniqueWidgetID">
+		type
+	</label>
+	<input type="text" name="/order/customer[]/type" value="" sdoPosition="4" dojoType="dijit.form.ValidationTextBox" regExp=".*" id="http___OrderManagementLib_com_touresbalon_interfaces_SalesAuthorizationIFauthorizeRequestMsg_input16_HTMUniqueWidgetID"
+		 sdoMessageType="input"  sdoPrepopulation="" required="false" class=""/>
+</div>
+
+   </div>
+</div>
+</div>
+
+</div>
+	
+				<!-- Output Message -->
+				<div class="outputMessage">
+	<div class="fieldContainer">
+	<label class="fieldLabel" for="http___OrderManagementLib_com_touresbalon_interfaces_SalesAuthorizationIFauthorizeResponseMsg_output0_HTMUniqueWidgetID">
+		approved <span class="requiredMarker">*</span>
+	</label>
+	<input dojoType="dijit.form.CheckBox"  name="/approved" checked="checked" value="on" id="http___OrderManagementLib_com_touresbalon_interfaces_SalesAuthorizationIFauthorizeResponseMsg_output0_HTMUniqueWidgetID" sdoPosition="0"
+           type="checkbox" sdoMessageType="output"  sdoPrepopulation="" required="true" />
+</div>
+
+</div>
+
+			</form>
+		</div>
+	</body>
+</html>

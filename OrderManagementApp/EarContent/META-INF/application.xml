@@ -8,4 +8,10 @@
             <context-root>OrderManagementWeb</context-root>
         </web>
     </module>
+	<module id="WebModule_1398956282908">
+		<web>
+			<web-uri>OrderManagementUI.war</web-uri>
+			<context-root>OrderManagementUI</context-root>
+		</web>
+	</module>
 </application>

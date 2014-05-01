@@ -20,5 +20,9 @@
         <dependent-module archiveName="OrderLib.jar" deploy-path="/" handle="module:/resource/OrderLib/OrderLib">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="OrderManagementUI.war" deploy-path="/" handle="module:/resource/OrderManagementUI/OrderManagementUI">
+            <dependent-object>WebModule_1398956282908</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
     </wb-module>
 </project-modules>
