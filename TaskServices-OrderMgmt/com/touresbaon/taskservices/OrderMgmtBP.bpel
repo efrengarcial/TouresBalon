@@ -17,7 +17,7 @@
   </bpws:partnerLinks>
   <bpws:variables>
     <bpws:variable name="order" type="ns0:Order" wpc:id="10"/>
-    <bpws:variable name="returnCode" type="ns1:ReturnCode" wpc:id="24"/>
+    <bpws:variable name="orderID" type="ns1:ReturnCode" wpc:id="24"/>
     <bpws:variable name="orderInfo" type="ns4:OrderInfo" wpc:id="28"/>
     <bpws:variable name="returnValidateOrder" type="xsd:boolean" wpc:id="30"/>
   </bpws:variables>
@@ -32,12 +32,12 @@
             <wpc:parameter name="request" variable="order"/>
           </wpc:input>
           <wpc:output>
-            <wpc:parameter name="response" variable="returnCode"/>
+            <wpc:parameter name="response" variable="orderID"/>
           </wpc:output>
         </bpws:invoke>
         <bpws:reply name="Reply_createOrder" operation="createOrder" partnerLink="OrderMgmtServiceIF" portType="ns2:OrderMgmtServiceIF" wpc:displayName="Reply-createOrder" wpc:id="6">
           <wpc:input>
-            <wpc:parameter name="response" variable="returnCode"/>
+            <wpc:parameter name="response" variable="orderID"/>
           </wpc:input>
         </bpws:reply>
       </bpws:sequence>
@@ -52,12 +52,12 @@
             <wpc:parameter name="request" variable="order"/>
           </wpc:input>
           <wpc:output>
-            <wpc:parameter name="response" variable="returnCode"/>
+            <wpc:parameter name="response" variable="orderID"/>
           </wpc:output>
         </bpws:invoke>
         <bpws:reply name="Reply_updateOrder" operation="updateOrder" partnerLink="OrderMgmtServiceIF" portType="ns2:OrderMgmtServiceIF" wpc:displayName="Reply-updateOrder" wpc:id="9">
           <wpc:input>
-            <wpc:parameter name="response" variable="returnCode"/>
+            <wpc:parameter name="response" variable="orderID"/>
           </wpc:input>
         </bpws:reply>
       </bpws:sequence>

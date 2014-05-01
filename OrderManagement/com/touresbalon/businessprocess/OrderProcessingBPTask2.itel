@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ ##[lineageStampBegin]##
+ ##[generatedBy:/OrderManagement/com/touresbalon/businessprocess/OrderProcessingBP.bpel]##
+ ##[lineageStampEnd]##
+-->
+<tel:task xmlns:tel="http://www.ibm.com/xmlns/prod/websphere/human-task/6.0.0/" businessRelevance="no" calendarName="Simple" defaultLocale="en-US" jndiNameStaffPluginProvider="bpe/staff/samplevmmconfiguration" kind="aTask" name="OrderProcessingBPAdministrationTask" priorityDefinition="5" supportsDelegation="yes" supportsFollowOnTask="no" supportsSubTask="no" targetNamespace="http://OrderManagement/com/touresbalon/businessprocess/Task2">
+  <tel:staffSettings>
+    <tel:administrator>
+      <tel:verb>
+        <tel:name>Everybody</tel:name>
+      </tel:verb>
+    </tel:administrator>
+  </tel:staffSettings>
+  <tel:uiSettings/>
+  <tel:escalationSettings/>
+</tel:task>

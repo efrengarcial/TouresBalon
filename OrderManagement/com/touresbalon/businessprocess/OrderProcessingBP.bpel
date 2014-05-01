@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?><bpws:process xmlns:bpws="http://schemas.xmlsoap.org/ws/2004/03/business-process/" xmlns:ns="http://OrderManagement/com/touresbalon/businessprocess/OrderProcessingBPArtifacts" xmlns:ns0="http://OrderManagementLib/com/touresbalon/bo" xmlns:ns1="http://OrderManagementLib/com/touresbalon/interfaces/OrderManagementIF" xmlns:ns2="http://OrderModule/com/touresbalon/interfaces/OrderServiceIF" xmlns:ns3="http://orders.oms.touresbalon.com/" xmlns:ns4="http://OrderLib/com/touresbalon/interfaces/OrderMgmtServiceIF" xmlns:ns5="http://CommonDomain/com/touresbalon/bo" xmlns:ns6="http://OrderManagementLib/com/touresbalon/interfaces/SalesAuthorizationIF" xmlns:tel="http://OrderManagement/com/touresbalon/businessprocess/Task1" xmlns:wpc="http://www.ibm.com/xmlns/prod/websphere/business-process/6.0.0/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.ibm.com/xmlns/prod/websphere/business-process/expression-lang/java/6.0.0/" name="OrderProcessingBP" suppressJoinFailure="yes" targetNamespace="http://OrderManagement/com/touresbalon/businessprocess" wpc:autoDelete="no" wpc:continueOnError="no" wpc:displayName="OrderProcessingBP" wpc:executionMode="longRunning" wpc:id="1" wpc:validFrom="2014-04-25T22:02:52" wpc:version="IBM_7.0.500">
+<?xml version="1.0" encoding="UTF-8"?><bpws:process xmlns:bpws="http://schemas.xmlsoap.org/ws/2004/03/business-process/" xmlns:ns="http://OrderManagement/com/touresbalon/businessprocess/OrderProcessingBPArtifacts" xmlns:ns0="http://OrderManagementLib/com/touresbalon/bo" xmlns:ns1="http://OrderManagementLib/com/touresbalon/interfaces/OrderManagementIF" xmlns:ns2="http://OrderModule/com/touresbalon/interfaces/OrderServiceIF" xmlns:ns3="http://orders.oms.touresbalon.com/" xmlns:ns4="http://OrderLib/com/touresbalon/interfaces/OrderMgmtServiceIF" xmlns:ns5="http://CommonDomain/com/touresbalon/bo" xmlns:ns6="http://OrderManagementLib/com/touresbalon/interfaces/SalesAuthorizationIF" xmlns:tel="http://OrderManagement/com/touresbalon/businessprocess/Task1" xmlns:tel0="http://OrderManagement/com/touresbalon/businessprocess/Task2" xmlns:wpc="http://www.ibm.com/xmlns/prod/websphere/business-process/6.0.0/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.ibm.com/xmlns/prod/websphere/business-process/expression-lang/java/6.0.0/" name="OrderProcessingBP" suppressJoinFailure="yes" targetNamespace="http://OrderManagement/com/touresbalon/businessprocess" wpc:autoDelete="no" wpc:continueOnError="no" wpc:displayName="OrderProcessingBP" wpc:executionMode="longRunning" wpc:id="1" wpc:validFrom="2014-04-25T22:02:52" wpc:version="IBM_7.0.500">
+  <wpc:adminTask name="tel0:OrderProcessingBPAdministrationTask"/>
   <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="/resource/OrderManagementLib/com/touresbalon/interfaces/OrderManagementIF.wsdl" namespace="http://OrderManagementLib/com/touresbalon/interfaces/OrderManagementIF"/>
   <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../interfaces/OrderManagementIF.wsdl" namespace="http://OrderManagementLib/com/touresbalon/interfaces/OrderManagementIF"/>
   <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../bo/Order.xsd" namespace="http://OrderManagementLib/com/touresbalon/bo"/>
@@ -14,71 +15,82 @@
     <bpws:partnerLink name="OrderMgmtServiceIFPartner" partnerLinkType="ns:OrderMgmtServiceIFPLT" partnerRole="Interface" wpc:id="16"/>
   </bpws:partnerLinks>
   <bpws:variables>
-    <bpws:variable name="order" type="ns0:Order" wpc:id="5"/>
-    <bpws:variable name="returnCodeOrder" type="ns5:ReturnCode" wpc:id="13"/>
-    <bpws:variable name="orderCreate" type="ns3:Order" wpc:id="14"/>
+    <bpws:variable name="orderOMS" type="ns0:Order" wpc:id="5"/>
+    <bpws:variable name="orderID" type="ns5:ReturnCode" wpc:id="13"/>
+    <bpws:variable name="order" type="ns3:Order" wpc:id="14"/>
     <bpws:variable name="returnValidateOrder" type="xsd:boolean" wpc:id="18"/>
     <bpws:variable name="returnAppovalOrder" type="xsd:boolean" wpc:id="23"/>
+    <bpws:variable name="returnUpateOrder" type="ns5:ReturnCode" wpc:id="34"/>
   </bpws:variables>
   <bpws:sequence name="HiddenSequence" wpc:id="1073741827">
     <bpws:receive createInstance="yes" name="Receive" operation="startProcess" partnerLink="OrderManagementIF" portType="ns1:OrderManagementIF" wpc:displayName="Receive" wpc:id="4" wpc:transactionalBehavior="commitAfter">
       <wpc:output>
-        <wpc:parameter name="request" variable="order"/>
+        <wpc:parameter name="request" variable="orderOMS"/>
       </wpc:output>
     </bpws:receive>
     <bpws:assign name="Assign" wpc:displayName="Assign Create Order" wpc:id="15">
       <bpws:copy>
-        <bpws:from variable="order">
+        <bpws:from variable="orderOMS">
           <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[orderDate]]></bpws:query>
         </bpws:from>
-        <bpws:to variable="orderCreate">
+        <bpws:to variable="order">
           <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[orderDate]]></bpws:query>
         </bpws:to>
       </bpws:copy>
       <bpws:copy>
-        <bpws:from variable="order">
+        <bpws:from variable="orderOMS">
           <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[customer/Id]]></bpws:query>
         </bpws:from>
-        <bpws:to variable="orderCreate">
+        <bpws:to variable="order">
           <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[customerId]]></bpws:query>
         </bpws:to>
       </bpws:copy>
       <bpws:copy>
-        <bpws:from variable="order">
+        <bpws:from variable="orderOMS">
           <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[price]]></bpws:query>
         </bpws:from>
-        <bpws:to variable="orderCreate">
+        <bpws:to variable="order">
           <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[price]]></bpws:query>
         </bpws:to>
       </bpws:copy>
       <bpws:copy>
-        <bpws:from variable="order">
+        <bpws:from variable="orderOMS">
           <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[comments]]></bpws:query>
         </bpws:from>
-        <bpws:to variable="orderCreate">
+        <bpws:to variable="order">
           <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[comments]]></bpws:query>
         </bpws:to>
       </bpws:copy>
       <bpws:copy>
-        <bpws:from variable="order">
+        <bpws:from variable="orderOMS">
           <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[customer/type]]></bpws:query>
         </bpws:from>
-        <bpws:to variable="orderCreate">
+        <bpws:to variable="order">
           <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[customerType]]></bpws:query>
         </bpws:to>
       </bpws:copy>
     </bpws:assign>
     <bpws:invoke name="Invoke" operation="createOrder" partnerLink="OrderMgmtServiceIFPartner" portType="ns4:OrderMgmtServiceIF" wpc:continueOnError="inherit" wpc:displayName="Create Order" wpc:id="12">
       <wpc:input>
-        <wpc:parameter name="request" variable="orderCreate"/>
+        <wpc:parameter name="request" variable="order"/>
       </wpc:input>
       <wpc:output>
-        <wpc:parameter name="response" variable="returnCodeOrder"/>
+        <wpc:parameter name="response" variable="orderID"/>
       </wpc:output>
     </bpws:invoke>
+    <bpws:assign name="Assign3" wpc:displayName="Assign OrderID" wpc:id="37">
+      <bpws:copy>
+        <bpws:from variable="orderID">
+          <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[RC]]></bpws:query>
+        </bpws:from>
+        <bpws:to variable="order">
+          <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[ordId]]></bpws:query>
+        </bpws:to>
+      </bpws:copy>
+    </bpws:assign>
     <bpws:invoke name="Snippet" operation="null" partnerLink="null" portType="wpc:null" wpc:continueOnError="inherit" wpc:displayName="Log - Create Order" wpc:id="6">
       <wpc:script>
-        <wpc:javaCode><![CDATA[java.lang.String __result__1 = "Create Order...." + returnCodeOrder.getString("RC");
+        <wpc:javaCode><![CDATA[java.lang.String __result__1 = "Create Order...." + order.getString("ordId");
 {// print to log
 	System.out.println(__result__1);
 }
@@ -89,7 +101,7 @@
 //  <exceptions>
 //    <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.bpe.api.ProcessException"/>
 //  </exceptions>
-//  <executableElements xsi:type="com.ibm.wbit.activity:Expression" value="&quot;Create Order....&quot; +returnCodeOrder.RC" assignable="false">
+//  <executableElements xsi:type="com.ibm.wbit.activity:Expression" value="&quot;Create Order....&quot; + order.ordId" assignable="false">
 //    <dataOutputs target="//@executableElements.1/@parameters.0"/>
 //    <type xsi:type="com.ibm.wbit.activity:XSDElementType" name="string" namespace="http://www.w3.org/2001/XMLSchema"/>
 //  </executableElements>
@@ -110,7 +122,7 @@
     </bpws:invoke>
     <bpws:invoke name="Invoke1" operation="requiresApproval" partnerLink="OrderMgmtServiceIFPartner" portType="ns4:OrderMgmtServiceIF" wpc:continueOnError="inherit" wpc:displayName="Validate Order" wpc:id="17">
       <wpc:input>
-        <wpc:parameter name="request" variable="orderCreate"/>
+        <wpc:parameter name="request" variable="order"/>
       </wpc:input>
       <wpc:output>
         <wpc:parameter name="response" variable="returnValidateOrder"/>
@@ -120,11 +132,26 @@
       <bpws:case wpc:displayName="Requires approval ?" wpc:id="20">
         <bpws:condition expressionLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[($returnValidateOrder =true())]]></bpws:condition>
         <bpws:sequence name="HiddenSequence1" wpc:id="1073741849">
-          <bpws:invoke name="UpdateOrder--EN_VALIDACION" operation="updateOrder" partnerLink="OrderMgmtServiceIFPartner" portType="ns4:OrderMgmtServiceIF" wpc:continueOnError="inherit" wpc:displayName="Update Order -- EN_VALIDACION" wpc:id="30"/>
+          <bpws:assign name="Assign1" wpc:displayName="Assign Order EN_VALIDACION" wpc:id="35">
+            <bpws:copy>
+              <bpws:from><![CDATA[EN_VALIDACION]]></bpws:from>
+              <bpws:to variable="order">
+                <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[status]]></bpws:query>
+              </bpws:to>
+            </bpws:copy>
+          </bpws:assign>
+          <bpws:invoke name="UpdateOrder--EN_VALIDACION" operation="updateOrder" partnerLink="OrderMgmtServiceIFPartner" portType="ns4:OrderMgmtServiceIF" wpc:continueOnError="inherit" wpc:displayName="Update Order -- EN_VALIDACION" wpc:id="30">
+            <wpc:input>
+              <wpc:parameter name="request" variable="order"/>
+            </wpc:input>
+            <wpc:output>
+              <wpc:parameter name="response" variable="returnUpateOrder"/>
+            </wpc:output>
+          </bpws:invoke>
           <bpws:invoke name="SalesOfficerAuthorization" operation="authorize" partnerLink="null" portType="ns6:SalesAuthorizationIF" wpc:continueOnError="inherit" wpc:displayName="Sales officer authorization" wpc:id="22" wpc:transactionalBehavior="participates">
             <wpc:task name="tel:OrderProcessingBPTask1"/>
             <wpc:input>
-              <wpc:parameter name="order" variable="order"/>
+              <wpc:parameter name="order" variable="orderOMS"/>
             </wpc:input>
             <wpc:output>
               <wpc:parameter name="approved" variable="returnAppovalOrder"/>
@@ -200,7 +227,23 @@
 //!SMAP!1000000:29,1]]></wpc:javaCode>
                   </wpc:script>
                 </bpws:invoke>
-                <bpws:invoke name="UpdateOrder--RECHAZADA" operation="updateOrder" partnerLink="OrderMgmtServiceIFPartner" portType="ns4:OrderMgmtServiceIF" wpc:continueOnError="inherit" wpc:displayName="Update Order -- RECHAZADA" wpc:id="31"/>
+                <bpws:assign name="Assign2" wpc:displayName="Assign Order RECHAZADA" wpc:id="36">
+                  <bpws:copy>
+                    <bpws:from><![CDATA[RECHAZADA]]></bpws:from>
+                    <bpws:to variable="order">
+                      <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[status]]></bpws:query>
+                    </bpws:to>
+                  </bpws:copy>
+                </bpws:assign>
+                <bpws:invoke name="UpdateOrder--RECHAZADA" operation="updateOrder" partnerLink="OrderMgmtServiceIFPartner" portType="ns4:OrderMgmtServiceIF" wpc:continueOnError="inherit" wpc:displayName="Update Order -- RECHAZADA" wpc:id="31">
+                  <wpc:input>
+                    <wpc:parameter name="request" variable="order"/>
+                  </wpc:input>
+                  <wpc:output>
+                    <wpc:parameter name="response" variable="returnUpateOrder"/>
+                  </wpc:output>
+                </bpws:invoke>
+                <bpws:terminate name="Terminate" wpc:displayName="Order rejected" wpc:id="40"/>
               </bpws:sequence>
             </bpws:otherwise>
           </bpws:switch>
@@ -241,5 +284,53 @@
         </bpws:invoke>
       </bpws:otherwise>
     </bpws:switch>
+    <bpws:invoke name="Snippet2" operation="null" partnerLink="null" portType="wpc:null" wpc:continueOnError="inherit" wpc:displayName="Log - Order on reservation" wpc:id="41">
+      <wpc:script>
+        <wpc:javaCode><![CDATA[java.lang.String __result__1 = " Order on reservation";
+{// print to log
+	System.out.println(__result__1);
+}
+
+//@generated:com.ibm.wbit.activity.ui
+//<?xml version="1.0" encoding="UTF-8"?>
+//<com.ibm.wbit.activity:CompositeActivity xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.ibm.wbit.activity="http:///com/ibm/wbit/activity.ecore" name="ActivityMethod">
+//  <exceptions>
+//    <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.bpe.api.ProcessException"/>
+//  </exceptions>
+//  <executableElements xsi:type="com.ibm.wbit.activity:Expression" value="&quot; Order on reservation&quot;" assignable="false">
+//    <dataOutputs target="//@executableElements.1/@parameters.0"/>
+//    <type xsi:type="com.ibm.wbit.activity:XSDElementType" name="string" namespace="http://www.w3.org/2001/XMLSchema"/>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:LibraryActivity" name="print to log" description="Print a text representation of the input to System.out" category="utility" template="System.out.println(&lt;%object%>);">
+//    <parameters name="object" dataInputs="//@executableElements.0/@dataOutputs.0" displayName="object">
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="java.lang.Object"/>
+//    </parameters>
+//  </executableElements>
+//  <executableGroups executableElements="//@executableElements.0 //@executableElements.1"/>
+//</com.ibm.wbit.activity:CompositeActivity>
+//@generated:end
+//!SMAP!*S WBIACTDBG
+//!SMAP!*L
+//!SMAP!1:1,1
+//!SMAP!2:2,3
+//!SMAP!1000000:29,1]]></wpc:javaCode>
+      </wpc:script>
+    </bpws:invoke>
+    <bpws:assign name="Assign4" wpc:displayName="Assign Order EN_RESERVACION" wpc:id="39">
+      <bpws:copy>
+        <bpws:from><![CDATA[EN_RESERVACION]]></bpws:from>
+        <bpws:to variable="order">
+          <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[status]]></bpws:query>
+        </bpws:to>
+      </bpws:copy>
+    </bpws:assign>
+    <bpws:invoke name="Invoke2" operation="updateOrder" partnerLink="OrderMgmtServiceIFPartner" portType="ns4:OrderMgmtServiceIF" wpc:continueOnError="inherit" wpc:displayName="Update Oder -- EN_RESERVACION" wpc:id="38">
+      <wpc:input>
+        <wpc:parameter name="request" variable="order"/>
+      </wpc:input>
+      <wpc:output>
+        <wpc:parameter name="response" variable="returnUpateOrder"/>
+      </wpc:output>
+    </bpws:invoke>
   </bpws:sequence>
 </bpws:process>
