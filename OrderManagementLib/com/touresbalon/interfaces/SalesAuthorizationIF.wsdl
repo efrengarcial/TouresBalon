@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="SalesAuthorizationIF" targetNamespace="http://OrderManagementLib/com/touresbalon/interfaces/SalesAuthorizationIF" xmlns:bons1="http://OrderManagementLib/com/touresbalon/bo" xmlns:tns="http://OrderManagementLib/com/touresbalon/interfaces/SalesAuthorizationIF" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://OrderManagementLib/com/touresbalon/interfaces/SalesAuthorizationIF">
+      <xsd:import namespace="http://OrderManagementLib/com/touresbalon/bo" schemaLocation="../bo/Order.xsd"/>
+      <xsd:element name="authorize">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="order" nillable="true" type="bons1:Order"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="authorizeResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="approved" nillable="true" type="xsd:boolean"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="authorizeRequestMsg">
+    <wsdl:part element="tns:authorize" name="authorizeParameters"/>
+  </wsdl:message>
+    <wsdl:message name="authorizeResponseMsg">
+    <wsdl:part element="tns:authorizeResponse" name="authorizeResult"/>
+  </wsdl:message>
+    <wsdl:portType name="SalesAuthorizationIF">
+    <wsdl:operation name="authorize">
+      <wsdl:input message="tns:authorizeRequestMsg" name="authorizeRequest"/>
+      <wsdl:output message="tns:authorizeResponseMsg" name="authorizeResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

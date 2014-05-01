@@ -12,7 +12,7 @@
       <tel:verb>
         <tel:name>Group Members</tel:name>
         <tel:parameter id="IncludeSubgroups">false</tel:parameter>
-        <tel:parameter id="GroupName">cn=Warehouse Office,o=defaultWIMFileBasedRealm</tel:parameter>
+        <tel:parameter id="GroupName">cn=Home Entertainment,o=defaultWIMFileBasedRealm</tel:parameter>
       </tel:verb>
     </tel:potentialOwner>
   </tel:staffSettings>

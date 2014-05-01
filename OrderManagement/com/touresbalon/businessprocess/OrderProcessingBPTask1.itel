@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ ##[lineageStampBegin]##
+ ##[generatedBy:/OrderManagement/com/touresbalon/businessprocess/OrderProcessingBP.bpel]##
+ ##[lineageStampEnd]##
+-->
+<tel:task xmlns:tel="http://www.ibm.com/xmlns/prod/websphere/human-task/6.0.0/" xmlns:wsdl="http://OrderManagementLib/com/touresbalon/interfaces/SalesAuthorizationIF" allowClaimWhenSuspended="no" autoClaim="yes" businessRelevance="no" calendarName="Simple" contextAuthorizationForOwner="none" defaultLocale="en-US" jndiNameStaffPluginProvider="bpe/staff/samplevmmconfiguration" kind="pTask" name="OrderProcessingBPTask1" priorityDefinition="5" supportsDelegation="yes" supportsFollowOnTask="yes" supportsSubTask="yes" targetNamespace="http://OrderManagement/com/touresbalon/businessprocess/Task1">
+  <tel:import importType="http://schemas.xmlsoap.org/wsdl/" location="../interfaces/SalesAuthorizationIF.wsdl" namespace="http://OrderManagementLib/com/touresbalon/interfaces/SalesAuthorizationIF"/>
+  <tel:interface kind="inbound" operation="operation1" portType="wsdl:SalesAuthorizationIF"/>
+  <tel:staffSettings>
+    <tel:potentialOwner>
+      <tel:verb>
+        <tel:name>Everybody</tel:name>
+      </tel:verb>
+    </tel:potentialOwner>
+  </tel:staffSettings>
+  <tel:uiSettings>
+    <tel:customClientSettings clientType="Dojo">
+      <tel:customSetting name="contextRoot" value=""/>
+      <tel:customSetting name="pathAndFilename" value=""/>
+    </tel:customClientSettings>
+  </tel:uiSettings>
+  <tel:escalationSettings/>
+</tel:task>
