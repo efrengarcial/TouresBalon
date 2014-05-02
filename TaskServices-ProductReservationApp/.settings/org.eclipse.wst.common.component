@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="TaskServices-ProductReservationApp">
+        <wb-resource deploy-path="/" source-path="/EarContent"/>
+        <dependent-module archiveName="TaskServices-ProductReservation.jar" deploy-path="/" handle="module:/resource/TaskServices-ProductReservation/TaskServices-ProductReservation">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module deploy-path="/" handle="module:/resource/TaskServices-ProductReservationWeb/TaskServices-ProductReservationWeb">
+            <dependent-object>WebModule_1169158408425</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="CommonDomain.jar" deploy-path="/" handle="module:/resource/CommonDomain/CommonDomain">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="AccommodationLib.jar" deploy-path="/" handle="module:/resource/AccommodationLib/AccommodationLib">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="TransportationLib.jar" deploy-path="/" handle="module:/resource/TransportationLib/TransportationLib">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ProductReservationLib.jar" deploy-path="/" handle="module:/resource/ProductReservationLib/ProductReservationLib">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    </wb-module>
+</project-modules>

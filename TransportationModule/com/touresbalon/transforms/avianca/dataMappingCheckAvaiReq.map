@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://TransportationModule/com/touresbalon/transforms/avianca/dataMappingCheckAvaiReq" version="7.0.500" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://TransportationModule/com/touresbalon/transforms/avianca/dataMappingCheckAvaiReq">
+    <input path="smo://smo/name%3Dwsdl-primary/message%3D%257Bhttp%253A%252F%252FTransportationLib%257DcheckAvailabilityRequestMsg/xpath%3D%252Fbody/smo.xsd"/>
+    <output path="smo://smo/name%3Dwsdl-primary/message%3D%257Bhttp%253A%252F%252Fwww.avianca.com%252Fservices%252F%257DconsultarDisponibilidadSoapIn/xpath%3D%252Fbody/smo.xsd"/>
+    <mappingDeclaration name="dataMappingCheckAvaiReq">
+        <input path="body"/>
+        <output path="body"/>
+        <move>
+            <input path="checkAvailability/request/ciudadOrigen"/>
+            <output path="consultarDisponibilidad/consultarVuelo/CodigoCiudadOrigen"/>
+        </move>
+        <move>
+            <input path="checkAvailability/request/ciudadDestino"/>
+            <output path="consultarDisponibilidad/consultarVuelo/CodigoCiudadDestino"/>
+        </move>
+        <convert>
+            <input path="checkAvailability/request/travelDate"/>
+            <output path="consultarDisponibilidad/consultarVuelo/FechaVuelo"/>
+        </convert>
+    </mappingDeclaration>
+</mappingRoot>

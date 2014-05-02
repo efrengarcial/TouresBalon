@@ -8,5 +8,8 @@
       <interface xsi:type="wsdl:WSDLPortType" portType="ns3:ServicioWebAviancaSoap"/>
     </reference>
   </references>
+  <extendedOperationBinding source="checkAvailability" target="consultarDisponibilidad" sourcePortType="ns1:TransportationServiceIF" targetReference="ServicioWebAviancaSoapPartner"/>
+  <extendedOperationBinding source="makeReservation" target="reservarVuelo" sourcePortType="ns1:TransportationServiceIF" targetReference="ServicioWebAviancaSoapPartner"/>
+  <extendedOperationBinding source="cancelReservation" target="cancelarVuelo" sourcePortType="ns1:TransportationServiceIF" targetReference="ServicioWebAviancaSoapPartner"/>
   <operationFlow medflow="Med-Avianca.medflow"/>
 </mfc:interfaceMediationFlow>

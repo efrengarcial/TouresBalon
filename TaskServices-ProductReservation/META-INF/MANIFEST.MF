@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Class-Path: AccommodationLib.jar 
+ ProductReservationLib.jar 
+ TransportationLib.jar 
+ CommonDomain.jar
+Created-By: 1.5.0 (IBM Corporation)
+
