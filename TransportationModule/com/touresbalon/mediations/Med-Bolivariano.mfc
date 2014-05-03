@@ -12,5 +12,6 @@
     </reference>
   </references>
   <extendedOperationBinding source="checkAvailability" target="retrieveTravels" sourcePortType="TransportationLib:TransportationServiceIF" targetReference="BolivarianoTravelsIFPartner"/>
+  <extendedOperationBinding source="makeReservation" target="append" sourcePortType="TransportationLib:TransportationServiceIF" targetReference="BolivarianoBookingIFPartner"/>
   <operationFlow medflow="Med-Bolivariano.medflow"/>
 </mfc:interfaceMediationFlow>

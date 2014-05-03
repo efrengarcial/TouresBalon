@@ -4,45 +4,41 @@
     <mappingDeclaration name="xslMappingReservationData">
         <input path="body"/>
         <output path="body"/>
-        <foreach>
-            <input path="makeReservation/request/content"/>
-            <output path="bookingFlight/informacionReserva/InformacionReserva"/>
-            <move>
-                <input path="identificacion"/>
-                <output path="Identificacion"/>
-            </move>
-            <move>
-                <input path="nombre"/>
-                <output path="Nombre"/>
-            </move>
-            <move>
-                <input path="apellido"/>
-                <output path="Apellido"/>
-            </move>
-            <move>
-                <input path="numeroViaje"/>
-                <output path="NumeroVuelo"/>
-            </move>
-            <move>
-                <input path="codigoCiudadOrigen"/>
-                <output path="CodigoCiudadOrigen"/>
-            </move>
-            <move>
-                <input path="codigoCiudadDestino"/>
-                <output path="CodigoCiudadDestino"/>
-            </move>
-            <move>
-                <input path="numeroSilla"/>
-                <output path="NumeroSilla"/>
-            </move>
-            <move>
-                <input path="fechaSalida"/>
-                <output path="FechaSalida"/>
-            </move>
-            <move>
-                <input path="orderID"/>
-                <output path="OrderID"/>
-            </move>
-        </foreach>
+        <move>
+            <input path="makeReservation/request/identificacion"/>
+            <output path="bookingFlight/informacionReserva/Identificacion"/>
+        </move>
+        <move>
+            <input path="makeReservation/request/nombre"/>
+            <output path="bookingFlight/informacionReserva/Nombre"/>
+        </move>
+        <move>
+            <input path="makeReservation/request/apellido"/>
+            <output path="bookingFlight/informacionReserva/Apellido"/>
+        </move>
+        <move>
+            <input path="makeReservation/request/numeroViaje"/>
+            <output path="bookingFlight/informacionReserva/NumeroVuelo"/>
+        </move>
+        <move>
+            <input path="makeReservation/request/codigoCiudadOrigen"/>
+            <output path="bookingFlight/informacionReserva/CodigoCiudadOrigen"/>
+        </move>
+        <move>
+            <input path="makeReservation/request/codigoCiudadDestino"/>
+            <output path="bookingFlight/informacionReserva/CodigoCiudadDestino"/>
+        </move>
+        <move>
+            <input path="makeReservation/request/numeroSilla"/>
+            <output path="bookingFlight/informacionReserva/NumeroSilla"/>
+        </move>
+        <move>
+            <input path="makeReservation/request/fechaSalida"/>
+            <output path="bookingFlight/informacionReserva/FechaSalida"/>
+        </move>
+        <move>
+            <input path="makeReservation/request/orderID"/>
+            <output path="bookingFlight/informacionReserva/OrderID"/>
+        </move>
     </mappingDeclaration>
 </mappingRoot>

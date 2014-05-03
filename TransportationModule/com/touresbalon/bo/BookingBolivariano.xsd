@@ -4,13 +4,19 @@
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 	<xsd:complexType name="BookingBolivariano">
 		<xsd:sequence>
-			<xsd:element minOccurs="0" name="field1"
+			<xsd:element minOccurs="0" name="apellido"
 				type="xsd:string">
 			</xsd:element>
-			<xsd:element minOccurs="0" name="field2"
+			<xsd:element minOccurs="0" name="nombre"
 				type="xsd:string">
 			</xsd:element>
-			<xsd:element minOccurs="0" name="field3"
+			<xsd:element minOccurs="0" name="fechaSalida"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="numViaje"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="numSilla"
 				type="xsd:string">
 			</xsd:element>
 		</xsd:sequence>

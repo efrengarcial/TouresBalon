@@ -1,6 +1,8 @@
 Manifest-Version: 1.0
 Class-Path: OrderManagementLib.jar 
  OrderLib.jar 
+ CWYFF_FlatFile.rar 
+ TransportationLib.jar 
  PaymentsModuleLib.jar 
  CommonDomain.jar 
  websphere_default_messaging_provider.rar

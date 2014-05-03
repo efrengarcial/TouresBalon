@@ -24,5 +24,12 @@
             <dependent-object>ConnectorModule_1398748341081</dependent-object>
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="TransportationLib.jar" deploy-path="/" handle="module:/resource/TransportationLib/TransportationLib">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="CWYFF_FlatFile.rar" deploy-path="/" handle="module:/resource/CWYFF_FlatFile/CWYFF_FlatFile">
+            <dependent-object>ConnectorModule_1399055089905</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
     </wb-module>
 </project-modules>

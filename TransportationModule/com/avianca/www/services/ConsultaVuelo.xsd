@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<s:schema attributeFormDefault="unqualified"
+	elementFormDefault="qualified"
+	targetNamespace="http://www.avianca.com/services/"
+	xmlns:s="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://www.avianca.com/services/">
+	<s:complexType name="ConsultaVuelo">
+		<s:sequence>
+			<s:element maxOccurs="1" minOccurs="0"
+				name="CodigoCiudadOrigen" type="s:string" />
+			<s:element maxOccurs="1" minOccurs="0"
+				name="CodigoCiudadDestino" type="s:string" />
+			<s:element maxOccurs="1" minOccurs="1" name="FechaVuelo"
+				type="s:dateTime" />
+		</s:sequence>
+	</s:complexType>
+</s:schema>

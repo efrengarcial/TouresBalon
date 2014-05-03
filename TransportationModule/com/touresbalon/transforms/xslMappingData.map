@@ -27,9 +27,6 @@
                 <input path="numSilla"/>
                 <output path="numSilla"/>
             </move>
-            <assign value="2002-01-01T11:00:00">
-                <output path="fechaSalida"/>
-            </assign>
         </foreach>
         <move>
             <input path="context/correlation/ciudadOrigen"/>

@@ -3,6 +3,43 @@
   <dataSets name="Default" id="1398748325639_11207">
     <entries xsi:type="com.ibm.ccl.soa.test.common.models.datatable:DataSetColumn" name="Value" id="1398748325639_11208">
       <elements xsi:type="com.ibm.ccl.soa.test.common.models.datatable:DataSetColumnComplexValue">
+        <value xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueStructure" name="ArchivoBolivarianoMakeReservation" id="1399055088962_6324" value="" defaultValue="" typeURI="xsd:/http://www.ibm.com/xmlns/prod/websphere/j2ca/flatfile/bookingbolivarianowrapper#BookingBolivarianoWrapper" baseTypeURI="xsd:/http://www.ibm.com/xmlns/prod/websphere/j2ca/flatfile/bookingbolivarianowrapper#BookingBolivarianoWrapper" hasChildren="true">
+          <context>
+            <properties name="project_context" value="TransportationModule"/>
+          </context>
+          <properties name="paramlist_context" value="TransportationModule.BolivarianoBookingFileAdapter.append"/>
+          <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="directoryPath" id="1399055088962_6325" value="" defaultValue="" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#string"/>
+          <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="fileName" id="1399055088962_6326" value="efren.txt" defaultValue="" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#string"/>
+          <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="chunkFileName" id="1399055088962_6327" value="" defaultValue="" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#string"/>
+          <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="fileContentEncoding" id="1399055088962_6328" value="" defaultValue="" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#string"/>
+          <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="includeEndBODelimiter" id="1399055088962_6329" value="\n" defaultValue="" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#string"/>
+          <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="stagingDirectory" id="1399055088962_6330" value="" defaultValue="" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#string"/>
+          <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="chunkNumber" id="1399055088962_6331" value="" defaultValue="" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#string"/>
+          <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueEnum" name="generateUniqueFile" id="1399055088962_6332" value="false" defaultValue="false" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#boolean" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#boolean">
+            <enumValues>false</enumValues>
+            <enumValues>true</enumValues>
+          </elements>
+          <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueEnum" name="createFileIfNotExists" id="1399055088963_6333" value="true" defaultValue="false" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#boolean" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#boolean">
+            <enumValues>false</enumValues>
+            <enumValues>true</enumValues>
+          </elements>
+          <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="splitFunctionClassName" id="1399055088963_6334" value="" defaultValue="" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#string"/>
+          <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="splitCriteria" id="1399055088963_6335" value="" defaultValue="" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#string"/>
+          <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueEnum" name="deleteOnRetrieve" id="1399055088963_6336" value="false" defaultValue="false" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#boolean" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#boolean">
+            <enumValues>false</enumValues>
+            <enumValues>true</enumValues>
+          </elements>
+          <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="archiveDirectoryForDeleteOnRetrieve" id="1399055088963_6337" value="" defaultValue="" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#string"/>
+          <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueStructure" name="Content" id="1399055088963_6338" value="" defaultValue="" typeURI="xsd:/http://BolivarianoModule/com/touresbalon/bo#BookingBolivariano" baseTypeURI="xsd:/http://BolivarianoModule/com/touresbalon/bo#BookingBolivariano" hasChildren="true">
+            <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="apellido" id="1399055088963_6339" value="1" defaultValue="" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#string"/>
+            <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="nombre" id="1399055088963_6340" value="2" defaultValue="" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#string"/>
+            <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="fechaSalida" id="1399055088963_6341" value="3" defaultValue="" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#string"/>
+            <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="numViaje" id="1399055088963_6342" value="4" defaultValue="" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#string"/>
+            <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="numSilla" id="1399055088963_6343" value="5" defaultValue="" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#string"/>
+          </elements>
+        </value>
+      </elements>
+      <elements xsi:type="com.ibm.ccl.soa.test.common.models.datatable:DataSetColumnComplexValue">
         <value xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueStructure" name="CLIENTE_PLATEADO" id="1398964638363_3018" value="" defaultValue="" typeURI="xsd:/http://OrderManagementLib/com/touresbalon/bo#Order" baseTypeURI="xsd:/http://OrderManagementLib/com/touresbalon/bo#Order" hasChildren="true">
           <context>
             <properties name="project_context" value="OrderManagement"/>

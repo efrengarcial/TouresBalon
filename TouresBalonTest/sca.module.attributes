@@ -7,4 +7,5 @@
   <scdl:libraryDependency name="CommonDomain" version=""/>
   <scdl:libraryDependency name="PaymentsModuleLib" version=""/>
   <scdl:libraryDependency name="OrderLib" version=""/>
+  <scdl:libraryDependency name="TransportationLib" version=""/>
 </scdl:moduleAndLibraryAttributes>

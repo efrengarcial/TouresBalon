@@ -11,4 +11,7 @@
 	<module id="ConnectorModule_1398748341081">
 		<connector>websphere_default_messaging_provider.rar</connector>
 	</module>
+	<module id="ConnectorModule_1399055089905">
+		<connector>CWYFF_FlatFile.rar</connector>
+	</module>
 </application>

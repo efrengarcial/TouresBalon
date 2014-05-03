@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map:businessObjectMap xmlns:appendRequestMsg="smo://smo/name%3Dwsdl-body/message%3D%257Bhttp%253A%252F%252FBolivarianoModule%252FBolivarianoBookingIF%257DappendRequestMsg/xpath%3D%252Fbody/namespace%3DBOMap/smo.xsd" xmlns:dataMappingMakeReservationReq1="http://TransportationModule/com/touresbalon/transforms" xmlns:makeReservationRequestMsg="smo://smo/name%3Dwsdl-body/message%3D%257Bhttp%253A%252F%252FTransportationLib%257DmakeReservationRequestMsg/xpath%3D%252Fbody/namespace%3DBOMap/smo.xsd" xmlns:map="http://www.ibm.com/xmlns/prod/websphere/wbiserver/map/6.0.0" targetNamespace="http://TransportationModule/com/touresbalon/transforms">
+  <map:name>dataMappingMakeReservationReq1</map:name>
+  <map:inputBusinessObjectVariable businessObjectRef="makeReservationRequestMsg:makeReservationRequestMsg" name="makeReservationRequestMsg"/>
+  <map:outputBusinessObjectVariable businessObjectRef="appendRequestMsg:appendRequestMsg" name="appendRequestMsg"/>
+  <map:propertyMap executionOrder="1">
+    <map:custom>
+      <map:input businessObjectVariableRef="makeReservationRequestMsg" property="makeReservation/request/orderID"/>
+      <map:output businessObjectVariableRef="appendRequestMsg" property="append/appendInput/fileName"/>
+      <map:javaCode>// The specific type of variable makeReservationRequestMsg_makeReservation_request_orderID is java.lang.String&#xD;
+// The specific type of variable appendRequestMsg_append_appendInput_fileName is java.lang.String&#xD;
+java.lang.String __makeReservationRequestMsg_makeReservation_request_orderID  = (java.lang.String)makeReservationRequestMsg_makeReservation_request_orderID ;&#xD;
+java.lang.String __appendRequestMsg_append_appendInput_fileName = (java.lang.String)appendRequestMsg_append_appendInput_fileName;&#xD;
+java.lang.String __result__1 = &quot;touresbalon_orden&quot;;&#xD;
+java.lang.String __result__3;&#xD;
+{// append text
+	__result__3 = __result__1.concat(__makeReservationRequestMsg_makeReservation_request_orderID  );&#xD;
+}&#xD;
+java.lang.String __result__4 = &quot;.csv&quot;;&#xD;
+java.lang.String __result__5;&#xD;
+{// append text
+	__result__5 = __result__3.concat(__result__4);&#xD;
+}&#xD;
+__appendRequestMsg_append_appendInput_fileName = __result__5;&#xD;
+appendRequestMsg_append_appendInput_fileName = __appendRequestMsg_append_appendInput_fileName;</map:javaCode>
+    </map:custom>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="2">
+    <map:set value="\r\n">
+      <map:output businessObjectVariableRef="appendRequestMsg" property="append/appendInput/includeEndBODelimiter"/>
+    </map:set>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="3">
+    <map:set value="true">
+      <map:output businessObjectVariableRef="appendRequestMsg" property="append/appendInput/createFileIfNotExists"/>
+    </map:set>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="4">
+    <map:move>
+      <map:input businessObjectVariableRef="makeReservationRequestMsg" property="makeReservation/request/apellido"/>
+      <map:output businessObjectVariableRef="appendRequestMsg" property="append/appendInput/Content/apellido"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="5">
+    <map:move>
+      <map:input businessObjectVariableRef="makeReservationRequestMsg" property="makeReservation/request/nombre"/>
+      <map:output businessObjectVariableRef="appendRequestMsg" property="append/appendInput/Content/nombre"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="6">
+    <map:custom>
+      <map:input businessObjectVariableRef="makeReservationRequestMsg" property="makeReservation/request/fechaSalida"/>
+      <map:output businessObjectVariableRef="appendRequestMsg" property="append/appendInput/Content/fechaSalida"/>
+      <map:javaCode>// The specific type of variable makeReservationRequestMsg_makeReservation_request_fechaSalida is java.util.Date&#xD;
+// The specific type of variable appendRequestMsg_append_appendInput_Content_fechaSalida is java.lang.String&#xD;
+java.util.Date __makeReservationRequestMsg_makeReservation_request_fechaSalida = (java.util.Date)makeReservationRequestMsg_makeReservation_request_fechaSalida;&#xD;
+java.lang.String __appendRequestMsg_append_appendInput_Content_fechaSalida = (java.lang.String)appendRequestMsg_append_appendInput_Content_fechaSalida;&#xD;
+java.lang.String __result__2 = &quot;ddMMyyyy&quot;;&#xD;
+java.lang.String __result__3;&#xD;
+{// format date to string using pattern
+	java.text.SimpleDateFormat df2 = new java.text.SimpleDateFormat(__result__2);
+	df2.setTimeZone(java.util.TimeZone.getDefault());   
+	__result__3 = df2.format(__makeReservationRequestMsg_makeReservation_request_fechaSalida);&#xD;
+}&#xD;
+__appendRequestMsg_append_appendInput_Content_fechaSalida = __result__3;&#xD;
+appendRequestMsg_append_appendInput_Content_fechaSalida = __appendRequestMsg_append_appendInput_Content_fechaSalida;</map:javaCode>
+    </map:custom>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="7">
+    <map:move>
+      <map:input businessObjectVariableRef="makeReservationRequestMsg" property="makeReservation/request/numeroViaje"/>
+      <map:output businessObjectVariableRef="appendRequestMsg" property="append/appendInput/Content/numViaje"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="8">
+    <map:move>
+      <map:input businessObjectVariableRef="makeReservationRequestMsg" property="makeReservation/request/numeroSilla"/>
+      <map:output businessObjectVariableRef="appendRequestMsg" property="append/appendInput/Content/numSilla"/>
+    </map:move>
+  </map:propertyMap>
+</map:businessObjectMap>

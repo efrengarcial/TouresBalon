@@ -7,31 +7,35 @@
     </extensions>
     <extensions xmi:id="Extension_1395595726371">
       <extendedObject xmi:type="scdl:Import" href="BolivarianoTravelsFileAdapter.import#//@import"/>
-      <extensionObject xmi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" xmi:id="NodeExtension_1395595726370" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/eis/6.0.0}EISImportBinding" unknown="false" visible="true" x="447" y="4"/>
+      <extensionObject xmi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" xmi:id="NodeExtension_1395595726370" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/eis/6.0.0}EISImportBinding" unknown="false" visible="true" x="644" y="1"/>
     </extensions>
     <extensions xmi:id="Extension_1395597251410">
       <extendedObject xmi:type="scdl:Component" href="Med-Bolivariano.component#//@Component"/>
-      <extensionObject xmi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" xmi:id="NodeExtension_1395597251410" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/mfc/6.0.0}MediationFlowImplementation" unknown="false" visible="true" x="184" y="34"/>
+      <extensionObject xmi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" xmi:id="NodeExtension_1395597251410" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/mfc/6.0.0}MediationFlowImplementation" unknown="false" visible="true" x="320" y="26"/>
     </extensions>
     <extensions xmi:id="Extension_1395629813587">
       <extendedObject xmi:type="scdl:Import" href="BolivarianoBookingFileAdapter.import#//@import"/>
-      <extensionObject xmi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" xmi:id="NodeExtension_1395629813587" unknown="false" visible="true" x="449" y="91"/>
+      <extensionObject xmi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" xmi:id="NodeExtension_1395629813587" unknown="false" visible="true" x="648" y="86"/>
     </extensions>
     <extensions xmi:id="Extension_1397103339515">
       <extendedObject xmi:type="scdl:Component" href="Med-AA.component#//@Component"/>
-      <extensionObject xmi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" xmi:id="NodeExtension_1397103339515" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/mfc/6.0.0}MediationFlowImplementation" unknown="false" visible="true" x="208" y="179"/>
+      <extensionObject xmi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" xmi:id="NodeExtension_1397103339515" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/mfc/6.0.0}MediationFlowImplementation" unknown="false" visible="true" x="287" y="177"/>
     </extensions>
     <extensions xmi:id="Extension_1397103339516">
       <extendedObject xmi:type="scdl:Import" href="AAWebServiceAdapter.import#//@import"/>
-      <extensionObject xmi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" xmi:id="NodeExtension_1397103339516" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0}ImportBinding" unknown="false" visible="true" x="448" y="175"/>
+      <extensionObject xmi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" xmi:id="NodeExtension_1397103339516" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0}ImportBinding" unknown="false" visible="true" x="592" y="165"/>
     </extensions>
     <extensions xmi:id="Extension_1397103483876">
       <extendedObject xmi:type="scdl:Component" href="Med-Avianca.component#//@Component"/>
-      <extensionObject xmi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" xmi:id="NodeExtension_1397103483876" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/mfc/6.0.0}MediationFlowImplementation" unknown="false" visible="true" x="199" y="274"/>
+      <extensionObject xmi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" xmi:id="NodeExtension_1397103483876" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/mfc/6.0.0}MediationFlowImplementation" unknown="false" visible="true" x="264" y="264"/>
     </extensions>
     <extensions xmi:id="Extension_1397104182913">
       <extendedObject xmi:type="scdl:Import" href="AviancaWebServiceAdapter.import#//@import"/>
-      <extensionObject xmi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" xmi:id="NodeExtension_1397104182913" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0}ImportBinding" unknown="false" visible="true" x="439" y="278"/>
+      <extensionObject xmi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" xmi:id="NodeExtension_1397104182913" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0}ImportBinding" unknown="false" visible="true" x="525" y="271"/>
+    </extensions>
+    <extensions xmi:id="Extension_1399068899707">
+      <extendedObject xmi:type="scdl:Component" href="Med-Transportation.component#//@Component"/>
+      <extensionObject xmi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" xmi:id="NodeExtension_1399068899707" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/mfc/6.0.0}MediationFlowImplementation" unknown="false" visible="true" x="28" y="162"/>
     </extensions>
   </extensionmodel:ExtensionMap>
   <extensionmodel:ExtensionMap xmi:id="ExtensionMap_1395595726371" namespace="http://com.ibm.wbit.stickyboard.model/model/StickyBoard.xsd">

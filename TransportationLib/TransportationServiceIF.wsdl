@@ -3,11 +3,11 @@
     <xsd:schema elementFormDefault="qualified" targetNamespace="http://com/ibm/j2ca/fault/afcfault">
     </xsd:schema>
     <xsd:schema elementFormDefault="qualified" targetNamespace="http://TransportationLib" xmlns:bons2="http://TransportationLib">
+            <xsd:import namespace="http://TransportLib/com/touresbalon/bo" schemaLocation="com/touresbalon/bo/Reservation.xsd"/>
             <xsd:import namespace="http://CommonDomain/com/touresbalon/bo" schemaLocation="com/touresbalon/bo/ReturnCode.xsd"/>
             <xsd:import namespace="http://TransportLib/com/touresbalon/bo" schemaLocation="com/touresbalon/bo/ReservationCancelWrapperRequest.xsd"/>
             <xsd:import namespace="http://TransportLib/com/touresbalon/bo" schemaLocation="com/touresbalon/bo/TravelResponse.xsd"/>
             <xsd:import namespace="http://TransportLib/com/touresbalon/bo" schemaLocation="com/touresbalon/bo/TravelRequest.xsd"/>
-            <xsd:import namespace="http://TransportLib/com/touresbalon/bo" schemaLocation="com/touresbalon/bo/ReservationWrapperRequest.xsd"/>
             <xsd:import namespace="http://TransportLib/com/touresbalon/bo" schemaLocation="com/touresbalon/bo/TransportWrapper.xsd"/>
             <xsd:element name="checkAvailability">
         <xsd:complexType>
@@ -26,7 +26,7 @@
             <xsd:element name="makeReservation">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="request" nillable="true" type="bons1:ReservationWrapperRequest"/>
+            <xsd:element name="request" nillable="true" type="bons1:Reservation"/>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>

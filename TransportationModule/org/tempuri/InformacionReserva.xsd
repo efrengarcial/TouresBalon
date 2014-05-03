@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<s:schema attributeFormDefault="unqualified"
+	elementFormDefault="qualified" targetNamespace="http://tempuri.org/"
+	xmlns:s="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://tempuri.org/">
+	<s:complexType name="InformacionReserva">
+		<s:sequence>
+			<s:element maxOccurs="1" minOccurs="0" name="Identificacion"
+				type="s:string" />
+			<s:element maxOccurs="1" minOccurs="0" name="Nombre"
+				type="s:string" />
+			<s:element maxOccurs="1" minOccurs="0" name="Apellido"
+				type="s:string" />
+			<s:element maxOccurs="1" minOccurs="0" name="NumeroVuelo"
+				type="s:string" />
+			<s:element maxOccurs="1" minOccurs="0"
+				name="CodigoCiudadOrigen" type="s:string" />
+			<s:element maxOccurs="1" minOccurs="0"
+				name="CodigoCiudadDestino" type="s:string" />
+			<s:element maxOccurs="1" minOccurs="0" name="NumeroSilla"
+				type="s:string" />
+			<s:element maxOccurs="1" minOccurs="1" name="FechaSalida"
+				type="s:dateTime" />
+			<s:element maxOccurs="1" minOccurs="0" name="OrderID"
+				type="s:string" />
+		</s:sequence>
+	</s:complexType>
+</s:schema>

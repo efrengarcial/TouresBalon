@@ -1,31 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions targetNamespace="http://www.avianca.com/services/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:tns="http://www.avianca.com/services/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions targetNamespace="http://www.avianca.com/services/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:tns="http://www.avianca.com/services/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://www.avianca.com/services/">
-      <s:element name="reservarVuelo">
+            <s:include schemaLocation="../www/services/InformacionVuelo.xsd"/>
+            <s:include schemaLocation="../www/services/ConsultaVuelo.xsd"/>
+            <s:include schemaLocation="../www/services/InformacionReserva.xsd"/>
+            <s:include schemaLocation="../www/services/ArrayOfInformacionVuelo.xsd"/>
+            <s:element name="reservarVuelo">
         <s:complexType>
           <s:sequence>
-            <s:element maxOccurs="1" minOccurs="0" name="informacionReserva" type="tns:ArrayOfInformacionReserva"/>
+            <s:element maxOccurs="1" minOccurs="0" name="informacionReserva" type="tns:InformacionReserva"/>
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:complexType name="ArrayOfInformacionReserva">
-        <s:sequence>
-          <s:element maxOccurs="unbounded" minOccurs="0" name="InformacionReserva" nillable="true" type="tns:InformacionReserva"/>
-        </s:sequence>
-      </s:complexType>
-      <s:complexType name="InformacionReserva">
-        <s:sequence>
-          <s:element maxOccurs="1" minOccurs="0" name="Identificacion" type="s:string"/>
-          <s:element maxOccurs="1" minOccurs="0" name="Nombre" type="s:string"/>
-          <s:element maxOccurs="1" minOccurs="0" name="Apellido" type="s:string"/>
-          <s:element maxOccurs="1" minOccurs="0" name="NumeroVuelo" type="s:string"/>
-          <s:element maxOccurs="1" minOccurs="0" name="CodigoCiudadOrigen" type="s:string"/>
-          <s:element maxOccurs="1" minOccurs="0" name="CodigoCiudadDestino" type="s:string"/>
-          <s:element maxOccurs="1" minOccurs="0" name="NumeroSilla" type="s:string"/>
-          <s:element maxOccurs="1" minOccurs="1" name="FechaSalida" type="s:dateTime"/>
-          <s:element maxOccurs="1" minOccurs="0" name="OrderID" type="s:string"/>
-        </s:sequence>
-      </s:complexType>
       <s:element name="cancelarVuelo">
         <s:complexType>
           <s:sequence>
@@ -47,13 +33,6 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:complexType name="ConsultaVuelo">
-        <s:sequence>
-          <s:element maxOccurs="1" minOccurs="0" name="CodigoCiudadOrigen" type="s:string"/>
-          <s:element maxOccurs="1" minOccurs="0" name="CodigoCiudadDestino" type="s:string"/>
-          <s:element maxOccurs="1" minOccurs="1" name="FechaVuelo" type="s:dateTime"/>
-        </s:sequence>
-      </s:complexType>
       <s:element name="consultarDisponibilidadResponse">
         <s:complexType>
           <s:sequence>
@@ -61,20 +40,6 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:complexType name="ArrayOfInformacionVuelo">
-        <s:sequence>
-          <s:element maxOccurs="unbounded" minOccurs="0" name="InformacionVuelo" nillable="true" type="tns:InformacionVuelo"/>
-        </s:sequence>
-      </s:complexType>
-      <s:complexType name="InformacionVuelo">
-        <s:sequence>
-          <s:element maxOccurs="1" minOccurs="0" name="NumeroVuelo" type="s:string"/>
-          <s:element maxOccurs="1" minOccurs="0" name="CodigoCiudadOrigen" type="s:string"/>
-          <s:element maxOccurs="1" minOccurs="0" name="CodigoCiudadDestino" type="s:string"/>
-          <s:element maxOccurs="1" minOccurs="0" name="NumeroSilla" type="s:string"/>
-          <s:element maxOccurs="1" minOccurs="1" name="FechaSalida" type="s:dateTime"/>
-        </s:sequence>
-      </s:complexType>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="reservarVueloSoapIn">
@@ -105,66 +70,4 @@
       <wsdl:output message="tns:consultarDisponibilidadSoapOut"/>
     </wsdl:operation>
   </wsdl:portType>
-  <wsdl:binding name="ServicioWebAviancaSoap" type="tns:ServicioWebAviancaSoap">
-    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
-    <wsdl:operation name="reservarVuelo">
-      <soap:operation soapAction="http://www.avianca.com/services/reservarVuelo" style="document"/>
-      <wsdl:input>
-        <soap:body use="literal"/>
-      </wsdl:input>
-    </wsdl:operation>
-    <wsdl:operation name="cancelarVuelo">
-      <soap:operation soapAction="http://www.avianca.com/services/cancelarVuelo" style="document"/>
-      <wsdl:input>
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="consultarDisponibilidad">
-      <soap:operation soapAction="http://www.avianca.com/services/consultarDisponibilidad" style="document"/>
-      <wsdl:input>
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-  </wsdl:binding>
-  <wsdl:binding name="ServicioWebAviancaSoap12" type="tns:ServicioWebAviancaSoap">
-    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
-    <wsdl:operation name="reservarVuelo">
-      <soap12:operation soapAction="http://www.avianca.com/services/reservarVuelo" style="document"/>
-      <wsdl:input>
-        <soap12:body use="literal"/>
-      </wsdl:input>
-    </wsdl:operation>
-    <wsdl:operation name="cancelarVuelo">
-      <soap12:operation soapAction="http://www.avianca.com/services/cancelarVuelo" style="document"/>
-      <wsdl:input>
-        <soap12:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="consultarDisponibilidad">
-      <soap12:operation soapAction="http://www.avianca.com/services/consultarDisponibilidad" style="document"/>
-      <wsdl:input>
-        <soap12:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-  </wsdl:binding>
-  <wsdl:service name="ServicioWebAvianca">
-    <wsdl:port binding="tns:ServicioWebAviancaSoap" name="ServicioWebAviancaSoap">
-      <soap:address location="http://localhost/TouresBalon.OMS.MockServices/Services/ServicioWebAvianca.asmx"/>
-    </wsdl:port>
-    <wsdl:port binding="tns:ServicioWebAviancaSoap12" name="ServicioWebAviancaSoap12">
-      <soap12:address location="http://localhost/TouresBalon.OMS.MockServices/Services/ServicioWebAvianca.asmx"/>
-    </wsdl:port>
-  </wsdl:service>
 </wsdl:definitions>

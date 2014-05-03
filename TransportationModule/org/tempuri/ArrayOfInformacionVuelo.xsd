@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<s:schema attributeFormDefault="unqualified"
+	elementFormDefault="qualified" targetNamespace="http://tempuri.org/"
+	xmlns:s="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://tempuri.org/">
+	<s:include schemaLocation="InformacionVuelo.xsd" />
+	<s:complexType name="ArrayOfInformacionVuelo">
+		<s:sequence>
+			<s:element maxOccurs="unbounded" minOccurs="0"
+				name="InformacionVuelo" nillable="true" type="tns:InformacionVuelo" />
+		</s:sequence>
+	</s:complexType>
+</s:schema>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions targetNamespace="http://www.avianca.com/services/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:tns="http://www.avianca.com/services/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:import location="serviciowebavianca.wsdl" namespace="http://www.avianca.com/services/"/>
+  <wsdl:binding name="ServicioWebAviancaSoap" type="tns:ServicioWebAviancaSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="reservarVuelo">
+      <soap:operation soapAction="http://www.avianca.com/services/reservarVuelo" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="cancelarVuelo">
+      <soap:operation soapAction="http://www.avianca.com/services/cancelarVuelo" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarDisponibilidad">
+      <soap:operation soapAction="http://www.avianca.com/services/consultarDisponibilidad" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServicioWebAviancaSoap12" type="tns:ServicioWebAviancaSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="reservarVuelo">
+      <soap12:operation soapAction="http://www.avianca.com/services/reservarVuelo" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="cancelarVuelo">
+      <soap12:operation soapAction="http://www.avianca.com/services/cancelarVuelo" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarDisponibilidad">
+      <soap12:operation soapAction="http://www.avianca.com/services/consultarDisponibilidad" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicioWebAvianca">
+    <wsdl:port binding="tns:ServicioWebAviancaSoap" name="ServicioWebAviancaSoap">
+      <soap:address location="http://localhost/TouresBalon.OMS.MockServices/Services/ServicioWebAvianca.asmx"/>
+    </wsdl:port>
+    <wsdl:port binding="tns:ServicioWebAviancaSoap12" name="ServicioWebAviancaSoap12">
+      <soap12:address location="http://localhost/TouresBalon.OMS.MockServices/Services/ServicioWebAvianca.asmx"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

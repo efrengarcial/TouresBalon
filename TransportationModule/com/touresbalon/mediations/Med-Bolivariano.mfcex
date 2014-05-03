@@ -6,6 +6,7 @@
       <extensionObject xsi:type="model:MediationFlowUIExtension" saveAsMultipleFiles="false">
         <messageFlowUI autoLayout="false" id="{http://TransportationLib}TransportationServiceIF:checkAvailability::request" showInputFault="false" showInputResponse="false"/>
         <messageFlowUI autoLayout="false" id="{http://TransportationLib}TransportationServiceIF:checkAvailability::response"/>
+        <messageFlowUI autoLayout="false" id="{http://TransportationLib}TransportationServiceIF:makeReservation::request" showInputFault="false"/>
       </extensionObject>
     </extensions>
   </extensionmodel:ExtensionMap>
@@ -15,6 +16,7 @@
       <extensionObject xsi:type="sb:StickyDocument">
         <stickyBoard id="{http://TransportationLib}TransportationServiceIF:checkAvailability::request"/>
         <stickyBoard id="{http://TransportationLib}TransportationServiceIF:checkAvailability::response"/>
+        <stickyBoard id="{http://TransportationLib}TransportationServiceIF:makeReservation::request"/>
       </extensionObject>
     </extensions>
     <extensions>
