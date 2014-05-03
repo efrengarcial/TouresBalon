@@ -3,7 +3,7 @@
   <extensionmodel:ExtensionMap namespace="http://com.ibm.wbit.bpel.ui/">
     <extensions>
       <extendedObject href="ProductReservationBP.bpel#/"/>
-      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ProcessExtension" modificationStamp="1399096807075" autoLayout="true" maxWpcId="26" minWpcId="0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ProcessExtension" modificationStamp="1399154561414" autoLayout="true" maxWpcId="42" minWpcId="0"/>
     </extensions>
     <extensions>
       <extendedObject href="ProductReservationBP.bpel#//@activity/@messages.1/@activity"/>
@@ -26,71 +26,155 @@
       <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:OnMessageExtension"/>
     </extensions>
     <extensions>
-      <extendedObject href="ProductReservationBP.bpel#//@activity/@messages.1/@activity/@activities.0"/>
+      <extendedObject href="ProductReservationBP.bpel#//@activity/@messages.0/@activity/@activities.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ProductReservationBP.bpel#//@activity/@messages.0/@activity/@activities.0/@activities.0/@counterName"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ProductReservationBP.bpel#//@activity/@messages.0/@activity/@activities.0/@activities.0/@activity"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ProductReservationBP.bpel#//@activity/@messages.0/@activity/@activities.0/@activities.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648" iterationKind="Generated"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ProductReservationBP.bpel#//@activity/@messages.0/@activity/@activities.0/@activities.0/@startCounterValue"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ExpressionExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ProductReservationBP.bpel#//@activity/@messages.0/@activity/@activities.0/@activities.0/@finalCounterValue"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ExpressionExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ProductReservationBP.bpel#//@activity/@messages.0/@activity/@activities.0/@activities.0/@activity/@activity/@activities.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ProductReservationBP.bpel#//@activity/@messages.0/@activity/@activities.0/@activities.0/@activity/@variables/@children.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ProductReservationBP.bpel#//@activity/@messages.0/@activity/@activities.0/@activities.0/@activity/@activity"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648" implicit="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ProductReservationBP.bpel#//@activity/@messages.0/@activity/@activities.0/@activities.0/@activity/@activity/@activities.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ProductReservationBP.bpel#//@activity/@messages.0/@activity/@activities.0/@activities.0/@activity/@variables/@children.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ProductReservationBP.bpel#//@activity/@messages.0/@activity/@activities.0/@activities.0/@activity/@activity/@activities.0/@copy.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ProductReservationBP.bpel#//@activity/@messages.0/@activity/@activities.0/@activities.0/@activity/@activity/@activities.0/@copy.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ProductReservationBP.bpel#//@activity/@messages.0/@activity/@activities.0/@activities.0/@activity/@activity/@activities.0/@copy.2"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ProductReservationBP.bpel#//@activity/@messages.0/@activity/@activities.0/@activities.0/@activity/@activity/@activities.0/@copy.3"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ProductReservationBP.bpel#//@activity/@messages.0/@activity/@activities.0/@activities.0/@activity/@activity/@activities.0/@copy.4"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ProductReservationBP.bpel#//@activity/@messages.0/@activity/@activities.0/@activities.0/@activity/@activity/@activities.2/@cases.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CaseExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ProductReservationBP.bpel#//@activity/@messages.0/@activity/@activities.0/@activities.0/@activity/@activity/@activities.2"/>
       <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
     </extensions>
     <extensions>
       <extendedObject href="ProductReservationBP.bpel#//@activity/@messages.0/@activity"/>
-      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
-    </extensions>
-    <extensions>
-      <extendedObject href="ProductReservationBP.bpel#//@activity/@messages.0/@activity/@activities.0/@counterName"/>
-      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
-    </extensions>
-    <extensions>
-      <extendedObject href="ProductReservationBP.bpel#//@activity/@messages.0/@activity/@activities.0/@activity"/>
-      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
-    </extensions>
-    <extensions>
-      <extendedObject href="ProductReservationBP.bpel#//@activity/@messages.0/@activity/@activities.0"/>
-      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648" iterationKind="Generated"/>
-    </extensions>
-    <extensions>
-      <extendedObject href="ProductReservationBP.bpel#//@activity/@messages.0/@activity/@activities.0/@startCounterValue"/>
-      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ExpressionExtension"/>
-    </extensions>
-    <extensions>
-      <extendedObject href="ProductReservationBP.bpel#//@activity/@messages.0/@activity/@activities.0/@finalCounterValue"/>
-      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ExpressionExtension"/>
-    </extensions>
-    <extensions>
-      <extendedObject href="ProductReservationBP.bpel#//@activity/@messages.0/@activity/@activities.0/@activity/@activity/@activities.1"/>
-      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
-    </extensions>
-    <extensions>
-      <extendedObject href="ProductReservationBP.bpel#//@activity/@messages.0/@activity/@activities.0/@activity/@variables/@children.0"/>
-      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
-    </extensions>
-    <extensions>
-      <extendedObject href="ProductReservationBP.bpel#//@activity/@messages.0/@activity/@activities.0/@activity/@activity"/>
       <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648" implicit="true"/>
     </extensions>
     <extensions>
-      <extendedObject href="ProductReservationBP.bpel#//@activity/@messages.0/@activity/@activities.0/@activity/@activity/@activities.0"/>
+      <extendedObject href="ProductReservationBP.bpel#//@activity/@messages.0/@activity/@activities.2"/>
       <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
     </extensions>
     <extensions>
-      <extendedObject href="ProductReservationBP.bpel#//@activity/@messages.0/@activity/@activities.0/@activity/@variables/@children.1"/>
+      <extendedObject href="ProductReservationBP.bpel#//@variables/@children.1"/>
       <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
     </extensions>
     <extensions>
-      <extendedObject href="ProductReservationBP.bpel#//@activity/@messages.0/@activity/@activities.0/@activity/@activity/@activities.0/@copy.1"/>
+      <extendedObject href="ProductReservationBP.bpel#//@activity/@messages.0/@activity/@activities.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ProductReservationBP.bpel#//@activity/@messages.1/@activity/@activities.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ProductReservationBP.bpel#//@activity/@messages.1/@activity/@activities.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ProductReservationBP.bpel#//@activity/@messages.0/@activity/@activities.0/@activities.0/@activity/@activity/@activities.2/@cases.0/@condition"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ExpressionExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ProductReservationBP.bpel#//@activity/@messages.0/@activity/@activities.0/@activities.0/@activity/@activity/@activities.2/@cases.0/@activity/@activities.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ProductReservationBP.bpel#//@activity/@messages.0/@activity/@activities.0/@activities.0/@activity/@activity/@activities.2/@otherwise/@activity"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ProductReservationBP.bpel#//@variables/@children.2"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ProductReservationBP.bpel#//@activity/@messages.0/@activity/@activities.0/@activities.0/@activity/@variables/@children.2"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ProductReservationBP.bpel#//@activity/@messages.0/@activity/@activities.0/@activities.0/@activity/@activity/@activities.2/@cases.0/@activity"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648" implicit="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ProductReservationBP.bpel#//@activity/@messages.0/@activity/@activities.0/@activities.0/@activity/@activity/@activities.2/@cases.0/@activity/@activities.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ProductReservationBP.bpel#//@variables/@children.3"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ProductReservationBP.bpel#//@activity/@messages.0/@activity/@activities.0/@activities.0/@activity/@activity/@activities.2/@cases.0/@activity/@activities.0/@copy.1"/>
       <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
     </extensions>
     <extensions>
-      <extendedObject href="ProductReservationBP.bpel#//@activity/@messages.0/@activity/@activities.0/@activity/@activity/@activities.0/@copy.0"/>
+      <extendedObject href="ProductReservationBP.bpel#//@activity/@messages.0/@activity/@activities.0/@activities.0/@activity/@activity/@activities.2/@cases.0/@activity/@activities.0/@copy.2"/>
       <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
     </extensions>
     <extensions>
-      <extendedObject href="ProductReservationBP.bpel#//@activity/@messages.0/@activity/@activities.0/@activity/@activity/@activities.0/@copy.2"/>
+      <extendedObject href="ProductReservationBP.bpel#//@activity/@messages.0/@activity/@activities.0/@activities.0/@activity/@activity/@activities.2/@cases.0/@activity/@activities.0/@copy.3"/>
       <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
     </extensions>
     <extensions>
-      <extendedObject href="ProductReservationBP.bpel#//@activity/@messages.0/@activity/@activities.0/@activity/@activity/@activities.0/@copy.3"/>
+      <extendedObject href="ProductReservationBP.bpel#//@activity/@messages.0/@activity/@activities.0/@activities.0/@activity/@activity/@activities.2/@cases.0/@activity/@activities.0/@copy.4"/>
       <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
     </extensions>
     <extensions>
-      <extendedObject href="ProductReservationBP.bpel#//@activity/@messages.0/@activity/@activities.0/@activity/@activity/@activities.0/@copy.4"/>
+      <extendedObject href="ProductReservationBP.bpel#//@activity/@messages.0/@activity/@activities.0/@activities.0/@activity/@activity/@activities.2/@cases.0/@activity/@activities.0/@copy.5"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ProductReservationBP.bpel#//@activity/@messages.0/@activity/@activities.0/@activities.0/@activity/@activity/@activities.2/@cases.0/@activity/@activities.0/@copy.6"/>
       <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
     </extensions>
   </extensionmodel:ExtensionMap>

@@ -3,7 +3,7 @@
   <extensionmodel:ExtensionMap namespace="http://com.ibm.wbit.bpel.ui/">
     <extensions>
       <extendedObject href="OrderProcessingBP.bpel#/"/>
-      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ProcessExtension" modificationStamp="1399095705324" autoLayout="true" maxWpcId="41" minWpcId="0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ProcessExtension" modificationStamp="1399154428071" autoLayout="true" maxWpcId="41" minWpcId="0"/>
     </extensions>
     <extensions>
       <extendedObject href="OrderProcessingBP.bpel#//@activity"/>
@@ -191,6 +191,10 @@
     </extensions>
     <extensions>
       <extendedObject href="OrderProcessingBP.bpel#//@activity/@activities.6/@cases.0/@activity/@activities.0/@copy.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="OrderProcessingBP.bpel#//@activity/@activities.3/@copy.1"/>
       <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
     </extensions>
   </extensionmodel:ExtensionMap>

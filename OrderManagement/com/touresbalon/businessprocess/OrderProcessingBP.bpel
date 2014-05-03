@@ -87,6 +87,14 @@
           <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[ordId]]></bpws:query>
         </bpws:to>
       </bpws:copy>
+      <bpws:copy>
+        <bpws:from variable="orderID">
+          <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[RC]]></bpws:query>
+        </bpws:from>
+        <bpws:to variable="order">
+          <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[orderID]]></bpws:query>
+        </bpws:to>
+      </bpws:copy>
     </bpws:assign>
     <bpws:invoke name="Snippet" operation="null" partnerLink="null" portType="wpc:null" wpc:continueOnError="inherit" wpc:displayName="Log - Create Order" wpc:id="6">
       <wpc:script>

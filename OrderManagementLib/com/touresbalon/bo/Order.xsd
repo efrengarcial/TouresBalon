@@ -9,6 +9,9 @@
 	<xsd:complexType name="Order">
 		<xsd:sequence>
 
+			<xsd:element minOccurs="0" name="orderID"
+				type="xsd:string">
+			</xsd:element>
 			<xsd:element minOccurs="0" name="orderDate"
 				type="xsd:dateTime" />
 
