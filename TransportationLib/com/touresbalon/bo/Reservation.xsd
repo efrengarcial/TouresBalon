@@ -30,6 +30,9 @@
 			<xsd:element minOccurs="0" name="orderID"
 				type="xsd:string">
 			</xsd:element>
+			<xsd:element minOccurs="0" name="transportCompany"
+				type="xsd:string">
+			</xsd:element>
 		</xsd:sequence>
 	</xsd:complexType>
 </xsd:schema>

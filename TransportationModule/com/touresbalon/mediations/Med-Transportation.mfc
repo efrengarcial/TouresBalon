@@ -29,5 +29,11 @@
   <extendedOperationBinding source="checkAvailability" target="checkAvailability" sourcePortType="ns1:TransportationServiceIF" targetReference="AAPartner"/>
   <extendedOperationBinding source="checkAvailability" target="checkAvailability" sourcePortType="ns1:TransportationServiceIF" targetReference="AviancaPartner"/>
   <extendedOperationBinding source="checkAvailability" target="checkAvailability" sourcePortType="ns1:TransportationServiceIF" targetReference="BolivarianoPartner"/>
+  <extendedOperationBinding source="makeReservation" target="makeReservation" sourcePortType="ns1:TransportationServiceIF" targetReference="AAPartner"/>
+  <extendedOperationBinding source="makeReservation" target="makeReservation" sourcePortType="ns1:TransportationServiceIF" targetReference="AviancaPartner"/>
+  <extendedOperationBinding source="makeReservation" target="makeReservation" sourcePortType="ns1:TransportationServiceIF" targetReference="BolivarianoPartner"/>
+  <extendedOperationBinding source="cancelReservation" target="cancelReservation" sourcePortType="ns1:TransportationServiceIF" targetReference="AAPartner"/>
+  <extendedOperationBinding source="cancelReservation" target="cancelReservation" sourcePortType="ns1:TransportationServiceIF" targetReference="AviancaPartner"/>
+  <extendedOperationBinding source="cancelReservation" target="cancelReservation" sourcePortType="ns1:TransportationServiceIF" targetReference="BolivarianoPartner"/>
   <operationFlow medflow="Med-Transportation.medflow"/>
 </mfc:interfaceMediationFlow>
