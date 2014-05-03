@@ -8,4 +8,6 @@
   <scdl:libraryDependency name="PaymentsModuleLib" version=""/>
   <scdl:libraryDependency name="OrderLib" version=""/>
   <scdl:libraryDependency name="TransportationLib" version=""/>
+  <scdl:libraryDependency name="ProductReservationLib" version=""/>
+  <scdl:libraryDependency name="AccommodationLib" version=""/>
 </scdl:moduleAndLibraryAttributes>

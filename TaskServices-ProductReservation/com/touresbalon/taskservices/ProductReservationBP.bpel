@@ -1,10 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?><bpws:process xmlns:bpws="http://schemas.xmlsoap.org/ws/2004/03/business-process/" xmlns:ns="http://TaskServices-ProductReservation/com/touresbalon/taskservices/ProductReservationBPArtifacts" xmlns:ns0="http://OrderManagementLib/com/touresbalon/bo" xmlns:ns1="http://ProductReservationLib/com/touresbalon/interfaces/ProductReserServiceIF" xmlns:wpc="http://www.ibm.com/xmlns/prod/websphere/business-process/6.0.0/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.ibm.com/xmlns/prod/websphere/business-process/expression-lang/java/6.0.0/" name="ProductReservationBP" suppressJoinFailure="yes" targetNamespace="http://TaskServices-ProductReservation/com/touresbalon/taskservices" wpc:continueOnError="no" wpc:displayName="ProductReservationBP" wpc:executionMode="microflow" wpc:id="1" wpc:validFrom="2014-05-03T02:55:39" wpc:version="IBM_7.0.500">
+<?xml version="1.0" encoding="UTF-8"?><bpws:process xmlns:bpws="http://schemas.xmlsoap.org/ws/2004/03/business-process/" xmlns:ns="http://TaskServices-ProductReservation/com/touresbalon/taskservices/ProductReservationBPArtifacts" xmlns:ns0="http://OrderManagementLib/com/touresbalon/bo" xmlns:ns1="http://ProductReservationLib/com/touresbalon/interfaces/ProductReserServiceIF" xmlns:ns2="http://AccommodationLib/com/touresbalon/interfaces/AccommodationServiceIF" xmlns:ns3="http://AccommodationLib/com/touresbalon/bo" xmlns:wpc="http://www.ibm.com/xmlns/prod/websphere/business-process/6.0.0/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.ibm.com/xmlns/prod/websphere/business-process/expression-lang/java/6.0.0/" name="ProductReservationBP" suppressJoinFailure="yes" targetNamespace="http://TaskServices-ProductReservation/com/touresbalon/taskservices" wpc:continueOnError="no" wpc:displayName="ProductReservationBP" wpc:executionMode="microflow" wpc:id="1" wpc:validFrom="2014-05-03T02:55:39" wpc:version="IBM_7.0.500">
   <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../interfaces/ProductReservationServiceIF.wsdl" namespace="http://ProductReservationLib/com/touresbalon/interfaces/ProductReserServiceIF"/>
   <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../bo/Order.xsd" namespace="http://OrderManagementLib/com/touresbalon/bo"/>
   <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../interfaces/ProductReservationServiceIF.wsdl" namespace="http://ProductReservationLib/com/touresbalon/interfaces/ProductReserServiceIF"/>
   <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="ProductReservationBPArtifacts.wsdl" namespace="http://TaskServices-ProductReservation/com/touresbalon/taskservices/ProductReservationBPArtifacts"/>
   <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="/resource/TransportationLib/TransportationServiceIF.wsdl" namespace="http://TransportationLib"/>
   <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="/resource/AccommodationLib/com/touresbalon/interfaces/AccommodationServiceIF.wsdl" namespace="http://AccommodationLib/com/touresbalon/interfaces/AccommodationServiceIF"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../interfaces/AccommodationServiceIF.wsdl" namespace="http://AccommodationLib/com/touresbalon/interfaces/AccommodationServiceIF"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../bo/RoomRequest.xsd" namespace="http://AccommodationLib/com/touresbalon/bo"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../bo/RoomWrapperResponse.xsd" namespace="http://AccommodationLib/com/touresbalon/bo"/>
   <bpws:partnerLinks>
     <bpws:partnerLink myRole="Interface" name="ProductReserServiceIF" partnerLinkType="ns:ProductReserServiceIFPLT" wpc:id="2"/>
     <bpws:partnerLink name="TransportationServiceIFPartner" partnerLinkType="ns:TransportationServiceIFPLT" partnerRole="Interface" wpc:id="12"/>
@@ -19,8 +22,67 @@
         <wpc:parameter name="request" variable="order"/>
       </wpc:output>
       <bpws:sequence name="Sequence" wpc:displayName="Sequence" wpc:id="14">
-        <bpws:forEach counterName="Index" name="ForEach" parallel="no" wpc:counterVariableId="16" wpc:displayName="ForEach" wpc:id="15">
-          <bpws:scope name="Scope" wpc:id="17"/>
+        <bpws:forEach counterName="productCount" name="ForEach" parallel="no" wpc:counterVariableId="23" wpc:displayName="ForEach Product" wpc:id="15">
+          <bpws:startCounterValue expressionLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[1]]></bpws:startCounterValue>
+          <bpws:finalCounterValue expressionLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[count($order/products)]]></bpws:finalCounterValue>
+          <bpws:scope name="Scope" wpc:id="17">
+            <bpws:variables>
+              <bpws:variable name="roomRequest" type="ns3:RoomRequest" wpc:id="20"/>
+              <bpws:variable name="roomWrapperResponse" type="ns3:RoomWrapperResponse" wpc:id="24"/>
+            </bpws:variables>
+            <bpws:sequence name="HiddenSequence" wpc:id="1073741845">
+              <bpws:assign name="Assign" wpc:displayName="Assign RoomRequest" wpc:id="22">
+                <bpws:copy>
+                  <bpws:from variable="order">
+                    <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[products[bpws:getVariableData('productCount')]/lodging/company]]></bpws:query>
+                  </bpws:from>
+                  <bpws:to variable="roomRequest">
+                    <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[hotelCompany]]></bpws:query>
+                  </bpws:to>
+                </bpws:copy>
+                <bpws:copy>
+                  <bpws:from variable="order">
+                    <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[products[bpws:getVariableData('productCount')]/lodging/checkInDate]]></bpws:query>
+                  </bpws:from>
+                  <bpws:to variable="roomRequest">
+                    <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[checkInDate]]></bpws:query>
+                  </bpws:to>
+                </bpws:copy>
+                <bpws:copy>
+                  <bpws:from variable="order">
+                    <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[products[bpws:getVariableData('productCount')]/lodging/checkOutDate]]></bpws:query>
+                  </bpws:from>
+                  <bpws:to variable="roomRequest">
+                    <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[checkOutDate]]></bpws:query>
+                  </bpws:to>
+                </bpws:copy>
+                <bpws:copy>
+                  <bpws:from variable="order">
+                    <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[products[bpws:getVariableData('productCount')]/destinationCity]]></bpws:query>
+                  </bpws:from>
+                  <bpws:to variable="roomRequest">
+                    <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[city]]></bpws:query>
+                  </bpws:to>
+                </bpws:copy>
+                <bpws:copy>
+                  <bpws:from variable="order">
+                    <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[products[bpws:getVariableData('productCount')]/destinationCountry]]></bpws:query>
+                  </bpws:from>
+                  <bpws:to variable="roomRequest">
+                    <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[country]]></bpws:query>
+                  </bpws:to>
+                </bpws:copy>
+              </bpws:assign>
+              <bpws:invoke name="Invoke" operation="checkAvailability" partnerLink="AccommodationServiceIFPartner" portType="ns2:AccommodationServiceIF" wpc:continueOnError="inherit" wpc:displayName="Check Availability" wpc:id="19">
+                <wpc:input>
+                  <wpc:parameter name="request" variable="roomRequest"/>
+                </wpc:input>
+                <wpc:output>
+                  <wpc:parameter name="response" variable="roomWrapperResponse"/>
+                </wpc:output>
+              </bpws:invoke>
+            </bpws:sequence>
+          </bpws:scope>
         </bpws:forEach>
       </bpws:sequence>
     </bpws:onMessage>

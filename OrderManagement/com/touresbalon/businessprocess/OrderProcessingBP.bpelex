@@ -3,7 +3,7 @@
   <extensionmodel:ExtensionMap namespace="http://com.ibm.wbit.bpel.ui/">
     <extensions>
       <extendedObject href="OrderProcessingBP.bpel#/"/>
-      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ProcessExtension" modificationStamp="1399090611738" autoLayout="true" maxWpcId="41" minWpcId="0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ProcessExtension" modificationStamp="1399095705324" autoLayout="true" maxWpcId="41" minWpcId="0"/>
     </extensions>
     <extensions>
       <extendedObject href="OrderProcessingBP.bpel#//@activity"/>

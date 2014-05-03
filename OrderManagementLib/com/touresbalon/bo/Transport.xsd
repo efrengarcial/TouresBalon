@@ -12,6 +12,12 @@
 			</xsd:element>
 
 			<xsd:element minOccurs="0" name="code" type="xsd:string"></xsd:element>
+			<xsd:element minOccurs="0" name="travelDate"
+				type="xsd:date">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="returnDate"
+				type="xsd:date">
+			</xsd:element>
 		</xsd:sequence>
 	</xsd:complexType>
 </xsd:schema>

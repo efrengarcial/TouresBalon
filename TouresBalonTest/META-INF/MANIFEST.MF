@@ -1,7 +1,9 @@
 Manifest-Version: 1.0
-Class-Path: OrderManagementLib.jar 
+Class-Path: AccommodationLib.jar 
+ OrderManagementLib.jar 
  OrderLib.jar 
  CWYFF_FlatFile.rar 
+ ProductReservationLib.jar 
  TransportationLib.jar 
  PaymentsModuleLib.jar 
  CommonDomain.jar 

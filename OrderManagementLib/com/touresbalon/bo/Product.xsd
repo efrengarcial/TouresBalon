@@ -18,6 +18,12 @@
 			</xsd:element>
 			<xsd:element minOccurs="0" name="quantity" type="xsd:int">
 			</xsd:element>
+			<xsd:element minOccurs="0" name="originCity"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="destinationCity"
+				type="xsd:string">
+			</xsd:element>
 			<xsd:element minOccurs="0" name="originCountry"
 				type="xsd:string">
 			</xsd:element>
@@ -30,12 +36,9 @@
 			<xsd:element minOccurs="0" name="lodging"
 				type="bons0:Lodging">
 			</xsd:element>
-			<xsd:element minOccurs="0" name="travelDate"
-				type="xsd:date">
-			</xsd:element>
-			<xsd:element minOccurs="0" name="returnDate"
-				type="xsd:date">
-			</xsd:element>
+
+
+
 		</xsd:sequence>
 	</xsd:complexType>
 </xsd:schema>
