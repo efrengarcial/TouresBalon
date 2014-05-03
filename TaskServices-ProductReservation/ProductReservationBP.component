@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns1="http://ProductReservationLib/com/touresbalon/interfaces/ProductReserServiceIF" xmlns:ns2="http://TransportationLib" xmlns:ns3="http://AccommodationLib/com/touresbalon/interfaces/AccommodationServiceIF" xmlns:process="http://www.ibm.com/xmlns/prod/websphere/scdl/business-process/6.0.0" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="ProductReservationBP" name="ProductReservationBP">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" preferredInteractionStyle="sync" portType="ns1:ProductReservationServiceIF">
+      <scdl:interfaceQualifier xsi:type="scdl:JoinTransaction" value="true"/>
+    </interface>
+  </interfaces>
+  <references>
+    <reference name="TransportationServiceIFPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns2:TransportationServiceIF"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="Transportation"/>
+    </reference>
+    <reference name="AccommodationServiceIFPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns3:AccommodationServiceIF"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="Accommodation"/>
+    </reference>
+  </references>
+  <implementation xsi:type="process:ProcessImplementation">
+    <scdl:implementationQualifier xsi:type="scdl:Transaction" value="global"/>
+    <process bpel="/com/touresbalon/taskservices/ProductReservationBP.bpel"/>
+  </implementation>
+</scdl:component>

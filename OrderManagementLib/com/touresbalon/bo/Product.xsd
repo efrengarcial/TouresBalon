@@ -1,17 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema
 	targetNamespace="http://OrderManagementLib/com/touresbalon/bo"
-	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:bons0="http://OrderManagementLib/com/touresbalon/bo">
+	<xsd:include schemaLocation="Lodging.xsd"></xsd:include>
+	<xsd:include schemaLocation="Transport.xsd"></xsd:include>
 	<xsd:complexType name="Product">
 		<xsd:sequence>
 			<xsd:element minOccurs="0" name="prodId" type="xsd:int">
 			</xsd:element>
 			<xsd:element minOccurs="0" name="partNum" type="xsd:int"></xsd:element>
-			<xsd:element minOccurs="0" name="price" type="xsd:double"></xsd:element>
+			<xsd:element minOccurs="0" name="amount"
+				type="xsd:double">
+			</xsd:element>
 			<xsd:element minOccurs="0" name="productName"
 				type="xsd:string">
 			</xsd:element>
 			<xsd:element minOccurs="0" name="quantity" type="xsd:int">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="originCountry"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="destinationCountry"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="transport"
+				type="bons0:Transport">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="lodging"
+				type="bons0:Lodging">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="travelDate"
+				type="xsd:date">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="returnDate"
+				type="xsd:date">
 			</xsd:element>
 		</xsd:sequence>
 	</xsd:complexType>

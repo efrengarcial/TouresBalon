@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="ProductReserServiceIF" targetNamespace="http://ProductReservationLib/com/touresbalon/interfaces/ProductReserServiceIF" xmlns:bons1="http://OrderManagementLib/com/touresbalon/bo" xmlns:tns="http://ProductReservationLib/com/touresbalon/interfaces/ProductReserServiceIF" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://ProductReservationLib/com/touresbalon/interfaces/ProductReserServiceIF">
+      <xsd:import namespace="http://OrderManagementLib/com/touresbalon/bo" schemaLocation="../bo/Order.xsd"/>
+      <xsd:element name="makeReservationLodging">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="request" nillable="true" type="bons1:Order"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="makeReservationTransport">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="request" nillable="true" type="bons1:Order"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="makeReservationLodgingRequestMsg">
+    <wsdl:part element="tns:makeReservationLodging" name="makeReservationLodgingParameters"/>
+  </wsdl:message>
+    <wsdl:message name="makeReservationTransportRequestMsg">
+    <wsdl:part element="tns:makeReservationTransport" name="makeReservationTransportParameters"/>
+  </wsdl:message>
+    <wsdl:portType name="ProductReservationServiceIF">
+    <wsdl:operation name="makeReservationLodging">
+      <wsdl:input message="tns:makeReservationLodgingRequestMsg" name="makeReservationLodgingRequest"/>
+    </wsdl:operation>
+    <wsdl:operation name="makeReservationTransport">
+      <wsdl:input message="tns:makeReservationTransportRequestMsg" name="makeReservationTransportRequest"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

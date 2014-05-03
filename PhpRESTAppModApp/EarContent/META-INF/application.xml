@@ -8,7 +8,7 @@
             <context-root>PhpRESTAppModWeb</context-root>
         </web>
     </module>
-	<security-role id="SecurityRole_1399042010546">
+	<security-role id="SecurityRole_1399078743701">
 		<description>
 		REST Interface Users</description>
 		<role-name>RESTUsers</role-name>

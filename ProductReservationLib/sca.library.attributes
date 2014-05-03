@@ -3,4 +3,6 @@
   <boImplementation>
     <emf/>
   </boImplementation>
+  <scdl:libraryDependency name="CommonDomain" version=""/>
+  <scdl:libraryDependency name="OrderManagementLib" version=""/>
 </scdl:moduleAndLibraryAttributes>

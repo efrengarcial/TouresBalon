@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="ProductReserServiceIF" targetNamespace="http://ProductReservationLib/com/touresbalon/interfaces/ProductReserServiceIF" xmlns:tns="http://ProductReservationLib/com/touresbalon/interfaces/ProductReserServiceIF" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <wsdl:portType name="ProductReserServiceIF"/>
-</wsdl:definitions>

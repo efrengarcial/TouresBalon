@@ -13,7 +13,7 @@
 				type="xsd:dateTime" />
 
 
-			<xsd:element minOccurs="0" name="price" type="xsd:decimal" />
+			<xsd:element minOccurs="0" name="amount" type="xsd:decimal" />
 
 
 

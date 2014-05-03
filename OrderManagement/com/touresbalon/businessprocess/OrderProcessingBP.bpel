@@ -15,9 +15,9 @@
     <bpws:partnerLink name="OrderMgmtServiceIFPartner" partnerLinkType="ns:OrderMgmtServiceIFPLT" partnerRole="Interface" wpc:id="16"/>
   </bpws:partnerLinks>
   <bpws:variables>
-    <bpws:variable name="orderOMS" type="ns0:Order" wpc:id="5"/>
+    <bpws:variable name="order" type="ns0:Order" wpc:id="5"/>
     <bpws:variable name="orderID" type="ns5:ReturnCode" wpc:id="13"/>
-    <bpws:variable name="order" type="ns3:Order" wpc:id="14"/>
+    <bpws:variable name="orderOMS" type="ns3:Order" wpc:id="14"/>
     <bpws:variable name="returnValidateOrder" type="xsd:boolean" wpc:id="18"/>
     <bpws:variable name="returnAppovalOrder" type="xsd:boolean" wpc:id="23"/>
     <bpws:variable name="returnUpateOrder" type="ns5:ReturnCode" wpc:id="34"/>
@@ -25,54 +25,54 @@
   <bpws:sequence name="HiddenSequence" wpc:id="1073741827">
     <bpws:receive createInstance="yes" name="Receive" operation="startProcess" partnerLink="OrderManagementIF" portType="ns1:OrderManagementIF" wpc:displayName="Receive" wpc:id="4" wpc:transactionalBehavior="commitAfter">
       <wpc:output>
-        <wpc:parameter name="request" variable="orderOMS"/>
+        <wpc:parameter name="request" variable="order"/>
       </wpc:output>
     </bpws:receive>
     <bpws:assign name="Assign" wpc:displayName="Assign Create Order" wpc:id="15">
       <bpws:copy>
-        <bpws:from variable="orderOMS">
+        <bpws:from variable="order">
           <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[orderDate]]></bpws:query>
         </bpws:from>
-        <bpws:to variable="order">
+        <bpws:to variable="orderOMS">
           <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[orderDate]]></bpws:query>
         </bpws:to>
       </bpws:copy>
       <bpws:copy>
-        <bpws:from variable="orderOMS">
+        <bpws:from variable="order">
           <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[customer/Id]]></bpws:query>
         </bpws:from>
-        <bpws:to variable="order">
+        <bpws:to variable="orderOMS">
           <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[customerId]]></bpws:query>
         </bpws:to>
       </bpws:copy>
       <bpws:copy>
-        <bpws:from variable="orderOMS">
-          <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[price]]></bpws:query>
+        <bpws:from variable="order">
+          <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[amount]]></bpws:query>
         </bpws:from>
-        <bpws:to variable="order">
+        <bpws:to variable="orderOMS">
           <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[price]]></bpws:query>
         </bpws:to>
       </bpws:copy>
       <bpws:copy>
-        <bpws:from variable="orderOMS">
+        <bpws:from variable="order">
           <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[comments]]></bpws:query>
         </bpws:from>
-        <bpws:to variable="order">
+        <bpws:to variable="orderOMS">
           <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[comments]]></bpws:query>
         </bpws:to>
       </bpws:copy>
       <bpws:copy>
-        <bpws:from variable="orderOMS">
+        <bpws:from variable="order">
           <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[customer/type]]></bpws:query>
         </bpws:from>
-        <bpws:to variable="order">
+        <bpws:to variable="orderOMS">
           <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[customerType]]></bpws:query>
         </bpws:to>
       </bpws:copy>
     </bpws:assign>
     <bpws:invoke name="Invoke" operation="createOrder" partnerLink="OrderMgmtServiceIFPartner" portType="ns4:OrderMgmtServiceIF" wpc:continueOnError="inherit" wpc:displayName="Create Order" wpc:id="12">
       <wpc:input>
-        <wpc:parameter name="request" variable="order"/>
+        <wpc:parameter name="request" variable="orderOMS"/>
       </wpc:input>
       <wpc:output>
         <wpc:parameter name="response" variable="orderID"/>
@@ -83,7 +83,7 @@
         <bpws:from variable="orderID">
           <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[RC]]></bpws:query>
         </bpws:from>
-        <bpws:to variable="order">
+        <bpws:to variable="orderOMS">
           <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[ordId]]></bpws:query>
         </bpws:to>
       </bpws:copy>
@@ -122,7 +122,7 @@
     </bpws:invoke>
     <bpws:invoke name="Invoke1" operation="requiresApproval" partnerLink="OrderMgmtServiceIFPartner" portType="ns4:OrderMgmtServiceIF" wpc:continueOnError="inherit" wpc:displayName="Validate Order" wpc:id="17">
       <wpc:input>
-        <wpc:parameter name="request" variable="order"/>
+        <wpc:parameter name="request" variable="orderOMS"/>
       </wpc:input>
       <wpc:output>
         <wpc:parameter name="response" variable="returnValidateOrder"/>
@@ -135,14 +135,14 @@
           <bpws:assign name="Assign1" wpc:displayName="Assign Order EN_VALIDACION" wpc:id="35">
             <bpws:copy>
               <bpws:from><![CDATA[EN_VALIDACION]]></bpws:from>
-              <bpws:to variable="order">
+              <bpws:to variable="orderOMS">
                 <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[status]]></bpws:query>
               </bpws:to>
             </bpws:copy>
           </bpws:assign>
           <bpws:invoke name="UpdateOrder--EN_VALIDACION" operation="updateOrder" partnerLink="OrderMgmtServiceIFPartner" portType="ns4:OrderMgmtServiceIF" wpc:continueOnError="inherit" wpc:displayName="Update Order -- EN_VALIDACION" wpc:id="30">
             <wpc:input>
-              <wpc:parameter name="request" variable="order"/>
+              <wpc:parameter name="request" variable="orderOMS"/>
             </wpc:input>
             <wpc:output>
               <wpc:parameter name="response" variable="returnUpateOrder"/>
@@ -151,7 +151,7 @@
           <bpws:invoke name="SalesOfficerAuthorization" operation="authorize" partnerLink="null" portType="ns6:SalesAuthorizationIF" wpc:continueOnError="inherit" wpc:displayName="Sales officer authorization" wpc:id="22" wpc:transactionalBehavior="participates">
             <wpc:task name="tel:OrderProcessingBPTask1"/>
             <wpc:input>
-              <wpc:parameter name="order" variable="orderOMS"/>
+              <wpc:parameter name="order" variable="order"/>
             </wpc:input>
             <wpc:output>
               <wpc:parameter name="approved" variable="returnAppovalOrder"/>
@@ -230,14 +230,14 @@
                 <bpws:assign name="Assign2" wpc:displayName="Assign Order RECHAZADA" wpc:id="36">
                   <bpws:copy>
                     <bpws:from><![CDATA[RECHAZADA]]></bpws:from>
-                    <bpws:to variable="order">
+                    <bpws:to variable="orderOMS">
                       <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[status]]></bpws:query>
                     </bpws:to>
                   </bpws:copy>
                 </bpws:assign>
                 <bpws:invoke name="UpdateOrder--RECHAZADA" operation="updateOrder" partnerLink="OrderMgmtServiceIFPartner" portType="ns4:OrderMgmtServiceIF" wpc:continueOnError="inherit" wpc:displayName="Update Order -- RECHAZADA" wpc:id="31">
                   <wpc:input>
-                    <wpc:parameter name="request" variable="order"/>
+                    <wpc:parameter name="request" variable="orderOMS"/>
                   </wpc:input>
                   <wpc:output>
                     <wpc:parameter name="response" variable="returnUpateOrder"/>
@@ -319,14 +319,14 @@
     <bpws:assign name="Assign4" wpc:displayName="Assign Order EN_RESERVACION" wpc:id="39">
       <bpws:copy>
         <bpws:from><![CDATA[EN_RESERVACION]]></bpws:from>
-        <bpws:to variable="order">
+        <bpws:to variable="orderOMS">
           <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[status]]></bpws:query>
         </bpws:to>
       </bpws:copy>
     </bpws:assign>
     <bpws:invoke name="Invoke2" operation="updateOrder" partnerLink="OrderMgmtServiceIFPartner" portType="ns4:OrderMgmtServiceIF" wpc:continueOnError="inherit" wpc:displayName="Update Oder -- EN_RESERVACION" wpc:id="38">
       <wpc:input>
-        <wpc:parameter name="request" variable="order"/>
+        <wpc:parameter name="request" variable="orderOMS"/>
       </wpc:input>
       <wpc:output>
         <wpc:parameter name="response" variable="returnUpateOrder"/>

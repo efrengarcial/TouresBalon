@@ -1,5 +1,6 @@
 Manifest-Version: 1.0
 Class-Path: AccommodationLib.jar 
+ OrderManagementLib.jar 
  ProductReservationLib.jar 
  TransportationLib.jar 
  CommonDomain.jar

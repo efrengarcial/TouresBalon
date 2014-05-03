@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema targetNamespace="http://OrderManagementLib/com/touresbalon/bo" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:complexType name="Lodging">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="company" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="vendorAmount" type="xsd:double"/>
+      <xsd:element minOccurs="0" name="code" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

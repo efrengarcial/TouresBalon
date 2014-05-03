@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="EntityServices-TransportationModuleApp">
+        <wb-resource deploy-path="/" source-path="/EarContent"/>
+        <dependent-module archiveName="EntityServices-TransportationModule.jar" deploy-path="/" handle="module:/resource/EntityServices-TransportationModule/EntityServices-TransportationModule">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module deploy-path="/" handle="module:/resource/EntityServices-TransportationModuleWeb/EntityServices-TransportationModuleWeb">
+            <dependent-object>WebModule_1169158408425</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="CommonDomain.jar" deploy-path="/" handle="module:/resource/CommonDomain/CommonDomain">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="TransportationLib.jar" deploy-path="/" handle="module:/resource/TransportationLib/TransportationLib">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="CWYFF_FlatFile.rar" deploy-path="/" handle="module:/resource/CWYFF_FlatFile/CWYFF_FlatFile">
+            <dependent-object>ConnectorModule_1399078695173</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    </wb-module>
+</project-modules>
