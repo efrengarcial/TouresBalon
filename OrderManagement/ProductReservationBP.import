@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:import xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns1="http://ProductReservationLib/com/touresbalon/interfaces/ProductReserServiceIF" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="ProductReservationBP" name="ProductReservationBP">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" preferredInteractionStyle="sync" portType="ns1:ProductReservationServiceIF">
+      <scdl:interfaceQualifier xsi:type="scdl:JoinTransaction" value="true"/>
+    </interface>
+  </interfaces>
+  <esbBinding xsi:type="scdl:SCAImportBinding" module="TaskServices-ProductReservation" export="ProductReservationBP">
+    <scdl:bindingQualifier xsi:type="scdl:IsTargetSCA" value="true"/>
+  </esbBinding>
+</scdl:import>

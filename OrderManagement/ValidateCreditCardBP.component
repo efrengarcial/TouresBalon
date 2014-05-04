@@ -18,7 +18,7 @@
       <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
       <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
       <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
-      <wire target="PaymentsImport"/>
+      <wire target="Payments"/>
     </reference>
   </references>
   <implementation xsi:type="process:ProcessImplementation">

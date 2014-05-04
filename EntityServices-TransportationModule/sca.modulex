@@ -41,10 +41,6 @@
       <extendedObject href="TransportationExport.export#//@export"/>
       <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:ExportExtension" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0}ExportBinding" unknown="false" visible="true" x="20" y="173" bound="true"/>
     </extensions>
-    <extensions>
-      <extendedObject href="../TransportationModule/sca.module#//@module"/>
-      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:ModuleExtension"/>
-    </extensions>
   </extensionmodel:ExtensionMap>
   <extensionmodel:ExtensionMap xmi:id="ExtensionMap_1395595726371" namespace="http://com.ibm.wbit.stickyboard.model/model/StickyBoard.xsd">
     <extensions xmi:id="Extension_1395595726372">

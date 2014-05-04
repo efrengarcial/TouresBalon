@@ -5,7 +5,7 @@
       <scdl:interfaceQualifier xsi:type="scdl:JoinTransaction" value="true"/>
     </interface>
   </interfaces>
-  <esbBinding xsi:type="scdl:SCAImportBinding" module="EntityServices-TransportationModule" export="TransportationExport">
+  <esbBinding xsi:type="scdl:SCAImportBinding" module="EntityServices-TransportationModule" export="TransportationExport" version="">
     <scdl:bindingQualifier xsi:type="scdl:IsTargetSCA" value="true"/>
   </esbBinding>
 </scdl:import>

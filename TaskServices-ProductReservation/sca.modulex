@@ -7,15 +7,19 @@
     </extensions>
     <extensions>
       <extendedObject href="ProductReservationBP.component#//@Component"/>
-      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/business-process/6.0.0}ProcessImplementation" unknown="false" visible="true" x="259" y="130"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/business-process/6.0.0}ProcessImplementation" unknown="false" visible="true" x="296" y="130"/>
     </extensions>
     <extensions>
       <extendedObject href="Transportation.import#//@import"/>
-      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0}SCAImportBinding" unknown="false" visible="true" x="484" y="98"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0}SCAImportBinding" unknown="false" visible="true" x="521" y="98"/>
     </extensions>
     <extensions>
       <extendedObject href="Accommodation.import#//@import"/>
-      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0}SCAImportBinding" unknown="false" visible="true" x="488" y="194"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0}SCAImportBinding" unknown="false" visible="true" x="525" y="194"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ProductReservationBP.export#//@export"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:ExportExtension" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0}ExportBinding" unknown="false" visible="true" x="20" y="133" bound="true"/>
     </extensions>
   </extensionmodel:ExtensionMap>
   <extensionmodel:ExtensionMap namespace="http://com.ibm.wbit.stickyboard.model/model/StickyBoard.xsd">

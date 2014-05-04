@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<scdl:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns1="http://OrderManagement/com/touresbalon/businessprocess/OrderProcessingInterface" xmlns:ns2="http://OrderManagementLib/com/touresbalon/interfaces/OrderManagementIF" xmlns:ns3="http://OrderModule/com/touresbalon/interfaces/OrderServiceIF" xmlns:ns4="http://OrderLib/com/touresbalon/interfaces/OrderMgmtServiceIF" xmlns:process="http://www.ibm.com/xmlns/prod/websphere/scdl/business-process/6.0.0" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="OrderProcessingBP" name="OrderProcessingBP">
+<scdl:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns1="http://OrderManagement/com/touresbalon/businessprocess/OrderProcessingInterface" xmlns:ns2="http://OrderManagementLib/com/touresbalon/interfaces/OrderManagementIF" xmlns:ns3="http://OrderModule/com/touresbalon/interfaces/OrderServiceIF" xmlns:ns4="http://OrderLib/com/touresbalon/interfaces/OrderMgmtServiceIF" xmlns:ns5="http://ProductReservationLib/com/touresbalon/interfaces/ProductReserServiceIF" xmlns:process="http://www.ibm.com/xmlns/prod/websphere/scdl/business-process/6.0.0" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="OrderProcessingBP" name="OrderProcessingBP">
   <interfaces>
     <interface xsi:type="wsdl:WSDLPortType" preferredInteractionStyle="async" portType="ns2:OrderManagementIF">
       <scdl:interfaceQualifier xsi:type="scdl:JoinTransaction" value="false"/>
@@ -11,7 +11,14 @@
       <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
       <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
       <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
-      <wire target="OrderMgmtBPImport"/>
+      <wire target="OrderMgmtBP"/>
+    </reference>
+    <reference name="ProductReservationServiceIFPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns5:ProductReservationServiceIF"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="ProductReservationBP"/>
     </reference>
   </references>
   <implementation xsi:type="process:ProcessImplementation">

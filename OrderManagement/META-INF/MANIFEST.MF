@@ -1,6 +1,7 @@
 Manifest-Version: 1.0
 Class-Path: OrderManagementLib.jar 
  OrderLib.jar 
+ ProductReservationLib.jar 
  PaymentsModuleLib.jar 
  CommonDomain.jar 
  OrderManagementUI.war
