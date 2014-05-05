@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="LegalizeOrderBP" targetNamespace="http://TaskServices-LegalizeOrder/com/touresbalon/taskservices/LegalizeOrderBPInterface" xmlns:bons1="http://OrderManagementLib/com/touresbalon/bo" xmlns:bons2="http://CommonDomain/com/touresbalon/bo" xmlns:tns="http://TaskServices-LegalizeOrder/com/touresbalon/taskservices/LegalizeOrderBPInterface" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://TaskServices-LegalizeOrder/com/touresbalon/taskservices/LegalizeOrderBPInterface">
+            <xsd:import namespace="http://CommonDomain/com/touresbalon/bo" schemaLocation="../bo/ReturnCode.xsd"/>
+            <xsd:import namespace="http://OrderManagementLib/com/touresbalon/bo" schemaLocation="../bo/Order.xsd"/>
+            <xsd:element name="legalize">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="request" nillable="true" type="bons1:Order"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="legalizeResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="response" nillable="true" type="bons2:ReturnCode"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="legalizeRequest">
+    <wsdl:part element="tns:legalize" name="legalizeParameters"/>
+  </wsdl:message>
+  <wsdl:message name="legalizeResponse">
+    <wsdl:part element="tns:legalizeResponse" name="legalizeResult"/>
+  </wsdl:message>
+  <wsdl:portType name="LegalizeOrderServiceIF">
+    <wsdl:operation name="legalize">
+      <wsdl:input message="tns:legalizeRequest" name="legalizeRequest"/>
+      <wsdl:output message="tns:legalizeResponse" name="legalizeResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

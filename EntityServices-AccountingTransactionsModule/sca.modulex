@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:com.ibm.wbit.wiring.ui.ext.model="http:///com/ibm/wbit/wiring/ui/ext/model.ecore" xmlns:extensionmodel="http:///extensionmodel.ecore" xmlns:sb="http://com.ibm.wbit.stickyboard.model/model/StickyBoard.xsd" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0">
+  <extensionmodel:ExtensionMap xmi:id="ExtensionMap_1399254169810" namespace="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0">
+    <extensions xmi:id="Extension_1399254169810">
+      <extendedObject xmi:type="scdl:Component" href="Med-accounting.component#//@Component"/>
+      <extensionObject xmi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" xmi:id="NodeExtension_1399254169810" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/mfc/6.0.0}MediationFlowImplementation" unknown="false" visible="true" x="268" y="110"/>
+    </extensions>
+    <extensions xmi:id="Extension_1399254169811">
+      <extendedObject xmi:type="scdl:Module" href="sca.module#//@module"/>
+      <extensionObject xmi:type="com.ibm.wbit.wiring.ui.ext.model:ModuleExtension" xmi:id="ModuleExtension_1399254169810"/>
+    </extensions>
+    <extensions xmi:id="Extension_1399254169812">
+      <extendedObject xmi:type="scdl:Import" href="com/touresbalon/accounting/AccountingFileAdapter.import#//@import"/>
+      <extensionObject xmi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" xmi:id="NodeExtension_1399254169811" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/eis/6.0.0}EISImportBinding" unknown="false" visible="true" x="565" y="103"/>
+    </extensions>
+    <extensions xmi:id="Extension_1399254872890">
+      <extendedObject xmi:type="scdl:Export" href="AccountingExport.export#//@export"/>
+      <extensionObject xmi:type="com.ibm.wbit.wiring.ui.ext.model:ExportExtension" xmi:id="ExportExtension_1399254872891" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0}ExportBinding" unknown="false" visible="true" x="20" y="110" bound="true"/>
+    </extensions>
+  </extensionmodel:ExtensionMap>
+  <extensionmodel:ExtensionMap xmi:id="ExtensionMap_1399254169811" namespace="http://com.ibm.wbit.stickyboard.model/model/StickyBoard.xsd">
+    <extensions xmi:id="Extension_1399254169813">
+      <extendedObject xmi:type="scdl:Module" href="sca.module#//@module"/>
+      <extensionObject xmi:type="sb:StickyDocument" xmi:id="StickyDocument_1399254169810">
+        <stickyBoard xmi:id="StickyBoard_1399254169810" id="default"/>
+      </extensionObject>
+    </extensions>
+  </extensionmodel:ExtensionMap>
+</xmi:XMI>

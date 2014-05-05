@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map:businessObjectMap xmlns:Order="http://orders.oms.touresbalon.com/" xmlns:Order_1="http://OrderManagementLib/com/touresbalon/bo" xmlns:dataMappingCloseOrder="http://OrderManagement/com/touresbalon/transforms" xmlns:map="http://www.ibm.com/xmlns/prod/websphere/wbiserver/map/6.0.0" targetNamespace="http://OrderManagement/com/touresbalon/transforms">
+  <map:name>dataMappingCloseOrder</map:name>
+  <map:inputBusinessObjectVariable businessObjectRef="Order_1:Order" name="Order"/>
+  <map:outputBusinessObjectVariable businessObjectRef="Order:Order" name="Order_1"/>
+  <map:propertyMap executionOrder="1">
+    <map:customAssignment>
+      <map:output businessObjectVariableRef="Order_1" property="endOrderDate"/>
+      <map:javaCode>java.util.Date __Order_1_endOrderDate = (java.util.Date)Order_1_endOrderDate;&#xD;
+java.util.Date __result__1;&#xD;
+{// current date and time&#xD;
+	__result__1 = new java.util.Date();&#xD;
+}&#xD;
+__Order_1_endOrderDate = __result__1;&#xD;
+Order_1_endOrderDate = __Order_1_endOrderDate;&#xD;
+
+//@generated:com.ibm.wbit.activity.ui
+//&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>
+//&lt;com.ibm.wbit.activity:CompositeActivity xmi:version=&quot;2.0&quot; xmlns:xmi=&quot;http://www.omg.org/XMI&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:com.ibm.wbit.activity=&quot;http:///com/ibm/wbit/activity.ecore&quot; name=&quot;ActivityMethod&quot;>
+//  &lt;exceptions>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.Exception&quot;/>
+//  &lt;/exceptions>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:LibraryActivity&quot; name=&quot;current date and time&quot; description=&quot;The current date and time&quot; category=&quot;date&quot; template=&quot;&amp;lt;%return%> new java.util.Date();&quot;>
+//    &lt;result name=&quot;dateTimeNow&quot; displayName=&quot;date time now&quot;>
+//      &lt;dataOutputs target=&quot;//@executableElements.1&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.util.Date&quot;/>
+//    &lt;/result>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; dataInputs=&quot;//@executableElements.0/@result/@dataOutputs.0&quot; value=&quot;Order_1_endOrderDate&quot; variable=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;dateTime&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.0 //@executableElements.1&quot;/>
+//&lt;/com.ibm.wbit.activity:CompositeActivity>
+//@generated:end
+//!SMAP!*S WBIACTDBG&#xD;
+//!SMAP!*L&#xD;
+//!SMAP!1:2,4&#xD;
+//!SMAP!2:6,2&#xD;
+//!SMAP!1000000:32,1</map:javaCode>
+    </map:customAssignment>
+  </map:propertyMap>
+</map:businessObjectMap>

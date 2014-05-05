@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mfc:interfaceMediationFlow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mfc="http://www.ibm.com/xmlns/prod/websphere/wbiserver/mfc/6.0.0" xmlns:ns1="http://AccountingTransactionsLib/com/touresbalon/interfaces/AccountingTransactionsServiceIF" xmlns:ns2="http://EntityServices-AccountingTransactionsModule/com/touresbalon/accounting/FlatFileImport" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" name="Med-accounting" targetNamespace="http://EntityServices-AccountingTransactionsModule/com/touresbalon/mediations/Med-accounting">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" portType="ns1:AccountingTransactionsServiceIF"/>
+  </interfaces>
+  <references>
+    <reference name="FlatFileImportPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns2:FlatFileImport"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="com/touresbalon/accounting/AccountingFileAdapter"/>
+    </reference>
+  </references>
+  <extendedOperationBinding source="registerMovement" target="append" sourcePortType="ns1:AccountingTransactionsServiceIF" targetReference="FlatFileImportPartner"/>
+  <operationFlow medflow="Med-accounting.medflow"/>
+</mfc:interfaceMediationFlow>

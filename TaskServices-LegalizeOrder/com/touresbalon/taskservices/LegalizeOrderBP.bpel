@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?><bpws:process xmlns:bpws="http://schemas.xmlsoap.org/ws/2004/03/business-process/" xmlns:ns="http://TaskServices-LegalizeOrder/com/touresbalon/taskservices/LegalizeOrderBPArtifacts" xmlns:ns0="http://TaskServices-LegalizeOrder/com/touresbalon/taskservices/LegalizeOrderBPInterface" xmlns:ns1="http://OrderManagementLib/com/touresbalon/bo" xmlns:ns2="http://CommonDomain/com/touresbalon/bo" xmlns:ns3="http://AccountingTransactionsLib/com/touresbalon/interfaces/AccountingTransactionsServiceIF" xmlns:ns4="http://AccountingTransactionsLib/com/touresbalon/bo" xmlns:wpc="http://www.ibm.com/xmlns/prod/websphere/business-process/6.0.0/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.ibm.com/xmlns/prod/websphere/business-process/expression-lang/java/6.0.0/" name="LegalizeOrderBP" suppressJoinFailure="yes" targetNamespace="http://TaskServices-LegalizeOrder/com/touresbalon/taskservices" wpc:continueOnError="no" wpc:displayName="LegalizeOrderBP" wpc:executionMode="microflow" wpc:id="1" wpc:validFrom="2014-05-05T02:06:49" wpc:version="IBM_7.0.500">
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../interfaces/LegalizeOrderServiceIF.wsdl" namespace="http://TaskServices-LegalizeOrder/com/touresbalon/taskservices/LegalizeOrderBPInterface"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="LegalizeOrderBPArtifacts.wsdl" namespace="http://TaskServices-LegalizeOrder/com/touresbalon/taskservices/LegalizeOrderBPArtifacts"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../bo/Order.xsd" namespace="http://OrderManagementLib/com/touresbalon/bo"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../bo/ReturnCode.xsd" namespace="http://CommonDomain/com/touresbalon/bo"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="/resource/AccountingTransactionsLib/com/touresbalon/interfaces/AccountingTransactionsServiceIF.wsdl" namespace="http://AccountingTransactionsLib/com/touresbalon/interfaces/AccountingTransactionsServiceIF"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../interfaces/AccountingTransactionsServiceIF.wsdl" namespace="http://AccountingTransactionsLib/com/touresbalon/interfaces/AccountingTransactionsServiceIF"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../bo/AccountingMovement.xsd" namespace="http://AccountingTransactionsLib/com/touresbalon/bo"/>
+  <bpws:partnerLinks>
+    <bpws:partnerLink myRole="Interface" name="LegalizeOrderBP" partnerLinkType="ns:LegalizeOrderBPPLT" wpc:id="2"/>
+    <bpws:partnerLink name="AccountingTransactionsServiceIFPartner" partnerLinkType="ns:AccountingTransactionsServiceIFPLT" partnerRole="Interface" wpc:id="9"/>
+  </bpws:partnerLinks>
+  <bpws:variables>
+    <bpws:variable name="order" type="ns1:Order" wpc:id="7"/>
+    <bpws:variable name="returnCode" type="ns2:ReturnCode" wpc:id="8"/>
+    <bpws:variable name="accountingMovement" type="ns4:AccountingMovement" wpc:id="11"/>
+  </bpws:variables>
+  <bpws:sequence name="HiddenSequence" wpc:id="1073741827">
+    <bpws:receive createInstance="yes" name="Receive" operation="legalize" partnerLink="LegalizeOrderBP" portType="ns0:LegalizeOrderServiceIF" wpc:displayName="Receive" wpc:id="4" wpc:transactionalBehavior="commitAfter">
+      <wpc:output>
+        <wpc:parameter name="request" variable="order"/>
+      </wpc:output>
+    </bpws:receive>
+    <bpws:invoke name="DataMap" operation="null" partnerLink="null" portType="wpc:null" wpc:continueOnError="inherit" wpc:displayName="DataMap" wpc:id="13">
+      <wpc:script>
+        <wpc:javaCode><![CDATA[commonj.sdo.DataObject __result__2;
+{// create AccountingMovement
+	com.ibm.websphere.bo.BOFactory factory = 
+	   (com.ibm.websphere.bo.BOFactory) new com.ibm.websphere.sca.ServiceManager().locateService("com/ibm/websphere/bo/BOFactory");
+	 __result__2 = factory.create("http://AccountingTransactionsLib/com/touresbalon/bo","AccountingMovement");
+}
+accountingMovement = __result__2;
+java.lang.Object __result__4 = null;
+try {
+	{// dataMappingAccountingMovement
+		java.util.HashMap inputMap = new java.util.HashMap();
+		java.util.HashMap outputMap = new java.util.HashMap();
+		inputMap.put("Order", order);
+		outputMap.put("AccountingMovement", accountingMovement);
+		com.ibm.wbiserver.map.MapService _serv = 
+			(com.ibm.wbiserver.map.MapService)new com.ibm.websphere.sca.ServiceManager().locateService("com/ibm/wbiserver/map/MapService");
+		_serv.transform("http://TaskServices-LegalizeOrder/com/touresbalon/transforms", "dataMappingAccountingMovement", inputMap, outputMap, ((com.ibm.wbiserver.relationshipservice.common.ExecutionContext)__result__4));
+	}
+}
+catch(com.ibm.wbiserver.map.exceptions.WBIMapFailureException ex){
+	com.ibm.wbiserver.map.exceptions.WBIMapFailureException __result__7;
+	ex.printStackTrace();
+}
+catch(com.ibm.wbiserver.map.exceptions.WBIMapNotFoundException ex){
+	com.ibm.wbiserver.map.exceptions.WBIMapNotFoundException __result__10;
+	ex.printStackTrace();
+}
+catch(com.ibm.wbiserver.map.exceptions.WBIMapServiceException ex){
+	com.ibm.wbiserver.map.exceptions.WBIMapServiceException __result__13;
+	ex.printStackTrace();
+}
+
+//@generated:com.ibm.wbit.activity.ui
+//<?xml version="1.0" encoding="UTF-8"?>
+//<com.ibm.wbit.activity:CompositeActivity xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.ibm.wbit.activity="http:///com/ibm/wbit/activity.ecore" name="ActivityMethod">
+//  <result name="Result">
+//    <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="void"/>
+//  </result>
+//  <exceptions>
+//    <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.bpe.api.ProcessException"/>
+//  </exceptions>
+//  <executableElements xsi:type="com.ibm.wbit.activity:Expression" value="order" variable="true">
+//    <dataOutputs target="//@executableElements.4/@parameters.0"/>
+//    <type xsi:type="com.ibm.wbit.activity:XSDElementType" name="Order" namespace="http://OrderManagementLib/com/touresbalon/bo"/>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:LibraryActivity" name="create AccountingMovement" description="create a new AccountingMovement {http://AccountingTransactionsLib/com/touresbalon/bo}" template="com.ibm.websphere.bo.BOFactory factory = &#xA;   (com.ibm.websphere.bo.BOFactory) new com.ibm.websphere.sca.ServiceManager().locateService(&quot;com/ibm/websphere/bo/BOFactory&quot;);&#xA; &lt;%return%> factory.create(&quot;http://AccountingTransactionsLib/com/touresbalon/bo&quot;,&quot;AccountingMovement&quot;);">
+//    <result>
+//      <dataOutputs target="//@executableElements.2"/>
+//      <type xsi:type="com.ibm.wbit.activity:XSDElementType" name="AccountingMovement" namespace="http://AccountingTransactionsLib/com/touresbalon/bo"/>
+//    </result>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:Expression" dataInputs="//@executableElements.1/@result/@dataOutputs.0" value="accountingMovement" variable="true">
+//    <dataOutputs target="//@executableElements.4/@parameters.1"/>
+//    <type xsi:type="com.ibm.wbit.activity:XSDElementType" name="AccountingMovement" namespace="http://AccountingTransactionsLib/com/touresbalon/bo"/>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:Expression" value="null" assignable="false">
+//    <dataOutputs target="//@executableElements.4/@parameters.2"/>
+//    <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="java.lang.Object"/>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:LibraryActivity" name="dataMappingAccountingMovement" description="perform mapping {0}dataMappingAccountingMovement {http://TaskServices-LegalizeOrder/com/touresbalon/transforms}" template="java.util.HashMap inputMap = new java.util.HashMap();&#xA;java.util.HashMap outputMap = new java.util.HashMap();&#xA;inputMap.put(&quot;Order&quot;, &lt;%Order%>);&#xA;outputMap.put(&quot;AccountingMovement&quot;, &lt;%AccountingMovement%>);&#xA;com.ibm.wbiserver.map.MapService _serv = &#xA;&#x9;(com.ibm.wbiserver.map.MapService)new com.ibm.websphere.sca.ServiceManager().locateService(&quot;com/ibm/wbiserver/map/MapService&quot;);&#xA;_serv.transform(&quot;http://TaskServices-LegalizeOrder/com/touresbalon/transforms&quot;, &quot;dataMappingAccountingMovement&quot;, inputMap, outputMap, &lt;%executionContext%>);">
+//    <parameters name="Order" dataInputs="//@executableElements.0/@dataOutputs.0">
+//      <type xsi:type="com.ibm.wbit.activity:XSDElementType" name="Order" namespace="http://OrderManagementLib/com/touresbalon/bo"/>
+//    </parameters>
+//    <parameters name="AccountingMovement" dataInputs="//@executableElements.2/@dataOutputs.0">
+//      <type xsi:type="com.ibm.wbit.activity:XSDElementType" name="AccountingMovement" namespace="http://AccountingTransactionsLib/com/touresbalon/bo"/>
+//    </parameters>
+//    <parameters name="executionContext" dataInputs="//@executableElements.3/@dataOutputs.0">
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wbiserver.relationshipservice.common.ExecutionContext"/>
+//    </parameters>
+//    <exceptions>
+//      <dataOutputs target="//@executableElements.5/@parameters.0"/>
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wbiserver.map.exceptions.WBIMapFailureException"/>
+//    </exceptions>
+//    <exceptions>
+//      <dataOutputs target="//@executableElements.6/@parameters.0"/>
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wbiserver.map.exceptions.WBIMapNotFoundException"/>
+//    </exceptions>
+//    <exceptions>
+//      <dataOutputs target="//@executableElements.7/@parameters.0"/>
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wbiserver.map.exceptions.WBIMapServiceException"/>
+//    </exceptions>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:ExceptionHandler" name="Exception Handler" collapsed="true">
+//    <parameters name="ex" dataInputs="//@executableElements.4/@exceptions.0/@dataOutputs.0">
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wbiserver.map.exceptions.WBIMapFailureException"/>
+//    </parameters>
+//    <executableElements xsi:type="com.ibm.wbit.activity:Expression" value="ex" input="true">
+//      <dataOutputs target="//@executableElements.5/@executableElements.1/@parameters.0"/>
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wbiserver.map.exceptions.WBIMapFailureException"/>
+//    </executableElements>
+//    <executableElements xsi:type="com.ibm.wbit.activity:JavaActivity" name="printStackTrace" category="java.lang.Throwable" className="java.lang.Throwable" memberName="printStackTrace">
+//      <parameters name="Throwable" dataInputs="//@executableElements.5/@executableElements.0/@dataOutputs.0">
+//        <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="java.lang.Throwable"/>
+//      </parameters>
+//    </executableElements>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:ExceptionHandler" name="Exception Handler" collapsed="true">
+//    <parameters name="ex" dataInputs="//@executableElements.4/@exceptions.1/@dataOutputs.0">
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wbiserver.map.exceptions.WBIMapNotFoundException"/>
+//    </parameters>
+//    <executableElements xsi:type="com.ibm.wbit.activity:Expression" value="ex" input="true">
+//      <dataOutputs target="//@executableElements.6/@executableElements.1/@parameters.0"/>
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wbiserver.map.exceptions.WBIMapNotFoundException"/>
+//    </executableElements>
+//    <executableElements xsi:type="com.ibm.wbit.activity:JavaActivity" name="printStackTrace" category="java.lang.Throwable" className="java.lang.Throwable" memberName="printStackTrace">
+//      <parameters name="Throwable" dataInputs="//@executableElements.6/@executableElements.0/@dataOutputs.0">
+//        <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="java.lang.Throwable"/>
+//      </parameters>
+//    </executableElements>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:ExceptionHandler" name="Exception Handler" collapsed="true">
+//    <parameters name="ex" dataInputs="//@executableElements.4/@exceptions.2/@dataOutputs.0">
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wbiserver.map.exceptions.WBIMapServiceException"/>
+//    </parameters>
+//    <executableElements xsi:type="com.ibm.wbit.activity:Expression" value="ex" input="true">
+//      <dataOutputs target="//@executableElements.7/@executableElements.1/@parameters.0"/>
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wbiserver.map.exceptions.WBIMapServiceException"/>
+//    </executableElements>
+//    <executableElements xsi:type="com.ibm.wbit.activity:JavaActivity" name="printStackTrace" category="java.lang.Throwable" className="java.lang.Throwable" memberName="printStackTrace">
+//      <parameters name="Throwable" dataInputs="//@executableElements.7/@executableElements.0/@dataOutputs.0">
+//        <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="java.lang.Throwable"/>
+//      </parameters>
+//    </executableElements>
+//  </executableElements>
+//</com.ibm.wbit.activity:CompositeActivity>
+//@generated:end
+//!SMAP!*S WBIACTDBG
+//!SMAP!*L
+//!SMAP!2:1,6
+//!SMAP!3:7,1
+//!SMAP!4:8,1
+//!SMAP!5:10,9
+//!SMAP!7:21,1
+//!SMAP!8:22,1
+//!SMAP!10:25,1
+//!SMAP!11:26,1
+//!SMAP!13:29,1
+//!SMAP!14:30,1
+//!SMAP!1000000:140,1]]></wpc:javaCode>
+      </wpc:script>
+    </bpws:invoke>
+    <bpws:invoke name="Invoke" operation="registerMovement" partnerLink="AccountingTransactionsServiceIFPartner" portType="ns3:AccountingTransactionsServiceIF" wpc:continueOnError="inherit" wpc:displayName="Entry of a completed order" wpc:id="10">
+      <wpc:input>
+        <wpc:parameter name="request" variable="accountingMovement"/>
+      </wpc:input>
+    </bpws:invoke>
+    <bpws:reply name="Reply" operation="legalize" partnerLink="LegalizeOrderBP" portType="ns0:LegalizeOrderServiceIF" wpc:displayName="Reply" wpc:id="5">
+      <wpc:input>
+        <wpc:parameter name="response" variable="returnCode"/>
+      </wpc:input>
+    </bpws:reply>
+  </bpws:sequence>
+</bpws:process>

@@ -8,28 +8,8 @@
             <output path="updateDboTouresbalon_ReservationsBG/updateDboTouresbalon_ReservationsBGInput/verb"/>
         </assign>
         <move>
-            <input path="cancelReservation/request/hotelID"/>
-            <output path="updateDboTouresbalon_ReservationsBG/updateDboTouresbalon_ReservationsBGInput/DboTouresbalon_Reservations/hotel_id"/>
-        </move>
-        <move>
-            <input path="cancelReservation/request/roomNumber"/>
-            <output path="updateDboTouresbalon_ReservationsBG/updateDboTouresbalon_ReservationsBGInput/DboTouresbalon_Reservations/room_number"/>
-        </move>
-        <move>
-            <input path="cancelReservation/request/checkInDate"/>
-            <output path="updateDboTouresbalon_ReservationsBG/updateDboTouresbalon_ReservationsBGInput/DboTouresbalon_Reservations/check_in_date"/>
-        </move>
-        <move>
-            <input path="cancelReservation/request/checkOutDate"/>
-            <output path="updateDboTouresbalon_ReservationsBG/updateDboTouresbalon_ReservationsBGInput/DboTouresbalon_Reservations/check_out_date"/>
-        </move>
-        <move>
             <input path="cancelReservation/request/orderID"/>
             <output path="updateDboTouresbalon_ReservationsBG/updateDboTouresbalon_ReservationsBGInput/DboTouresbalon_Reservations/order_id"/>
-        </move>
-        <move>
-            <input path="cancelReservation/request/guestName"/>
-            <output path="updateDboTouresbalon_ReservationsBG/updateDboTouresbalon_ReservationsBGInput/DboTouresbalon_Reservations/guest_name"/>
         </move>
         <assign value="-1">
             <output path="updateDboTouresbalon_ReservationsBG/updateDboTouresbalon_ReservationsBGInput/DboTouresbalon_Reservations/state"/>

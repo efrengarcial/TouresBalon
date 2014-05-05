@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map:businessObjectMap xmlns:AccountingMovement="http://AccountingTransactionsLib/com/touresbalon/bo" xmlns:Order="http://OrderManagementLib/com/touresbalon/bo" xmlns:dataMappingAccountingMovement="http://TaskServices-LegalizeOrder/com/touresbalon/transforms" xmlns:map="http://www.ibm.com/xmlns/prod/websphere/wbiserver/map/6.0.0" targetNamespace="http://TaskServices-LegalizeOrder/com/touresbalon/transforms">
+  <map:name>dataMappingAccountingMovement</map:name>
+  <map:inputBusinessObjectVariable businessObjectRef="Order:Order" name="Order"/>
+  <map:outputBusinessObjectVariable businessObjectRef="AccountingMovement:AccountingMovement" name="AccountingMovement"/>
+  <map:propertyMap executionOrder="1">
+    <map:move>
+      <map:input businessObjectVariableRef="Order" property="orderID"/>
+      <map:output businessObjectVariableRef="AccountingMovement" property="TransactionNumber"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="2">
+    <map:custom>
+      <map:input businessObjectVariableRef="Order" property="endOrderDate"/>
+      <map:output businessObjectVariableRef="AccountingMovement" property="TransactionYear"/>
+      <map:javaCode>java.util.Date __Order_endOrderDate = (java.util.Date)Order_endOrderDate;&#xD;
+java.lang.Integer __AccountingMovement_TransactionYear = (java.lang.Integer)AccountingMovement_TransactionYear;&#xD;
+java.lang.String __result__2 = &quot;yyyy&quot;;&#xD;
+java.lang.String __result__3;&#xD;
+{// format date to string using pattern&#xD;
+	java.text.SimpleDateFormat df2 = new java.text.SimpleDateFormat(__result__2);
+	df2.setTimeZone(java.util.TimeZone.getDefault());   
+	__result__3 = df2.format(__Order_endOrderDate);&#xD;
+}&#xD;
+int __result__4;&#xD;
+{// convert string to integer&#xD;
+	__result__4 = Integer.valueOf(__result__3).intValue();&#xD;
+}&#xD;
+__AccountingMovement_TransactionYear = new java.lang.Integer(__result__4);&#xD;
+AccountingMovement_TransactionYear = __AccountingMovement_TransactionYear;&#xD;
+
+//@generated:com.ibm.wbit.activity.ui
+//&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>
+//&lt;com.ibm.wbit.activity:CompositeActivity xmi:version=&quot;2.0&quot; xmlns:xmi=&quot;http://www.omg.org/XMI&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:com.ibm.wbit.activity=&quot;http:///com/ibm/wbit/activity.ecore&quot; name=&quot;ActivityMethod&quot;>
+//  &lt;parameters name=&quot;Order_endOrderDate&quot; objectType=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;dateTime&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/parameters>
+//  &lt;exceptions>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.Exception&quot;/>
+//  &lt;/exceptions>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;Order_endOrderDate&quot; variable=&quot;true&quot; assignable=&quot;false&quot; input=&quot;true&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.2/@parameters.0&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;dateTime&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;&amp;quot;yyyy&amp;quot;&quot; assignable=&quot;false&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.2/@parameters.1&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:LibraryActivity&quot; name=&quot;format date to string using pattern&quot; description=&quot;Format a Date object from a given pattern to a string&quot; category=&quot;date&quot; template=&quot;java.text.SimpleDateFormat df2 = new java.text.SimpleDateFormat(&amp;lt;%pattern%>);&amp;#xA;df2.setTimeZone(java.util.TimeZone.getDefault());   &amp;#xA;&amp;lt;%return%> df2.format(&amp;lt;%date%>);&quot;>
+//    &lt;parameters name=&quot;date&quot; dataInputs=&quot;//@executableElements.0/@dataOutputs.0&quot; displayName=&quot;date&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.util.Date&quot;/>
+//    &lt;/parameters>
+//    &lt;parameters name=&quot;pattern&quot; dataInputs=&quot;//@executableElements.1/@dataOutputs.0&quot; displayName=&quot;pattern&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//    &lt;/parameters>
+//    &lt;result name=&quot;dateString&quot; displayName=&quot;date string&quot;>
+//      &lt;dataOutputs target=&quot;//@executableElements.3/@parameters.0&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//    &lt;/result>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:LibraryActivity&quot; name=&quot;convert string to integer&quot; description=&quot;Convert string to integer&quot; category=&quot;converter&quot; template=&quot;&amp;lt;%return%> Integer.valueOf(&amp;lt;%inputString%>).intValue();&quot;>
+//    &lt;parameters name=&quot;inputString&quot; dataInputs=&quot;//@executableElements.2/@result/@dataOutputs.0&quot; displayName=&quot;input&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//    &lt;/parameters>
+//    &lt;result name=&quot;result&quot; displayName=&quot;string converted to int&quot;>
+//      &lt;dataOutputs target=&quot;//@executableElements.4&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;int&quot;/>
+//    &lt;/result>
+//    &lt;exceptions>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.NumberFormatException&quot;/>
+//    &lt;/exceptions>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; dataInputs=&quot;//@executableElements.3/@result/@dataOutputs.0&quot; value=&quot;AccountingMovement_TransactionYear&quot; variable=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;int&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.0 //@executableElements.1 //@executableElements.2 //@executableElements.3 //@executableElements.4&quot;/>
+//&lt;/com.ibm.wbit.activity:CompositeActivity>
+//@generated:end
+//!SMAP!*S WBIACTDBG&#xD;
+//!SMAP!*L&#xD;
+//!SMAP!2:3,1&#xD;
+//!SMAP!3:4,6&#xD;
+//!SMAP!4:10,4&#xD;
+//!SMAP!5:14,2&#xD;
+//!SMAP!1000000:71,1</map:javaCode>
+    </map:custom>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="3">
+    <map:custom>
+      <map:input businessObjectVariableRef="Order" property="endOrderDate"/>
+      <map:output businessObjectVariableRef="AccountingMovement" property="TransactionMonth"/>
+      <map:javaCode>java.util.Date __Order_endOrderDate = (java.util.Date)Order_endOrderDate;&#xD;
+java.lang.Integer __AccountingMovement_TransactionMonth = (java.lang.Integer)AccountingMovement_TransactionMonth;&#xD;
+java.lang.String __result__2 = &quot;MM&quot;;&#xD;
+java.lang.String __result__3;&#xD;
+{// format date to string using pattern&#xD;
+	java.text.SimpleDateFormat df2 = new java.text.SimpleDateFormat(__result__2);
+	df2.setTimeZone(java.util.TimeZone.getDefault());   
+	__result__3 = df2.format(__Order_endOrderDate);&#xD;
+}&#xD;
+int __result__4;&#xD;
+{// convert string to integer&#xD;
+	__result__4 = Integer.valueOf(__result__3).intValue();&#xD;
+}&#xD;
+__AccountingMovement_TransactionMonth = new java.lang.Integer(__result__4);&#xD;
+AccountingMovement_TransactionMonth = __AccountingMovement_TransactionMonth;&#xD;
+
+//@generated:com.ibm.wbit.activity.ui
+//&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>
+//&lt;com.ibm.wbit.activity:CompositeActivity xmi:version=&quot;2.0&quot; xmlns:xmi=&quot;http://www.omg.org/XMI&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:com.ibm.wbit.activity=&quot;http:///com/ibm/wbit/activity.ecore&quot; name=&quot;ActivityMethod&quot;>
+//  &lt;parameters name=&quot;Order_endOrderDate&quot; objectType=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;dateTime&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/parameters>
+//  &lt;exceptions>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.Exception&quot;/>
+//  &lt;/exceptions>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;Order_endOrderDate&quot; variable=&quot;true&quot; assignable=&quot;false&quot; input=&quot;true&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.2/@parameters.0&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;dateTime&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;&amp;quot;MM&amp;quot;&quot; assignable=&quot;false&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.2/@parameters.1&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:LibraryActivity&quot; name=&quot;format date to string using pattern&quot; description=&quot;Format a Date object from a given pattern to a string&quot; category=&quot;date&quot; template=&quot;java.text.SimpleDateFormat df2 = new java.text.SimpleDateFormat(&amp;lt;%pattern%>);&amp;#xA;df2.setTimeZone(java.util.TimeZone.getDefault());   &amp;#xA;&amp;lt;%return%> df2.format(&amp;lt;%date%>);&quot;>
+//    &lt;parameters name=&quot;date&quot; dataInputs=&quot;//@executableElements.0/@dataOutputs.0&quot; displayName=&quot;date&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.util.Date&quot;/>
+//    &lt;/parameters>
+//    &lt;parameters name=&quot;pattern&quot; dataInputs=&quot;//@executableElements.1/@dataOutputs.0&quot; displayName=&quot;pattern&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//    &lt;/parameters>
+//    &lt;result name=&quot;dateString&quot; displayName=&quot;date string&quot;>
+//      &lt;dataOutputs target=&quot;//@executableElements.3/@parameters.0&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//    &lt;/result>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:LibraryActivity&quot; name=&quot;convert string to integer&quot; description=&quot;Convert string to integer&quot; category=&quot;converter&quot; template=&quot;&amp;lt;%return%> Integer.valueOf(&amp;lt;%inputString%>).intValue();&quot;>
+//    &lt;parameters name=&quot;inputString&quot; dataInputs=&quot;//@executableElements.2/@result/@dataOutputs.0&quot; displayName=&quot;input&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.String&quot;/>
+//    &lt;/parameters>
+//    &lt;result name=&quot;result&quot; displayName=&quot;string converted to int&quot;>
+//      &lt;dataOutputs target=&quot;//@executableElements.4&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;int&quot;/>
+//    &lt;/result>
+//    &lt;exceptions>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.NumberFormatException&quot;/>
+//    &lt;/exceptions>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; dataInputs=&quot;//@executableElements.3/@result/@dataOutputs.0&quot; value=&quot;AccountingMovement_TransactionMonth&quot; variable=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;int&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.0 //@executableElements.1 //@executableElements.2 //@executableElements.3 //@executableElements.4&quot;/>
+//&lt;/com.ibm.wbit.activity:CompositeActivity>
+//@generated:end
+//!SMAP!*S WBIACTDBG&#xD;
+//!SMAP!*L&#xD;
+//!SMAP!2:3,1&#xD;
+//!SMAP!3:4,6&#xD;
+//!SMAP!4:10,4&#xD;
+//!SMAP!5:14,2&#xD;
+//!SMAP!1000000:71,1</map:javaCode>
+    </map:custom>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="4">
+    <map:custom>
+      <map:input businessObjectVariableRef="Order" property="endOrderDate"/>
+      <map:output businessObjectVariableRef="AccountingMovement" property="TransactionDay"/>
+      <map:javaCode>java.util.Date __Order_endOrderDate = (java.util.Date)Order_endOrderDate;&#xD;
+java.lang.Integer __AccountingMovement_TransactionDay = (java.lang.Integer)AccountingMovement_TransactionDay;&#xD;
+int __result__2;&#xD;
+{// day of the month&#xD;
+	java.util.Calendar c = new java.util.GregorianCalendar();
+	c.setTime(__Order_endOrderDate);
+	__result__2 = c.get(java.util.Calendar.DAY_OF_MONTH);&#xD;
+}&#xD;
+__AccountingMovement_TransactionDay = new java.lang.Integer(__result__2);&#xD;
+AccountingMovement_TransactionDay = __AccountingMovement_TransactionDay;&#xD;
+
+//@generated:com.ibm.wbit.activity.ui
+//&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>
+//&lt;com.ibm.wbit.activity:CompositeActivity xmi:version=&quot;2.0&quot; xmlns:xmi=&quot;http://www.omg.org/XMI&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:com.ibm.wbit.activity=&quot;http:///com/ibm/wbit/activity.ecore&quot; name=&quot;ActivityMethod&quot;>
+//  &lt;parameters name=&quot;Order_endOrderDate&quot; objectType=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;dateTime&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/parameters>
+//  &lt;exceptions>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.lang.Exception&quot;/>
+//  &lt;/exceptions>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; value=&quot;Order_endOrderDate&quot; variable=&quot;true&quot; assignable=&quot;false&quot; input=&quot;true&quot;>
+//    &lt;dataOutputs target=&quot;//@executableElements.1/@parameters.0&quot;/>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;dateTime&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:LibraryActivity&quot; name=&quot;day of the month&quot; description=&quot;The day of the month&quot; category=&quot;date&quot; template=&quot;java.util.Calendar c = new java.util.GregorianCalendar();&amp;#xA;c.setTime(&amp;lt;%date%>);&amp;#xA;&amp;lt;%return%> c.get(java.util.Calendar.DAY_OF_MONTH);&quot;>
+//    &lt;parameters name=&quot;date&quot; dataInputs=&quot;//@executableElements.0/@dataOutputs.0&quot; displayName=&quot;input&quot;>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;java.util.Date&quot;/>
+//    &lt;/parameters>
+//    &lt;result name=&quot;DayOfMonth&quot; displayName=&quot;day of the month&quot;>
+//      &lt;dataOutputs target=&quot;//@executableElements.2&quot;/>
+//      &lt;type xsi:type=&quot;com.ibm.wbit.activity:JavaElementType&quot; name=&quot;int&quot;/>
+//    &lt;/result>
+//  &lt;/executableElements>
+//  &lt;executableElements xsi:type=&quot;com.ibm.wbit.activity:Expression&quot; dataInputs=&quot;//@executableElements.1/@result/@dataOutputs.0&quot; value=&quot;AccountingMovement_TransactionDay&quot; variable=&quot;true&quot;>
+//    &lt;type xsi:type=&quot;com.ibm.wbit.activity:XSDElementType&quot; name=&quot;int&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot;/>
+//  &lt;/executableElements>
+//  &lt;executableGroups executableElements=&quot;//@executableElements.0 //@executableElements.1 //@executableElements.2&quot;/>
+//&lt;/com.ibm.wbit.activity:CompositeActivity>
+//@generated:end
+//!SMAP!*S WBIACTDBG&#xD;
+//!SMAP!*L&#xD;
+//!SMAP!2:3,6&#xD;
+//!SMAP!3:9,2&#xD;
+//!SMAP!1000000:45,1</map:javaCode>
+    </map:custom>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="5">
+    <map:move>
+      <map:input businessObjectVariableRef="Order" property="amount"/>
+      <map:output businessObjectVariableRef="AccountingMovement" property="DepositAmount"/>
+    </map:move>
+  </map:propertyMap>
+</map:businessObjectMap>

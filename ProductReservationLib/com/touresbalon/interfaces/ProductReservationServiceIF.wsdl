@@ -31,6 +31,20 @@
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
+            <xsd:element name="cancelReservation">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="request" nillable="true" type="bons1:Order"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="cancelReservationResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="respose" nillable="true" type="bons2:ReturnCode"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
         </xsd:schema>
   </wsdl:types>
     <wsdl:message name="makeReservationAccommodationRequestMsg">
@@ -45,6 +59,12 @@
     <wsdl:message name="makeReservationTransportResponseMsg">
     <wsdl:part element="bons0:makeReservationTransportResponse" name="makeReservationTransportResult"/>
   </wsdl:message>
+    <wsdl:message name="cancelReservationRequestMsg">
+    <wsdl:part element="bons0:cancelReservation" name="cancelReservationParameters"/>
+  </wsdl:message>
+    <wsdl:message name="cancelReservationResponseMsg">
+    <wsdl:part element="bons0:cancelReservationResponse" name="cancelReservationResult"/>
+  </wsdl:message>
     <wsdl:portType name="ProductReservationServiceIF">
         <wsdl:operation name="makeReservationAccommodation">
       <wsdl:input message="bons0:makeReservationAccommodationRequestMsg" name="makeReservationAccommodationRequest"/>
@@ -53,6 +73,10 @@
         <wsdl:operation name="makeReservationTransport">
       <wsdl:input message="bons0:makeReservationTransportRequestMsg" name="makeReservationTransportRequest"/>
       <wsdl:output message="bons0:makeReservationTransportResponseMsg" name="makeReservationTransportResponse"/>
+    </wsdl:operation>
+        <wsdl:operation name="cancelReservation">
+      <wsdl:input message="bons0:cancelReservationRequestMsg" name="cancelReservationRequest"/>
+      <wsdl:output message="bons0:cancelReservationResponseMsg" name="cancelReservationResponse"/>
     </wsdl:operation>
     </wsdl:portType>
 </wsdl:definitions>

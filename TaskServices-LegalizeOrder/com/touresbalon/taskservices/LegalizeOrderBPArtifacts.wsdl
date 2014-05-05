@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="LegalizeOrderBP" targetNamespace="http://TaskServices-LegalizeOrder/com/touresbalon/taskservices/LegalizeOrderBPArtifacts" xmlns:plnk="http://schemas.xmlsoap.org/ws/2004/03/partner-link/" xmlns:tns="http://TaskServices-LegalizeOrder/com/touresbalon/taskservices/LegalizeOrderBPArtifacts" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl0="http://TaskServices-LegalizeOrder/com/touresbalon/taskservices/LegalizeOrderBPInterface" xmlns:wsdl1="http://AccountingTransactionsLib/com/touresbalon/interfaces/AccountingTransactionsServiceIF">
+  <plnk:partnerLinkType name="LegalizeOrderBPPLT">
+    <plnk:role name="Interface">
+      <plnk:portType name="wsdl0:LegalizeOrderServiceIF"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="AccountingTransactionsServiceIFPLT">
+    <plnk:role name="Interface">
+      <plnk:portType name="wsdl1:AccountingTransactionsServiceIF"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <wsdl:import location="../interfaces/LegalizeOrderServiceIF.wsdl" namespace="http://TaskServices-LegalizeOrder/com/touresbalon/taskservices/LegalizeOrderBPInterface"/>
+    <wsdl:import location="../interfaces/AccountingTransactionsServiceIF.wsdl" namespace="http://AccountingTransactionsLib/com/touresbalon/interfaces/AccountingTransactionsServiceIF"/>
+</wsdl:definitions>

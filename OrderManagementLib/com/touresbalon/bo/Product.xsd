@@ -3,6 +3,7 @@
 	targetNamespace="http://OrderManagementLib/com/touresbalon/bo"
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
 	xmlns:bons0="http://OrderManagementLib/com/touresbalon/bo">
+	<xsd:include schemaLocation="Ticket.xsd"></xsd:include>
 	<xsd:include schemaLocation="Lodging.xsd"></xsd:include>
 	<xsd:include schemaLocation="Transport.xsd"></xsd:include>
 	<xsd:complexType name="Product">
@@ -39,6 +40,9 @@
 
 
 
+			<xsd:element minOccurs="0" name="ticket"
+				type="bons0:Ticket">
+			</xsd:element>
 		</xsd:sequence>
 	</xsd:complexType>
 </xsd:schema>

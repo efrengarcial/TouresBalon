@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="TaskServices-LegalizeOrderApp">
+        <wb-resource deploy-path="/" source-path="/EarContent"/>
+        <dependent-module archiveName="TaskServices-LegalizeOrder.jar" deploy-path="/" handle="module:/resource/TaskServices-LegalizeOrder/TaskServices-LegalizeOrder">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module deploy-path="/" handle="module:/resource/TaskServices-LegalizeOrderWeb/TaskServices-LegalizeOrderWeb">
+            <dependent-object>WebModule_1169158408425</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="AccountingTransactionsLib.jar" deploy-path="/" handle="module:/resource/AccountingTransactionsLib/AccountingTransactionsLib">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="CommonDomain.jar" deploy-path="/" handle="module:/resource/CommonDomain/CommonDomain">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="OrderManagementLib.jar" deploy-path="/" handle="module:/resource/OrderManagementLib/OrderManagementLib">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    </wb-module>
+</project-modules>

@@ -5,22 +5,6 @@
         <input path="body"/>
         <output path="body"/>
         <move>
-            <input path="cancelReservation/request/hotelID"/>
-            <output path="cancelRoom/reservation/HotelID"/>
-        </move>
-        <move>
-            <input path="cancelReservation/request/roomNumber"/>
-            <output path="cancelRoom/reservation/RoomNumber"/>
-        </move>
-        <convert>
-            <input path="cancelReservation/request/checkInDate"/>
-            <output path="cancelRoom/reservation/CheckInDate"/>
-        </convert>
-        <convert>
-            <input path="cancelReservation/request/checkOutDate"/>
-            <output path="cancelRoom/reservation/checkOutDate"/>
-        </convert>
-        <move>
             <input path="cancelReservation/request/orderID"/>
             <output path="cancelRoom/reservation/OrderID"/>
         </move>

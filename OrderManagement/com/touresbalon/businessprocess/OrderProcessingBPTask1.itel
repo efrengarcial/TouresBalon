@@ -17,7 +17,7 @@
   <tel:uiSettings>
     <tel:customClientSettings clientType="Dojo">
       <tel:customSetting name="contextRoot" value="OrderManagementUI"/>
-      <tel:customSetting name="pathAndFilename" value="SalesOfficerAuthorization.html"/>
+      <tel:customSetting name="pathAndFilename" value="OrderProcessingBPTask1.html"/>
     </tel:customClientSettings>
   </tel:uiSettings>
   <tel:escalationSettings/>

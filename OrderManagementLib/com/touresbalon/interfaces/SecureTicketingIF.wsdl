@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="SecureTicketingIF" targetNamespace="http://OrderManagementLib/com/touresbalon/interfaces/SecureTicketingIF" xmlns:bons1="http://OrderManagementLib/com/touresbalon/bo" xmlns:tns="http://OrderManagementLib/com/touresbalon/interfaces/SecureTicketingIF" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://OrderManagementLib/com/touresbalon/interfaces/SecureTicketingIF">
+      <xsd:import namespace="http://OrderManagementLib/com/touresbalon/bo" schemaLocation="../bo/Order.xsd"/>
+      <xsd:element name="confirm">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="request" nillable="true" type="bons1:Order"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="confirmResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="productConfirmed" nillable="true" type="xsd:boolean"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="confirmRequestMsg">
+    <wsdl:part element="tns:confirm" name="confirmParameters"/>
+  </wsdl:message>
+    <wsdl:message name="confirmResponseMsg">
+    <wsdl:part element="tns:confirmResponse" name="confirmResult"/>
+  </wsdl:message>
+    <wsdl:portType name="SecureTicketingIF">
+    <wsdl:operation name="confirm">
+      <wsdl:input message="tns:confirmRequestMsg" name="confirmRequest"/>
+      <wsdl:output message="tns:confirmResponseMsg" name="confirmResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

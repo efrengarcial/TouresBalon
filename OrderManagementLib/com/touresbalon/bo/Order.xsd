@@ -16,7 +16,10 @@
 				type="xsd:dateTime" />
 
 
-			<xsd:element minOccurs="0" name="amount" type="xsd:decimal" />
+			<xsd:element minOccurs="0" name="endOrderDate"
+				type="xsd:dateTime">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="amount" type="xsd:double" />
 
 
 

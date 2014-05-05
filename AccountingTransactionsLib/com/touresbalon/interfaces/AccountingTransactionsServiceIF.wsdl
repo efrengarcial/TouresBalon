@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="AccountingTransactionsServiceIF" targetNamespace="http://AccountingTransactionsLib/com/touresbalon/interfaces/AccountingTransactionsServiceIF" xmlns:bons1="http://AccountingTransactionsLib/com/touresbalon/bo" xmlns:tns="http://AccountingTransactionsLib/com/touresbalon/interfaces/AccountingTransactionsServiceIF" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://AccountingTransactionsLib/com/touresbalon/interfaces/AccountingTransactionsServiceIF">
+      <xsd:import namespace="http://AccountingTransactionsLib/com/touresbalon/bo" schemaLocation="../bo/AccountingMovement.xsd"/>
+      <xsd:element name="registerMovement">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="request" nillable="true" type="bons1:AccountingMovement"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="registerMovementRequestMsg">
+    <wsdl:part element="tns:registerMovement" name="registerMovementParameters"/>
+  </wsdl:message>
+    <wsdl:portType name="AccountingTransactionsServiceIF">
+    <wsdl:operation name="registerMovement">
+      <wsdl:input message="tns:registerMovementRequestMsg" name="registerMovementRequest"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Class-Path: OrderManagementLib.jar 
+ AccountingTransactionsLib.jar 
+ CommonDomain.jar
+Created-By: 1.5.0 (IBM Corporation)
+

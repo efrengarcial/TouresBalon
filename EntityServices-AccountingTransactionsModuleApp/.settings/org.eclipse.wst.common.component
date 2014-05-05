@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="EntityServices-AccountingTransactionsModuleApp">
+        <wb-resource deploy-path="/" source-path="/EarContent"/>
+        <dependent-module archiveName="EntityServices-AccountingTransactionsModule.jar" deploy-path="/" handle="module:/resource/EntityServices-AccountingTransactionsModule/EntityServices-AccountingTransactionsModule">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module deploy-path="/" handle="module:/resource/EntityServices-AccountingTransactionsModuleWeb/EntityServices-AccountingTransactionsModuleWeb">
+            <dependent-object>WebModule_1169158408425</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="AccountingTransactionsLib.jar" deploy-path="/" handle="module:/resource/AccountingTransactionsLib/AccountingTransactionsLib">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="CommonDomain.jar" deploy-path="/" handle="module:/resource/CommonDomain/CommonDomain">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="CWYFF_FlatFile.rar" deploy-path="/" handle="module:/resource/CWYFF_FlatFile/CWYFF_FlatFile">
+            <dependent-object>ConnectorModule_1399252806505</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="OrderManagementLib.jar" deploy-path="/" handle="module:/resource/OrderManagementLib/OrderManagementLib">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    </wb-module>
+</project-modules>

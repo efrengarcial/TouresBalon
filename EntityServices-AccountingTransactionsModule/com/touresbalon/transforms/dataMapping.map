@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.msl.mapping.xml" targetNamespace="http://EntityServices-AccountingTransactionsModule/com/touresbalon/transforms/dataMapping" version="7.0.500" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://EntityServices-AccountingTransactionsModule/com/touresbalon/transforms/dataMapping">
+    <input path="smo://smo/name%3Dwsdl-primary/message%3D%257Bhttp%253A%252F%252FAccountingTransactionsLib%252Fcom%252Ftouresbalon%252Finterfaces%252FAccountingTransactionsServiceIF%257DregisterMovementRequestMsg/xpath%3D%252Fbody/smo.xsd"/>
+    <output path="smo://smo/name%3Dwsdl-primary/message%3D%257Bhttp%253A%252F%252FEntityServices-AccountingTransactionsModule%252Fcom%252Ftouresbalon%252Faccounting%252FFlatFileImport%257DappendRequestMsg/xpath%3D%252Fbody/smo.xsd"/>
+    <mappingDeclaration name="dataMapping">
+        <input path="body"/>
+        <output path="body"/>
+        <assign value="TRANSACTIONS.DAT">
+            <output path="append/appendInput/fileName"/>
+        </assign>
+        <assign value="\r\n">
+            <output path="append/appendInput/includeEndBODelimiter"/>
+        </assign>
+        <assign value="true">
+            <output path="append/appendInput/createFileIfNotExists"/>
+        </assign>
+        <move>
+            <input path="registerMovement/request/TransactionID"/>
+            <output path="append/appendInput/Content/TransactionID"/>
+        </move>
+        <move>
+            <input path="registerMovement/request/TransactionNumber"/>
+            <output path="append/appendInput/Content/TransactionNumber"/>
+        </move>
+        <move>
+            <input path="registerMovement/request/TransactionYear"/>
+            <output path="append/appendInput/Content/TransactionYear"/>
+        </move>
+        <move>
+            <input path="registerMovement/request/TransactionMonth"/>
+            <output path="append/appendInput/Content/TransactionMonth"/>
+        </move>
+        <move>
+            <input path="registerMovement/request/TransactionDay"/>
+            <output path="append/appendInput/Content/TransactionDay"/>
+        </move>
+        <move>
+            <input path="registerMovement/request/AccountID"/>
+            <output path="append/appendInput/Content/AccountID"/>
+        </move>
+        <move>
+            <input path="registerMovement/request/WithdrawalAmount"/>
+            <output path="append/appendInput/Content/WithdrawalAmount"/>
+        </move>
+        <move>
+            <input path="registerMovement/request/DepositAmount"/>
+            <output path="append/appendInput/Content/DepositAmount"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

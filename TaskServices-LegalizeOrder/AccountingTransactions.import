@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:import xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns1="http://AccountingTransactionsLib/com/touresbalon/interfaces/AccountingTransactionsServiceIF" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="AccountingTransactions" name="AccountingTransactions">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" portType="ns1:AccountingTransactionsServiceIF">
+      <scdl:interfaceQualifier xsi:type="scdl:JoinTransaction" value="true"/>
+    </interface>
+  </interfaces>
+  <esbBinding xsi:type="scdl:SCAImportBinding" module="EntityServices-AccountingTransactionsModule" export="AccountingExport">
+    <scdl:bindingQualifier xsi:type="scdl:IsTargetSCA" value="true"/>
+  </esbBinding>
+</scdl:import>
