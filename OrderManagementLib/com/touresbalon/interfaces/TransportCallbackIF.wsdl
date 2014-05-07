@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="TransportCallbackIF" targetNamespace="http://OrderManagementLib/com/touresbalon/interfaces/TransportCallbackIF" xmlns:bons1="http://OrderManagementLib/com/touresbalon/bo" xmlns:tns="http://OrderManagementLib/com/touresbalon/interfaces/TransportCallbackIF" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://OrderManagementLib/com/touresbalon/interfaces/TransportCallbackIF">
+            <xsd:import namespace="http://OrderManagementLib/com/touresbalon/bo" schemaLocation="../bo/TransportResponse.xsd"/>
+            <xsd:element name="confirm">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="orderID" nillable="true" type="bons1:TransportResponse"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="confirmRequestMsg">
+    <wsdl:part element="tns:confirm" name="confirmParameters"/>
+  </wsdl:message>
+    <wsdl:portType name="TransportCallbackIF">
+    <wsdl:operation name="confirm">
+      <wsdl:input message="tns:confirmRequestMsg" name="confirmRequest"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

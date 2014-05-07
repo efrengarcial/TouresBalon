@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><bpws:process xmlns:bpws="http://schemas.xmlsoap.org/ws/2004/03/business-process/" xmlns:ns="http://OrderManagement/com/touresbalon/businessprocess/OrderProcessingBPArtifacts" xmlns:ns0="http://OrderManagementLib/com/touresbalon/bo" xmlns:ns1="http://OrderManagementLib/com/touresbalon/interfaces/OrderManagementIF" xmlns:ns10="http://PaymentsModuleLib/com/touresbalon/interfaces/PaymentServiceIF" xmlns:ns11="http://PaymentsModuleLib/com/touresbalon/bo" xmlns:ns12="http://TaskServices-LegalizeOrder/com/touresbalon/taskservices/LegalizeOrderBPInterface" xmlns:ns2="http://OrderModule/com/touresbalon/interfaces/OrderServiceIF" xmlns:ns3="http://orders.oms.touresbalon.com/" xmlns:ns4="http://OrderLib/com/touresbalon/interfaces/OrderMgmtServiceIF" xmlns:ns5="http://CommonDomain/com/touresbalon/bo" xmlns:ns6="http://OrderManagementLib/com/touresbalon/interfaces/SalesAuthorizationIF" xmlns:ns7="http://ProductReservationLib/com/touresbalon/interfaces/ProductReserServiceIF" xmlns:ns8="http://OrderManagement/com/touresbalon/businessprocess" xmlns:ns9="http://OrderManagementLib/com/touresbalon/interfaces/SecureTicketingIF" xmlns:tel="http://OrderManagement/com/touresbalon/businessprocess/Task1" xmlns:tel0="http://OrderManagement/com/touresbalon/businessprocess/Task2" xmlns:tel1="http://OrderManagement/com/touresbalon/businessprocess/Task3" xmlns:wpc="http://www.ibm.com/xmlns/prod/websphere/business-process/6.0.0/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.ibm.com/xmlns/prod/websphere/business-process/expression-lang/java/6.0.0/" name="OrderProcessingBP" suppressJoinFailure="yes" targetNamespace="http://OrderManagement/com/touresbalon/businessprocess" wpc:autoDelete="no" wpc:continueOnError="no" wpc:displayName="OrderProcessingBP" wpc:executionMode="longRunning" wpc:id="1" wpc:validFrom="2014-04-25T22:02:52" wpc:version="IBM_7.0.500">
+<?xml version="1.0" encoding="UTF-8"?><bpws:process xmlns:bpws="http://schemas.xmlsoap.org/ws/2004/03/business-process/" xmlns:ns="http://OrderManagement/com/touresbalon/businessprocess/OrderProcessingBPArtifacts" xmlns:ns0="http://OrderManagementLib/com/touresbalon/bo" xmlns:ns1="http://OrderManagementLib/com/touresbalon/interfaces/OrderManagementIF" xmlns:ns10="http://PaymentsModuleLib/com/touresbalon/interfaces/PaymentServiceIF" xmlns:ns11="http://PaymentsModuleLib/com/touresbalon/bo" xmlns:ns12="http://TaskServices-LegalizeOrder/com/touresbalon/taskservices/LegalizeOrderBPInterface" xmlns:ns13="http://OrderManagementLib/com/touresbalon/interfaces/TransportCallbackIF" xmlns:ns2="http://OrderModule/com/touresbalon/interfaces/OrderServiceIF" xmlns:ns3="http://orders.oms.touresbalon.com/" xmlns:ns4="http://OrderLib/com/touresbalon/interfaces/OrderMgmtServiceIF" xmlns:ns5="http://CommonDomain/com/touresbalon/bo" xmlns:ns6="http://OrderManagementLib/com/touresbalon/interfaces/SalesAuthorizationIF" xmlns:ns7="http://ProductReservationLib/com/touresbalon/interfaces/ProductReserServiceIF" xmlns:ns8="http://OrderManagement/com/touresbalon/businessprocess" xmlns:ns9="http://OrderManagementLib/com/touresbalon/interfaces/SecureTicketingIF" xmlns:tel="http://OrderManagement/com/touresbalon/businessprocess/Task1" xmlns:tel0="http://OrderManagement/com/touresbalon/businessprocess/Task2" xmlns:tel1="http://OrderManagement/com/touresbalon/businessprocess/Task3" xmlns:wpc="http://www.ibm.com/xmlns/prod/websphere/business-process/6.0.0/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.ibm.com/xmlns/prod/websphere/business-process/expression-lang/java/6.0.0/" name="OrderProcessingBP" suppressJoinFailure="yes" targetNamespace="http://OrderManagement/com/touresbalon/businessprocess" wpc:autoDelete="no" wpc:continueOnError="no" wpc:displayName="OrderProcessingBP" wpc:executionMode="longRunning" wpc:id="1" wpc:validFrom="2014-04-25T22:02:52" wpc:version="IBM_7.0.500">
   <wpc:adminTask name="tel0:OrderProcessingBPAdministrationTask"/>
   <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="/resource/OrderManagementLib/com/touresbalon/interfaces/OrderManagementIF.wsdl" namespace="http://OrderManagementLib/com/touresbalon/interfaces/OrderManagementIF"/>
   <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../interfaces/OrderManagementIF.wsdl" namespace="http://OrderManagementLib/com/touresbalon/interfaces/OrderManagementIF"/>
@@ -19,12 +19,16 @@
   <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="/resource/AccountingTransactionsLib/com/touresbalon/interfaces/LegalizeOrderServiceIF.wsdl" namespace="http://TaskServices-LegalizeOrder/com/touresbalon/taskservices/LegalizeOrderBPInterface"/>
   <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../interfaces/LegalizeOrderServiceIF.wsdl" namespace="http://TaskServices-LegalizeOrder/com/touresbalon/taskservices/LegalizeOrderBPInterface"/>
   <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../bo/BusinessErrorFault.xsd" namespace="http://CommonDomain/com/touresbalon/bo"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="/resource/OrderManagementLib/com/touresbalon/interfaces/TransportCallbackIF.wsdl" namespace="http://OrderManagementLib/com/touresbalon/interfaces/TransportCallbackIF"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../interfaces/TransportCallbackIF.wsdl" namespace="http://OrderManagementLib/com/touresbalon/interfaces/TransportCallbackIF"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../bo/TransportResponse.xsd" namespace="http://OrderManagementLib/com/touresbalon/bo"/>
   <bpws:partnerLinks>
     <bpws:partnerLink myRole="Interface" name="OrderManagementIF" partnerLinkType="ns:OrderManagementIFPLT" wpc:id="2"/>
     <bpws:partnerLink name="OrderMgmtServiceIFPartner" partnerLinkType="ns:OrderMgmtServiceIFPLT" partnerRole="Interface" wpc:id="16"/>
     <bpws:partnerLink name="ProductReservationServiceIFPartner" partnerLinkType="ns:ProductReservationServiceIFPLT" partnerRole="Interface" wpc:id="43"/>
     <bpws:partnerLink name="PaymentServiceIFPartner" partnerLinkType="ns:PaymentServiceIFPLT" partnerRole="Interface" wpc:id="92"/>
     <bpws:partnerLink name="LegalizeOrderServiceIFPartner" partnerLinkType="ns:LegalizeOrderServiceIFPLT" partnerRole="Interface" wpc:id="104"/>
+    <bpws:partnerLink myRole="Interface" name="TransportCallbackIF" partnerLinkType="ns:TransportCallbackIFPLT" wpc:id="177"/>
   </bpws:partnerLinks>
   <bpws:variables>
     <bpws:variable name="order" type="ns0:Order" wpc:id="5"/>
@@ -42,6 +46,7 @@
     <bpws:variable name="returnLegalizeOrder" type="ns5:ReturnCode" wpc:id="106"/>
     <bpws:variable name="now" type="xsd:dateTime" wpc:id="107"/>
     <bpws:variable name="userCancelationFault" type="ns5:BusinessErrorFault" wpc:id="128"/>
+    <bpws:variable name="transportResponse" type="ns0:TransportResponse" wpc:id="178"/>
   </bpws:variables>
   <bpws:correlationSets>
     <bpws:correlationSet name="OrderID_CS" properties="ns:OrderID_CP" wpc:id="131"/>
@@ -740,6 +745,14 @@ catch(com.ibm.wbiserver.map.exceptions.WBIMapServiceException ex){
             </bpws:sequence>
           </bpws:compensationHandler>
         </bpws:invoke>
+        <bpws:receive name="Receive1" operation="confirm" partnerLink="TransportCallbackIF" portType="ns13:TransportCallbackIF" wpc:displayName="Receive Transportation Confirm" wpc:id="176">
+          <wpc:output>
+            <wpc:parameter name="orderID" variable="transportResponse"/>
+          </wpc:output>
+          <bpws:correlations>
+            <bpws:correlation initiate="no" set="OrderID_CS"/>
+          </bpws:correlations>
+        </bpws:receive>
         <bpws:invoke name="Snippet5" operation="null" partnerLink="null" portType="wpc:null" wpc:continueOnError="inherit" wpc:displayName="Log - Complete Reservation " wpc:id="75">
           <wpc:script>
             <wpc:javaCode><![CDATA[java.lang.String __result__1 = "Log - Complete Reservation ";
