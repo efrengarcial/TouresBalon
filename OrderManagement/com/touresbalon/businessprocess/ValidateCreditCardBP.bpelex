@@ -3,7 +3,7 @@
   <extensionmodel:ExtensionMap xmi:id="ExtensionMap_1398466625987" namespace="http://com.ibm.wbit.bpel.ui/">
     <extensions xmi:id="Extension_1398466625987">
       <extendedObject href="ValidateCreditCardBP.bpel#/"/>
-      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ProcessExtension" xmi:id="ProcessExtension_1398466625987" modificationStamp="1398746403409" autoLayout="true" maxWpcId="22" minWpcId="0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ProcessExtension" xmi:id="ProcessExtension_1398466625987" modificationStamp="1399335084558" autoLayout="true" maxWpcId="22" minWpcId="0"/>
     </extensions>
     <extensions>
       <extendedObject href="ValidateCreditCardBP.bpel#//@activity/@activities.4/@cases.0/@activity/@activities.0"/>

@@ -6,13 +6,11 @@
 	xmlns:tns="http://service.model.orders.oms.touresbalon.com/"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-	<xs:include schemaLocation="order.xsd" />
 	<xs:complexType name="item">
 		<xs:sequence>
 			<xs:element minOccurs="0" name="itemDate"
 				type="xs:dateTime" />
 			<xs:element minOccurs="0" name="itemId" type="xs:string" />
-			<xs:element minOccurs="0" name="order" type="tns:order" />
 			<xs:element minOccurs="0" name="partNum" type="xs:string" />
 			<xs:element minOccurs="0" name="price" type="xs:decimal" />
 			<xs:element name="prodId" type="xs:int" />

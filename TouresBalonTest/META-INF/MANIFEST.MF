@@ -5,6 +5,7 @@ Class-Path: AccommodationLib.jar
  CWYFF_FlatFile.rar 
  ProductReservationLib.jar 
  TransportationLib.jar 
+ AccountingTransactionsLib.jar 
  PaymentsModuleLib.jar 
  CommonDomain.jar 
  websphere_default_messaging_provider.rar

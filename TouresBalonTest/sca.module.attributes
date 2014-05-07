@@ -10,4 +10,5 @@
   <scdl:libraryDependency name="TransportationLib" version=""/>
   <scdl:libraryDependency name="ProductReservationLib" version=""/>
   <scdl:libraryDependency name="AccommodationLib" version=""/>
+  <scdl:libraryDependency name="AccountingTransactionsLib" version=""/>
 </scdl:moduleAndLibraryAttributes>

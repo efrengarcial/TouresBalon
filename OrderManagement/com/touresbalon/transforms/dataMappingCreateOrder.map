@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map:businessObjectMap xmlns:Order="http://orders.oms.touresbalon.com/" xmlns:Order_1="http://OrderManagementLib/com/touresbalon/bo" xmlns:dataMappingCreateOrder="http://OrderManagement/com/touresbalon/transforms" xmlns:map="http://www.ibm.com/xmlns/prod/websphere/wbiserver/map/6.0.0" targetNamespace="http://OrderManagement/com/touresbalon/transforms">
+  <map:name>dataMappingCreateOrder</map:name>
+  <map:inputBusinessObjectVariable businessObjectRef="Order_1:Order" name="Order"/>
+  <map:outputBusinessObjectVariable businessObjectRef="Order:Order" name="Order_1"/>
+  <map:propertyMap executionOrder="1">
+    <map:move>
+      <map:input businessObjectVariableRef="Order" property="orderDate"/>
+      <map:output businessObjectVariableRef="Order_1" property="orderDate"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="2">
+    <map:move>
+      <map:input businessObjectVariableRef="Order" property="amount"/>
+      <map:output businessObjectVariableRef="Order_1" property="price"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="3">
+    <map:move>
+      <map:input businessObjectVariableRef="Order" property="comments"/>
+      <map:output businessObjectVariableRef="Order_1" property="comments"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="4">
+    <map:move>
+      <map:input businessObjectVariableRef="Order" property="customer/Id"/>
+      <map:output businessObjectVariableRef="Order_1" property="customerId"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="5">
+    <map:move>
+      <map:input businessObjectVariableRef="Order" property="customer/type"/>
+      <map:output businessObjectVariableRef="Order_1" property="customerType"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="6">
+    <map:submap submapName="dataMappingCreateOrder:dataMappingItems">
+      <map:input businessObjectVariableRef="Order" property="products" variableName="Product"/>
+      <map:output businessObjectVariableRef="Order_1" property="items" variableName="Item"/>
+    </map:submap>
+  </map:propertyMap>
+</map:businessObjectMap>

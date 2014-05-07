@@ -23,7 +23,7 @@
 
 			<xs:element minOccurs="0" name="orderDate"
 				type="xs:dateTime" />
-			<xs:element minOccurs="0" name="price" type="xs:decimal" />
+			<xs:element minOccurs="0" name="price" type="xs:double" />
 			<xs:element minOccurs="0" name="comments" type="xs:string" />
 			<xs:element minOccurs="0" name="status" type="xs:string" />
 

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="OrderService" targetNamespace="http://service.model.orders.oms.touresbalon.com/" xmlns:ns1="http://service.model.orders.oms.touresbalon.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <wsdl:types>
 <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://service.model.orders.oms.touresbalon.com/" xmlns:tns="http://service.model.orders.oms.touresbalon.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-            <xs:include schemaLocation="com/touresbalon/oms/orders/model/service/customer.xsd"/>
-            <xs:include schemaLocation="com/touresbalon/oms/orders/model/service/address.xsd"/>
             <xs:include schemaLocation="com/touresbalon/oms/orders/model/service/order.xsd"/>
+            <xs:include schemaLocation="com/touresbalon/oms/orders/model/service/customer.xsd"/>
             <xs:include schemaLocation="com/touresbalon/oms/orders/model/service/item.xsd"/>
+            <xs:include schemaLocation="com/touresbalon/oms/orders/model/service/address.xsd"/>
             <xs:element name="createOrderResponse" nillable="true" type="tns:order"/>
   <xs:element name="idOrder" nillable="true" type="xs:string"/>
   <xs:element name="state" nillable="true" type="xs:string"/>

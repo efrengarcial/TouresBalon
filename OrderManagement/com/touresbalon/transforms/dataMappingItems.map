@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map:businessObjectMap xmlns:Item="http://orders.oms.touresbalon.com/" xmlns:Product="http://OrderManagementLib/com/touresbalon/bo" xmlns:dataMappingItems="http://OrderManagement/com/touresbalon/transforms" xmlns:map="http://www.ibm.com/xmlns/prod/websphere/wbiserver/map/6.0.0" targetNamespace="http://OrderManagement/com/touresbalon/transforms">
+  <map:name>dataMappingItems</map:name>
+  <map:inputBusinessObjectVariable businessObjectRef="Product:Product" name="Product"/>
+  <map:outputBusinessObjectVariable businessObjectRef="Item:Item" name="Item"/>
+  <map:propertyMap executionOrder="1">
+    <map:move>
+      <map:input businessObjectVariableRef="Product" property="partNum"/>
+      <map:output businessObjectVariableRef="Item" property="partNum"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="2">
+    <map:move>
+      <map:input businessObjectVariableRef="Product" property="amount"/>
+      <map:output businessObjectVariableRef="Item" property="price"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="3">
+    <map:move>
+      <map:input businessObjectVariableRef="Product" property="prodId"/>
+      <map:output businessObjectVariableRef="Item" property="prodId"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="4">
+    <map:move>
+      <map:input businessObjectVariableRef="Product" property="productName"/>
+      <map:output businessObjectVariableRef="Item" property="productName"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="5">
+    <map:move>
+      <map:input businessObjectVariableRef="Product" property="quantity"/>
+      <map:output businessObjectVariableRef="Item" property="quantity"/>
+    </map:move>
+  </map:propertyMap>
+</map:businessObjectMap>

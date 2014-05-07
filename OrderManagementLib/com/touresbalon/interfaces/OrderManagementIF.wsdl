@@ -9,14 +9,27 @@
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
+            <xsd:element name="cancelProcess">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="orderID" nillable="true" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
         </xsd:schema>
   </wsdl:types>
     <wsdl:message name="startProcessRequestMsg">
     <wsdl:part element="tns:startProcess" name="startProcessParameters"/>
   </wsdl:message>
+    <wsdl:message name="cancelProcessRequestMsg">
+    <wsdl:part element="tns:cancelProcess" name="cancelProcessParameters"/>
+  </wsdl:message>
     <wsdl:portType name="OrderManagementIF">
     <wsdl:operation name="startProcess">
       <wsdl:input message="tns:startProcessRequestMsg" name="startProcessRequest"/>
+    </wsdl:operation>
+        <wsdl:operation name="cancelProcess">
+      <wsdl:input message="tns:cancelProcessRequestMsg" name="cancelProcessRequest"/>
     </wsdl:operation>
     </wsdl:portType>
 </wsdl:definitions>

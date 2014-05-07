@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="OrderProcessingBP" targetNamespace="http://OrderManagement/com/touresbalon/businessprocess/OrderProcessingBPArtifacts" xmlns:plnk="http://schemas.xmlsoap.org/ws/2004/03/partner-link/" xmlns:tns="http://OrderManagement/com/touresbalon/businessprocess/OrderProcessingBPArtifacts" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl0="http://OrderManagementLib/com/touresbalon/interfaces/OrderManagementIF" xmlns:wsdl1="http://OrderModule/com/touresbalon/interfaces/OrderServiceIF" xmlns:wsdl2="http://OrderLib/com/touresbalon/interfaces/OrderMgmtServiceIF" xmlns:wsdl3="http://ProductReservationLib/com/touresbalon/interfaces/ProductReserServiceIF" xmlns:wsdl4="http://PaymentsModuleLib/com/touresbalon/interfaces/PaymentServiceIF" xmlns:wsdl5="http://TaskServices-LegalizeOrder/com/touresbalon/taskservices/LegalizeOrderBPInterface" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="OrderProcessingBP" targetNamespace="http://OrderManagement/com/touresbalon/businessprocess/OrderProcessingBPArtifacts" xmlns:plnk="http://schemas.xmlsoap.org/ws/2004/03/partner-link/" xmlns:tns="http://OrderManagement/com/touresbalon/businessprocess/OrderProcessingBPArtifacts" xmlns:vprop="http://schemas.xmlsoap.org/ws/2004/03/business-process/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl0="http://OrderManagementLib/com/touresbalon/interfaces/OrderManagementIF" xmlns:wsdl1="http://OrderModule/com/touresbalon/interfaces/OrderServiceIF" xmlns:wsdl2="http://OrderLib/com/touresbalon/interfaces/OrderMgmtServiceIF" xmlns:wsdl3="http://ProductReservationLib/com/touresbalon/interfaces/ProductReserServiceIF" xmlns:wsdl4="http://PaymentsModuleLib/com/touresbalon/interfaces/PaymentServiceIF" xmlns:wsdl5="http://TaskServices-LegalizeOrder/com/touresbalon/taskservices/LegalizeOrderBPInterface" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <plnk:partnerLinkType name="OrderManagementIFPLT">
     <plnk:role name="Interface">
       <plnk:portType name="wsdl0:OrderManagementIF"/>
@@ -24,6 +24,13 @@
       <plnk:portType name="wsdl5:LegalizeOrderServiceIF"/>
     </plnk:role>
   </plnk:partnerLinkType>
+    <vprop:property name="OrderID_CP" type="xsd:string"/>
+    <vprop:propertyAlias messageType="wsdl2:requiresApprovalRequestMsg" part="requiresApprovalParameters" propertyName="tns:OrderID_CP">
+    <vprop:query><![CDATA[/request/ordId]]></vprop:query>
+  </vprop:propertyAlias>
+    <vprop:propertyAlias messageType="wsdl0:cancelProcessRequestMsg" part="cancelProcessParameters" propertyName="tns:OrderID_CP">
+    <vprop:query><![CDATA[/orderID]]></vprop:query>
+  </vprop:propertyAlias>
     <wsdl:import location="../interfaces/OrderManagementIF.wsdl" namespace="http://OrderManagementLib/com/touresbalon/interfaces/OrderManagementIF"/>
     <wsdl:import location="../interfaces/OrderMgmtServiceIF.wsdl" namespace="http://OrderLib/com/touresbalon/interfaces/OrderMgmtServiceIF"/>
     <wsdl:import location="../interfaces/ProductReservationServiceIF.wsdl" namespace="http://ProductReservationLib/com/touresbalon/interfaces/ProductReserServiceIF"/>

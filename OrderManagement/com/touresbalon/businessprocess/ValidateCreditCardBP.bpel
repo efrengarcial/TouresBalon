@@ -116,7 +116,7 @@
         </bpws:to>
       </bpws:copy>
     </bpws:assign>
-    <bpws:invoke name="Invoke1" operation="validateCard" partnerLink="PaymentServiceIFPartner" portType="ns4:PaymentServiceIF" wpc:continueOnError="inherit" wpc:displayName="Validate Peyment" wpc:id="13">
+    <bpws:invoke name="Invoke1" operation="validateCard" partnerLink="PaymentServiceIFPartner" portType="ns4:PaymentServiceIF" wpc:continueOnError="inherit" wpc:displayName="Validate Payment" wpc:id="13">
       <wpc:input>
         <wpc:parameter name="request" variable="creditCard"/>
       </wpc:input>
