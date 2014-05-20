@@ -14,7 +14,7 @@
       <plnk:portType name="wsdl2:PaymentServiceIF"/>
     </plnk:role>
   </plnk:partnerLinkType>
-    <wsdl:import location="../interfaces/CancelOrderProcessingIF.wsdl" namespace="http://OrderManagement/com/touresbalon/businessprocess/OrderProcessingInterface"/>
+    <wsdl:import location="../interfaces/OrderProcessingIF.wsdl" namespace="http://OrderManagement/com/touresbalon/businessprocess/OrderProcessingInterface"/>
     <wsdl:import location="../interfaces/OrderManagementIF.wsdl" namespace="http://OrderManagementLib/com/touresbalon/interfaces/OrderManagementIF"/>
     <wsdl:import location="../interfaces/PaymentServiceIF.wsdl" namespace="http://PaymentsModuleLib/com/touresbalon/interfaces/PaymentServiceIF"/>
 </wsdl:definitions>

@@ -5,7 +5,7 @@
             <xsd:element name="confirm">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="orderID" nillable="true" type="bons1:TransportResponse"/>
+            <xsd:element name="response" nillable="true" type="bons1:TransportResponse"/>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>

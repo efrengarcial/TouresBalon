@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="ProductReserServiceIF" targetNamespace="http://ProductReservationLib/com/touresbalon/interfaces/ProductReserServiceIF" xmlns:bons0="http://ProductReservationLib/com/touresbalon/interfaces/ProductReserServiceIF" xmlns:bons1="http://OrderManagementLib/com/touresbalon/bo" xmlns:bons2="http://CommonDomain/com/touresbalon/bo" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <wsdl:types>
     <xsd:schema targetNamespace="http://ProductReservationLib/com/touresbalon/interfaces/ProductReserServiceIF">
+            <xsd:import namespace="http://OrderManagementLib/com/touresbalon/bo" schemaLocation="../bo/Product.xsd"/>
             <xsd:import namespace="http://CommonDomain/com/touresbalon/bo" schemaLocation="../bo/ReturnCode.xsd"/>
             <xsd:import namespace="http://OrderManagementLib/com/touresbalon/bo" schemaLocation="../bo/Order.xsd"/>
             <xsd:element name="makeReservationAccommodation">
@@ -31,17 +32,31 @@
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
-            <xsd:element name="cancelReservation">
+            <xsd:element name="cancelReservationAccomodation">
         <xsd:complexType>
           <xsd:sequence>
             <xsd:element name="request" nillable="true" type="bons1:Order"/>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
-            <xsd:element name="cancelReservationResponse">
+            <xsd:element name="cancelReservationAccomodationResponse">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="respose" nillable="true" type="bons2:ReturnCode"/>
+            <xsd:element name="response" nillable="true" type="bons2:ReturnCode"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="cancelReservationTransport">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="request" nillable="true" type="bons1:Order"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="cancelReservationTransportResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="response" nillable="true" type="bons2:ReturnCode"/>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
@@ -59,11 +74,17 @@
     <wsdl:message name="makeReservationTransportResponseMsg">
     <wsdl:part element="bons0:makeReservationTransportResponse" name="makeReservationTransportResult"/>
   </wsdl:message>
-    <wsdl:message name="cancelReservationRequestMsg">
-    <wsdl:part element="bons0:cancelReservation" name="cancelReservationParameters"/>
+    <wsdl:message name="cancelReservationAccomodationRequestMsg">
+    <wsdl:part element="bons0:cancelReservationAccomodation" name="cancelReservationAccomodationParameters"/>
   </wsdl:message>
-    <wsdl:message name="cancelReservationResponseMsg">
-    <wsdl:part element="bons0:cancelReservationResponse" name="cancelReservationResult"/>
+    <wsdl:message name="cancelReservationAccomodationResponseMsg">
+    <wsdl:part element="bons0:cancelReservationAccomodationResponse" name="cancelReservationAccomodationResult"/>
+  </wsdl:message>
+    <wsdl:message name="cancelReservationTransportRequestMsg">
+    <wsdl:part element="bons0:cancelReservationTransport" name="cancelReservationTransportParameters"/>
+  </wsdl:message>
+    <wsdl:message name="cancelReservationTransportResponseMsg">
+    <wsdl:part element="bons0:cancelReservationTransportResponse" name="cancelReservationTransportResult"/>
   </wsdl:message>
     <wsdl:portType name="ProductReservationServiceIF">
         <wsdl:operation name="makeReservationAccommodation">
@@ -74,9 +95,13 @@
       <wsdl:input message="bons0:makeReservationTransportRequestMsg" name="makeReservationTransportRequest"/>
       <wsdl:output message="bons0:makeReservationTransportResponseMsg" name="makeReservationTransportResponse"/>
     </wsdl:operation>
-        <wsdl:operation name="cancelReservation">
-      <wsdl:input message="bons0:cancelReservationRequestMsg" name="cancelReservationRequest"/>
-      <wsdl:output message="bons0:cancelReservationResponseMsg" name="cancelReservationResponse"/>
+        <wsdl:operation name="cancelReservationAccomodation">
+      <wsdl:input message="bons0:cancelReservationAccomodationRequestMsg" name="cancelReservationAccomodationRequest"/>
+      <wsdl:output message="bons0:cancelReservationAccomodationResponseMsg" name="cancelReservationAccomodationResponse"/>
+    </wsdl:operation>
+        <wsdl:operation name="cancelReservationTransport">
+      <wsdl:input message="bons0:cancelReservationTransportRequestMsg" name="cancelReservationTransportRequest"/>
+      <wsdl:output message="bons0:cancelReservationTransportResponseMsg" name="cancelReservationTransportResponse"/>
     </wsdl:operation>
     </wsdl:portType>
 </wsdl:definitions>

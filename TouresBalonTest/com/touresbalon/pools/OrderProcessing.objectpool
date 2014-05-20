@@ -3,6 +3,32 @@
   <dataSets name="Default" id="1398748325639_11207">
     <entries xsi:type="com.ibm.ccl.soa.test.common.models.datatable:DataSetColumn" name="Value" id="1398748325639_11208">
       <elements xsi:type="com.ibm.ccl.soa.test.common.models.datatable:DataSetColumnComplexValue">
+        <value xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueStructure" name="request" id="1400552256048_5067" value="" defaultValue="" typeURI="xsd:/http://OrderManagementLib/com/touresbalon/bo#Order" baseTypeURI="xsd:/http://OrderManagementLib/com/touresbalon/bo#Order" hasChildren="true">
+          <context>
+            <properties name="project_context" value="OrderManagement"/>
+          </context>
+          <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="orderID" id="1400552256048_5068" value="" defaultValue="" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#string"/>
+          <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="orderDate" id="1400552256048_5069" value="2014-05-19T21:17:23.064-0500" defaultValue="2014-05-19T21:17:23.064-0500" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#dateTime" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#dateTime"/>
+          <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="endOrderDate" id="1400552256048_5070" value="2014-05-19T21:17:23.064-0500" defaultValue="2014-05-19T21:17:23.064-0500" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#dateTime" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#dateTime"/>
+          <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="amount" id="1400552256048_5071" value="0" defaultValue="0" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#double" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#double"/>
+          <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="comments" id="1400552256048_5072" value="" defaultValue="" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#string"/>
+          <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueStructure" name="creditCard" id="1400552256048_5073" value="" defaultValue="" typeURI="xsd:/http://OrderManagementLib/com/touresbalon/bo#CreditCard" baseTypeURI="xsd:/http://OrderManagementLib/com/touresbalon/bo#CreditCard" hasChildren="true">
+            <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="type" id="1400552256048_5074" value="" defaultValue="" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#string"/>
+            <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="number" id="1400552256048_5075" value="" defaultValue="" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#string"/>
+            <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="securityCode" id="1400552256048_5076" value="" defaultValue="" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#string"/>
+            <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="expiration" id="1400552256048_5077" value="2014-05-19-0500" defaultValue="2014-05-19-0500" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#date" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#date"/>
+          </elements>
+          <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueArray" name="products" id="1400552256048_5078" writeable="false" value="" defaultValue="" typeURI="xsd:/http://OrderManagementLib/com/touresbalon/bo#Product[]" baseTypeURI="xsd:/http://OrderManagementLib/com/touresbalon/bo#Product[]" elementTypeURI="xsd:/http://OrderManagementLib/com/touresbalon/bo#Product" elementBaseTypeURI="xsd:/http://OrderManagementLib/com/touresbalon/bo#Product"/>
+          <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueStructure" name="customer" id="1400552256048_5079" value="" defaultValue="" typeURI="xsd:/http://OrderManagementLib/com/touresbalon/bo#Customer" baseTypeURI="xsd:/http://OrderManagementLib/com/touresbalon/bo#Customer" hasChildren="true">
+            <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="Id" id="1400552256048_5080" value="" defaultValue="" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#string"/>
+            <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="firstName" id="1400552256048_5081" value="" defaultValue="" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#string"/>
+            <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="lastName" id="1400552256048_5082" value="" defaultValue="" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#string"/>
+            <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="emailAddress" id="1400552256048_5083" value="" defaultValue="" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#string"/>
+            <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="type" id="1400552256048_5084" value="" defaultValue="" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#string"/>
+          </elements>
+        </value>
+      </elements>
+      <elements xsi:type="com.ibm.ccl.soa.test.common.models.datatable:DataSetColumnComplexValue">
         <value xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueStructure" name="order6" id="1399343408817_11188" value="" defaultValue="" typeURI="xsd:/http://OrderManagementLib/com/touresbalon/bo#Order" baseTypeURI="xsd:/http://OrderManagementLib/com/touresbalon/bo#Order" hasChildren="true">
           <context>
             <properties name="project_context" value="OrderManagement"/>

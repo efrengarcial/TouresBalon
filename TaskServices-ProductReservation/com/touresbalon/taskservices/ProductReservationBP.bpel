@@ -413,87 +413,45 @@ return __result__1;
         </bpws:reply>
       </bpws:sequence>
     </bpws:onMessage>
-    <bpws:onMessage operation="cancelReservation" partnerLink="ProductReserServiceIF" portType="ns1:ProductReservationServiceIF" wpc:displayName="cancelReservation" wpc:id="62">
+    <bpws:onMessage operation="cancelReservationTransport" partnerLink="ProductReserServiceIF" portType="ns1:ProductReservationServiceIF" wpc:displayName="cancelReservationTransport" wpc:id="62">
       <wpc:output>
         <wpc:parameter name="request" variable="order"/>
       </wpc:output>
-      <bpws:sequence name="HiddenSequence6" wpc:id="1073741888">
-        <bpws:sequence name="Sequence2" wpc:displayName="Sequence" wpc:id="63">
-          <bpws:flow name="ParallelActivities" wpc:displayName="ParallelActivities" wpc:id="67">
-            <bpws:sequence name="Sequence3" wpc:displayName="Sequence Accommodation" wpc:id="71">
-              <bpws:forEach counterName="productCount" name="ForEach2" parallel="no" wpc:counterVariableId="84" wpc:displayName="ForEach Products" wpc:id="76">
-                <bpws:startCounterValue expressionLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[1]]></bpws:startCounterValue>
-                <bpws:finalCounterValue expressionLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[count($order/products)]]></bpws:finalCounterValue>
-                <bpws:scope name="Scope2" wpc:id="78">
-                  <bpws:sequence name="HiddenSequence7" wpc:id="1073741903">
-                    <bpws:assign name="Assign7" wpc:displayName="Assign RoomCancelReservationRequest" wpc:id="70">
-                      <bpws:copy>
-                        <bpws:from variable="order">
-                          <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[orderID]]></bpws:query>
-                        </bpws:from>
-                        <bpws:to variable="roomCancelReservationRequest">
-                          <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[orderID]]></bpws:query>
-                        </bpws:to>
-                      </bpws:copy>
-                      <bpws:copy>
-                        <bpws:from variable="order">
-                          <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[products[bpws:getVariableData('productCount')]/lodging/company]]></bpws:query>
-                        </bpws:from>
-                        <bpws:to variable="roomCancelReservationRequest">
-                          <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[hotelCompany]]></bpws:query>
-                        </bpws:to>
-                      </bpws:copy>
-                    </bpws:assign>
-                    <bpws:invoke name="Invoke4" operation="cancelReservation" partnerLink="AccommodationServiceIFPartner" portType="ns2:AccommodationServiceIF" wpc:continueOnError="inherit" wpc:displayName="cancelReservationAccom" wpc:id="68">
-                      <wpc:input>
-                        <wpc:parameter name="request" variable="roomCancelReservationRequest"/>
-                      </wpc:input>
-                      <wpc:output>
-                        <wpc:parameter name="response" variable="returnCancelReservation"/>
-                      </wpc:output>
-                    </bpws:invoke>
-                  </bpws:sequence>
-                </bpws:scope>
-              </bpws:forEach>
+      <bpws:sequence name="Sequence4" wpc:displayName="Sequence Transportation" wpc:id="72">
+        <bpws:forEach counterName="productCount" name="ForEach3" parallel="no" wpc:counterVariableId="85" wpc:displayName="ForEach Products" wpc:id="80">
+          <bpws:startCounterValue expressionLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[1]]></bpws:startCounterValue>
+          <bpws:finalCounterValue expressionLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[count($order/products)]]></bpws:finalCounterValue>
+          <bpws:scope name="Scope3" wpc:id="82">
+            <bpws:sequence name="HiddenSequence8" wpc:id="1073741907">
+              <bpws:assign name="Assign8" wpc:displayName="Assign ReservationCancelWrapperReq" wpc:id="73">
+                <bpws:copy>
+                  <bpws:from variable="order">
+                    <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[orderID]]></bpws:query>
+                  </bpws:from>
+                  <bpws:to variable="reservationCancelWrapperReq">
+                    <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[content/orderID]]></bpws:query>
+                  </bpws:to>
+                </bpws:copy>
+                <bpws:copy>
+                  <bpws:from variable="order">
+                    <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[products[bpws:getVariableData('productCount')]/transport/company]]></bpws:query>
+                  </bpws:from>
+                  <bpws:to variable="reservationCancelWrapperReq">
+                    <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[content/transportCompany]]></bpws:query>
+                  </bpws:to>
+                </bpws:copy>
+              </bpws:assign>
+              <bpws:invoke name="Invoke5" operation="cancelReservation" partnerLink="TransportationServiceIFPartner" portType="ns6:TransportationServiceIF" wpc:continueOnError="inherit" wpc:displayName="cancelReservationTransp" wpc:id="69">
+                <wpc:input>
+                  <wpc:parameter name="request" variable="reservationCancelWrapperReq"/>
+                </wpc:input>
+                <wpc:output>
+                  <wpc:parameter name="response" variable="returnCancelReservation"/>
+                </wpc:output>
+              </bpws:invoke>
             </bpws:sequence>
-            <bpws:sequence name="Sequence4" wpc:displayName="Sequence Transportation" wpc:id="72">
-              <bpws:forEach counterName="productCount" name="ForEach3" parallel="no" wpc:counterVariableId="85" wpc:displayName="ForEach Products" wpc:id="80">
-                <bpws:startCounterValue expressionLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[1]]></bpws:startCounterValue>
-                <bpws:finalCounterValue expressionLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[count($order/products)]]></bpws:finalCounterValue>
-                <bpws:scope name="Scope3" wpc:id="82">
-                  <bpws:sequence name="HiddenSequence8" wpc:id="1073741907">
-                    <bpws:assign name="Assign8" wpc:displayName="Assign ReservationCancelWrapperReq" wpc:id="73">
-                      <bpws:copy>
-                        <bpws:from variable="order">
-                          <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[orderID]]></bpws:query>
-                        </bpws:from>
-                        <bpws:to variable="reservationCancelWrapperReq">
-                          <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[content/orderID]]></bpws:query>
-                        </bpws:to>
-                      </bpws:copy>
-                      <bpws:copy>
-                        <bpws:from variable="order">
-                          <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[products[bpws:getVariableData('productCount')]/transport/company]]></bpws:query>
-                        </bpws:from>
-                        <bpws:to variable="reservationCancelWrapperReq">
-                          <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[content/transportCompany]]></bpws:query>
-                        </bpws:to>
-                      </bpws:copy>
-                    </bpws:assign>
-                    <bpws:invoke name="Invoke5" operation="cancelReservation" partnerLink="TransportationServiceIFPartner" portType="ns6:TransportationServiceIF" wpc:continueOnError="inherit" wpc:displayName="cancelReservationTransp" wpc:id="69">
-                      <wpc:input>
-                        <wpc:parameter name="request" variable="reservationCancelWrapperReq"/>
-                      </wpc:input>
-                      <wpc:output>
-                        <wpc:parameter name="response" variable="returnCancelReservation"/>
-                      </wpc:output>
-                    </bpws:invoke>
-                  </bpws:sequence>
-                </bpws:scope>
-              </bpws:forEach>
-            </bpws:sequence>
-          </bpws:flow>
-        </bpws:sequence>
+          </bpws:scope>
+        </bpws:forEach>
         <bpws:assign name="Assign6" wpc:displayName="Assign" wpc:id="66">
           <bpws:copy>
             <bpws:from><![CDATA[OK]]></bpws:from>
@@ -502,9 +460,63 @@ return __result__1;
             </bpws:to>
           </bpws:copy>
         </bpws:assign>
-        <bpws:reply name="Reply1" operation="cancelReservation" partnerLink="ProductReserServiceIF" portType="ns1:ProductReservationServiceIF" wpc:displayName="Reply-cancelReservation " wpc:id="65">
+        <bpws:reply name="Reply1" operation="cancelReservationTransport" partnerLink="ProductReserServiceIF" portType="ns1:ProductReservationServiceIF" wpc:displayName="Reply-cancelReservation " wpc:id="65">
           <wpc:input>
-            <wpc:parameter name="respose" variable="replyCode"/>
+            <wpc:parameter name="response" variable="returnCancelReservation"/>
+          </wpc:input>
+        </bpws:reply>
+      </bpws:sequence>
+    </bpws:onMessage>
+    <bpws:onMessage operation="cancelReservationAccomodation" partnerLink="ProductReserServiceIF" portType="ns1:ProductReservationServiceIF" wpc:displayName="cancelReservationAccommodation" wpc:id="87">
+      <wpc:output>
+        <wpc:parameter name="request" variable="order"/>
+      </wpc:output>
+      <bpws:sequence name="Sequence3" wpc:displayName="Sequence Accommodation" wpc:id="71">
+        <bpws:forEach counterName="productCount" name="ForEach2" parallel="no" wpc:counterVariableId="84" wpc:displayName="ForEach Products" wpc:id="76">
+          <bpws:startCounterValue expressionLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[1]]></bpws:startCounterValue>
+          <bpws:finalCounterValue expressionLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[count($order/products)]]></bpws:finalCounterValue>
+          <bpws:scope name="Scope2" wpc:id="78">
+            <bpws:sequence name="HiddenSequence7" wpc:id="1073741903">
+              <bpws:assign name="Assign7" wpc:displayName="Assign RoomCancelReservationRequest" wpc:id="70">
+                <bpws:copy>
+                  <bpws:from variable="order">
+                    <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[orderID]]></bpws:query>
+                  </bpws:from>
+                  <bpws:to variable="roomCancelReservationRequest">
+                    <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[orderID]]></bpws:query>
+                  </bpws:to>
+                </bpws:copy>
+                <bpws:copy>
+                  <bpws:from variable="order">
+                    <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[products[bpws:getVariableData('productCount')]/lodging/company]]></bpws:query>
+                  </bpws:from>
+                  <bpws:to variable="roomCancelReservationRequest">
+                    <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[hotelCompany]]></bpws:query>
+                  </bpws:to>
+                </bpws:copy>
+              </bpws:assign>
+              <bpws:invoke name="Invoke4" operation="cancelReservation" partnerLink="AccommodationServiceIFPartner" portType="ns2:AccommodationServiceIF" wpc:continueOnError="inherit" wpc:displayName="cancelReservationAccom" wpc:id="68">
+                <wpc:input>
+                  <wpc:parameter name="request" variable="roomCancelReservationRequest"/>
+                </wpc:input>
+                <wpc:output>
+                  <wpc:parameter name="response" variable="returnCancelReservation"/>
+                </wpc:output>
+              </bpws:invoke>
+            </bpws:sequence>
+          </bpws:scope>
+        </bpws:forEach>
+        <bpws:assign name="Assign9" wpc:displayName="Assign" wpc:id="90">
+          <bpws:copy>
+            <bpws:from><![CDATA[OK]]></bpws:from>
+            <bpws:to variable="replyCode">
+              <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[RC]]></bpws:query>
+            </bpws:to>
+          </bpws:copy>
+        </bpws:assign>
+        <bpws:reply name="Reply2" operation="cancelReservationAccomodation" partnerLink="ProductReserServiceIF" portType="ns1:ProductReservationServiceIF" wpc:displayName="Reply-cancelReservationAccomm " wpc:id="88">
+          <wpc:input>
+            <wpc:parameter name="response" variable="returnCancelReservation"/>
           </wpc:input>
         </bpws:reply>
       </bpws:sequence>

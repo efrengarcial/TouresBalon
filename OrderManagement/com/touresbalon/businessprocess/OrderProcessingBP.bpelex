@@ -3,7 +3,7 @@
   <extensionmodel:ExtensionMap namespace="http://com.ibm.wbit.bpel.ui/">
     <extensions>
       <extendedObject href="OrderProcessingBP.bpel#/"/>
-      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ProcessExtension" modificationStamp="1399484507991" maxWpcId="178" minWpcId="0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ProcessExtension" modificationStamp="1399865116046" maxWpcId="182" minWpcId="0"/>
     </extensions>
     <extensions>
       <extendedObject href="OrderProcessingBP.bpel#//@activity"/>
@@ -486,11 +486,23 @@
       <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
     </extensions>
     <extensions>
+      <extendedObject href="OrderProcessingBP.bpel#//@activity/@activities.10/@activity/@activities.2/@activities.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-30" y="-10"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="OrderProcessingBP.bpel#//@variables/@children.15"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
       <extendedObject href="OrderProcessingBP.bpel#//@activity/@activities.10/@activity/@activities.2"/>
       <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
     </extensions>
     <extensions>
-      <extendedObject href="OrderProcessingBP.bpel#//@variables/@children.15"/>
+      <extendedObject href="OrderProcessingBP.bpel#//@activity/@activities.10/@activity/@activities.2/@activities.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="233" y="-3" width="-1" height="-1"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="OrderProcessingBP.bpel#//@variables/@children.16"/>
       <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
     </extensions>
   </extensionmodel:ExtensionMap>

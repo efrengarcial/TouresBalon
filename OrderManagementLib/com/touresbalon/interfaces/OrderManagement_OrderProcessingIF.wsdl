@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="OrderProcessingIF_OrderProcessingIFHttp_Service" targetNamespace="http://OrderManagement/com/touresbalon/businessprocess/OrderProcessingInterface" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:this="http://OrderManagement/com/touresbalon/businessprocess/OrderProcessingInterface" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import location="OrderProcessingIF.wsdl" namespace="http://OrderManagement/com/touresbalon/businessprocess/OrderProcessingInterface"/>
+  <wsdl:binding name="OrderProcessingIF_OrderProcessingIFHttpBinding" type="this:OrderProcessingIF">
+    <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="startProcess">
+      <soap12:operation soapAction="http://OrderManagement/com/touresbalon/businessprocess/OrderProcessingInterface/OrderProcessingIF/startProcess"/>
+      <wsdl:input name="startProcessRequest">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="startProcessResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="OrderProcessingIF_OrderProcessingIFHttpService">
+    <wsdl:port binding="this:OrderProcessingIF_OrderProcessingIFHttpBinding" name="OrderProcessingIF_OrderProcessingIFHttpPort">
+      <soap12:address location="http://localhost:9080/OrderManagementWeb/sca/OrderProcessingIF"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

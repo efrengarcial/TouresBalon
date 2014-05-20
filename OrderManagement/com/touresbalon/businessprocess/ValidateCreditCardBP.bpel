@@ -9,6 +9,7 @@
   <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="/resource/PaymentsModuleLib/com/touresbalon/interfaces/PaymentServiceIF.wsdl" namespace="http://PaymentsModuleLib/com/touresbalon/interfaces/PaymentServiceIF"/>
   <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../interfaces/PaymentServiceIF.wsdl" namespace="http://PaymentsModuleLib/com/touresbalon/interfaces/PaymentServiceIF"/>
   <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../bo/CreditCardDetails.xsd" namespace="http://PaymentsModuleLib/com/touresbalon/bo"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../interfaces/OrderProcessingIF.wsdl" namespace="http://OrderManagement/com/touresbalon/businessprocess/OrderProcessingInterface"/>
   <bpws:partnerLinks>
     <bpws:partnerLink myRole="Interface" name="OrderProcessingIF" partnerLinkType="ns:OrderProcessingIFPLT" wpc:id="2"/>
     <bpws:partnerLink name="OrderManagementIFPartner" partnerLinkType="ns:OrderManagementIFPLT" partnerRole="Interface" wpc:id="9"/>
@@ -121,7 +122,7 @@
         <wpc:parameter name="request" variable="creditCard"/>
       </wpc:input>
       <wpc:output>
-        <wpc:parameter name="response" variable="response"/>
+        <wpc:parameter name="response" variable="validateCardReturn"/>
       </wpc:output>
     </bpws:invoke>
     <bpws:switch name="Choice" wpc:displayName="Check if card is valid" wpc:id="17">

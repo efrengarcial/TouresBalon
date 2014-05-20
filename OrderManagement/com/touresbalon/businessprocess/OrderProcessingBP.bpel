@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><bpws:process xmlns:bpws="http://schemas.xmlsoap.org/ws/2004/03/business-process/" xmlns:ns="http://OrderManagement/com/touresbalon/businessprocess/OrderProcessingBPArtifacts" xmlns:ns0="http://OrderManagementLib/com/touresbalon/bo" xmlns:ns1="http://OrderManagementLib/com/touresbalon/interfaces/OrderManagementIF" xmlns:ns10="http://PaymentsModuleLib/com/touresbalon/interfaces/PaymentServiceIF" xmlns:ns11="http://PaymentsModuleLib/com/touresbalon/bo" xmlns:ns12="http://TaskServices-LegalizeOrder/com/touresbalon/taskservices/LegalizeOrderBPInterface" xmlns:ns13="http://OrderManagementLib/com/touresbalon/interfaces/TransportCallbackIF" xmlns:ns2="http://OrderModule/com/touresbalon/interfaces/OrderServiceIF" xmlns:ns3="http://orders.oms.touresbalon.com/" xmlns:ns4="http://OrderLib/com/touresbalon/interfaces/OrderMgmtServiceIF" xmlns:ns5="http://CommonDomain/com/touresbalon/bo" xmlns:ns6="http://OrderManagementLib/com/touresbalon/interfaces/SalesAuthorizationIF" xmlns:ns7="http://ProductReservationLib/com/touresbalon/interfaces/ProductReserServiceIF" xmlns:ns8="http://OrderManagement/com/touresbalon/businessprocess" xmlns:ns9="http://OrderManagementLib/com/touresbalon/interfaces/SecureTicketingIF" xmlns:tel="http://OrderManagement/com/touresbalon/businessprocess/Task1" xmlns:tel0="http://OrderManagement/com/touresbalon/businessprocess/Task2" xmlns:tel1="http://OrderManagement/com/touresbalon/businessprocess/Task3" xmlns:wpc="http://www.ibm.com/xmlns/prod/websphere/business-process/6.0.0/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.ibm.com/xmlns/prod/websphere/business-process/expression-lang/java/6.0.0/" name="OrderProcessingBP" suppressJoinFailure="yes" targetNamespace="http://OrderManagement/com/touresbalon/businessprocess" wpc:autoDelete="no" wpc:continueOnError="no" wpc:displayName="OrderProcessingBP" wpc:executionMode="longRunning" wpc:id="1" wpc:validFrom="2014-04-25T22:02:52" wpc:version="IBM_7.0.500">
+<?xml version="1.0" encoding="UTF-8"?><bpws:process xmlns:bpws="http://schemas.xmlsoap.org/ws/2004/03/business-process/" xmlns:ns="http://OrderManagement/com/touresbalon/businessprocess/OrderProcessingBPArtifacts" xmlns:ns0="http://OrderManagementLib/com/touresbalon/bo" xmlns:ns1="http://OrderManagementLib/com/touresbalon/interfaces/OrderManagementIF" xmlns:ns10="http://PaymentsModuleLib/com/touresbalon/interfaces/PaymentServiceIF" xmlns:ns11="http://PaymentsModuleLib/com/touresbalon/bo" xmlns:ns12="http://TaskServices-LegalizeOrder/com/touresbalon/taskservices/LegalizeOrderBPInterface" xmlns:ns13="http://OrderManagementLib/com/touresbalon/interfaces/TransportCallbackIF" xmlns:ns14="http://OrderManagementLib/com/touresbalon/interfaces/AccommodationCallbackIF" xmlns:ns2="http://OrderModule/com/touresbalon/interfaces/OrderServiceIF" xmlns:ns3="http://orders.oms.touresbalon.com/" xmlns:ns4="http://OrderLib/com/touresbalon/interfaces/OrderMgmtServiceIF" xmlns:ns5="http://CommonDomain/com/touresbalon/bo" xmlns:ns6="http://OrderManagementLib/com/touresbalon/interfaces/SalesAuthorizationIF" xmlns:ns7="http://ProductReservationLib/com/touresbalon/interfaces/ProductReserServiceIF" xmlns:ns8="http://OrderManagement/com/touresbalon/businessprocess" xmlns:ns9="http://OrderManagementLib/com/touresbalon/interfaces/SecureTicketingIF" xmlns:tel="http://OrderManagement/com/touresbalon/businessprocess/Task1" xmlns:tel0="http://OrderManagement/com/touresbalon/businessprocess/Task2" xmlns:tel1="http://OrderManagement/com/touresbalon/businessprocess/Task3" xmlns:wpc="http://www.ibm.com/xmlns/prod/websphere/business-process/6.0.0/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.ibm.com/xmlns/prod/websphere/business-process/expression-lang/java/6.0.0/" name="OrderProcessingBP" suppressJoinFailure="yes" targetNamespace="http://OrderManagement/com/touresbalon/businessprocess" wpc:autoDelete="no" wpc:continueOnError="no" wpc:displayName="OrderProcessingBP" wpc:executionMode="longRunning" wpc:id="1" wpc:validFrom="2014-04-25T22:02:52" wpc:version="IBM_7.0.500">
   <wpc:adminTask name="tel0:OrderProcessingBPAdministrationTask"/>
   <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="/resource/OrderManagementLib/com/touresbalon/interfaces/OrderManagementIF.wsdl" namespace="http://OrderManagementLib/com/touresbalon/interfaces/OrderManagementIF"/>
   <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../interfaces/OrderManagementIF.wsdl" namespace="http://OrderManagementLib/com/touresbalon/interfaces/OrderManagementIF"/>
@@ -22,6 +22,9 @@
   <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="/resource/OrderManagementLib/com/touresbalon/interfaces/TransportCallbackIF.wsdl" namespace="http://OrderManagementLib/com/touresbalon/interfaces/TransportCallbackIF"/>
   <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../interfaces/TransportCallbackIF.wsdl" namespace="http://OrderManagementLib/com/touresbalon/interfaces/TransportCallbackIF"/>
   <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../bo/TransportResponse.xsd" namespace="http://OrderManagementLib/com/touresbalon/bo"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="/resource/OrderManagementLib/com/touresbalon/interfaces/AccommodationCallbackIF.wsdl" namespace="http://OrderManagementLib/com/touresbalon/interfaces/AccommodationCallbackIF"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../interfaces/AccommodationCallbackIF.wsdl" namespace="http://OrderManagementLib/com/touresbalon/interfaces/AccommodationCallbackIF"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../bo/LodgingResponse.xsd" namespace="http://OrderManagementLib/com/touresbalon/bo"/>
   <bpws:partnerLinks>
     <bpws:partnerLink myRole="Interface" name="OrderManagementIF" partnerLinkType="ns:OrderManagementIFPLT" wpc:id="2"/>
     <bpws:partnerLink name="OrderMgmtServiceIFPartner" partnerLinkType="ns:OrderMgmtServiceIFPLT" partnerRole="Interface" wpc:id="16"/>
@@ -29,6 +32,7 @@
     <bpws:partnerLink name="PaymentServiceIFPartner" partnerLinkType="ns:PaymentServiceIFPLT" partnerRole="Interface" wpc:id="92"/>
     <bpws:partnerLink name="LegalizeOrderServiceIFPartner" partnerLinkType="ns:LegalizeOrderServiceIFPLT" partnerRole="Interface" wpc:id="104"/>
     <bpws:partnerLink myRole="Interface" name="TransportCallbackIF" partnerLinkType="ns:TransportCallbackIFPLT" wpc:id="177"/>
+    <bpws:partnerLink myRole="Interface" name="AccommodationCallbackIF" partnerLinkType="ns:AccommodationCallbackIFPLT" wpc:id="179"/>
   </bpws:partnerLinks>
   <bpws:variables>
     <bpws:variable name="order" type="ns0:Order" wpc:id="5"/>
@@ -47,6 +51,7 @@
     <bpws:variable name="now" type="xsd:dateTime" wpc:id="107"/>
     <bpws:variable name="userCancelationFault" type="ns5:BusinessErrorFault" wpc:id="128"/>
     <bpws:variable name="transportResponse" type="ns0:TransportResponse" wpc:id="178"/>
+    <bpws:variable name="lodgingResponse" type="ns0:LodgingResponse" wpc:id="182"/>
   </bpws:variables>
   <bpws:correlationSets>
     <bpws:correlationSet name="OrderID_CS" properties="ns:OrderID_CP" wpc:id="131"/>
@@ -650,9 +655,9 @@ catch(com.ibm.wbiserver.map.exceptions.WBIMapServiceException ex){
           </wpc:output>
           <bpws:compensationHandler>
             <bpws:sequence name="HiddenSequence3" wpc:id="1073741983">
-              <bpws:invoke name="Snippet4" operation="null" partnerLink="null" portType="wpc:null" wpc:continueOnError="inherit" wpc:displayName="Log - Compensation " wpc:id="66">
+              <bpws:invoke name="Snippet4" operation="null" partnerLink="null" portType="wpc:null" wpc:continueOnError="inherit" wpc:displayName="Log - Compensation   Accommodation" wpc:id="66">
                 <wpc:script>
-                  <wpc:javaCode><![CDATA[java.lang.String __result__1 = "Compensation Reseration";
+                  <wpc:javaCode><![CDATA[java.lang.String __result__1 = "Compensation Reseration Accommodation";
 {// print to log
 	System.out.println(__result__1);
 }
@@ -663,7 +668,7 @@ catch(com.ibm.wbiserver.map.exceptions.WBIMapServiceException ex){
 //  <exceptions>
 //    <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.bpe.api.ProcessException"/>
 //  </exceptions>
-//  <executableElements xsi:type="com.ibm.wbit.activity:Expression" value="&quot;Compensation Reseration&quot;" assignable="false">
+//  <executableElements xsi:type="com.ibm.wbit.activity:Expression" value="&quot;Compensation Reseration Accommodation&quot;" assignable="false">
 //    <dataOutputs target="//@executableElements.1/@parameters.0"/>
 //    <type xsi:type="com.ibm.wbit.activity:XSDElementType" name="string" namespace="http://www.w3.org/2001/XMLSchema"/>
 //  </executableElements>
@@ -682,12 +687,12 @@ catch(com.ibm.wbiserver.map.exceptions.WBIMapServiceException ex){
 //!SMAP!1000000:29,1]]></wpc:javaCode>
                 </wpc:script>
               </bpws:invoke>
-              <bpws:invoke name="Invoke5" operation="cancelReservation" partnerLink="ProductReservationServiceIFPartner" portType="ns7:ProductReservationServiceIF" wpc:continueOnError="inherit" wpc:displayName="cancelReservation" wpc:id="51">
+              <bpws:invoke name="Invoke5" operation="cancelReservationAccomodation" partnerLink="ProductReservationServiceIFPartner" portType="ns7:ProductReservationServiceIF" wpc:continueOnError="inherit" wpc:displayName="cancelReservationAccommo" wpc:id="51">
                 <wpc:input>
                   <wpc:parameter name="request" variable="order"/>
                 </wpc:input>
                 <wpc:output>
-                  <wpc:parameter name="respose" variable="returnCancelReservation"/>
+                  <wpc:parameter name="response" variable="returnCancelReservation"/>
                 </wpc:output>
               </bpws:invoke>
             </bpws:sequence>
@@ -702,9 +707,9 @@ catch(com.ibm.wbiserver.map.exceptions.WBIMapServiceException ex){
           </wpc:output>
           <bpws:compensationHandler>
             <bpws:sequence name="HiddenSequence11" wpc:id="1073741984">
-              <bpws:invoke name="Snippet11" operation="null" partnerLink="null" portType="wpc:null" wpc:continueOnError="inherit" wpc:displayName="Log - Compensation " wpc:id="161">
+              <bpws:invoke name="Snippet11" operation="null" partnerLink="null" portType="wpc:null" wpc:continueOnError="inherit" wpc:displayName="Log - Compensation Transportation" wpc:id="161">
                 <wpc:script>
-                  <wpc:javaCode><![CDATA[java.lang.String __result__1 = "Compensation Reseration";
+                  <wpc:javaCode><![CDATA[java.lang.String __result__1 = "Compensation Reseration Transportation";
 {// print to log
 	System.out.println(__result__1);
 }
@@ -715,7 +720,7 @@ catch(com.ibm.wbiserver.map.exceptions.WBIMapServiceException ex){
 //  <exceptions>
 //    <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.bpe.api.ProcessException"/>
 //  </exceptions>
-//  <executableElements xsi:type="com.ibm.wbit.activity:Expression" value="&quot;Compensation Reseration&quot;" assignable="false">
+//  <executableElements xsi:type="com.ibm.wbit.activity:Expression" value="&quot;Compensation Reseration Transportation&quot;" assignable="false">
 //    <dataOutputs target="//@executableElements.1/@parameters.0"/>
 //    <type xsi:type="com.ibm.wbit.activity:XSDElementType" name="string" namespace="http://www.w3.org/2001/XMLSchema"/>
 //  </executableElements>
@@ -734,25 +739,35 @@ catch(com.ibm.wbiserver.map.exceptions.WBIMapServiceException ex){
 //!SMAP!1000000:29,1]]></wpc:javaCode>
                 </wpc:script>
               </bpws:invoke>
-              <bpws:invoke name="Invoke12" operation="cancelReservation" partnerLink="ProductReservationServiceIFPartner" portType="ns7:ProductReservationServiceIF" wpc:continueOnError="inherit" wpc:displayName="cancelReservation" wpc:id="162">
+              <bpws:invoke name="Invoke12" operation="cancelReservationTransport" partnerLink="ProductReservationServiceIFPartner" portType="ns7:ProductReservationServiceIF" wpc:continueOnError="inherit" wpc:displayName="cancelReservationTransport" wpc:id="162">
                 <wpc:input>
                   <wpc:parameter name="request" variable="order"/>
                 </wpc:input>
                 <wpc:output>
-                  <wpc:parameter name="respose" variable="returnCancelReservation"/>
+                  <wpc:parameter name="response" variable="returnCancelReservation"/>
                 </wpc:output>
               </bpws:invoke>
             </bpws:sequence>
           </bpws:compensationHandler>
         </bpws:invoke>
-        <bpws:receive name="Receive1" operation="confirm" partnerLink="TransportCallbackIF" portType="ns13:TransportCallbackIF" wpc:displayName="Receive Transportation Confirm" wpc:id="176">
-          <wpc:output>
-            <wpc:parameter name="orderID" variable="transportResponse"/>
-          </wpc:output>
-          <bpws:correlations>
-            <bpws:correlation initiate="no" set="OrderID_CS"/>
-          </bpws:correlations>
-        </bpws:receive>
+        <bpws:flow name="ParallelActivities" wpc:displayName="ParallelActivities" wpc:id="180">
+          <bpws:receive name="Receive1" operation="confirm" partnerLink="TransportCallbackIF" portType="ns13:TransportCallbackIF" wpc:displayName="Receive Transportation Confirm" wpc:id="176">
+            <wpc:output>
+              <wpc:parameter name="response" variable="transportResponse"/>
+            </wpc:output>
+            <bpws:correlations>
+              <bpws:correlation initiate="no" set="OrderID_CS"/>
+            </bpws:correlations>
+          </bpws:receive>
+          <bpws:receive name="Receive2" operation="confirm" partnerLink="AccommodationCallbackIF" portType="ns14:AccommodationCallbackIF" wpc:displayName="Receive Accommodation Confirm" wpc:id="181">
+            <wpc:output>
+              <wpc:parameter name="response" variable="lodgingResponse"/>
+            </wpc:output>
+            <bpws:correlations>
+              <bpws:correlation initiate="no" set="OrderID_CS"/>
+            </bpws:correlations>
+          </bpws:receive>
+        </bpws:flow>
         <bpws:invoke name="Snippet5" operation="null" partnerLink="null" portType="wpc:null" wpc:continueOnError="inherit" wpc:displayName="Log - Complete Reservation " wpc:id="75">
           <wpc:script>
             <wpc:javaCode><![CDATA[java.lang.String __result__1 = "Log - Complete Reservation ";

@@ -7,11 +7,7 @@
     </extensions>
     <extensions>
       <extendedObject href="LegalizeOrderBP.component#//@Component"/>
-      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/business-process/6.0.0}ProcessImplementation" unknown="false" visible="true" x="265" y="114"/>
-    </extensions>
-    <extensions>
-      <extendedObject href="LegalizeOrderBP.component#//@Component"/>
-      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" unknown="false" visible="true" x="20" y="34"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" unknown="false" visible="true" x="239" y="86"/>
     </extensions>
     <extensions>
       <extendedObject href="AccountingTransactions.import#//@import"/>

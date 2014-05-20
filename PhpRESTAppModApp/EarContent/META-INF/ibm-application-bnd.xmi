@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <applicationbnd:ApplicationBinding xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:applicationbnd="applicationbnd.xmi" xmi:id="ApplicationBinding_1397766191652">
-  <authorizationTable xmi:id="AuthorizationTable_1399431246779">
-    <authorizations xmi:id="RoleAssignment_1399431246779">
-      <specialSubjects xmi:type="applicationbnd:AllAuthenticatedUsers" xmi:id="AllAuthenticatedUsers_1399431246779" name="AllAuthenticatedUsers"/>
-      <role href="META-INF/application.xml#SecurityRole_1399431246779"/>
+  <authorizationTable xmi:id="AuthorizationTable_1400552073597">
+    <authorizations xmi:id="RoleAssignment_1400552073597">
+      <specialSubjects xmi:type="applicationbnd:AllAuthenticatedUsers" xmi:id="AllAuthenticatedUsers_1400552073597" name="AllAuthenticatedUsers"/>
+      <role href="META-INF/application.xml#SecurityRole_1400552073597"/>
     </authorizations>
   </authorizationTable>
   <application href="META-INF/application.xml#Application_ID"/>
