@@ -54,7 +54,7 @@
       <out4:checkAvailabilityResponse>
         <out4:response>
           <!-- a for-each transform: "in2:InformacionVuelo"(InformacionVuelo) to "Content"(TravelResponse) -->
-          <xsl:apply-templates select="in2:consultarDisponibilidadResponse/in2:consultarDisponibilidadResult/in2:InformacionVuelo" mode="localInformacionVueloToContent_1970181123"/>
+          <xsl:apply-templates select="in2:consultarDisponibilidadResponse/in2:consultarDisponibilidadResult/in2:InformacionVuelo" mode="localInformacionVueloToContent_1917938953"/>
         </out4:response>
       </out4:checkAvailabilityResponse>
     </body>
@@ -66,13 +66,13 @@
     <out4:checkAvailabilityResponse>
       <out4:response>
         <!-- a for-each transform: "in2:InformacionVuelo"(InformacionVuelo) to "Content"(TravelResponse) -->
-        <xsl:apply-templates select="$body/in2:consultarDisponibilidadResponse/in2:consultarDisponibilidadResult/in2:InformacionVuelo" mode="localInformacionVueloToContent_1970181123"/>
+        <xsl:apply-templates select="$body/in2:consultarDisponibilidadResponse/in2:consultarDisponibilidadResult/in2:InformacionVuelo" mode="localInformacionVueloToContent_1917938953"/>
       </out4:response>
     </out4:checkAvailabilityResponse>
   </xsl:template>
 
   <!-- This rule represents a for-each transform: "in2:InformacionVuelo" to "Content".  -->
-  <xsl:template match="in2:InformacionVuelo"  mode="localInformacionVueloToContent_1970181123">
+  <xsl:template match="in2:InformacionVuelo"  mode="localInformacionVueloToContent_1917938953">
     <Content>
       <!-- a simple data mapping: "in2:NumeroVuelo"(string) to "numViaje"(string) -->
       <xsl:if test="in2:NumeroVuelo">

@@ -21,24 +21,25 @@
     xmlns:math="http://exslt.org/math"
     xmlns:exsl="http://exslt.org/common"
     xmlns:date="http://exslt.org/dates-and-times"
-    xmlns:in2="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadminitemcontainer"
     xmlns:in="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadminorderheadercontainer"
+    xmlns:in2="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadminitemcontainer"
     xmlns:in3="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadminitemwhs"
     xmlns:in4="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadminitemwhsbg"
     xmlns:in5="http://com/ibm/j2ca/fault"
     xmlns:in6="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadminitemwhscontainer"
     xmlns:in7="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadminorderheader"
     xmlns:in8="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadminitem"
+    xmlns:in11="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata"
     xmlns:in10="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadminitembg"
     xmlns:in9="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadminorderheaderbg"
+    xmlns:in13="http://com/ibm/j2ca/fault/afcfault"
     xmlns:in12="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadmincustomercontainer"
-    xmlns:in11="http://com/ibm/j2ca/fault/afcfault"
-    xmlns:in13="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadmincustomer"
-    xmlns:in14="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/existsresult"
-    xmlns:in15="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadmincustomerbg"
-    xmlns:in16="wsdl.http://DBMSServiceMediation/JDBCOutboundInterface"
-    xmlns:in17="http://DBMSServiceMediation/JDBCOutboundInterface"
-    xmlns:in18="http://www.ibm.com/xmlns/prod/websphere/bo/6.0.0"
+    xmlns:in14="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadmincustomer"
+    xmlns:in15="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/existsresult"
+    xmlns:in16="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadmincustomerbg"
+    xmlns:in17="wsdl.http://DBMSServiceMediation/JDBCOutboundInterface"
+    xmlns:in18="http://DBMSServiceMediation/JDBCOutboundInterface"
+    xmlns:in19="http://www.ibm.com/xmlns/prod/websphere/bo/6.0.0"
     xmlns:io="http://www.w3.org/2003/05/soap-envelope"
     xmlns:io3="http://www.ibm.com/xmlns/prod/websphere/mq/sca/6.0.0"
     xmlns:io2="http://www.ibm.com/websphere/sibx/smo/v6.0.1"
@@ -51,7 +52,7 @@
     xmlns:xsd4xsd="http://www.w3.org/2001/XMLSchema"
     xmlns:io6="http://www.w3.org/2005/08/addressing"
     xmlns:map="http://DBMSServiceMediation/xslt/XSLTransformation1_res_1"
-    exclude-result-prefixes="in10 in11 in12 in13 in14 math in15 in16 in17 in18 exsl xalan map set in in2 in3 date in4 in5 in6 str in7 in8 in9"
+    exclude-result-prefixes="in10 in11 in12 in13 in14 math in15 in16 in17 in18 exsl in19 xalan map set in in2 in3 date in4 in5 in6 str in7 in8 in9"
     version="1.0">
   <xsl:output method="xml" encoding="UTF-8" indent="no"/>
 
@@ -67,16 +68,16 @@
         <xsl:value-of select="'out3:retrieveItem_businessErrorMsg'"/>
       </xsl:attribute>
       <out:retrieveItemFault1_businessError>
-        <!-- a simple data mapping: "in17:RecordNotFoundFault_element/errorCode"(string) to "faultCode"(string) -->
-        <xsl:if test="in17:RecordNotFoundFault_element/errorCode">
+        <!-- a simple data mapping: "in18:RecordNotFoundFault_element/errorCode"(string) to "faultCode"(string) -->
+        <xsl:if test="in18:RecordNotFoundFault_element/errorCode">
           <faultCode>
-            <xsl:value-of select="in17:RecordNotFoundFault_element/errorCode"/>
+            <xsl:value-of select="in18:RecordNotFoundFault_element/errorCode"/>
           </faultCode>
         </xsl:if>
-        <!-- a simple data mapping: "in17:RecordNotFoundFault_element/message"(string) to "faultDetail"(string) -->
-        <xsl:if test="in17:RecordNotFoundFault_element/message">
+        <!-- a simple data mapping: "in18:RecordNotFoundFault_element/message"(string) to "faultDetail"(string) -->
+        <xsl:if test="in18:RecordNotFoundFault_element/message">
           <faultDetail>
-            <xsl:value-of select="in17:RecordNotFoundFault_element/message"/>
+            <xsl:value-of select="in18:RecordNotFoundFault_element/message"/>
           </faultDetail>
         </xsl:if>
       </out:retrieveItemFault1_businessError>
@@ -87,16 +88,16 @@
   <xsl:template name="map:XSLTransformation1_res_12">
     <xsl:param name="body"/>
     <out:retrieveItemFault1_businessError>
-      <!-- a simple data mapping: "$body/in17:RecordNotFoundFault_element/errorCode"(string) to "faultCode"(string) -->
-      <xsl:if test="$body/in17:RecordNotFoundFault_element/errorCode">
+      <!-- a simple data mapping: "$body/in18:RecordNotFoundFault_element/errorCode"(string) to "faultCode"(string) -->
+      <xsl:if test="$body/in18:RecordNotFoundFault_element/errorCode">
         <faultCode>
-          <xsl:value-of select="$body/in17:RecordNotFoundFault_element/errorCode"/>
+          <xsl:value-of select="$body/in18:RecordNotFoundFault_element/errorCode"/>
         </faultCode>
       </xsl:if>
-      <!-- a simple data mapping: "$body/in17:RecordNotFoundFault_element/message"(string) to "faultDetail"(string) -->
-      <xsl:if test="$body/in17:RecordNotFoundFault_element/message">
+      <!-- a simple data mapping: "$body/in18:RecordNotFoundFault_element/message"(string) to "faultDetail"(string) -->
+      <xsl:if test="$body/in18:RecordNotFoundFault_element/message">
         <faultDetail>
-          <xsl:value-of select="$body/in17:RecordNotFoundFault_element/message"/>
+          <xsl:value-of select="$body/in18:RecordNotFoundFault_element/message"/>
         </faultDetail>
       </xsl:if>
     </out:retrieveItemFault1_businessError>

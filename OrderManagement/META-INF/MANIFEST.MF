@@ -1,5 +1,6 @@
 Manifest-Version: 1.0
-Class-Path: OrderManagementLib.jar 
+Class-Path: AccommodationLib.jar 
+ OrderManagementLib.jar 
  OrderLib.jar 
  ProductReservationLib.jar 
  AccountingTransactionsLib.jar 

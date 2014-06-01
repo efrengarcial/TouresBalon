@@ -6,30 +6,38 @@
         <output path="body"/>
         <move>
             <input path="createOrder/request/customerId"/>
-            <output path="order/customer/custid"/>
+            <output path="createOrder/order/custId"/>
         </move>
         <move>
             <input path="createOrder/request/endOrderDate"/>
-            <output path="order/endOrderDate"/>
+            <output path="createOrder/order/endOrderDate"/>
         </move>
         <move>
             <input path="createOrder/request/orderDate"/>
-            <output path="order/orderDate"/>
+            <output path="createOrder/order/orderDate"/>
         </move>
         <move>
             <input path="createOrder/request/price"/>
-            <output path="order/price"/>
+            <output path="createOrder/order/price"/>
         </move>
         <move>
             <input path="createOrder/request/comments"/>
-            <output path="order/comments"/>
+            <output path="createOrder/order/comments"/>
+        </move>
+        <move>
+            <input path="createOrder/request/status"/>
+            <output path="createOrder/order/status"/>
         </move>
         <foreach>
             <input path="createOrder/request/items"/>
-            <output path="order/items"/>
+            <output path="createOrder/order/items"/>
             <move>
                 <input path="itemDate"/>
                 <output path="itemDate"/>
+            </move>
+            <move>
+                <input path="itemId"/>
+                <output path="itemId"/>
             </move>
             <move>
                 <input path="partNum"/>
@@ -52,8 +60,5 @@
                 <output path="quantity"/>
             </move>
         </foreach>
-        <assign value="OPEN">
-            <output path="order/status"/>
-        </assign>
     </mappingDeclaration>
 </mappingRoot>

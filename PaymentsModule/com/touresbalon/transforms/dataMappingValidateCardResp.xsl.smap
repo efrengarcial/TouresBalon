@@ -1,0 +1,11 @@
+* SMAP
+dataMappingValidateCardResp.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 dataMappingValidateCardResp.map
+/PaymentsModule/com/touresbalon/transforms/dataMappingValidateCardResp.map
+*L
+1:45,1
+2:57,5
+*E

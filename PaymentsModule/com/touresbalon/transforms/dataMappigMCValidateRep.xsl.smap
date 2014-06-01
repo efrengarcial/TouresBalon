@@ -1,0 +1,16 @@
+* SMAP
+dataMappigMCValidateRep.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 dataMappigMCValidateRep.map
+/PaymentsModule/com/touresbalon/transforms/dataMappigMCValidateRep.map
+*L
+6:82,6
+7:88,5
+4:70,6
+5:76,6
+1:46,1
+3:64,6
+2:58,6
+*E

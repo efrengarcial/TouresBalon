@@ -1,29 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="OrderService" targetNamespace="http://service.model.orders.oms.touresbalon.com/" xmlns:ns1="http://service.model.orders.oms.touresbalon.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <wsdl:types>
-<xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://service.model.orders.oms.touresbalon.com/" xmlns:tns="http://service.model.orders.oms.touresbalon.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-            <xs:include schemaLocation="com/touresbalon/oms/orders/model/service/order.xsd"/>
-            <xs:include schemaLocation="com/touresbalon/oms/orders/model/service/customer.xsd"/>
-            <xs:include schemaLocation="com/touresbalon/oms/orders/model/service/item.xsd"/>
-            <xs:include schemaLocation="com/touresbalon/oms/orders/model/service/address.xsd"/>
-            <xs:element name="createOrderResponse" nillable="true" type="tns:order"/>
-  <xs:element name="idOrder" nillable="true" type="xs:string"/>
-  <xs:element name="state" nillable="true" type="xs:string"/>
-</xs:schema>
+<xs:schema elementFormDefault="unqualified" targetNamespace="http://service.model.orders.oms.touresbalon.com/" version="1.0" xmlns:tns="http://service.model.orders.oms.touresbalon.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+
+
+
+
+
+
+
+
+
+
+            <xs:include schemaLocation="com/touresbalon/oms/orders/model/service/orderDto.xsd"/>
+            <xs:include schemaLocation="com/touresbalon/oms/orders/model/service/itemDto.xsd"/>
+            <xs:include schemaLocation="com/touresbalon/oms/orders/model/service/updateStateOrder.xsd"/>
+            <xs:include schemaLocation="com/touresbalon/oms/orders/model/service/createOrder.xsd"/>
+            <xs:include schemaLocation="com/touresbalon/oms/orders/model/service/updateStateOrderResponse.xsd"/>
+            <xs:include schemaLocation="com/touresbalon/oms/orders/model/service/createOrderResponse.xsd"/>
+        </xs:schema>
   </wsdl:types>
   <wsdl:message name="createOrder">
-    <wsdl:part element="ns1:order" name="order">
+    <wsdl:part element="ns1:createOrder" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="updateStateOrder">
-    <wsdl:part element="ns1:idOrder" name="idOrder">
-    </wsdl:part>
-    <wsdl:part element="ns1:state" name="state">
+    <wsdl:part element="ns1:updateStateOrder" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="updateStateOrderResponse">
+    <wsdl:part element="ns1:updateStateOrderResponse" name="parameters">
+    </wsdl:part>
   </wsdl:message>
   <wsdl:message name="createOrderResponse">
-    <wsdl:part element="ns1:createOrderResponse" name="createOrderResponse">
+    <wsdl:part element="ns1:createOrderResponse" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:portType name="OrderService">

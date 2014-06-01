@@ -1,0 +1,18 @@
+* SMAP
+output_map_res_1.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 output_map_res_1.map
+/DBMSServiceMediation/xslt/output_map_res_1.map
+*L
+6:91,1
+5:95,3
+9:148,6
+2:73,6
+3:79,6
+8:154,5
+1:61,1
+4:85,6
+7:142,6
+*E

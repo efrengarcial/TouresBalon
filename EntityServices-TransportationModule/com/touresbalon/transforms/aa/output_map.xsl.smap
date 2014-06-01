@@ -1,0 +1,16 @@
+* SMAP
+output_map.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 output_map.map
+/EntityServices-TransportationModule/com/touresbalon/transforms/aa/output_map.map
+*L
+7:102,5
+3:78,6
+1:45,1
+4:84,6
+6:96,6
+5:90,6
+2:57,1
+*E

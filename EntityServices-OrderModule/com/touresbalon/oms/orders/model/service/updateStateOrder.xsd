@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified"
+	elementFormDefault="unqualified"
+	targetNamespace="http://service.model.orders.oms.touresbalon.com/"
+	xmlns:ns1="http://service.model.orders.oms.touresbalon.com/"
+	xmlns:tns="http://service.model.orders.oms.touresbalon.com/"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xs:include schemaLocation="orderDto.xsd" />
+	<xs:complexType name="updateStateOrder">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="order" type="tns:orderDto" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="updateStateOrder" type="tns:updateStateOrder" />
+</xs:schema>

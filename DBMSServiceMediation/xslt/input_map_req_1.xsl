@@ -30,25 +30,26 @@
     xmlns:out4="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadminitemwhsbg"
     xmlns:io="http://www.ibm.com/xmlns/prod/websphere/mq/sca/6.0.0"
     xmlns:out5="http://com/ibm/j2ca/fault"
-    xmlns:out6="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadminitemwhscontainer"
     xmlns:io2="http://schemas.xmlsoap.org/ws/2004/08/addressing"
+    xmlns:out6="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadminitemwhscontainer"
     xmlns:out7="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadminorderheader"
     xmlns:out8="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadminitem"
     xmlns:xsd4xsd="http://www.w3.org/2001/XMLSchema"
     xmlns:out9="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadminorderheaderbg"
     xmlns:out10="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadminitembg"
-    xmlns:out11="http://com/ibm/j2ca/fault/afcfault"
-    xmlns:out12="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadmincustomercontainer"
+    xmlns:out11="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata"
+    xmlns:out12="http://com/ibm/j2ca/fault/afcfault"
+    xmlns:out13="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadmincustomercontainer"
     xmlns:io3="http://www.w3.org/2003/05/soap-envelope"
-    xmlns:out13="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadmincustomer"
+    xmlns:out14="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadmincustomer"
     xmlns:io4="http://www.ibm.com/websphere/sibx/smo/v6.0.1"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:out14="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/existsresult"
-    xmlns:out15="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadmincustomerbg"
-    xmlns:out16="wsdl.http://DBMSServiceMediation/JDBCOutboundInterface"
+    xmlns:out15="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/existsresult"
+    xmlns:out16="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadmincustomerbg"
+    xmlns:out17="wsdl.http://DBMSServiceMediation/JDBCOutboundInterface"
+    xmlns:out18="http://DBMSServiceMediation/JDBCOutboundInterface"
     xmlns:io5="http://www.ibm.com/xmlns/prod/websphere/http/sca/6.1.0"
-    xmlns:out17="http://DBMSServiceMediation/JDBCOutboundInterface"
-    xmlns:out18="http://www.ibm.com/xmlns/prod/websphere/bo/6.0.0"
+    xmlns:out19="http://www.ibm.com/xmlns/prod/websphere/bo/6.0.0"
     xmlns:io6="http://www.w3.org/2005/08/addressing"
     xmlns:map="http://DBMSServiceMediation/xslt/input_map_req_1"
     exclude-result-prefixes="xalan str set in math map exsl in2 date in3"
@@ -64,14 +65,14 @@
   <xsl:template match="body"  mode="map:input_map_req_1">
     <body>
       <xsl:attribute name="xsi:type">
-        <xsl:value-of select="'out16:retrieveDbadminItemBGRequestMsg'"/>
+        <xsl:value-of select="'out17:retrieveDbadminItemBGRequestMsg'"/>
       </xsl:attribute>
-      <out17:retrieveDbadminItemBG>
-        <out17:retrieveDbadminItemBGInput>
-          <!-- a simple mapping with no associated source:  to "out18:changeSummary"(ChangeSummaryType) -->
-          <out18:changeSummary>
+      <out18:retrieveDbadminItemBG>
+        <out18:retrieveDbadminItemBGInput>
+          <!-- a simple mapping with no associated source:  to "out19:changeSummary"(ChangeSummaryType) -->
+          <out19:changeSummary>
             <xsl:text>R</xsl:text>
-          </out18:changeSummary>
+          </out19:changeSummary>
           <DbadminItem>
             <!-- a simple data mapping: "in:retrieveItem/item/itemID"(string) to "itemid"(string) -->
             <xsl:if test="in:retrieveItem/item/itemID">
@@ -82,20 +83,20 @@
             <price xsi:nil="true"/>
             <warehouses xsi:nil="true"/>
           </DbadminItem>
-        </out17:retrieveDbadminItemBGInput>
-      </out17:retrieveDbadminItemBG>
+        </out18:retrieveDbadminItemBGInput>
+      </out18:retrieveDbadminItemBG>
     </body>
   </xsl:template>
 
   <!-- This rule represents a type mapping: "body" to "body".  -->
   <xsl:template name="map:input_map_req_12">
     <xsl:param name="body"/>
-    <out17:retrieveDbadminItemBG>
-      <out17:retrieveDbadminItemBGInput>
-        <!-- a simple mapping with no associated source:  to "out18:changeSummary"(ChangeSummaryType) -->
-        <out18:changeSummary>
+    <out18:retrieveDbadminItemBG>
+      <out18:retrieveDbadminItemBGInput>
+        <!-- a simple mapping with no associated source:  to "out19:changeSummary"(ChangeSummaryType) -->
+        <out19:changeSummary>
           <xsl:text>R</xsl:text>
-        </out18:changeSummary>
+        </out19:changeSummary>
         <DbadminItem>
           <!-- a simple data mapping: "$body/in:retrieveItem/item/itemID"(string) to "itemid"(string) -->
           <xsl:if test="$body/in:retrieveItem/item/itemID">
@@ -106,8 +107,8 @@
           <price xsi:nil="true"/>
           <warehouses xsi:nil="true"/>
         </DbadminItem>
-      </out17:retrieveDbadminItemBGInput>
-    </out17:retrieveDbadminItemBG>
+      </out18:retrieveDbadminItemBGInput>
+    </out18:retrieveDbadminItemBG>
   </xsl:template>
 
   <!-- *****************    Utility Templates    ******************  -->

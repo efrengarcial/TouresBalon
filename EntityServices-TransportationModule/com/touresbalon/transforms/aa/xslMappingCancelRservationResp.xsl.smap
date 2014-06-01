@@ -1,0 +1,11 @@
+* SMAP
+xslMappingCancelRservationResp.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 xslMappingCancelRservationResp.map
+/EntityServices-TransportationModule/com/touresbalon/transforms/aa/xslMappingCancelRservationResp.map
+*L
+2:57,5
+1:45,1
+*E

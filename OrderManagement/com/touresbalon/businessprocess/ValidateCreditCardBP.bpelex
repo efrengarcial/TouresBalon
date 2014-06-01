@@ -3,7 +3,11 @@
   <extensionmodel:ExtensionMap xmi:id="ExtensionMap_1398466625987" namespace="http://com.ibm.wbit.bpel.ui/">
     <extensions xmi:id="Extension_1398466625987">
       <extendedObject href="ValidateCreditCardBP.bpel#/"/>
-      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ProcessExtension" xmi:id="ProcessExtension_1398466625987" modificationStamp="1400552487402" autoLayout="true" maxWpcId="22" minWpcId="0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ProcessExtension" xmi:id="ProcessExtension_1398466625987" modificationStamp="1401604198894" autoLayout="true" maxWpcId="24" minWpcId="0"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidateCreditCardBP.bpel#//@activity/@activities.4/@cases.0/@activity/@activities.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
     </extensions>
     <extensions>
       <extendedObject href="ValidateCreditCardBP.bpel#//@variables/@children.0"/>
@@ -90,11 +94,7 @@
       <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
     </extensions>
     <extensions>
-      <extendedObject href="ValidateCreditCardBP.bpel#//@activity/@activities.4/@cases.0/@activity/@activities.1"/>
-      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
-    </extensions>
-    <extensions>
-      <extendedObject href="ValidateCreditCardBP.bpel#//@activity/@activities.4/@cases.0/@activity/@activities.1/@copy.0"/>
+      <extendedObject href="ValidateCreditCardBP.bpel#//@activity/@activities.4/@cases.0/@activity/@activities.0/@copy.0"/>
       <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
     </extensions>
     <extensions>

@@ -1,0 +1,11 @@
+* SMAP
+xslDataMappingReservationResp.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 xslDataMappingReservationResp.map
+/EntityServices-AccommodationModule/com/touresbalon/transforms/xslDataMappingReservationResp.map
+*L
+2:65,3
+1:53,1
+*E

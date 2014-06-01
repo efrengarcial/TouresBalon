@@ -66,7 +66,7 @@
             <xsl:variable name="expiration" select="in2:applyPayment/request/expiration"/>
             <xsl:value-of select="MapUtils:dateToDateTime($expiration, '1970-01-01T00:00:00')"/>
           </out:Expiration>
-          <!-- a simple data mapping: "in2:applyPayment/request/amount"(double) to "out:Amount"(decimal) -->
+          <!-- a simple data mapping: "in2:applyPayment/request/amount"(double) to "out:Amount"(double) -->
           <out:Amount>
             <xsl:value-of select="in2:applyPayment/request/amount"/>
           </out:Amount>
@@ -116,7 +116,7 @@
           <xsl:variable name="expiration" select="$body/in2:applyPayment/request/expiration"/>
           <xsl:value-of select="MapUtils:dateToDateTime($expiration, '1970-01-01T00:00:00')"/>
         </out:Expiration>
-        <!-- a simple data mapping: "$body/in2:applyPayment/request/amount"(double) to "out:Amount"(decimal) -->
+        <!-- a simple data mapping: "$body/in2:applyPayment/request/amount"(double) to "out:Amount"(double) -->
         <out:Amount>
           <xsl:value-of select="$body/in2:applyPayment/request/amount"/>
         </out:Amount>

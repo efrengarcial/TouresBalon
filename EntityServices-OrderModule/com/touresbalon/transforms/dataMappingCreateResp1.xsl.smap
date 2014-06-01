@@ -1,0 +1,10 @@
+* SMAP
+dataMappingCreateResp1.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 dataMappingCreateResp1.map
+/EntityServices-OrderModule/com/touresbalon/transforms/dataMappingCreateResp1.map
+*L
+1:41,1
+*E

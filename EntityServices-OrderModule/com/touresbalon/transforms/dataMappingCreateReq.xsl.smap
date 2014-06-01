@@ -1,0 +1,24 @@
+* SMAP
+dataMappingCreateReq.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 dataMappingCreateReq.map
+/EntityServices-OrderModule/com/touresbalon/transforms/dataMappingCreateReq.map
+*L
+1:45,1
+4:77,6
+5:83,6
+13:174,4
+2:63,6
+15:184,5
+9:150,6
+10:156,6
+7:89,5
+14:178,6
+11:162,6
+6:57,6
+3:69,6
+8:75,2
+12:168,6
+*E

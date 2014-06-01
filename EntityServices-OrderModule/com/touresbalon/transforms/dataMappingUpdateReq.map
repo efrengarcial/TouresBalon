@@ -6,11 +6,15 @@
         <output path="body"/>
         <move>
             <input path="updateOrder/request/ordId"/>
-            <output path="idOrder"/>
+            <output path="updateStateOrder/order/ordId"/>
         </move>
         <move>
             <input path="updateOrder/request/status"/>
-            <output path="state"/>
+            <output path="updateStateOrder/order/status"/>
+        </move>
+        <move>
+            <input path="updateOrder/request/endOrderDate"/>
+            <output path="updateStateOrder/order/endOrderDate"/>
         </move>
     </mappingDeclaration>
 </mappingRoot>

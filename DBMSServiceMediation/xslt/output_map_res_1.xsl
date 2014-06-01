@@ -21,24 +21,25 @@
     xmlns:math="http://exslt.org/math"
     xmlns:exsl="http://exslt.org/common"
     xmlns:date="http://exslt.org/dates-and-times"
-    xmlns:in2="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadminitemcontainer"
     xmlns:in="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadminorderheadercontainer"
+    xmlns:in2="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadminitemcontainer"
     xmlns:in3="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadminitemwhs"
     xmlns:in4="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadminitemwhsbg"
     xmlns:in5="http://com/ibm/j2ca/fault"
     xmlns:in6="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadminitemwhscontainer"
     xmlns:in7="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadminorderheader"
     xmlns:in8="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadminitem"
+    xmlns:in11="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata"
     xmlns:in10="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadminitembg"
     xmlns:in9="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadminorderheaderbg"
-    xmlns:in12="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadmincustomercontainer"
-    xmlns:in11="http://com/ibm/j2ca/fault/afcfault"
-    xmlns:in13="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadmincustomer"
-    xmlns:in14="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/existsresult"
-    xmlns:in15="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadmincustomerbg"
-    xmlns:in16="wsdl.http://DBMSServiceMediation/JDBCOutboundInterface"
-    xmlns:in17="http://DBMSServiceMediation/JDBCOutboundInterface"
-    xmlns:in18="http://www.ibm.com/xmlns/prod/websphere/bo/6.0.0"
+    xmlns:in13="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadmincustomercontainer"
+    xmlns:in12="http://com/ibm/j2ca/fault/afcfault"
+    xmlns:in14="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadmincustomer"
+    xmlns:in15="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/existsresult"
+    xmlns:in16="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbadmincustomerbg"
+    xmlns:in17="wsdl.http://DBMSServiceMediation/JDBCOutboundInterface"
+    xmlns:in18="http://DBMSServiceMediation/JDBCOutboundInterface"
+    xmlns:in19="http://www.ibm.com/xmlns/prod/websphere/bo/6.0.0"
     xmlns:io="http://www.w3.org/2003/05/soap-envelope"
     xmlns:io3="http://www.ibm.com/xmlns/prod/websphere/mq/sca/6.0.0"
     xmlns:io2="http://www.ibm.com/websphere/sibx/smo/v6.0.1"
@@ -51,7 +52,7 @@
     xmlns:xsd4xsd="http://www.w3.org/2001/XMLSchema"
     xmlns:io6="http://www.w3.org/2005/08/addressing"
     xmlns:map="http://DBMSServiceMediation/xslt/output_map_res_1"
-    exclude-result-prefixes="in10 in11 in12 in13 in14 math in15 in16 in17 in18 exsl xalan map set in in2 in3 date in4 in5 in6 str in7 in8 in9"
+    exclude-result-prefixes="in10 in11 in12 in13 in14 math in15 in16 in17 in18 exsl in19 xalan map set in in2 in3 date in4 in5 in6 str in7 in8 in9"
     version="1.0">
   <xsl:output method="xml" encoding="UTF-8" indent="no"/>
 
@@ -68,26 +69,26 @@
       </xsl:attribute>
       <out:retrieveItemResponse>
         <item>
-          <!-- a simple data mapping: "in17:retrieveDbadminItemBGResponse/in17:retrieveDbadminItemBGOutput/DbadminItem/itemid"(string) to "itemID"(string) -->
-          <xsl:if test="in17:retrieveDbadminItemBGResponse/in17:retrieveDbadminItemBGOutput/DbadminItem/itemid">
+          <!-- a simple data mapping: "in18:retrieveDbadminItemBGResponse/in18:retrieveDbadminItemBGOutput/DbadminItem/itemid"(string) to "itemID"(string) -->
+          <xsl:if test="in18:retrieveDbadminItemBGResponse/in18:retrieveDbadminItemBGOutput/DbadminItem/itemid">
             <itemID>
-              <xsl:value-of select="in17:retrieveDbadminItemBGResponse/in17:retrieveDbadminItemBGOutput/DbadminItem/itemid"/>
+              <xsl:value-of select="in18:retrieveDbadminItemBGResponse/in18:retrieveDbadminItemBGOutput/DbadminItem/itemid"/>
             </itemID>
           </xsl:if>
-          <!-- a simple data mapping: "in17:retrieveDbadminItemBGResponse/in17:retrieveDbadminItemBGOutput/DbadminItem/itemname"(string) to "itemName"(string) -->
-          <xsl:if test="in17:retrieveDbadminItemBGResponse/in17:retrieveDbadminItemBGOutput/DbadminItem/itemname">
+          <!-- a simple data mapping: "in18:retrieveDbadminItemBGResponse/in18:retrieveDbadminItemBGOutput/DbadminItem/itemname"(string) to "itemName"(string) -->
+          <xsl:if test="in18:retrieveDbadminItemBGResponse/in18:retrieveDbadminItemBGOutput/DbadminItem/itemname">
             <itemName>
-              <xsl:value-of select="in17:retrieveDbadminItemBGResponse/in17:retrieveDbadminItemBGOutput/DbadminItem/itemname"/>
+              <xsl:value-of select="in18:retrieveDbadminItemBGResponse/in18:retrieveDbadminItemBGOutput/DbadminItem/itemname"/>
             </itemName>
           </xsl:if>
-          <!-- a simple data mapping: "in17:retrieveDbadminItemBGResponse/in17:retrieveDbadminItemBGOutput/DbadminItem/price"(int) to "price"(int) -->
-          <xsl:if test="in17:retrieveDbadminItemBGResponse/in17:retrieveDbadminItemBGOutput/DbadminItem/price">
+          <!-- a simple data mapping: "in18:retrieveDbadminItemBGResponse/in18:retrieveDbadminItemBGOutput/DbadminItem/price"(int) to "price"(int) -->
+          <xsl:if test="in18:retrieveDbadminItemBGResponse/in18:retrieveDbadminItemBGOutput/DbadminItem/price">
             <price>
-              <xsl:value-of select="in17:retrieveDbadminItemBGResponse/in17:retrieveDbadminItemBGOutput/DbadminItem/price"/>
+              <xsl:value-of select="in18:retrieveDbadminItemBGResponse/in18:retrieveDbadminItemBGOutput/DbadminItem/price"/>
             </price>
           </xsl:if>
           <!-- a for-each transform: "warehouses"(DbadminItemwhs) to "warehouses"(Warehouse) -->
-          <xsl:apply-templates select="in17:retrieveDbadminItemBGResponse/in17:retrieveDbadminItemBGOutput/DbadminItem/warehouses" mode="localWarehousesToWarehouses_553726777"/>
+          <xsl:apply-templates select="in18:retrieveDbadminItemBGResponse/in18:retrieveDbadminItemBGOutput/DbadminItem/warehouses" mode="localWarehousesToWarehouses_1589247114"/>
         </item>
         <returnCode>
           <!-- a simple mapping with no associated source:  to "RC"(string) -->
@@ -104,26 +105,26 @@
     <xsl:param name="body"/>
     <out:retrieveItemResponse>
       <item>
-        <!-- a simple data mapping: "$body/in17:retrieveDbadminItemBGResponse/in17:retrieveDbadminItemBGOutput/DbadminItem/itemid"(string) to "itemID"(string) -->
-        <xsl:if test="$body/in17:retrieveDbadminItemBGResponse/in17:retrieveDbadminItemBGOutput/DbadminItem/itemid">
+        <!-- a simple data mapping: "$body/in18:retrieveDbadminItemBGResponse/in18:retrieveDbadminItemBGOutput/DbadminItem/itemid"(string) to "itemID"(string) -->
+        <xsl:if test="$body/in18:retrieveDbadminItemBGResponse/in18:retrieveDbadminItemBGOutput/DbadminItem/itemid">
           <itemID>
-            <xsl:value-of select="$body/in17:retrieveDbadminItemBGResponse/in17:retrieveDbadminItemBGOutput/DbadminItem/itemid"/>
+            <xsl:value-of select="$body/in18:retrieveDbadminItemBGResponse/in18:retrieveDbadminItemBGOutput/DbadminItem/itemid"/>
           </itemID>
         </xsl:if>
-        <!-- a simple data mapping: "$body/in17:retrieveDbadminItemBGResponse/in17:retrieveDbadminItemBGOutput/DbadminItem/itemname"(string) to "itemName"(string) -->
-        <xsl:if test="$body/in17:retrieveDbadminItemBGResponse/in17:retrieveDbadminItemBGOutput/DbadminItem/itemname">
+        <!-- a simple data mapping: "$body/in18:retrieveDbadminItemBGResponse/in18:retrieveDbadminItemBGOutput/DbadminItem/itemname"(string) to "itemName"(string) -->
+        <xsl:if test="$body/in18:retrieveDbadminItemBGResponse/in18:retrieveDbadminItemBGOutput/DbadminItem/itemname">
           <itemName>
-            <xsl:value-of select="$body/in17:retrieveDbadminItemBGResponse/in17:retrieveDbadminItemBGOutput/DbadminItem/itemname"/>
+            <xsl:value-of select="$body/in18:retrieveDbadminItemBGResponse/in18:retrieveDbadminItemBGOutput/DbadminItem/itemname"/>
           </itemName>
         </xsl:if>
-        <!-- a simple data mapping: "$body/in17:retrieveDbadminItemBGResponse/in17:retrieveDbadminItemBGOutput/DbadminItem/price"(int) to "price"(int) -->
-        <xsl:if test="$body/in17:retrieveDbadminItemBGResponse/in17:retrieveDbadminItemBGOutput/DbadminItem/price">
+        <!-- a simple data mapping: "$body/in18:retrieveDbadminItemBGResponse/in18:retrieveDbadminItemBGOutput/DbadminItem/price"(int) to "price"(int) -->
+        <xsl:if test="$body/in18:retrieveDbadminItemBGResponse/in18:retrieveDbadminItemBGOutput/DbadminItem/price">
           <price>
-            <xsl:value-of select="$body/in17:retrieveDbadminItemBGResponse/in17:retrieveDbadminItemBGOutput/DbadminItem/price"/>
+            <xsl:value-of select="$body/in18:retrieveDbadminItemBGResponse/in18:retrieveDbadminItemBGOutput/DbadminItem/price"/>
           </price>
         </xsl:if>
         <!-- a for-each transform: "warehouses"(DbadminItemwhs) to "warehouses"(Warehouse) -->
-        <xsl:apply-templates select="$body/in17:retrieveDbadminItemBGResponse/in17:retrieveDbadminItemBGOutput/DbadminItem/warehouses" mode="localWarehousesToWarehouses_553726777"/>
+        <xsl:apply-templates select="$body/in18:retrieveDbadminItemBGResponse/in18:retrieveDbadminItemBGOutput/DbadminItem/warehouses" mode="localWarehousesToWarehouses_1589247114"/>
       </item>
       <returnCode>
         <!-- a simple mapping with no associated source:  to "RC"(string) -->
@@ -135,7 +136,7 @@
   </xsl:template>
 
   <!-- This rule represents a for-each transform: "warehouses" to "warehouses".  -->
-  <xsl:template match="warehouses"  mode="localWarehousesToWarehouses_553726777">
+  <xsl:template match="warehouses"  mode="localWarehousesToWarehouses_1589247114">
     <warehouses>
       <!-- a simple data mapping: "whsid"(string) to "whsID"(string) -->
       <xsl:if test="whsid">

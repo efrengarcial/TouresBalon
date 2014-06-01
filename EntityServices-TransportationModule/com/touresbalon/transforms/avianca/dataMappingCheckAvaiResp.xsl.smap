@@ -1,0 +1,16 @@
+* SMAP
+dataMappingCheckAvaiResp.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 dataMappingCheckAvaiResp.map
+/EntityServices-TransportationModule/com/touresbalon/transforms/avianca/dataMappingCheckAvaiResp.map
+*L
+4:84,6
+6:96,6
+2:57,1
+5:90,6
+1:45,1
+7:102,5
+3:78,6
+*E

@@ -5,7 +5,7 @@
   <map:outputBusinessObjectVariable businessObjectRef="createOrderResponseMsg:createOrderResponseMsg" name="createOrderResponseMsg"/>
   <map:propertyMap executionOrder="1">
     <map:move>
-      <map:input businessObjectVariableRef="createOrderResponse" property="createOrderResponse/ordId"/>
+      <map:input businessObjectVariableRef="createOrderResponse" property="createOrderResponse/return/ordId"/>
       <map:output businessObjectVariableRef="createOrderResponseMsg" property="createOrderResponse/response/RC"/>
     </map:move>
   </map:propertyMap>

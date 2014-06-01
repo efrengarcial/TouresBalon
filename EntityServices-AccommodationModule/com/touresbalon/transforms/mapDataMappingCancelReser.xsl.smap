@@ -1,0 +1,13 @@
+* SMAP
+mapDataMappingCancelReser.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 mapDataMappingCancelReser.map
+/EntityServices-AccommodationModule/com/touresbalon/transforms/mapDataMappingCancelReser.map
+*L
+2:65,3
+4:76,3
+3:70,6
+1:53,1
+*E

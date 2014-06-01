@@ -1,0 +1,14 @@
+* SMAP
+xslDataMappingAvailability.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 xslDataMappingAvailability.map
+/EntityServices-AccommodationModule/com/touresbalon/transforms/xslDataMappingAvailability.map
+*L
+4:70,6
+5:76,5
+3:64,6
+1:46,1
+2:58,6
+*E

@@ -39,4 +39,9 @@
       <map:output businessObjectVariableRef="Order_1" property="items" variableName="Item"/>
     </map:submap>
   </map:propertyMap>
+  <map:propertyMap executionOrder="7">
+    <map:set value="ABIERTA">
+      <map:output businessObjectVariableRef="Order_1" property="status"/>
+    </map:set>
+  </map:propertyMap>
 </map:businessObjectMap>

@@ -1,0 +1,11 @@
+* SMAP
+dataMappigMCPaymentResp.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 dataMappigMCPaymentResp.map
+/PaymentsModule/com/touresbalon/transforms/dataMappigMCPaymentResp.map
+*L
+1:45,1
+2:57,5
+*E
