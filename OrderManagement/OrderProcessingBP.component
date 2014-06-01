@@ -12,13 +12,6 @@
     </interface>
   </interfaces>
   <references>
-    <reference name="OrderMgmtServiceIFPartner">
-      <interface xsi:type="wsdl:WSDLPortType" portType="ns4:OrderMgmtServiceIF"/>
-      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
-      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
-      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
-      <wire target="OrderMgmtBP"/>
-    </reference>
     <reference name="ProductReservationServiceIFPartner">
       <interface xsi:type="wsdl:WSDLPortType" portType="ns5:ProductReservationServiceIF"/>
       <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
@@ -26,19 +19,26 @@
       <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
       <wire target="ProductReservationBP"/>
     </reference>
-    <reference name="PaymentServiceIFPartner">
-      <interface xsi:type="wsdl:WSDLPortType" portType="ns6:PaymentServiceIF"/>
-      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
-      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
-      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
-      <wire target="Payments"/>
-    </reference>
     <reference name="LegalizeOrderServiceIFPartner">
       <interface xsi:type="wsdl:WSDLPortType" portType="ns7:LegalizeOrderServiceIF"/>
       <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
       <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
       <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
       <wire target="LegalizeOrderBP"/>
+    </reference>
+    <reference name="OrderMgmtServiceIFPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns4:OrderMgmtServiceIF"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="OrderMgmtBP"/>
+    </reference>
+    <reference name="PaymentServiceIFPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns6:PaymentServiceIF"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="Payments"/>
     </reference>
   </references>
   <implementation xsi:type="process:ProcessImplementation">

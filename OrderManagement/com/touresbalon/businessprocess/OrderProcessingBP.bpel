@@ -171,6 +171,9 @@ Throwable rootCause = bpelexception.getRootCause();
       <wpc:output>
         <wpc:parameter name="request" variable="order"/>
       </wpc:output>
+      <bpws:correlations>
+        <bpws:correlation initiate="yes" set="OrderID_CS"/>
+      </bpws:correlations>
     </bpws:receive>
     <bpws:invoke name="DataMap" operation="null" partnerLink="null" portType="wpc:null" wpc:continueOnError="inherit" wpc:displayName="DataMap" wpc:id="125">
       <wpc:script>
@@ -315,35 +318,9 @@ catch(com.ibm.wbiserver.map.exceptions.WBIMapServiceException ex){
 //!SMAP!1000000:140,1]]></wpc:javaCode>
       </wpc:script>
     </bpws:invoke>
-    <bpws:invoke name="Invoke" operation="createOrder" partnerLink="OrderMgmtServiceIFPartner" portType="ns4:OrderMgmtServiceIF" wpc:continueOnError="inherit" wpc:displayName="Create Order" wpc:id="12">
-      <wpc:input>
-        <wpc:parameter name="request" variable="orderOMS"/>
-      </wpc:input>
-      <wpc:output>
-        <wpc:parameter name="response" variable="orderID"/>
-      </wpc:output>
-    </bpws:invoke>
-    <bpws:assign name="Assign3" wpc:displayName="Assign OrderID" wpc:id="37">
-      <bpws:copy>
-        <bpws:from variable="orderID">
-          <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[RC]]></bpws:query>
-        </bpws:from>
-        <bpws:to variable="orderOMS">
-          <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[ordId]]></bpws:query>
-        </bpws:to>
-      </bpws:copy>
-      <bpws:copy>
-        <bpws:from variable="orderID">
-          <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[RC]]></bpws:query>
-        </bpws:from>
-        <bpws:to variable="order">
-          <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[orderID]]></bpws:query>
-        </bpws:to>
-      </bpws:copy>
-    </bpws:assign>
-    <bpws:invoke name="Snippet" operation="null" partnerLink="null" portType="wpc:null" wpc:continueOnError="inherit" wpc:displayName="Log - Create Order" wpc:id="6">
+    <bpws:invoke name="Snippet" operation="null" partnerLink="null" portType="wpc:null" wpc:continueOnError="inherit" wpc:displayName="Log - Validate Order" wpc:id="6">
       <wpc:script>
-        <wpc:javaCode><![CDATA[java.lang.String __result__1 = "Create Order...." + order.getString("orderID");
+        <wpc:javaCode><![CDATA[java.lang.String __result__1 = "Validate Order...." + order.getString("orderID");
 {// print to log
 	System.out.println(__result__1);
 }
@@ -354,7 +331,7 @@ catch(com.ibm.wbiserver.map.exceptions.WBIMapServiceException ex){
 //  <exceptions>
 //    <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.bpe.api.ProcessException"/>
 //  </exceptions>
-//  <executableElements xsi:type="com.ibm.wbit.activity:Expression" value="&quot;Create Order....&quot; + order.orderID" assignable="false">
+//  <executableElements xsi:type="com.ibm.wbit.activity:Expression" value="&quot;Validate Order....&quot; + order.orderID" assignable="false">
 //    <dataOutputs target="//@executableElements.1/@parameters.0"/>
 //    <type xsi:type="com.ibm.wbit.activity:XSDElementType" name="string" namespace="http://www.w3.org/2001/XMLSchema"/>
 //  </executableElements>
@@ -380,9 +357,6 @@ catch(com.ibm.wbiserver.map.exceptions.WBIMapServiceException ex){
       <wpc:output>
         <wpc:parameter name="response" variable="returnValidateOrder"/>
       </wpc:output>
-      <bpws:correlations>
-        <bpws:correlation initiate="yes" pattern="out" set="OrderID_CS"/>
-      </bpws:correlations>
     </bpws:invoke>
     <bpws:switch name="Choice" wpc:displayName="Check that order requires approval" wpc:id="19">
       <bpws:case wpc:displayName="Requires approval ?" wpc:id="20">

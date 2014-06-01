@@ -59,6 +59,10 @@
                 <input path="quantity"/>
                 <output path="quantity"/>
             </move>
+            <move>
+                <input path="showType"/>
+                <output path="showType"/>
+            </move>
         </foreach>
     </mappingDeclaration>
 </mappingRoot>

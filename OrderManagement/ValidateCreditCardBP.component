@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<scdl:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns1="http://OrderManagement/com/touresbalon/businessprocess/OrderProcessingInterface" xmlns:ns2="http://OrderManagementLib/com/touresbalon/interfaces/OrderManagementIF" xmlns:ns3="http://PaymentsModuleLib/com/touresbalon/interfaces/PaymentServiceIF" xmlns:process="http://www.ibm.com/xmlns/prod/websphere/scdl/business-process/6.0.0" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="ValidateCreditCardBP" name="ValidateCreditCardBP">
+<scdl:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns1="http://OrderManagement/com/touresbalon/businessprocess/OrderProcessingInterface" xmlns:ns2="http://OrderManagementLib/com/touresbalon/interfaces/OrderManagementIF" xmlns:ns3="http://PaymentsModuleLib/com/touresbalon/interfaces/PaymentServiceIF" xmlns:ns4="http://OrderLib/com/touresbalon/interfaces/OrderMgmtServiceIF" xmlns:process="http://www.ibm.com/xmlns/prod/websphere/scdl/business-process/6.0.0" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="ValidateCreditCardBP" name="ValidateCreditCardBP">
   <interfaces>
     <interface xsi:type="wsdl:WSDLPortType" preferredInteractionStyle="sync" portType="ns1:OrderProcessingIF">
       <scdl:interfaceQualifier xsi:type="scdl:JoinTransaction" value="true"/>
@@ -12,6 +12,13 @@
       <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
       <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
       <wire target="OrderProcessingBP"/>
+    </reference>
+    <reference name="OrderMgmtServiceIFPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns4:OrderMgmtServiceIF"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="OrderMgmtBP"/>
     </reference>
     <reference name="PaymentServiceIFPartner">
       <interface xsi:type="wsdl:WSDLPortType" portType="ns3:PaymentServiceIF"/>

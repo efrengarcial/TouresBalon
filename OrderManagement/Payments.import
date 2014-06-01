@@ -2,7 +2,7 @@
 <scdl:import xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns1="http://PaymentsModuleLib/com/touresbalon/interfaces/PaymentServiceIF" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="Payments" name="Payments">
   <interfaces>
     <interface xsi:type="wsdl:WSDLPortType" portType="ns1:PaymentServiceIF">
-      <scdl:interfaceQualifier xsi:type="scdl:JoinTransaction" value="true"/>
+      <scdl:interfaceQualifier xsi:type="scdl:JoinTransaction" value="false"/>
     </interface>
   </interfaces>
   <esbBinding xsi:type="scdl:SCAImportBinding" module="PaymentsModule" export="PaymentsExport" version="">

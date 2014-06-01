@@ -43,6 +43,9 @@
 			<xsd:element minOccurs="0" name="ticket"
 				type="bons0:Ticket">
 			</xsd:element>
+			<xsd:element minOccurs="0" name="showType"
+				type="xsd:string">
+			</xsd:element>
 		</xsd:sequence>
 	</xsd:complexType>
 </xsd:schema>

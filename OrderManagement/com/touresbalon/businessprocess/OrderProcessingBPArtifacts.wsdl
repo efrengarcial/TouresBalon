@@ -25,9 +25,6 @@
     </plnk:role>
   </plnk:partnerLinkType>
     <vprop:property name="OrderID_CP" type="xsd:string"/>
-    <vprop:propertyAlias messageType="wsdl2:requiresApprovalRequestMsg" part="requiresApprovalParameters" propertyName="tns:OrderID_CP">
-    <vprop:query><![CDATA[/request/ordId]]></vprop:query>
-  </vprop:propertyAlias>
     <vprop:propertyAlias messageType="wsdl0:cancelProcessRequestMsg" part="cancelProcessParameters" propertyName="tns:OrderID_CP">
     <vprop:query><![CDATA[/orderID]]></vprop:query>
   </vprop:propertyAlias>
@@ -46,6 +43,9 @@
   </plnk:partnerLinkType>
     <vprop:propertyAlias messageType="wsdl7:confirmRequestMsg" part="confirmParameters" propertyName="tns:OrderID_CP">
     <vprop:query><![CDATA[/response/orderID]]></vprop:query>
+  </vprop:propertyAlias>
+    <vprop:propertyAlias messageType="wsdl0:startProcessRequestMsg" part="startProcessParameters" propertyName="tns:OrderID_CP">
+    <vprop:query><![CDATA[/request/orderID]]></vprop:query>
   </vprop:propertyAlias>
     <wsdl:import location="../interfaces/OrderManagementIF.wsdl" namespace="http://OrderManagementLib/com/touresbalon/interfaces/OrderManagementIF"/>
     <wsdl:import location="../interfaces/OrderMgmtServiceIF.wsdl" namespace="http://OrderLib/com/touresbalon/interfaces/OrderMgmtServiceIF"/>

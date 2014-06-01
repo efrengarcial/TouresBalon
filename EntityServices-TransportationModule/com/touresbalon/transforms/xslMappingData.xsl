@@ -88,7 +88,7 @@
         <out3:checkAvailabilityResponse>
           <out3:response>
             <!-- a for-each transform: "Content"(TransportBolivariano) to "Content"(TravelResponse) -->
-            <xsl:apply-templates select="body/in6:retrieveTravelsResponse/in6:retrieveTravelsOutput/TransportBolivarianoRetrieveWrapper/Content" mode="localContentToContent_589985876"/>
+            <xsl:apply-templates select="body/in6:retrieveTravelsResponse/in6:retrieveTravelsOutput/TransportBolivarianoRetrieveWrapper/Content" mode="localContentToContent_967257475"/>
           </out3:response>
         </out3:checkAvailabilityResponse>
       </body>
@@ -130,14 +130,14 @@
       <out3:checkAvailabilityResponse>
         <out3:response>
           <!-- a for-each transform: "Content"(TransportBolivariano) to "Content"(TravelResponse) -->
-          <xsl:apply-templates select="$smo/body/in6:retrieveTravelsResponse/in6:retrieveTravelsOutput/TransportBolivarianoRetrieveWrapper/Content" mode="localContentToContent_589985876"/>
+          <xsl:apply-templates select="$smo/body/in6:retrieveTravelsResponse/in6:retrieveTravelsOutput/TransportBolivarianoRetrieveWrapper/Content" mode="localContentToContent_967257475"/>
         </out3:response>
       </out3:checkAvailabilityResponse>
     </body>
   </xsl:template>
 
   <!-- This rule represents a for-each transform: "Content" to "Content".  -->
-  <xsl:template match="Content"  mode="localContentToContent_589985876">
+  <xsl:template match="Content"  mode="localContentToContent_967257475">
     <Content>
       <!-- a simple data mapping: "numViaje"(string) to "numViaje"(string) -->
       <xsl:if test="numViaje">

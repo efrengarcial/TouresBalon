@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><bpws:process xmlns:bpws="http://schemas.xmlsoap.org/ws/2004/03/business-process/" xmlns:ns="http://OrderManagement/com/touresbalon/businessprocess/ValidateCreditCardBPArtifacts" xmlns:ns0="http://OrderManagementLib/com/touresbalon/bo" xmlns:ns1="http://CommonDomain/com/touresbalon/bo" xmlns:ns2="http://OrderManagement/com/touresbalon/businessprocess/OrderProcessingInterface" xmlns:ns3="http://OrderManagementLib/com/touresbalon/interfaces/OrderManagementIF" xmlns:ns4="http://PaymentsModuleLib/com/touresbalon/interfaces/PaymentServiceIF" xmlns:ns5="http://PaymentsModuleLib/com/touresbalon/bo" xmlns:wpc="http://www.ibm.com/xmlns/prod/websphere/business-process/6.0.0/" expressionLanguage="http://www.ibm.com/xmlns/prod/websphere/business-process/expression-lang/java/6.0.0/" name="ValidateCreditCardBP" suppressJoinFailure="yes" targetNamespace="http://OrderManagement/com/touresbalon/businessprocess" wpc:continueOnError="no" wpc:displayName="ValidateCreditCardBP" wpc:executionMode="microflow" wpc:id="1" wpc:validFrom="2014-04-25T22:53:41" wpc:version="IBM_7.0.500">
+<?xml version="1.0" encoding="UTF-8"?><bpws:process xmlns:bpws="http://schemas.xmlsoap.org/ws/2004/03/business-process/" xmlns:ns="http://OrderManagement/com/touresbalon/businessprocess/ValidateCreditCardBPArtifacts" xmlns:ns0="http://OrderManagementLib/com/touresbalon/bo" xmlns:ns1="http://CommonDomain/com/touresbalon/bo" xmlns:ns2="http://OrderManagement/com/touresbalon/businessprocess/OrderProcessingInterface" xmlns:ns3="http://OrderManagementLib/com/touresbalon/interfaces/OrderManagementIF" xmlns:ns4="http://PaymentsModuleLib/com/touresbalon/interfaces/PaymentServiceIF" xmlns:ns5="http://PaymentsModuleLib/com/touresbalon/bo" xmlns:ns6="http://OrderLib/com/touresbalon/interfaces/OrderMgmtServiceIF" xmlns:ns7="http://orders.oms.touresbalon.com/" xmlns:wpc="http://www.ibm.com/xmlns/prod/websphere/business-process/6.0.0/" expressionLanguage="http://www.ibm.com/xmlns/prod/websphere/business-process/expression-lang/java/6.0.0/" name="ValidateCreditCardBP" suppressJoinFailure="yes" targetNamespace="http://OrderManagement/com/touresbalon/businessprocess" wpc:continueOnError="no" wpc:displayName="ValidateCreditCardBP" wpc:executionMode="microflow" wpc:id="1" wpc:validFrom="2014-04-25T22:53:41" wpc:version="IBM_7.0.500">
   <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="/resource/OrderManagementLib/com/touresbalon/interfaces/CancelOrderProcessingIF.wsdl" namespace="http://OrderManagement/com/touresbalon/businessprocess/OrderProcessingInterface"/>
   <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../bo/Order.xsd" namespace="http://OrderManagementLib/com/touresbalon/bo"/>
   <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../interfaces/CancelOrderProcessingIF.wsdl" namespace="http://OrderManagement/com/touresbalon/businessprocess/OrderProcessingInterface"/>
@@ -11,16 +11,23 @@
   <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../bo/CreditCardDetails.xsd" namespace="http://PaymentsModuleLib/com/touresbalon/bo"/>
   <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../interfaces/OrderProcessingIF.wsdl" namespace="http://OrderManagement/com/touresbalon/businessprocess/OrderProcessingInterface"/>
   <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="/resource/OrderManagementLib/com/touresbalon/interfaces/OrderManagementIF.wsdl" namespace="http://OrderManagementLib/com/touresbalon/interfaces/OrderManagementIF"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../interfaces/OrderMgmtServiceIF.wsdl" namespace="http://OrderLib/com/touresbalon/interfaces/OrderMgmtServiceIF"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="/resource/OrderLib/com/touresbalon/interfaces/OrderMgmtServiceIF.wsdl" namespace="http://OrderLib/com/touresbalon/interfaces/OrderMgmtServiceIF"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../bo/BusinessErrorFault.xsd" namespace="http://CommonDomain/com/touresbalon/bo"/>
   <bpws:partnerLinks>
     <bpws:partnerLink myRole="Interface" name="OrderProcessingIF" partnerLinkType="ns:OrderProcessingIFPLT" wpc:id="2"/>
     <bpws:partnerLink name="PaymentServiceIFPartner" partnerLinkType="ns:PaymentServiceIFPLT" partnerRole="Interface" wpc:id="12"/>
     <bpws:partnerLink name="OrderManagementIFPartner" partnerLinkType="ns:OrderManagementIFPLT" partnerRole="Interface" wpc:id="24"/>
+    <bpws:partnerLink name="OrderMgmtServiceIFPartner" partnerLinkType="ns:OrderMgmtServiceIFPLT" partnerRole="Interface" wpc:id="29"/>
   </bpws:partnerLinks>
   <bpws:variables>
     <bpws:variable name="order" type="ns0:Order" wpc:id="6"/>
     <bpws:variable name="response" type="ns1:ReturnCode" wpc:id="7"/>
     <bpws:variable name="creditCard" type="ns5:CreditCardDetails" wpc:id="15"/>
     <bpws:variable name="validateCardReturn" type="ns1:ReturnCode" wpc:id="16"/>
+    <bpws:variable name="orderOMS" type="ns7:Order" wpc:id="30"/>
+    <bpws:variable name="orderID" type="ns1:ReturnCode" wpc:id="31"/>
+    <bpws:variable name="businessError" type="ns1:BusinessErrorFault" wpc:id="32"/>
   </bpws:variables>
   <bpws:sequence name="HiddenSequence" wpc:id="1073741827">
     <bpws:receive createInstance="yes" name="Receive" operation="startProcess" partnerLink="OrderProcessingIF" portType="ns2:OrderProcessingIF" wpc:displayName="Receive" wpc:id="4" wpc:transactionalBehavior="commitAfter">
@@ -130,14 +137,215 @@
       <bpws:case wpc:displayName="Card is valid" wpc:id="18">
         <bpws:condition expressionLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[$validateCardReturn/RC = 'true']]></bpws:condition>
         <bpws:sequence name="HiddenSequence1" wpc:id="1073741845">
-          <bpws:assign name="Assign1" wpc:displayName="Assign ReturnCode" wpc:id="22">
+          <bpws:invoke name="DataMap" operation="null" partnerLink="null" portType="wpc:null" wpc:continueOnError="inherit" wpc:displayName="DataMap" wpc:id="26">
+            <wpc:script>
+              <wpc:javaCode><![CDATA[commonj.sdo.DataObject __result__2;
+{// create Order
+	com.ibm.websphere.bo.BOFactory factory = 
+	   (com.ibm.websphere.bo.BOFactory) new com.ibm.websphere.sca.ServiceManager().locateService("com/ibm/websphere/bo/BOFactory");
+	 __result__2 = factory.create("http://orders.oms.touresbalon.com/","Order");
+}
+orderOMS = __result__2;
+java.lang.Object __result__4 = null;
+try {
+	{// dataMappingCreateOrder
+		java.util.HashMap inputMap = new java.util.HashMap();
+		java.util.HashMap outputMap = new java.util.HashMap();
+		inputMap.put("Order", order);
+		outputMap.put("Order_1", orderOMS);
+		com.ibm.wbiserver.map.MapService _serv = 
+			(com.ibm.wbiserver.map.MapService)new com.ibm.websphere.sca.ServiceManager().locateService("com/ibm/wbiserver/map/MapService");
+		_serv.transform("http://OrderManagement/com/touresbalon/transforms", "dataMappingCreateOrder", inputMap, outputMap, ((com.ibm.wbiserver.relationshipservice.common.ExecutionContext)__result__4));
+	}
+}
+catch(com.ibm.wbiserver.map.exceptions.WBIMapFailureException ex){
+	com.ibm.wbiserver.map.exceptions.WBIMapFailureException __result__7;
+	ex.printStackTrace();
+}
+catch(com.ibm.wbiserver.map.exceptions.WBIMapNotFoundException ex){
+	com.ibm.wbiserver.map.exceptions.WBIMapNotFoundException __result__10;
+	ex.printStackTrace();
+}
+catch(com.ibm.wbiserver.map.exceptions.WBIMapServiceException ex){
+	com.ibm.wbiserver.map.exceptions.WBIMapServiceException __result__13;
+	ex.printStackTrace();
+}
+
+//@generated:com.ibm.wbit.activity.ui
+//<?xml version="1.0" encoding="UTF-8"?>
+//<com.ibm.wbit.activity:CompositeActivity xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.ibm.wbit.activity="http:///com/ibm/wbit/activity.ecore" name="ActivityMethod">
+//  <result name="Result">
+//    <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="void"/>
+//  </result>
+//  <exceptions>
+//    <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.bpe.api.ProcessException"/>
+//  </exceptions>
+//  <executableElements xsi:type="com.ibm.wbit.activity:Expression" value="order" variable="true">
+//    <dataOutputs target="//@executableElements.4/@parameters.0"/>
+//    <type xsi:type="com.ibm.wbit.activity:XSDElementType" name="Order" namespace="http://OrderManagementLib/com/touresbalon/bo"/>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:LibraryActivity" name="create Order" description="create a new Order {http://orders.oms.touresbalon.com/}" template="com.ibm.websphere.bo.BOFactory factory = &#xA;   (com.ibm.websphere.bo.BOFactory) new com.ibm.websphere.sca.ServiceManager().locateService(&quot;com/ibm/websphere/bo/BOFactory&quot;);&#xA; &lt;%return%> factory.create(&quot;http://orders.oms.touresbalon.com/&quot;,&quot;Order&quot;);">
+//    <result>
+//      <dataOutputs target="//@executableElements.2"/>
+//      <type xsi:type="com.ibm.wbit.activity:XSDElementType" name="Order" namespace="http://orders.oms.touresbalon.com/"/>
+//    </result>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:Expression" dataInputs="//@executableElements.1/@result/@dataOutputs.0" value="orderOMS" variable="true">
+//    <dataOutputs target="//@executableElements.4/@parameters.1"/>
+//    <type xsi:type="com.ibm.wbit.activity:XSDElementType" name="Order" namespace="http://orders.oms.touresbalon.com/"/>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:Expression" value="null" assignable="false">
+//    <dataOutputs target="//@executableElements.4/@parameters.2"/>
+//    <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="java.lang.Object"/>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:LibraryActivity" name="dataMappingCreateOrder" description="perform mapping {0}dataMappingCreateOrder {http://OrderManagement/com/touresbalon/transforms}" template="java.util.HashMap inputMap = new java.util.HashMap();&#xA;java.util.HashMap outputMap = new java.util.HashMap();&#xA;inputMap.put(&quot;Order&quot;, &lt;%Order%>);&#xA;outputMap.put(&quot;Order_1&quot;, &lt;%Order_1%>);&#xA;com.ibm.wbiserver.map.MapService _serv = &#xA;&#x9;(com.ibm.wbiserver.map.MapService)new com.ibm.websphere.sca.ServiceManager().locateService(&quot;com/ibm/wbiserver/map/MapService&quot;);&#xA;_serv.transform(&quot;http://OrderManagement/com/touresbalon/transforms&quot;, &quot;dataMappingCreateOrder&quot;, inputMap, outputMap, &lt;%executionContext%>);">
+//    <parameters name="Order" dataInputs="//@executableElements.0/@dataOutputs.0">
+//      <type xsi:type="com.ibm.wbit.activity:XSDElementType" name="Order" namespace="http://OrderManagementLib/com/touresbalon/bo"/>
+//    </parameters>
+//    <parameters name="Order_1" dataInputs="//@executableElements.2/@dataOutputs.0">
+//      <type xsi:type="com.ibm.wbit.activity:XSDElementType" name="Order" namespace="http://orders.oms.touresbalon.com/"/>
+//    </parameters>
+//    <parameters name="executionContext" dataInputs="//@executableElements.3/@dataOutputs.0">
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wbiserver.relationshipservice.common.ExecutionContext"/>
+//    </parameters>
+//    <exceptions>
+//      <dataOutputs target="//@executableElements.5/@parameters.0"/>
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wbiserver.map.exceptions.WBIMapFailureException"/>
+//    </exceptions>
+//    <exceptions>
+//      <dataOutputs target="//@executableElements.6/@parameters.0"/>
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wbiserver.map.exceptions.WBIMapNotFoundException"/>
+//    </exceptions>
+//    <exceptions>
+//      <dataOutputs target="//@executableElements.7/@parameters.0"/>
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wbiserver.map.exceptions.WBIMapServiceException"/>
+//    </exceptions>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:ExceptionHandler" name="Exception Handler" collapsed="true">
+//    <parameters name="ex" dataInputs="//@executableElements.4/@exceptions.0/@dataOutputs.0">
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wbiserver.map.exceptions.WBIMapFailureException"/>
+//    </parameters>
+//    <executableElements xsi:type="com.ibm.wbit.activity:Expression" value="ex" input="true">
+//      <dataOutputs target="//@executableElements.5/@executableElements.1/@parameters.0"/>
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wbiserver.map.exceptions.WBIMapFailureException"/>
+//    </executableElements>
+//    <executableElements xsi:type="com.ibm.wbit.activity:JavaActivity" name="printStackTrace" category="java.lang.Throwable" className="java.lang.Throwable" memberName="printStackTrace">
+//      <parameters name="Throwable" dataInputs="//@executableElements.5/@executableElements.0/@dataOutputs.0">
+//        <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="java.lang.Throwable"/>
+//      </parameters>
+//    </executableElements>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:ExceptionHandler" name="Exception Handler" collapsed="true">
+//    <parameters name="ex" dataInputs="//@executableElements.4/@exceptions.1/@dataOutputs.0">
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wbiserver.map.exceptions.WBIMapNotFoundException"/>
+//    </parameters>
+//    <executableElements xsi:type="com.ibm.wbit.activity:Expression" value="ex" input="true">
+//      <dataOutputs target="//@executableElements.6/@executableElements.1/@parameters.0"/>
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wbiserver.map.exceptions.WBIMapNotFoundException"/>
+//    </executableElements>
+//    <executableElements xsi:type="com.ibm.wbit.activity:JavaActivity" name="printStackTrace" category="java.lang.Throwable" className="java.lang.Throwable" memberName="printStackTrace">
+//      <parameters name="Throwable" dataInputs="//@executableElements.6/@executableElements.0/@dataOutputs.0">
+//        <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="java.lang.Throwable"/>
+//      </parameters>
+//    </executableElements>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:ExceptionHandler" name="Exception Handler" collapsed="true">
+//    <parameters name="ex" dataInputs="//@executableElements.4/@exceptions.2/@dataOutputs.0">
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wbiserver.map.exceptions.WBIMapServiceException"/>
+//    </parameters>
+//    <executableElements xsi:type="com.ibm.wbit.activity:Expression" value="ex" input="true">
+//      <dataOutputs target="//@executableElements.7/@executableElements.1/@parameters.0"/>
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wbiserver.map.exceptions.WBIMapServiceException"/>
+//    </executableElements>
+//    <executableElements xsi:type="com.ibm.wbit.activity:JavaActivity" name="printStackTrace" category="java.lang.Throwable" className="java.lang.Throwable" memberName="printStackTrace">
+//      <parameters name="Throwable" dataInputs="//@executableElements.7/@executableElements.0/@dataOutputs.0">
+//        <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="java.lang.Throwable"/>
+//      </parameters>
+//    </executableElements>
+//  </executableElements>
+//</com.ibm.wbit.activity:CompositeActivity>
+//@generated:end
+//!SMAP!*S WBIACTDBG
+//!SMAP!*L
+//!SMAP!2:1,6
+//!SMAP!3:7,1
+//!SMAP!4:8,1
+//!SMAP!5:10,9
+//!SMAP!7:21,1
+//!SMAP!8:22,1
+//!SMAP!10:25,1
+//!SMAP!11:26,1
+//!SMAP!13:29,1
+//!SMAP!14:30,1
+//!SMAP!1000000:140,1]]></wpc:javaCode>
+            </wpc:script>
+          </bpws:invoke>
+          <bpws:invoke name="Invoke" operation="createOrder" partnerLink="OrderMgmtServiceIFPartner" portType="ns6:OrderMgmtServiceIF" wpc:continueOnError="inherit" wpc:displayName="Create Order" wpc:id="27">
+            <wpc:input>
+              <wpc:parameter name="request" variable="orderOMS"/>
+            </wpc:input>
+            <wpc:output>
+              <wpc:parameter name="response" variable="orderID"/>
+            </wpc:output>
+          </bpws:invoke>
+          <bpws:assign name="Assign3" wpc:displayName="Assign OrderID" wpc:id="25">
             <bpws:copy>
-              <bpws:from><![CDATA[OK]]></bpws:from>
+              <bpws:from variable="orderID">
+                <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[RC]]></bpws:query>
+              </bpws:from>
+              <bpws:to variable="orderOMS">
+                <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[ordId]]></bpws:query>
+              </bpws:to>
+            </bpws:copy>
+            <bpws:copy>
+              <bpws:from variable="orderID">
+                <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[RC]]></bpws:query>
+              </bpws:from>
+              <bpws:to variable="order">
+                <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[orderID]]></bpws:query>
+              </bpws:to>
+            </bpws:copy>
+            <bpws:copy>
+              <bpws:from variable="orderID">
+                <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[RC]]></bpws:query>
+              </bpws:from>
               <bpws:to variable="response">
                 <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[RC]]></bpws:query>
               </bpws:to>
             </bpws:copy>
           </bpws:assign>
+          <bpws:invoke name="Snippet2" operation="null" partnerLink="null" portType="wpc:null" wpc:continueOnError="inherit" wpc:displayName="Log - Create Order" wpc:id="28">
+            <wpc:script>
+              <wpc:javaCode><![CDATA[java.lang.String __result__1 = "Create Order...." + order.getString("orderID");
+{// print to log
+	System.out.println(__result__1);
+}
+
+//@generated:com.ibm.wbit.activity.ui
+//<?xml version="1.0" encoding="UTF-8"?>
+//<com.ibm.wbit.activity:CompositeActivity xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.ibm.wbit.activity="http:///com/ibm/wbit/activity.ecore" name="ActivityMethod">
+//  <exceptions>
+//    <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.bpe.api.ProcessException"/>
+//  </exceptions>
+//  <executableElements xsi:type="com.ibm.wbit.activity:Expression" value="&quot;Create Order....&quot; + order.orderID" assignable="false">
+//    <dataOutputs target="//@executableElements.1/@parameters.0"/>
+//    <type xsi:type="com.ibm.wbit.activity:XSDElementType" name="string" namespace="http://www.w3.org/2001/XMLSchema"/>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:LibraryActivity" name="print to log" description="Print a text representation of the input to System.out" category="utility" template="System.out.println(&lt;%object%>);">
+//    <parameters name="object" dataInputs="//@executableElements.0/@dataOutputs.0" displayName="object">
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="java.lang.Object"/>
+//    </parameters>
+//  </executableElements>
+//  <executableGroups executableElements="//@executableElements.0 //@executableElements.1"/>
+//</com.ibm.wbit.activity:CompositeActivity>
+//@generated:end
+//!SMAP!*S WBIACTDBG
+//!SMAP!*L
+//!SMAP!1:1,1
+//!SMAP!2:2,3
+//!SMAP!1000000:29,1]]></wpc:javaCode>
+            </wpc:script>
+          </bpws:invoke>
           <bpws:invoke name="OrderManagement" operation="startProcess" partnerLink="OrderManagementIFPartner" portType="ns3:OrderManagementIF" wpc:continueOnError="inherit" wpc:displayName="Order Management" wpc:id="23">
             <wpc:input>
               <wpc:parameter name="request" variable="order"/>
@@ -146,7 +354,27 @@
         </bpws:sequence>
       </bpws:case>
       <bpws:otherwise wpc:id="19">
-        <bpws:empty name="EmptyAction" wpc:displayName="Error" wpc:id="20"/>
+        <bpws:sequence name="HiddenSequence2" wpc:id="1073741857">
+          <bpws:assign name="Assign2" wpc:displayName="BusinessErrorFault" wpc:id="34">
+            <bpws:copy>
+              <bpws:from><![CDATA[001]]></bpws:from>
+              <bpws:to variable="businessError">
+                <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[faultCode]]></bpws:query>
+              </bpws:to>
+            </bpws:copy>
+            <bpws:copy>
+              <bpws:from><![CDATA[La tarjeta de credito no ha sido correctamente validada.]]></bpws:from>
+              <bpws:to variable="businessError">
+                <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[faultString]]></bpws:query>
+              </bpws:to>
+            </bpws:copy>
+          </bpws:assign>
+          <bpws:reply faultName="ns2:businessError" name="Reply1" operation="startProcess" partnerLink="OrderProcessingIF" portType="ns2:OrderProcessingIF" wpc:displayName="Reply" wpc:id="35">
+            <wpc:input>
+              <wpc:parameter name="startProcessFault1_businessError" variable="businessError"/>
+            </wpc:input>
+          </bpws:reply>
+        </bpws:sequence>
       </bpws:otherwise>
     </bpws:switch>
     <bpws:invoke name="Snippet" operation="null" partnerLink="null" portType="wpc:null" wpc:continueOnError="inherit" wpc:displayName="End Process" wpc:id="8">

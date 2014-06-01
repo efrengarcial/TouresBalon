@@ -33,4 +33,10 @@
       <map:output businessObjectVariableRef="Item" property="quantity"/>
     </map:move>
   </map:propertyMap>
+  <map:propertyMap executionOrder="6">
+    <map:move>
+      <map:input businessObjectVariableRef="Product" property="showType"/>
+      <map:output businessObjectVariableRef="Item" property="showType"/>
+    </map:move>
+  </map:propertyMap>
 </map:businessObjectMap>

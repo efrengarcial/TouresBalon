@@ -22,6 +22,7 @@
     xmlns:exsl="http://exslt.org/common"
     xmlns:date="http://exslt.org/dates-and-times"
     xmlns:in="wsdl.http://service.model.orders.oms.touresbalon.com/"
+    xmlns:in2="http://service.model.orders.oms.touresbalon.com/"
     xmlns:out="http://CommonDomain/com/touresbalon/bo"
     xmlns:io="http://www.w3.org/2003/05/soap-envelope"
     xmlns:io3="http://www.ibm.com/xmlns/prod/websphere/mq/sca/6.0.0"
@@ -35,7 +36,7 @@
     xmlns:xsd4xsd="http://www.w3.org/2001/XMLSchema"
     xmlns:io6="http://www.w3.org/2005/08/addressing"
     xmlns:map="http://OMSModule/com/touresbalon/transforms/dataMappingUpdateResp"
-    exclude-result-prefixes="xalan str set in math map exsl date"
+    exclude-result-prefixes="xalan str set in math map exsl in2 date"
     version="1.0">
   <xsl:output method="xml" encoding="UTF-8" indent="no"/>
 

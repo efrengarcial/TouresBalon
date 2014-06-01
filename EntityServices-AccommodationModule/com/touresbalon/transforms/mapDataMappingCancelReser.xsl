@@ -26,23 +26,22 @@
     xmlns:in3="wsdl.http://AccommodationLib/com/touresbalon/interfaces/AccommodationServiceIF"
     xmlns:in4="http://AccommodationLib/com/touresbalon/bo"
     xmlns:out="http://AccommodationModule/DannCarltonReservations"
-    xmlns:io3="http://www.w3.org/2003/05/soap-envelope"
-    xmlns:io4="http://www.ibm.com/websphere/sibx/smo/v6.0.1"
+    xmlns:io="http://www.w3.org/2003/05/soap-envelope"
+    xmlns:io2="http://www.ibm.com/websphere/sibx/smo/v6.0.1"
     xmlns:out2="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbotouresbalon_reservations"
-    xmlns:out8="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/existsresult"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:out3="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbotouresbalon_reservationsbg"
-    xmlns:out4="wsdl.http://AccommodationModule/DannCarltonReservations"
-    xmlns:io="http://www.ibm.com/xmlns/prod/websphere/mq/sca/6.0.0"
-    xmlns:out5="http://com/ibm/j2ca/fault"
-    xmlns:io2="http://schemas.xmlsoap.org/ws/2004/08/addressing"
+    xmlns:out3="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/existsresult"
+    xmlns:out4="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbotouresbalon_reservationsbg"
+    xmlns:out5="wsdl.http://AccommodationModule/DannCarltonReservations"
+    xmlns:io3="http://www.ibm.com/xmlns/prod/websphere/mq/sca/6.0.0"
+    xmlns:out6="http://com/ibm/j2ca/fault"
+    xmlns:io4="http://schemas.xmlsoap.org/ws/2004/08/addressing"
     xmlns:io5="http://www.ibm.com/xmlns/prod/websphere/http/sca/6.1.0"
-    xmlns:out9="http://www.ibm.com/xmlns/prod/websphere/bo/6.0.0"
+    xmlns:out7="http://www.ibm.com/xmlns/prod/websphere/bo/6.0.0"
     xmlns:xsd4xsd="http://www.w3.org/2001/XMLSchema"
-    xmlns:out6="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata"
-    xmlns:out10="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbotouresbalon_reservationscontainer"
+    xmlns:out8="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbotouresbalon_reservationscontainer"
     xmlns:io6="http://www.w3.org/2005/08/addressing"
-    xmlns:out7="http://com/ibm/j2ca/fault/afcfault"
+    xmlns:out9="http://com/ibm/j2ca/fault/afcfault"
     xmlns:map="http://AccommodationModule/com/touresbalon/transforms/mapDataMappingCancelReser"
     exclude-result-prefixes="xalan str set in math map exsl in2 date in3 in4"
     version="1.0">
@@ -57,7 +56,7 @@
   <xsl:template match="body"  mode="map:mapDataMappingCancelReser">
     <body>
       <xsl:attribute name="xsi:type">
-        <xsl:value-of select="'out4:updateDboTouresbalon_ReservationsBGRequestMsg'"/>
+        <xsl:value-of select="'out5:updateDboTouresbalon_ReservationsBGRequestMsg'"/>
       </xsl:attribute>
       <out:updateDboTouresbalon_ReservationsBG>
         <out:updateDboTouresbalon_ReservationsBGInput>

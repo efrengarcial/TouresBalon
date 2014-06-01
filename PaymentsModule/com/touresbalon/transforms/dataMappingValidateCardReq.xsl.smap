@@ -6,11 +6,11 @@ XMLMAP
 + 1 dataMappingValidateCardReq.map
 /PaymentsModule/com/touresbalon/transforms/dataMappingValidateCardReq.map
 *L
-6:82,6
 7:88,5
-4:70,6
-5:76,6
-1:46,1
 3:64,6
+4:70,6
 2:58,6
+1:46,1
+5:76,6
+6:82,6
 *E

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="OrderProcessing" targetNamespace="http://OrderManagement/com/touresbalon/businessprocess/OrderProcessingInterface" xmlns:bons1="http://OrderManagementLib/com/touresbalon/bo" xmlns:bons2="http://CommonDomain/com/touresbalon/bo" xmlns:tns="http://OrderManagement/com/touresbalon/businessprocess/OrderProcessingInterface" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <wsdl:types>
     <xsd:schema targetNamespace="http://OrderManagement/com/touresbalon/businessprocess/OrderProcessingInterface">
+            <xsd:import namespace="http://CommonDomain/com/touresbalon/bo" schemaLocation="../bo/BusinessErrorFault.xsd"/>
             <xsd:import namespace="http://CommonDomain/com/touresbalon/bo" schemaLocation="../bo/ReturnCode.xsd"/>
             <xsd:import namespace="http://OrderManagementLib/com/touresbalon/bo" schemaLocation="../bo/Order.xsd"/>
             <xsd:element name="startProcess">
@@ -17,6 +18,7 @@
                     </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
+            <xsd:element name="startProcessFault1_businessError" nillable="true" type="bons2:BusinessErrorFault"/>
         </xsd:schema>
   </wsdl:types>
   <wsdl:message name="startProcessRequest">
@@ -25,10 +27,14 @@
   <wsdl:message name="startProcessResponse">
     <wsdl:part element="tns:startProcessResponse" name="startProcessResult"/>
   </wsdl:message>
+    <wsdl:message name="startProcess_businessErrorMsg">
+    <wsdl:part element="tns:startProcessFault1_businessError" name="businessError"/>
+  </wsdl:message>
     <wsdl:portType name="OrderProcessingIF">
     <wsdl:operation name="startProcess">
       <wsdl:input message="tns:startProcessRequest" name="startProcessRequest"/>
             <wsdl:output message="tns:startProcessResponse" name="startProcessResponse"/>
+            <wsdl:fault message="tns:startProcess_businessErrorMsg" name="businessError"/>
         </wsdl:operation>
     </wsdl:portType>
 </wsdl:definitions>

@@ -44,4 +44,10 @@
       <map:output businessObjectVariableRef="Order_1" property="status"/>
     </map:set>
   </map:propertyMap>
+  <map:propertyMap executionOrder="8">
+    <map:move>
+      <map:input businessObjectVariableRef="Order" property="orderID"/>
+      <map:output businessObjectVariableRef="Order_1" property="ordId"/>
+    </map:move>
+  </map:propertyMap>
 </map:businessObjectMap>
