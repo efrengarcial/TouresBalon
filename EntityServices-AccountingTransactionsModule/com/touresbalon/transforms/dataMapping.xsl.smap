@@ -6,16 +6,16 @@ XMLMAP
 + 1 dataMapping.map
 /EntityServices-AccountingTransactionsModule/com/touresbalon/transforms/dataMapping.map
 *L
+6:76,6
 7:82,6
 10:100,6
-11:106,6
 12:112,5
 3:61,4
+2:57,4
 9:94,6
 5:70,6
-2:57,4
+11:106,6
 8:88,6
-4:65,3
 1:45,1
-6:76,6
+4:65,3
 *E

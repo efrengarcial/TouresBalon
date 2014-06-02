@@ -4,4 +4,5 @@
     <emf/>
   </boImplementation>
   <scdl:libraryDependency name="CommonDomain" version=""/>
+  <scdl:libraryDependency name="AccommodationLib" version=""/>
 </scdl:moduleAndLibraryAttributes>

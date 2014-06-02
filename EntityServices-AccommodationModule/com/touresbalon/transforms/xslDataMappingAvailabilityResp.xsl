@@ -55,7 +55,7 @@
       <out2:checkAvailabilityResponse>
         <response>
           <!-- a for-each transform: "in:Room"(Room) to "content"(RoomResponse) -->
-          <xsl:apply-templates select="in:validateAvailabilityResponse/in:validateAvailabilityResult/in:Room" mode="localRoomToContent_1045936579"/>
+          <xsl:apply-templates select="in:validateAvailabilityResponse/in:validateAvailabilityResult/in:Room" mode="localRoomToContent_1792405303"/>
         </response>
       </out2:checkAvailabilityResponse>
     </body>
@@ -67,13 +67,13 @@
     <out2:checkAvailabilityResponse>
       <response>
         <!-- a for-each transform: "in:Room"(Room) to "content"(RoomResponse) -->
-        <xsl:apply-templates select="$body/in:validateAvailabilityResponse/in:validateAvailabilityResult/in:Room" mode="localRoomToContent_1045936579"/>
+        <xsl:apply-templates select="$body/in:validateAvailabilityResponse/in:validateAvailabilityResult/in:Room" mode="localRoomToContent_1792405303"/>
       </response>
     </out2:checkAvailabilityResponse>
   </xsl:template>
 
   <!-- This rule represents a for-each transform: "in:Room" to "content".  -->
-  <xsl:template match="in:Room"  mode="localRoomToContent_1045936579">
+  <xsl:template match="in:Room"  mode="localRoomToContent_1792405303">
     <content>
       <!-- a simple data mapping: "in:HotelID"(int) to "hotelID"(int) -->
       <xsl:if test="in:HotelID">

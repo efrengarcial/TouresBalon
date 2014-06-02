@@ -3,7 +3,7 @@
   <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="LegalizeOrderBPArtifacts.wsdl" namespace="http://TaskServices-LegalizeOrder/com/touresbalon/taskservices/LegalizeOrderBPArtifacts"/>
   <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../bo/Order.xsd" namespace="http://OrderManagementLib/com/touresbalon/bo"/>
   <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../bo/ReturnCode.xsd" namespace="http://CommonDomain/com/touresbalon/bo"/>
-  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="/resource/AccountingTransactionsLib/com/touresbalon/interfaces/AccountingTransactionsServiceIF.wsdl" namespace="http://AccountingTransactionsLib/com/touresbalon/interfaces/AccountingTransactionsServiceIF"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../interfaces/AccountingTransactionsServiceIF.wsdl" namespace="http://AccountingTransactionsLib/com/touresbalon/interfaces/AccountingTransactionsServiceIF"/>
   <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../interfaces/AccountingTransactionsServiceIF.wsdl" namespace="http://AccountingTransactionsLib/com/touresbalon/interfaces/AccountingTransactionsServiceIF"/>
   <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../bo/AccountingMovement.xsd" namespace="http://AccountingTransactionsLib/com/touresbalon/bo"/>
   <bpws:partnerLinks>

@@ -21,5 +21,8 @@
         <dependent-module archiveName="OrderManagementLib.jar" deploy-path="/" handle="module:/resource/OrderManagementLib/OrderManagementLib">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="AccommodationLib.jar" deploy-path="/" handle="module:/resource/AccommodationLib/AccommodationLib">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
     </wb-module>
 </project-modules>

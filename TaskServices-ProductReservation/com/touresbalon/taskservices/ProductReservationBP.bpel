@@ -3,19 +3,22 @@
   <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../bo/Order.xsd" namespace="http://OrderManagementLib/com/touresbalon/bo"/>
   <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../interfaces/ProductReservationServiceIF.wsdl" namespace="http://ProductReservationLib/com/touresbalon/interfaces/ProductReserServiceIF"/>
   <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="ProductReservationBPArtifacts.wsdl" namespace="http://TaskServices-ProductReservation/com/touresbalon/taskservices/ProductReservationBPArtifacts"/>
-  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="/resource/TransportationLib/TransportationServiceIF.wsdl" namespace="http://TransportationLib"/>
-  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="/resource/AccommodationLib/com/touresbalon/interfaces/AccommodationServiceIF.wsdl" namespace="http://AccommodationLib/com/touresbalon/interfaces/AccommodationServiceIF"/>
-  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../interfaces/AccommodationServiceIF.wsdl" namespace="http://AccommodationLib/com/touresbalon/interfaces/AccommodationServiceIF"/>
-  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../bo/RoomRequest.xsd" namespace="http://AccommodationLib/com/touresbalon/bo"/>
-  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../bo/RoomWrapperResponse.xsd" namespace="http://AccommodationLib/com/touresbalon/bo"/>
-  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../bo/ReturnCode.xsd" namespace="http://CommonDomain/com/touresbalon/bo"/>
-  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../bo/BusinessErrorFault.xsd" namespace="http://CommonDomain/com/touresbalon/bo"/>
-  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../bo/RoomReservationRequest.xsd" namespace="http://AccommodationLib/com/touresbalon/bo"/>
   <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../TransportationServiceIF.wsdl" namespace="http://TransportationLib"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../interfaces/AccommodationServiceIF.wsdl" namespace="http://AccommodationLib/com/touresbalon/interfaces/AccommodationServiceIF"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../interfaces/AccommodationServiceIF.wsdl" namespace="http://AccommodationLib/com/touresbalon/interfaces/AccommodationServiceIF"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../../../xsd-includes/http.AccommodationLib.com.touresbalon.bo.xsd" namespace="http://AccommodationLib/com/touresbalon/bo"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../../../xsd-includes/http.CommonDomain.com.touresbalon.bo.xsd" namespace="http://CommonDomain/com/touresbalon/bo"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../TransportationServiceIF.wsdl" namespace="http://TransportationLib"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../../../xsd-includes/http.TransportLib.com.touresbalon.bo.xsd" namespace="http://TransportLib/com/touresbalon/bo"/>
   <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../bo/TravelRequest.xsd" namespace="http://TransportLib/com/touresbalon/bo"/>
-  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../bo/TransportWrapper.xsd" namespace="http://TransportLib/com/touresbalon/bo"/>
-  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../bo/Reservation.xsd" namespace="http://TransportLib/com/touresbalon/bo"/>
   <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../bo/ReservationCancelWrapperRequest.xsd" namespace="http://TransportLib/com/touresbalon/bo"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../bo/BusinessErrorFault.xsd" namespace="http://CommonDomain/com/touresbalon/bo"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../bo/Reservation.xsd" namespace="http://TransportLib/com/touresbalon/bo"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../bo/RoomWrapperResponse.xsd" namespace="http://AccommodationLib/com/touresbalon/bo"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../bo/RoomRequest.xsd" namespace="http://AccommodationLib/com/touresbalon/bo"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../bo/RoomReservationRequest.xsd" namespace="http://AccommodationLib/com/touresbalon/bo"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../bo/TransportWrapper.xsd" namespace="http://TransportLib/com/touresbalon/bo"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../bo/ReturnCode.xsd" namespace="http://CommonDomain/com/touresbalon/bo"/>
   <bpws:partnerLinks>
     <bpws:partnerLink myRole="Interface" name="ProductReserServiceIF" partnerLinkType="ns:ProductReserServiceIFPLT" wpc:id="2"/>
     <bpws:partnerLink name="TransportationServiceIFPartner" partnerLinkType="ns:TransportationServiceIFPLT" partnerRole="Interface" wpc:id="12"/>

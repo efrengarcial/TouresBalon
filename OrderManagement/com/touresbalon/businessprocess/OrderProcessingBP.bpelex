@@ -3,7 +3,7 @@
   <extensionmodel:ExtensionMap namespace="http://com.ibm.wbit.bpel.ui/">
     <extensions>
       <extendedObject href="OrderProcessingBP.bpel#/"/>
-      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ProcessExtension" modificationStamp="1401634677197" maxWpcId="182" minWpcId="0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ProcessExtension" modificationStamp="1401646666890" maxWpcId="185" minWpcId="0"/>
     </extensions>
     <extensions>
       <extendedObject href="OrderProcessingBP.bpel#//@activity"/>
@@ -474,10 +474,6 @@
       <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
     </extensions>
     <extensions>
-      <extendedObject href="OrderProcessingBP.bpel#//@activity/@activities.8/@activity/@activities.2/@activities.1"/>
-      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="233" y="-3" width="-1" height="-1"/>
-    </extensions>
-    <extensions>
       <extendedObject href="OrderProcessingBP.bpel#//@variables/@children.16"/>
       <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
     </extensions>
@@ -488,6 +484,10 @@
     <extensions>
       <extendedObject href="OrderProcessingBP.bpel#//@activity/@activities.1"/>
       <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648" isBOMap="dataMappingCreateOrder"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="OrderProcessingBP.bpel#//@activity/@activities.8/@activity/@activities.2/@activities.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="236" y="-6" width="-1" height="-1"/>
     </extensions>
   </extensionmodel:ExtensionMap>
   <extensionmodel:ExtensionMap namespace="http://com.ibm.wbit.stickyboard.model/model/StickyBoard.xsd">

@@ -6,14 +6,14 @@ XMLMAP
 + 1 dataMappingMakeReservReq.map
 /EntityServices-TransportationModule/com/touresbalon/transforms/avianca/dataMappingMakeReservReq.map
 *L
-1:45,1
-10:103,5
-6:81,6
-4:69,6
-9:99,4
 5:75,6
 3:63,6
+9:99,4
 7:87,6
 2:57,6
 8:93,6
+1:45,1
+6:81,6
+4:69,6
+10:103,5
 *E

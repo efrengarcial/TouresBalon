@@ -72,7 +72,7 @@
             </endOrderDate>
           </xsl:if>
           <!-- a for-each transform: "items"(Item) to "items"(itemDto) -->
-          <xsl:apply-templates select="in4:createOrder/request/items" mode="localItemsToItems_1870443267"/>
+          <xsl:apply-templates select="in4:createOrder/request/items" mode="localItemsToItems_316096000"/>
           <!-- a simple data mapping: "in4:createOrder/request/orderDate"(dateTime) to "orderDate"(dateTime) -->
           <xsl:if test="in4:createOrder/request/orderDate">
             <orderDate>
@@ -120,7 +120,7 @@
           </endOrderDate>
         </xsl:if>
         <!-- a for-each transform: "items"(Item) to "items"(itemDto) -->
-        <xsl:apply-templates select="$body/in4:createOrder/request/items" mode="localItemsToItems_1870443267"/>
+        <xsl:apply-templates select="$body/in4:createOrder/request/items" mode="localItemsToItems_316096000"/>
         <!-- a simple data mapping: "$body/in4:createOrder/request/orderDate"(dateTime) to "orderDate"(dateTime) -->
         <xsl:if test="$body/in4:createOrder/request/orderDate">
           <orderDate>
@@ -144,7 +144,7 @@
   </xsl:template>
 
   <!-- This rule represents a for-each transform: "items" to "items".  -->
-  <xsl:template match="items"  mode="localItemsToItems_1870443267">
+  <xsl:template match="items"  mode="localItemsToItems_316096000">
     <items>
       <!-- a simple data mapping: "itemDate"(dateTime) to "itemDate"(dateTime) -->
       <xsl:if test="itemDate">

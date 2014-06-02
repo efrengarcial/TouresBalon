@@ -6,9 +6,6 @@ XMLMAP
 + 1 xslDataMappingAvailabilityResp.map
 /EntityServices-AccommodationModule/com/touresbalon/transforms/xslDataMappingAvailabilityResp.map
 *L
-8:103,6
-5:85,6
-11:121,6
 7:97,6
 9:109,6
 2:58,1
@@ -18,4 +15,7 @@ XMLMAP
 3:135,7
 10:115,6
 4:79,6
+8:103,6
+5:85,6
+11:121,6
 *E
