@@ -8,9 +8,6 @@
             <context-root>DannCarltonMediationWeb</context-root>
         </web>
     </module>
-	<module id="ConnectorModule_1401667003527">
-		<connector>CWYBC_JDBC.rar</connector>
-	</module>
 	<module id="ConnectorModule_1401682636918">
 		<connector>CWYBC_JDBC2.rar</connector>
 	</module>

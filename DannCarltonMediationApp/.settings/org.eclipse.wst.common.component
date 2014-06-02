@@ -14,10 +14,6 @@
         <dependent-module archiveName="AccommodationLib.jar" deploy-path="/" handle="module:/resource/AccommodationLib/AccommodationLib">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="CWYBC_JDBC.rar" deploy-path="/" handle="module:/resource/CWYBC_JDBC/CWYBC_JDBC">
-            <dependent-object>ConnectorModule_1401667003527</dependent-object>
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
         <dependent-module archiveName="CWYBC_JDBC2.rar" deploy-path="/" handle="module:/resource/CWYBC_JDBC2/CWYBC_JDBC2">
             <dependent-object>ConnectorModule_1401682636918</dependent-object>
             <dependency-type>uses</dependency-type>

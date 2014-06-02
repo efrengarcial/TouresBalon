@@ -13,10 +13,6 @@
       <extendedObject xmi:type="scdl:Export" href="JDBCExport.export#//@export"/>
       <extensionObject xmi:type="com.ibm.wbit.wiring.ui.ext.model:ExportExtension" xmi:id="ExportExtension_1401683562606" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/eis/6.0.0}EISExportBinding" unknown="false" visible="true" x="90" y="136"/>
     </extensions>
-    <extensions xmi:id="Extension_1401683678485">
-      <extendedObject xmi:type="scdl:Module" href="sca.module#//@module"/>
-      <extensionObject xmi:type="com.ibm.wbit.wiring.ui.ext.model:ModuleExtension" xmi:id="ModuleExtension_1401683678485"/>
-    </extensions>
     <extensions xmi:id="Extension_1401683678486">
       <extendedObject xmi:type="scdl:Module" href="sca.module#//@module"/>
       <extensionObject xmi:type="com.ibm.wbit.wiring.ui.ext.model:ModuleExtension" xmi:id="ModuleExtension_1401683678486"/>

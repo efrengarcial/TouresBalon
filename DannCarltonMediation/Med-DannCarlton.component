@@ -9,7 +9,7 @@
     <reference name="AccommodationCallbackIFPartner">
       <interface xsi:type="wsdl:WSDLPortType" portType="ns2:AccommodationCallbackIF"/>
       <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
-      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability" value="bestEffort"/>
       <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
       <wire target="AccommodationCallbackSCA"/>
     </reference>

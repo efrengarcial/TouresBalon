@@ -61,7 +61,7 @@
     <bpws:correlationSet name="OrderID_CS" properties="ns:OrderID_CP" wpc:id="131"/>
   </bpws:correlationSets>
   <bpws:faultHandlers>
-    <bpws:catch faultName="ns8:UserCancelation" wpc:displayName="Catch" wpc:id="165">
+    <bpws:catch faultName="ns8:UserCancelation" faultVariable="userCancelationFault" wpc:displayName="Catch" wpc:faultType="ns5:BusinessErrorFault" wpc:id="165" wpc:variableId="188">
       <bpws:sequence name="HiddenSequence4" wpc:id="1073741990">
         <bpws:invoke name="Snippet12" operation="null" partnerLink="null" portType="wpc:null" wpc:continueOnError="inherit" wpc:displayName="Log Fault" wpc:id="175">
           <wpc:script>
@@ -166,7 +166,21 @@ Throwable rootCause = bpelexception.getRootCause();
 //!SMAP!1000000:29,1]]></wpc:javaCode>
           </wpc:script>
         </bpws:invoke>
-        <bpws:throw faultName="ns8:UserCancelation" name="UserCancelation" wpc:displayName="User Cancelation" wpc:id="146"/>
+        <bpws:assign name="Assign" wpc:displayName="userCancelationFault" wpc:id="186">
+          <bpws:copy>
+            <bpws:from><![CDATA[000]]></bpws:from>
+            <bpws:to variable="userCancelationFault">
+              <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[faultCode]]></bpws:query>
+            </bpws:to>
+          </bpws:copy>
+          <bpws:copy>
+            <bpws:from><![CDATA[Orden Cancelada por el Usuario]]></bpws:from>
+            <bpws:to variable="userCancelationFault">
+              <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[faultString]]></bpws:query>
+            </bpws:to>
+          </bpws:copy>
+        </bpws:assign>
+        <bpws:throw faultName="ns8:UserCancelation" faultVariable="userCancelationFault" name="UserCancelation" wpc:displayName="User Cancelation" wpc:id="146"/>
       </bpws:sequence>
     </bpws:onEvent>
   </bpws:eventHandlers>
