@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application id="Application_ID" version="1.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/application_1_4.xsd">
+	<display-name>
+	DannCarltonMediationApp</display-name>
+	<module id="WebModule_1169158408425">
+        <web>
+            <web-uri>DannCarltonMediationWeb.war</web-uri>
+            <context-root>DannCarltonMediationWeb</context-root>
+        </web>
+    </module>
+	<module id="ConnectorModule_1401667003527">
+		<connector>CWYBC_JDBC.rar</connector>
+	</module>
+	<module id="ConnectorModule_1401682636918">
+		<connector>CWYBC_JDBC2.rar</connector>
+	</module>
+</application>

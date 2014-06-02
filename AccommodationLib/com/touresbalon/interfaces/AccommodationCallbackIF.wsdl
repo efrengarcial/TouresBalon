@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="AccommodationCallbackIF" targetNamespace="http://AccommodationLib/com/touresbalon/interfaces/AccommodationCallbackIF" xmlns:bons0="http://OrderManagementLib/com/touresbalon/interfaces/AccommodationCallbackIF" xmlns:tns="http://AccommodationLib/com/touresbalon/interfaces/AccommodationCallbackIF" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://AccommodationLib/com/touresbalon/interfaces/AccommodationCallbackIF" xmlns:bons0="http://AccommodationLib/com/touresbalon/interfaces/AccommodationCallbackIF" xmlns:bons2="http://AccommodationLib/com/touresbalon/bo">
+            <xsd:import namespace="http://AccommodationLib/com/touresbalon/bo" schemaLocation="../bo/LodgingResponse.xsd"/>
+      <xsd:element name="confirm">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="response" nillable="true" type="bons2:LodgingResponse"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="confirmRequestMsg">
+    <wsdl:part element="tns:confirm" name="confirmParameters"/>
+  </wsdl:message>
+    <wsdl:portType name="AccommodationCallbackIF">
+    <wsdl:operation name="confirm">
+      <wsdl:input message="tns:confirmRequestMsg" name="confirmRequest"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:export xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:EIS="http://www.ibm.com/xmlns/prod/websphere/scdl/eis/6.0.0" xmlns:ns1="http://DannCarltonMediation/JDBCExport" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="JDBCExport" name="JDBCExport" target="Med-DannCarlton">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" preferredInteractionStyle="sync" portType="ns1:JDBCExport"/>
+  </interfaces>
+  <esbBinding xsi:type="EIS:EISExportBinding" dataBindingType="com.ibm.j2ca.jdbc.emd.databinding.JDBCDataBindingGenerator">
+    <resourceAdapter name="DannCarltonMediationApp.IBM WebSphere Adapter for JDBC" type="com.ibm.j2ca.jdbc.JDBCResourceAdapter" version="7.0.1.1">
+      <properties>
+        <adapterID>001</adapterID>
+      </properties>
+    </resourceAdapter>
+    <connection type="com.ibm.j2ca.jdbc.inbound.JDBCActivationSpecWithXid" listenerType="com.ibm.j2ca.base.ExtendedInboundListener" selectorType="com.ibm.j2ca.extension.emd.runtime.StructuredDataFunctionSelector">
+      <properties>
+        <connectionType>DataSourceJNDI</connectionType>
+        <dataSourceJNDIName>SQLServerDS</dataSourceJNDIName>
+        <databaseURL>jdbc:sqlserver://localhost:1433;databaseName=DannCarlton</databaseURL>
+        <databaseVendor>MSSQLSERVER</databaseVendor>
+        <jdbcDriverClass>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbcDriverClass>
+        <returnDummyBOForSP>false</returnDummyBOForSP>
+      </properties>
+    </connection>
+    <methodBinding inDataBindingType="com.ibm.xmlns.prod.websphere.j2ca.jdbc.dbotouresbalon_reservations.DboTouresbalon_ReservationsDataBinding" method="updateDboTouresbalon_Reservations" nativeMethod="emitUpdateAfterImageDboTouresbalon_Reservations"/>
+  </esbBinding>
+</scdl:export>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="DannCarltonMediationApp">
+        <wb-resource deploy-path="/" source-path="/EarContent"/>
+        <dependent-module archiveName="DannCarltonMediation.jar" deploy-path="/" handle="module:/resource/DannCarltonMediation/DannCarltonMediation">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module deploy-path="/" handle="module:/resource/DannCarltonMediationWeb/DannCarltonMediationWeb">
+            <dependent-object>WebModule_1169158408425</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="CommonDomain.jar" deploy-path="/" handle="module:/resource/CommonDomain/CommonDomain">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="AccommodationLib.jar" deploy-path="/" handle="module:/resource/AccommodationLib/AccommodationLib">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="CWYBC_JDBC.rar" deploy-path="/" handle="module:/resource/CWYBC_JDBC/CWYBC_JDBC">
+            <dependent-object>ConnectorModule_1401667003527</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="CWYBC_JDBC2.rar" deploy-path="/" handle="module:/resource/CWYBC_JDBC2/CWYBC_JDBC2">
+            <dependent-object>ConnectorModule_1401682636918</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    </wb-module>
+</project-modules>

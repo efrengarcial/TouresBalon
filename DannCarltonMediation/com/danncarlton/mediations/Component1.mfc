@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mfc:interfaceMediationFlow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mfc="http://www.ibm.com/xmlns/prod/websphere/wbiserver/mfc/6.0.0" xmlns:ns1="http://DannCarltonMediation/JDBCExport" xmlns:ns2="http://AccommodationLib/com/touresbalon/interfaces/AccommodationCallbackIF" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" name="Med-DannCarlton" targetNamespace="http://DannCarltonMediation/com/danncarlton/mediations/Med-DannCarlton">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" portType="ns1:JDBCExport"/>
+  </interfaces>
+  <references>
+    <reference name="AccommodationCallbackIFPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns2:AccommodationCallbackIF"/>
+    </reference>
+  </references>
+  <extendedOperationBinding source="updateDboTouresbalon_Reservations" target="confirm" sourcePortType="ns1:JDBCExport" targetReference="AccommodationCallbackIFPartner"/>
+  <operationFlow medflow="Component1.medflow"/>
+</mfc:interfaceMediationFlow>

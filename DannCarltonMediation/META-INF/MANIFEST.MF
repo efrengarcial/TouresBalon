@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Class-Path: AccommodationLib.jar 
+ CWYBC_JDBC2.rar 
+ CWYBC_JDBC.rar 
+ CommonDomain.jar
+Created-By: 1.5.0 (IBM Corporation)
+

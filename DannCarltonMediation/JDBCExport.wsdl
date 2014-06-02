@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="JDBCExport" targetNamespace="http://DannCarltonMediation/JDBCExport" xmlns:bons1="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbotouresbalon_reservations" xmlns:tns="http://DannCarltonMediation/JDBCExport" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://DannCarltonMediation/JDBCExport">
+      <xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dbotouresbalon_reservations" schemaLocation="com/danncarlton/bo/DboTouresbalon_Reservations.xsd"/>
+      <xsd:element name="updateDboTouresbalon_Reservations">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="updateDboTouresbalon_ReservationsInput" type="bons1:DboTouresbalon_Reservations"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="updateDboTouresbalon_ReservationsRequestMsg">
+    <wsdl:part element="tns:updateDboTouresbalon_Reservations" name="updateDboTouresbalon_ReservationsParameters"/>
+  </wsdl:message>
+  <wsdl:portType name="JDBCExport">
+    <wsdl:operation name="updateDboTouresbalon_Reservations">
+      <wsdl:input message="tns:updateDboTouresbalon_ReservationsRequestMsg" name="updateDboTouresbalon_ReservationsRequest"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>
