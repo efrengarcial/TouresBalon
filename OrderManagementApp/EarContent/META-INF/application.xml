@@ -14,4 +14,7 @@
 			<context-root>OrderManagementUI</context-root>
 		</web>
 	</module>
+	<module id="ConnectorModule_1401768288273">
+		<connector>CWYEM_EMail1.rar</connector>
+	</module>
 </application>

@@ -33,5 +33,9 @@
         <dependent-module archiveName="AccommodationLib.jar" deploy-path="/" handle="module:/resource/AccommodationLib/AccommodationLib">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="CWYEM_EMail1.rar" deploy-path="/" handle="module:/resource/CWYEM_EMail1/CWYEM_EMail1">
+            <dependent-object>ConnectorModule_1401768288273</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
     </wb-module>
 </project-modules>

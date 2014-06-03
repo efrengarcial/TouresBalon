@@ -3,7 +3,7 @@
   <extensionmodel:ExtensionMap namespace="http://com.ibm.wbit.bpel.ui/">
     <extensions>
       <extendedObject href="OrderProcessingBP.bpel#/"/>
-      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ProcessExtension" modificationStamp="1401730770202" maxWpcId="188" minWpcId="0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ProcessExtension" modificationStamp="1401740916927" maxWpcId="190" minWpcId="0"/>
     </extensions>
     <extensions>
       <extendedObject href="OrderProcessingBP.bpel#//@activity"/>
@@ -194,7 +194,7 @@
       <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
     </extensions>
     <extensions>
-      <extendedObject href="OrderProcessingBP.bpel#//@activity/@activities.8/@faultHandlers/@catchAll/@activity/@activities.4"/>
+      <extendedObject href="OrderProcessingBP.bpel#//@activity/@activities.8/@faultHandlers/@catch.0/@activity/@activities.4"/>
       <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
     </extensions>
     <extensions>
@@ -210,15 +210,15 @@
       <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648" implicit="true"/>
     </extensions>
     <extensions>
-      <extendedObject href="OrderProcessingBP.bpel#//@activity/@activities.8/@faultHandlers/@catchAll/@activity/@activities.2"/>
+      <extendedObject href="OrderProcessingBP.bpel#//@activity/@activities.8/@faultHandlers/@catch.0/@activity/@activities.2"/>
       <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
     </extensions>
     <extensions>
-      <extendedObject href="OrderProcessingBP.bpel#//@activity/@activities.8/@faultHandlers/@catchAll/@activity/@activities.2/@copy.0"/>
+      <extendedObject href="OrderProcessingBP.bpel#//@activity/@activities.8/@faultHandlers/@catch.0/@activity/@activities.2/@copy.0"/>
       <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
     </extensions>
     <extensions>
-      <extendedObject href="OrderProcessingBP.bpel#//@activity/@activities.8/@faultHandlers/@catchAll/@activity/@activities.3"/>
+      <extendedObject href="OrderProcessingBP.bpel#//@activity/@activities.8/@faultHandlers/@catch.0/@activity/@activities.3"/>
       <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
     </extensions>
     <extensions>
@@ -230,11 +230,11 @@
       <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:FaultHandlerExtension"/>
     </extensions>
     <extensions>
-      <extendedObject href="OrderProcessingBP.bpel#//@activity/@activities.8/@faultHandlers/@catchAll/@activity/@activities.0"/>
+      <extendedObject href="OrderProcessingBP.bpel#//@activity/@activities.8/@faultHandlers/@catch.0/@activity/@activities.0"/>
       <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
     </extensions>
     <extensions>
-      <extendedObject href="OrderProcessingBP.bpel#//@activity/@activities.8/@faultHandlers/@catchAll/@activity/@activities.0/@eExtensibilityElements.0"/>
+      <extendedObject href="OrderProcessingBP.bpel#//@activity/@activities.8/@faultHandlers/@catch.0/@activity/@activities.0/@eExtensibilityElements.0"/>
       <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
     </extensions>
     <extensions>
@@ -438,11 +438,7 @@
       <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648" implicit="true"/>
     </extensions>
     <extensions>
-      <extendedObject href="OrderProcessingBP.bpel#//@activity/@activities.8/@faultHandlers/@catchAll/@activity"/>
-      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648" implicit="true"/>
-    </extensions>
-    <extensions>
-      <extendedObject href="OrderProcessingBP.bpel#//@activity/@activities.8/@faultHandlers/@catchAll/@activity/@activities.1"/>
+      <extendedObject href="OrderProcessingBP.bpel#//@activity/@activities.8/@faultHandlers/@catch.0/@activity/@activities.1"/>
       <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
     </extensions>
     <extensions>
@@ -498,8 +494,16 @@
       <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
     </extensions>
     <extensions>
-      <extendedObject href="OrderProcessingBP.bpel#//@faultHandlers/@catch.0/@faultVariable"/>
-      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+      <extendedObject href="OrderProcessingBP.bpel#//@eventHandlers/@events.0/@activity/@activities.1/@copy.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="OrderProcessingBP.bpel#//@activity/@activities.8/@faultHandlers/@catch.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CatchExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="OrderProcessingBP.bpel#//@activity/@activities.8/@faultHandlers/@catch.0/@activity"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648" implicit="true"/>
     </extensions>
   </extensionmodel:ExtensionMap>
   <extensionmodel:ExtensionMap namespace="http://com.ibm.wbit.stickyboard.model/model/StickyBoard.xsd">

@@ -61,7 +61,7 @@
     <bpws:correlationSet name="OrderID_CS" properties="ns:OrderID_CP" wpc:id="131"/>
   </bpws:correlationSets>
   <bpws:faultHandlers>
-    <bpws:catch faultName="ns8:UserCancelation" faultVariable="userCancelationFault" wpc:displayName="Catch" wpc:faultType="ns5:BusinessErrorFault" wpc:id="165" wpc:variableId="188">
+    <bpws:catch faultName="ns8:UserCancelation" wpc:displayName="Catch" wpc:id="165">
       <bpws:sequence name="HiddenSequence4" wpc:id="1073741990">
         <bpws:invoke name="Snippet12" operation="null" partnerLink="null" portType="wpc:null" wpc:continueOnError="inherit" wpc:displayName="Log Fault" wpc:id="175">
           <wpc:script>
@@ -180,7 +180,7 @@ Throwable rootCause = bpelexception.getRootCause();
             </bpws:to>
           </bpws:copy>
         </bpws:assign>
-        <bpws:throw faultName="ns8:UserCancelation" faultVariable="userCancelationFault" name="UserCancelation" wpc:displayName="User Cancelation" wpc:id="146"/>
+        <bpws:throw faultName="ns8:UserCancelation" name="UserCancelation" wpc:displayName="User Cancelation" wpc:id="146"/>
       </bpws:sequence>
     </bpws:onEvent>
   </bpws:eventHandlers>
@@ -582,8 +582,8 @@ catch(com.ibm.wbiserver.map.exceptions.WBIMapServiceException ex){
     </bpws:invoke>
     <bpws:scope name="Reservation" wpc:displayName="Reservation" wpc:id="46">
       <bpws:faultHandlers>
-        <bpws:catchAll wpc:id="82">
-          <bpws:sequence name="HiddenSequence7" wpc:id="1073741987">
+        <bpws:catch faultName="wpc:runtimeFailure" wpc:displayName="Catch" wpc:id="189">
+          <bpws:sequence name="HiddenSequence6" wpc:id="1073742014">
             <bpws:invoke name="Snippet6" operation="null" partnerLink="null" portType="wpc:null" wpc:continueOnError="inherit" wpc:displayName="Log - Error Reservation" wpc:id="85">
               <wpc:script>
                 <wpc:javaCode><![CDATA[java.lang.String __result__1 = "Log - Error Reservation";
@@ -635,7 +635,7 @@ catch(com.ibm.wbiserver.map.exceptions.WBIMapServiceException ex){
             </bpws:invoke>
             <bpws:terminate name="Terminate1" wpc:displayName="Cancel Reservation" wpc:id="73"/>
           </bpws:sequence>
-        </bpws:catchAll>
+        </bpws:catch>
       </bpws:faultHandlers>
       <bpws:sequence name="HiddenSequence5" wpc:id="1073741898">
         <bpws:invoke name="Invoke3" operation="makeReservationAccommodation" partnerLink="ProductReservationServiceIFPartner" portType="ns7:ProductReservationServiceIF" wpc:continueOnError="inherit" wpc:displayName="makeReservationAccommodation" wpc:id="44">
@@ -649,7 +649,7 @@ catch(com.ibm.wbiserver.map.exceptions.WBIMapServiceException ex){
             <bpws:sequence name="HiddenSequence3" wpc:id="1073741983">
               <bpws:invoke name="Snippet4" operation="null" partnerLink="null" portType="wpc:null" wpc:continueOnError="inherit" wpc:displayName="Log - Compensation   Accommodation" wpc:id="66">
                 <wpc:script>
-                  <wpc:javaCode><![CDATA[java.lang.String __result__1 = "Compensation Reseration Accommodation";
+                  <wpc:javaCode><![CDATA[java.lang.String __result__1 = "Compensation Reservation Accommodation";
 {// print to log
 	System.out.println(__result__1);
 }
@@ -660,7 +660,7 @@ catch(com.ibm.wbiserver.map.exceptions.WBIMapServiceException ex){
 //  <exceptions>
 //    <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.bpe.api.ProcessException"/>
 //  </exceptions>
-//  <executableElements xsi:type="com.ibm.wbit.activity:Expression" value="&quot;Compensation Reseration Accommodation&quot;" assignable="false">
+//  <executableElements xsi:type="com.ibm.wbit.activity:Expression" value="&quot;Compensation Reservation Accommodation&quot;" assignable="false">
 //    <dataOutputs target="//@executableElements.1/@parameters.0"/>
 //    <type xsi:type="com.ibm.wbit.activity:XSDElementType" name="string" namespace="http://www.w3.org/2001/XMLSchema"/>
 //  </executableElements>
@@ -701,7 +701,7 @@ catch(com.ibm.wbiserver.map.exceptions.WBIMapServiceException ex){
             <bpws:sequence name="HiddenSequence11" wpc:id="1073741984">
               <bpws:invoke name="Snippet11" operation="null" partnerLink="null" portType="wpc:null" wpc:continueOnError="inherit" wpc:displayName="Log - Compensation Transportation" wpc:id="161">
                 <wpc:script>
-                  <wpc:javaCode><![CDATA[java.lang.String __result__1 = "Compensation Reseration Transportation";
+                  <wpc:javaCode><![CDATA[java.lang.String __result__1 = "Compensation Reservation Transportation";
 {// print to log
 	System.out.println(__result__1);
 }
@@ -712,7 +712,7 @@ catch(com.ibm.wbiserver.map.exceptions.WBIMapServiceException ex){
 //  <exceptions>
 //    <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.bpe.api.ProcessException"/>
 //  </exceptions>
-//  <executableElements xsi:type="com.ibm.wbit.activity:Expression" value="&quot;Compensation Reseration Transportation&quot;" assignable="false">
+//  <executableElements xsi:type="com.ibm.wbit.activity:Expression" value="&quot;Compensation Reservation Transportation&quot;" assignable="false">
 //    <dataOutputs target="//@executableElements.1/@parameters.0"/>
 //    <type xsi:type="com.ibm.wbit.activity:XSDElementType" name="string" namespace="http://www.w3.org/2001/XMLSchema"/>
 //  </executableElements>
